@@ -73,9 +73,27 @@ namespace BlueCentaurea
             if (flag == true)
             {
                 NetworkForm_ChangeBtnConntec();     // 修改连接按扭状态
-                NetworkForm_ServerOpen();
+                if (!"断开".Equals(btnConnect.Text))
+                {
+                    NetworkForm_ServerClose();      // 服务器关闭
+                }
+                else
+                {
+                    NetworkForm_ServerOpen();       // 服务器打开
+                }
             }
+        }
 
+        private void NetworkForm_ServerClose()
+        {
+            // 从 通信套接字 集合中删除被中断连接的通信套接字;
+            dict.Clear();
+            // 从通信线程集合中删除被中断连接的通信线程对象;
+            dictThread.Clear();
+            // 从列表中移除被中断的连接IP
+            listBoxOnline.Items.Clear();
+            
+            ShowMsg("服务器已关闭！\r\n");
         }
 
         private void NetworkForm_ServerOpen()
@@ -110,18 +128,19 @@ namespace BlueCentaurea
             threadWatch = new Thread(WatchConnecting);
             threadWatch.IsBackground = true;
             threadWatch.Start();
-            ShowMsg("服务器启动监听成功");
+            ShowMsg("服务器启动监听成功！");
         }
 
         private void WatchConnecting()
         {
-            ShowMsg("新客户端连接成功！");
             while (true)
             {
                 // 开始监听客户端连接请求，Accept()方法会阻断当前的线程
                 Socket sokConnection = socketWatch.Accept();
-                var ssss = sokConnection.RemoteEndPoint.ToString().Split(':');
-                if (listBoxOnline.FindString(ssss[0]) >= 0)
+                // var ssss = sokConnection.RemoteEndPoint.ToString().Split(':');
+                var ssss = sokConnection.RemoteEndPoint.ToString();
+
+                if (listBoxOnline.FindString(ssss) >= 0)
                 {
                     listBoxOnline.Items.Remove(sokConnection.RemoteEndPoint.ToString());
                 }
@@ -129,12 +148,12 @@ namespace BlueCentaurea
                 {
                     listBoxOnline.Items.Add(sokConnection.RemoteEndPoint.ToString());
                 }
-                dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);                
                 Thread thread = new Thread(RecMsg);
                 thread.IsBackground = true;
                 thread.Start(sokConnection);
                 dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thread);
-            }
+            }            
         }
 
         private void RecMsg(object sokConnectionparn)
@@ -237,11 +256,11 @@ namespace BlueCentaurea
             }
             else if (rabtnServer.Checked)
             {
-                if (!Regex.IsMatch(textLocalhost.Text, @"([0-9]{1,3}\.){3}[0-9]{1,3}"))
+                if (!Regex.IsMatch(textLocalhost.Text, @"^(\d{1,3}\.){3}\d{1,3}$"))
                 {
                     MessageBox.Show("本机地址格式错误！", "错误");
                     return false;
-                } else if (!Regex.IsMatch(textMultiFunc.Text, @"[0-9]{1,5}"))
+                } else if (!Regex.IsMatch(textMultiFunc.Text, @"^\d{1,5}$"))
                 {
                     MessageBox.Show("端口号格式有误！", "错误");
                     return false;

@@ -45,19 +45,19 @@
             this.chkbRecvTime = new System.Windows.Forms.CheckBox();
             this.chkbHEX = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSendClr = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textSendInterval = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.chkbSendLoop = new System.Windows.Forms.CheckBox();
             this.chkbSendHEX = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textRecvRegion = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnSendClr = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnSend = new System.Windows.Forms.Button();
             this.textSendRegion = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textRecvRegion = new System.Windows.Forms.TextBox();
             this.listBoxOnline = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -265,6 +265,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送区设置";
             // 
+            // btnSendClr
+            // 
+            this.btnSendClr.ForeColor = System.Drawing.Color.Red;
+            this.btnSendClr.Location = new System.Drawing.Point(157, 65);
+            this.btnSendClr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSendClr.Name = "btnSendClr";
+            this.btnSendClr.Size = new System.Drawing.Size(75, 29);
+            this.btnSendClr.TabIndex = 11;
+            this.btnSendClr.Text = "清空";
+            this.btnSendClr.UseVisualStyleBackColor = true;
+            this.btnSendClr.Click += new System.EventHandler(this.btnSendClr_Click);
+            // 
+            // btnSend
+            // 
+            this.btnSend.ForeColor = System.Drawing.Color.Green;
+            this.btnSend.Location = new System.Drawing.Point(157, 26);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 29);
+            this.btnSend.TabIndex = 10;
+            this.btnSend.Text = "发送";
+            this.btnSend.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -329,6 +352,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "接收区";
             // 
+            // textRecvRegion
+            // 
+            this.textRecvRegion.Location = new System.Drawing.Point(7, 18);
+            this.textRecvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textRecvRegion.MaxLength = 327670;
+            this.textRecvRegion.Multiline = true;
+            this.textRecvRegion.Name = "textRecvRegion";
+            this.textRecvRegion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textRecvRegion.Size = new System.Drawing.Size(640, 172);
+            this.textRecvRegion.TabIndex = 4;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label27);
@@ -343,18 +377,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "发送区";
             // 
-            // btnSendClr
-            // 
-            this.btnSendClr.ForeColor = System.Drawing.Color.Red;
-            this.btnSendClr.Location = new System.Drawing.Point(157, 65);
-            this.btnSendClr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSendClr.Name = "btnSendClr";
-            this.btnSendClr.Size = new System.Drawing.Size(75, 29);
-            this.btnSendClr.TabIndex = 11;
-            this.btnSendClr.Text = "清空";
-            this.btnSendClr.UseVisualStyleBackColor = true;
-            this.btnSendClr.Click += new System.EventHandler(this.btnSendClr_Click);
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -363,17 +385,6 @@
             this.label27.Size = new System.Drawing.Size(14, 15);
             this.label27.TabIndex = 2;
             this.label27.Text = "l";
-            // 
-            // btnSend
-            // 
-            this.btnSend.ForeColor = System.Drawing.Color.Green;
-            this.btnSend.Location = new System.Drawing.Point(157, 26);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 29);
-            this.btnSend.TabIndex = 10;
-            this.btnSend.Text = "发送";
-            this.btnSend.UseVisualStyleBackColor = true;
             // 
             // textSendRegion
             // 
@@ -398,17 +409,6 @@
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "在线列表";
-            // 
-            // textRecvRegion
-            // 
-            this.textRecvRegion.Location = new System.Drawing.Point(7, 18);
-            this.textRecvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textRecvRegion.MaxLength = 327670;
-            this.textRecvRegion.Multiline = true;
-            this.textRecvRegion.Name = "textRecvRegion";
-            this.textRecvRegion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textRecvRegion.Size = new System.Drawing.Size(640, 172);
-            this.textRecvRegion.TabIndex = 4;
             // 
             // listBoxOnline
             // 
@@ -458,16 +458,12 @@
         private System.Windows.Forms.Label lblMultiFunc;
         private System.Windows.Forms.Label lblLocalhost;
         private System.Windows.Forms.Label lblProtocol;
-        private System.Windows.Forms.TextBox textMultiFunc;
-        private System.Windows.Forms.TextBox textLocalhost;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox textSendRegion;
         private System.Windows.Forms.Label lblConnectStatus;
         private System.Windows.Forms.Button btnSendClr;
         private System.Windows.Forms.Button btnRecvClr;
@@ -479,11 +475,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textSendInterval;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.RadioButton rabtnServer;
-        private System.Windows.Forms.RadioButton rabtnClient;
-        private System.Windows.Forms.RadioButton raBtnUDP;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textRecvRegion;
-        private System.Windows.Forms.ListBox listBoxOnline;
+        internal System.Windows.Forms.RadioButton rabtnServer;
+        internal System.Windows.Forms.RadioButton rabtnClient;
+        internal System.Windows.Forms.RadioButton raBtnUDP;
+        internal System.Windows.Forms.TextBox textLocalhost;
+        internal System.Windows.Forms.TextBox textMultiFunc;
+        internal System.Windows.Forms.Button btnConnect;
+        public System.Windows.Forms.TextBox textRecvRegion;
+        public System.Windows.Forms.TextBox textSendRegion;
+        public System.Windows.Forms.ListBox listBoxOnline;
+
+
     }
 }
