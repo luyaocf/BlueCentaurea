@@ -604,6 +604,7 @@
             this.Name = "EncryptForm";
             this.Text = "加密";
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EncryptForm_KeyPress);
             this.tabCtrlEncrypt.ResumeLayout(false);
             this.tbpEncryptMD5.ResumeLayout(false);
             this.tbpEncryptMD5.PerformLayout();

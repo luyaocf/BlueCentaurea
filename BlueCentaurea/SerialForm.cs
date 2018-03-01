@@ -200,6 +200,15 @@ namespace BlueCentaurea
             lblRecvFrames.Text = "【" + String.Format("{0, 6}", this.recvFrames) + "   帧】";
             lblRecvBytes.Text = "【" + String.Format("{0, 6}", this.recvBytes) + " 字节】";
         }
+
+        private void SerialForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
+        }
     }
 
     public class Comm

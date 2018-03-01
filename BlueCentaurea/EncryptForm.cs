@@ -227,6 +227,14 @@ namespace BlueCentaurea
             textEncryptTriMACResult.Text = MyEnctypt.Get3Mac(textEncryptTriMACData.Text, textEncryptTriMACKey.Text);
         }
 
+        private void EncryptForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
+        }
     }
 
     public class MyEnctypt

@@ -76,5 +76,14 @@ namespace BlueCentaurea
                     break;
             }
         }
+
+        private void NetworkForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
+        }
     }
 }

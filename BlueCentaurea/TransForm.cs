@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace BlueCentaurea
 {
@@ -65,7 +66,7 @@ namespace BlueCentaurea
         }
         private string HexToGB2312_Method(string text)
         {
-            byte[] bs = MyTools.HexStringToBytes(text);
+            byte[] bs = MyTools.HexStringToBytes(Regex.Replace(text, @"\s", ""));
             if (bs == null)
             {
                 return "数据不合法，请参照提示重新输入！";
@@ -227,7 +228,14 @@ namespace BlueCentaurea
 
         }
 
-
+        private void TransForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
+        }
     }
 }
 

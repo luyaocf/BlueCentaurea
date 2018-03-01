@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace BlueCentaurea
 {
@@ -106,9 +107,26 @@ namespace BlueCentaurea
         }
         private void 关于BlueCentaurea_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("我承认，我盗了chrome浏览器的图！", "关于 BlueCentaurea V2.0");
+            MessageBox.Show("我承认，我盗了chrome浏览器的图！侵删", "关于 BlueCentaurea V2.0");
         }
 
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
+        }
+
+        private void 更新日志ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("2017-06-14\r   1 编码转换功能实现\r" +
+                "   2 加(解)密功能实现\r" +
+                "2018-02-27\r   1 编码转换时，HEX格式的字符串自动去掉空格\r" +
+                "2018-02-28\r   1 使用ESC快捷键关闭窗口\r"
+                , "更新日志");
+        }
     }
 
     public class ConstValue
@@ -194,7 +212,7 @@ namespace BlueCentaurea
         {
             try
             {
-                byte[] bys = MyTools.HexStringToBytes(hex);
+                byte[] bys = MyTools.HexStringToBytes(Regex.Replace(hex, @"\s", ""));
                 if (bys == null)
                 {
                     return null;

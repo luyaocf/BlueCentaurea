@@ -778,6 +778,7 @@
             this.Name = "TransForm";
             this.Text = "编码转换";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TransForm_KeyPress);
             this.tabCtrlTrans.ResumeLayout(false);
             this.Hex2GBK.ResumeLayout(false);
             this.Hex2GBK.PerformLayout();

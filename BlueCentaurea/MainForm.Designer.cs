@@ -51,6 +51,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.串口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.网口NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,6 +187,7 @@
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查看帮助ToolStripMenuItem,
             this.联系我们ToolStripMenuItem,
+            this.更新日志ToolStripMenuItem,
             this.关于BlueCentaureaToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
@@ -243,6 +245,13 @@
             this.网口NToolStripMenuItem.Text = "网口(&N)";
             this.网口NToolStripMenuItem.Click += new System.EventHandler(this.Network_ToolStripMenuItem_Click);
             // 
+            // 更新日志ToolStripMenuItem
+            // 
+            this.更新日志ToolStripMenuItem.Name = "更新日志ToolStripMenuItem";
+            this.更新日志ToolStripMenuItem.Size = new System.Drawing.Size(285, 24);
+            this.更新日志ToolStripMenuItem.Text = "更新日志";
+            this.更新日志ToolStripMenuItem.Click += new System.EventHandler(this.更新日志ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,6 +265,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "BlueCentaurea V2.0";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -287,6 +297,7 @@
         private System.Windows.Forms.ToolStripMenuItem hex2UTF8ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uTF82HexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 网口NToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 更新日志ToolStripMenuItem;
     }
 }
 

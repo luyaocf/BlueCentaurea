@@ -142,6 +142,7 @@
             // textMultiFunc
             // 
             this.textMultiFunc.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textMultiFunc.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.textMultiFunc.Location = new System.Drawing.Point(104, 76);
             this.textMultiFunc.Multiline = true;
             this.textMultiFunc.Name = "textMultiFunc";
@@ -153,6 +154,7 @@
             // textLocalhost
             // 
             this.textLocalhost.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLocalhost.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.textLocalhost.Location = new System.Drawing.Point(104, 50);
             this.textLocalhost.Multiline = true;
             this.textLocalhost.Name = "textLocalhost";
@@ -405,9 +407,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 12F);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NetworkForm";
             this.Text = "网络调试助手";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NetworkForm_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
