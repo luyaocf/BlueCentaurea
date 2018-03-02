@@ -69,6 +69,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.rabtnServer);
             this.groupBox1.Controls.Add(this.rabtnClient);
             this.groupBox1.Controls.Add(this.raBtnUDP);
@@ -79,7 +80,7 @@
             this.groupBox1.Controls.Add(this.lblMultiFunc);
             this.groupBox1.Controls.Add(this.lblLocalhost);
             this.groupBox1.Controls.Add(this.lblProtocol);
-            this.groupBox1.Location = new System.Drawing.Point(4, 314);
+            this.groupBox1.Location = new System.Drawing.Point(4, 392);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(342, 106);
             this.groupBox1.TabIndex = 0;
@@ -89,12 +90,10 @@
             // rabtnServer
             // 
             this.rabtnServer.AutoSize = true;
-            this.rabtnServer.Checked = true;
             this.rabtnServer.Location = new System.Drawing.Point(243, 21);
             this.rabtnServer.Name = "rabtnServer";
             this.rabtnServer.Size = new System.Drawing.Size(81, 23);
             this.rabtnServer.TabIndex = 19;
-            this.rabtnServer.TabStop = true;
             this.rabtnServer.Text = "Server";
             this.rabtnServer.UseVisualStyleBackColor = true;
             this.rabtnServer.CheckedChanged += new System.EventHandler(this.rabtnServer_CheckedChanged);
@@ -113,10 +112,12 @@
             // raBtnUDP
             // 
             this.raBtnUDP.AutoSize = true;
+            this.raBtnUDP.Checked = true;
             this.raBtnUDP.Location = new System.Drawing.Point(83, 21);
             this.raBtnUDP.Name = "raBtnUDP";
             this.raBtnUDP.Size = new System.Drawing.Size(54, 23);
             this.raBtnUDP.TabIndex = 17;
+            this.raBtnUDP.TabStop = true;
             this.raBtnUDP.Text = "UDP";
             this.raBtnUDP.UseVisualStyleBackColor = true;
             this.raBtnUDP.CheckedChanged += new System.EventHandler(this.raBtnUDP_CheckedChanged);
@@ -193,13 +194,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.btnRecvClr);
             this.groupBox2.Controls.Add(this.chkbPause);
             this.groupBox2.Controls.Add(this.chkbRecvTime);
             this.groupBox2.Controls.Add(this.chkbHEX);
-            this.groupBox2.Location = new System.Drawing.Point(352, 318);
+            this.groupBox2.Location = new System.Drawing.Point(352, 392);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(231, 102);
+            this.groupBox2.Size = new System.Drawing.Size(231, 106);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区设置";
@@ -251,6 +253,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.Controls.Add(this.btnSendClr);
             this.groupBox3.Controls.Add(this.btnSend);
             this.groupBox3.Controls.Add(this.label4);
@@ -258,9 +261,9 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.chkbSendLoop);
             this.groupBox3.Controls.Add(this.chkbSendHEX);
-            this.groupBox3.Location = new System.Drawing.Point(589, 318);
+            this.groupBox3.Location = new System.Drawing.Point(589, 392);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(242, 102);
+            this.groupBox3.Size = new System.Drawing.Size(242, 106);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送区设置";
@@ -341,34 +344,43 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.textRecvRegion);
             this.groupBox4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 2);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(655, 198);
+            this.groupBox4.Size = new System.Drawing.Size(655, 276);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "接收区";
             // 
             // textRecvRegion
             // 
+            this.textRecvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRecvRegion.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textRecvRegion.Location = new System.Drawing.Point(7, 18);
             this.textRecvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textRecvRegion.MaxLength = 327670;
             this.textRecvRegion.Multiline = true;
             this.textRecvRegion.Name = "textRecvRegion";
             this.textRecvRegion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textRecvRegion.Size = new System.Drawing.Size(640, 172);
+            this.textRecvRegion.Size = new System.Drawing.Size(640, 250);
             this.textRecvRegion.TabIndex = 4;
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Controls.Add(this.textSendRegion);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(3, 208);
+            this.groupBox5.Location = new System.Drawing.Point(3, 286);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -388,35 +400,42 @@
             // 
             // textSendRegion
             // 
-            this.textSendRegion.Location = new System.Drawing.Point(6, 24);
+            this.textSendRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textSendRegion.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSendRegion.Location = new System.Drawing.Point(6, 17);
             this.textSendRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion.MaxLength = 327670;
             this.textSendRegion.Multiline = true;
             this.textSendRegion.Name = "textSendRegion";
             this.textSendRegion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textSendRegion.Size = new System.Drawing.Size(640, 67);
+            this.textSendRegion.Size = new System.Drawing.Size(640, 69);
             this.textSendRegion.TabIndex = 3;
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.listBoxOnline);
             this.groupBox6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(664, 2);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(167, 305);
+            this.groupBox6.Size = new System.Drawing.Size(167, 383);
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "在线列表";
             // 
             // listBoxOnline
             // 
+            this.listBoxOnline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxOnline.FormattingEnabled = true;
             this.listBoxOnline.ItemHeight = 15;
-            this.listBoxOnline.Location = new System.Drawing.Point(6, 23);
+            this.listBoxOnline.Location = new System.Drawing.Point(6, 21);
             this.listBoxOnline.Name = "listBoxOnline";
-            this.listBoxOnline.Size = new System.Drawing.Size(155, 274);
+            this.listBoxOnline.Size = new System.Drawing.Size(155, 349);
             this.listBoxOnline.TabIndex = 13;
             // 
             // NetworkForm
@@ -424,7 +443,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(843, 431);
+            this.ClientSize = new System.Drawing.Size(843, 509);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -476,16 +495,14 @@
         private System.Windows.Forms.TextBox textSendInterval;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox6;
-        internal System.Windows.Forms.RadioButton rabtnServer;
-        internal System.Windows.Forms.RadioButton rabtnClient;
-        internal System.Windows.Forms.RadioButton raBtnUDP;
-        internal System.Windows.Forms.TextBox textLocalhost;
-        internal System.Windows.Forms.TextBox textMultiFunc;
         internal System.Windows.Forms.Button btnConnect;
-        public System.Windows.Forms.TextBox textRecvRegion;
-        public System.Windows.Forms.TextBox textSendRegion;
-        public System.Windows.Forms.ListBox listBoxOnline;
-
-
+        private System.Windows.Forms.TextBox textRecvRegion;
+        private System.Windows.Forms.TextBox textSendRegion;
+        private System.Windows.Forms.ListBox listBoxOnline;
+        private System.Windows.Forms.TextBox textLocalhost;
+        private System.Windows.Forms.TextBox textMultiFunc;
+        private System.Windows.Forms.RadioButton raBtnUDP;
+        private System.Windows.Forms.RadioButton rabtnClient;
+        private System.Windows.Forms.RadioButton rabtnServer;
     }
 }

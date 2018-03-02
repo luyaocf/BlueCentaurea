@@ -16,6 +16,7 @@ namespace BlueCentaurea
 {
     public partial class NetworkForm : Form
     {
+        private static int ProtocolFlag = -1;
         Thread threadWatch = null;  // 负责监听客户端连接请求的 线程；
         Socket socketWatch = null;
         Dictionary<string, Socket> dict = new Dictionary<string, Socket>();         // 存放套接字
@@ -67,23 +68,55 @@ namespace BlueCentaurea
         /******单击*************************************************************************/
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            // textLocalhost.Enabled = !textLocalhost.Enabled;
-            // textMultiFunc.Enabled = !textMultiFunc.Enabled;
             bool flag = NetworkForm_HostChecked();  // 主机地址检查
             if (flag == true)
             {
+                textLocalhost.Enabled = !textLocalhost.Enabled;
+                textMultiFunc.Enabled = !textMultiFunc.Enabled;
                 NetworkForm_ChangeBtnConntec();     // 修改连接按扭状态
                 if (!"断开".Equals(btnConnect.Text))
                 {
-                    NetworkForm_ServerClose();      // 服务器关闭
+                    switch(ProtocolFlag)
+                    {
+                        case 0:
+                            NetworkForm_UDPClose();          // UDP关闭
+                            break;
+                        case 1:
+                            NetworkForm_ClientClose();       // 客户端关闭
+                            break;
+                        case 2:
+                            NetworkForm_ServerClose();       // 服务器关闭
+                            break;
+                    }
                 }
                 else
                 {
-                    NetworkForm_ServerOpen();       // 服务器打开
+                    switch (ProtocolFlag)
+                    {
+                        case 0:
+                            NetworkForm_UDPOpen();          // UDP打开
+                            break;
+                        case 1:
+                            NetworkForm_ClientOpen();       // 客户端打开
+                            break;
+                        case 2:
+                            NetworkForm_ServerOpen();       // 服务器打开
+                            break;
+                    }
                 }
             }
         }
 
+        private void NetworkForm_UDPClose()
+        {
+            ShowMsg("【UDP】关闭！");
+        }
+
+        private void NetworkForm_ClientClose()
+        {
+            ShowMsg("【客户端】已关闭！");
+        }
+        
         private void NetworkForm_ServerClose()
         {
             // 从 通信套接字 集合中删除被中断连接的通信套接字;
@@ -92,12 +125,24 @@ namespace BlueCentaurea
             dictThread.Clear();
             // 从列表中移除被中断的连接IP
             listBoxOnline.Items.Clear();
-            
+
             ShowMsg("服务器已关闭！\r\n");
+        }
+
+        private void NetworkForm_UDPOpen()
+        {
+            ShowMsg("【UDP】开始启动！");
+            
+        }
+
+        private void NetworkForm_ClientOpen()
+        {
+            ShowMsg("【客户端】开始启动！");
         }
 
         private void NetworkForm_ServerOpen()
         {
+            ShowMsg("【服务器】开始启动！");
             #region 属性设置
             // btnConnect.Enabled = false;
             // textLocalhost.Enabled = false;
@@ -128,7 +173,7 @@ namespace BlueCentaurea
             threadWatch = new Thread(WatchConnecting);
             threadWatch.IsBackground = true;
             threadWatch.Start();
-            ShowMsg("服务器启动监听成功！");
+            ShowMsg("【服务器】启动监听成功！");
         }
 
         private void WatchConnecting()
@@ -173,7 +218,7 @@ namespace BlueCentaurea
                     {
                         tmp = new byte[length];
                         Array.Copy(arrMsgRec, tmp, length);
-                        ShowMsg(MyTools.BytesToHexString(tmp));
+                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】 " + MyTools.BytesToHexString(tmp).Trim());
                         sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion.Text));
                     } else
                     {
@@ -246,34 +291,53 @@ namespace BlueCentaurea
 
         private bool NetworkForm_HostChecked()
         {
+            if (!Regex.IsMatch(textLocalhost.Text, @"^(\d{1,3}\.){3}\d{1,3}$"))
+            {
+                MessageBox.Show("【本机主机地址】格式有误！", "错误");
+                return false;
+            }
+
             if (raBtnUDP.Checked)
             {
-
-            }
-            else if (rabtnClient.Checked)
-            {
-                    
-            }
-            else if (rabtnServer.Checked)
-            {
-                if (!Regex.IsMatch(textLocalhost.Text, @"^(\d{1,3}\.){3}\d{1,3}$"))
+                if (!Regex.IsMatch(textMultiFunc.Text, @"^\d{1,5}$"))
                 {
-                    MessageBox.Show("本机地址格式错误！", "错误");
-                    return false;
-                } else if (!Regex.IsMatch(textMultiFunc.Text, @"^\d{1,5}$"))
-                {
-                    MessageBox.Show("端口号格式有误！", "错误");
+                    MessageBox.Show("【端口号】格式有误！", "错误");
                     return false;
                 }
                 else
                 {
+                    ProtocolFlag = 0;
+                    return true;
+                }
+            }
+            else if (rabtnClient.Checked)
+            {
+                if (!Regex.IsMatch(textMultiFunc.Text, @"^(\d{1,3}\.){3}\d{1,3}\:\d{1,5}$"))
+                {
+                    MessageBox.Show("【远程主机地址】格式有误！", "错误");
+                    return false;
+                }
+                else
+                {
+                    ProtocolFlag = 1;
+                    return true;
+                }
+            }
+            else if (rabtnServer.Checked)
+            {
+                if (!Regex.IsMatch(textMultiFunc.Text, @"^\d{1,5}$"))
+                {
+                    MessageBox.Show("【端口号】格式有误！", "错误");
+                    return false;
+                }
+                else
+                {
+                    ProtocolFlag = 2;
                     return true;    
                 }
             }
             else
-            {
-
-            }
+            { }
 
             return false;
         }
