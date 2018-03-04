@@ -28,7 +28,14 @@ namespace BlueCentaurea
         public NetworkForm()
         {
             IPAddress[] IP = Dns.GetHostAddresses(Dns.GetHostName());
-            ip = IP[IP.Length - 1].ToString();  // 获取IP地址
+            for (int i=0; i < IP.Length; i++)
+            {
+                if (Regex.IsMatch(IP[i].ToString(), @"^(\d{1,3}\.){3}\d{1,3}$"))
+                {
+                    ip = IP[i].ToString();  // 获取IP地址
+                    break;
+                }
+            }
             InitializeComponent();              // 容器初始化
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;   // 问题：线程间操作无效：从不是创建控件“textBox1”的线程访问它
         }
@@ -71,8 +78,12 @@ namespace BlueCentaurea
             bool flag = NetworkForm_HostChecked();  // 主机地址检查
             if (flag == true)
             {
-                textLocalhost.Enabled = !textLocalhost.Enabled;
-                textMultiFunc.Enabled = !textMultiFunc.Enabled;
+                this.textLocalhost.Enabled = !this.textLocalhost.Enabled;
+                this.textMultiFunc.Enabled = !this.textMultiFunc.Enabled;
+                this.raBtnUDP.Enabled = !this.raBtnUDP.Enabled;
+                this.rabtnClient.Enabled = !this.rabtnClient.Enabled;
+                this.rabtnServer.Enabled = !this.rabtnServer.Enabled;
+
                 NetworkForm_ChangeBtnConntec();     // 修改连接按扭状态
                 if (!"断开".Equals(btnConnect.Text))
                 {
@@ -126,7 +137,7 @@ namespace BlueCentaurea
             // 从列表中移除被中断的连接IP
             listBoxOnline.Items.Clear();
 
-            ShowMsg("服务器已关闭！\r\n");
+            ShowMsg("【服务器】已关闭！\r\n");
         }
 
         private void NetworkForm_UDPOpen()
@@ -218,9 +229,21 @@ namespace BlueCentaurea
                     {
                         tmp = new byte[length];
                         Array.Copy(arrMsgRec, tmp, length);
-                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】 " + MyTools.BytesToHexString(tmp).Trim());
-                        sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion.Text));
-                    } else
+                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + MyTools.BytesToHexString(tmp, true).Trim());
+                        if (this.textSendRegion1.Text != null && this.textSendRegion1.Text != string.Empty && this.checkBoxSend1.Checked)
+                        {
+                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion1.Text));
+                        }
+                        if (this.textSendRegion2.Text != null && this.textSendRegion2.Text != string.Empty && this.checkBoxSend2.Checked)
+                        {
+                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion2.Text));
+                        }
+                        if (this.textSendRegion3.Text != null && this.textSendRegion3.Text != string.Empty && this.checkBoxSend3.Checked)
+                        {
+                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion3.Text));
+                        }
+                    }
+                    else
                     {
                         // 从 通信套接字 集合中删除被中断连接的通信套接字;
                         dict.Remove(sokClient.RemoteEndPoint.ToString());
@@ -228,8 +251,8 @@ namespace BlueCentaurea
                         dictThread.Remove(sokClient.RemoteEndPoint.ToString());
                         // 从列表中移除被中断的连接IP
                         listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                        ShowMsg("" + sokClient.RemoteEndPoint.ToString() + "断开连接\r\n");
-                        
+                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + "断开连接\r\n");
+
                         break;
                     }
                 }
@@ -265,14 +288,15 @@ namespace BlueCentaurea
             if (!ChangeByte(textRecvRegion.Text, 20000))
             {
                 textRecvRegion.Text = "";
-                string now = DateTime.Now.ToString();
-                textRecvRegion.AppendText("【" + now.Substring(now.Length - 8) + "】" + str + "\r\n");
             }
-            else
-            {
-                string now = DateTime.Now.ToString();
-                textRecvRegion.AppendText("【" + now.Substring(now.Length - 8) + "】" + str + "\r\n");
-            }
+           
+            string now = DateTime.Now.ToString();
+            this.textRecvRegion.SelectionColor = Color.Blue;
+            textRecvRegion.AppendText("【" + now.Substring(now.Length - 8) + "】");
+            this.textRecvRegion.SelectionColor = Color.Black;
+            // Font font = this.textSendRegion1.SelectionFont;
+            // this.textRecvRegion.SelectionFont = new Font(font.Name, 10);
+            textRecvRegion.AppendText(str + "\r\n");
         }
 
         private bool ChangeByte(string str, int i)
@@ -353,6 +377,7 @@ namespace BlueCentaurea
                         this.lblConnectStatus.Image = image.Clone() as Image;
                         image.Dispose();
                         btnConnect.Text = "连接";
+                        btnConnect.ForeColor = Color.Black;
                         break;
                     }
                 case 1:
@@ -362,6 +387,7 @@ namespace BlueCentaurea
                         this.lblConnectStatus.Image = image.Clone() as Image;
                         image.Dispose();
                         btnConnect.Text = "断开";
+                        btnConnect.ForeColor = Color.Red;
                         break;
                     }
                 default:
@@ -372,7 +398,7 @@ namespace BlueCentaurea
 
         private void btnSendClr_Click(object sender, EventArgs e)
         {
-            textSendRegion.Text = String.Empty;
+            textSendRegion1.Text = String.Empty;
         }
 
         private void btnRecvClr_Click(object sender, EventArgs e)
@@ -380,6 +406,19 @@ namespace BlueCentaurea
             textRecvRegion.Text = String.Empty;
         }
 
+        private void btnSendRegion1_Click(object sender, EventArgs e)
+        {
+            this.textSendRegion1.Text = string.Empty;
+        }
 
+        private void btnSendRegion2_Click(object sender, EventArgs e)
+        {
+            this.textSendRegion2.Text = string.Empty;
+        }
+
+        private void btnSendRegion3_Click(object sender, EventArgs e)
+        {
+            this.textSendRegion3.Text = string.Empty;
+        }
     }
 }

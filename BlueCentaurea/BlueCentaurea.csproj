@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>BuleCentaurea.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\BuleCentaurea.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckForm.Designer.cs">
+      <DependentUpon>CheckForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="SerialForm.Designer.cs">
       <DependentUpon>SerialForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheckForm.resx">
+      <DependentUpon>CheckForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,7 +153,10 @@
     <None Include="Resources\DataRSStatusOff1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BuleCentaurea.ico" />
+    <Content Include="Resources\BuleCentaurea.ico" />
+    <None Include="Resources\校验.jpg" />
+    <None Include="Resources\解锁.jpg" />
+    <None Include="Resources\加密.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

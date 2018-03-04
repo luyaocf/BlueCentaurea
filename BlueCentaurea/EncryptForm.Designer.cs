@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EncryptForm));
             this.tabCtrlEncrypt = new System.Windows.Forms.TabControl();
             this.tbpEncryptMD5 = new System.Windows.Forms.TabPage();
             this.raBtnHEX = new System.Windows.Forms.RadioButton();
@@ -85,6 +86,9 @@
             // 
             // tabCtrlEncrypt
             // 
+            this.tabCtrlEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrlEncrypt.Controls.Add(this.tbpEncryptMD5);
             this.tabCtrlEncrypt.Controls.Add(this.tbpEncryptDES);
             this.tabCtrlEncrypt.Controls.Add(this.tbpEncryptTriDES);
@@ -123,7 +127,7 @@
             this.raBtnHEX.Location = new System.Drawing.Point(206, 13);
             this.raBtnHEX.Name = "raBtnHEX";
             this.raBtnHEX.Size = new System.Drawing.Size(54, 23);
-            this.raBtnHEX.TabIndex = 17;
+            this.raBtnHEX.TabIndex = 1;
             this.raBtnHEX.TabStop = true;
             this.raBtnHEX.Text = "HEX";
             this.raBtnHEX.UseVisualStyleBackColor = true;
@@ -134,7 +138,7 @@
             this.raBtnUTF8.Location = new System.Drawing.Point(128, 13);
             this.raBtnUTF8.Name = "raBtnUTF8";
             this.raBtnUTF8.Size = new System.Drawing.Size(72, 23);
-            this.raBtnUTF8.TabIndex = 16;
+            this.raBtnUTF8.TabIndex = 1;
             this.raBtnUTF8.TabStop = true;
             this.raBtnUTF8.Text = "UTF-8";
             this.raBtnUTF8.UseVisualStyleBackColor = true;
@@ -144,7 +148,7 @@
             this.btnEncryptMD52.Location = new System.Drawing.Point(304, 185);
             this.btnEncryptMD52.Name = "btnEncryptMD52";
             this.btnEncryptMD52.Size = new System.Drawing.Size(75, 31);
-            this.btnEncryptMD52.TabIndex = 15;
+            this.btnEncryptMD52.TabIndex = 4;
             this.btnEncryptMD52.Text = "计算";
             this.btnEncryptMD52.UseVisualStyleBackColor = true;
             this.btnEncryptMD52.Click += new System.EventHandler(this.btnEncryptMD52_Click);
@@ -183,7 +187,7 @@
             this.textEncryptMD5Result.MaxLength = 327670;
             this.textEncryptMD5Result.Name = "textEncryptMD5Result";
             this.textEncryptMD5Result.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptMD5Result.TabIndex = 11;
+            this.textEncryptMD5Result.TabIndex = 3;
             this.textEncryptMD5Result.TextChanged += new System.EventHandler(this.textEncryptMD5Result_TextChanged);
             // 
             // textEncryptMD5Data
@@ -192,7 +196,7 @@
             this.textEncryptMD5Data.MaxLength = 327670;
             this.textEncryptMD5Data.Name = "textEncryptMD5Data";
             this.textEncryptMD5Data.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptMD5Data.TabIndex = 10;
+            this.textEncryptMD5Data.TabIndex = 2;
             this.textEncryptMD5Data.TextChanged += new System.EventHandler(this.textEncryptMD5Data_TextChanged);
             this.textEncryptMD5Data.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptMD5Data_MouseDown);
             // 
@@ -253,7 +257,7 @@
             this.textEncryptDESResult.Name = "textEncryptDESResult";
             this.textEncryptDESResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textEncryptDESResult.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptDESResult.TabIndex = 17;
+            this.textEncryptDESResult.TabIndex = 3;
             this.textEncryptDESResult.TextChanged += new System.EventHandler(this.textEncryptDESResult_TextChanged);
             // 
             // lblEncryptDES3
@@ -270,7 +274,7 @@
             this.btnEncryptDES2.Location = new System.Drawing.Point(301, 189);
             this.btnEncryptDES2.Name = "btnEncryptDES2";
             this.btnEncryptDES2.Size = new System.Drawing.Size(75, 31);
-            this.btnEncryptDES2.TabIndex = 15;
+            this.btnEncryptDES2.TabIndex = 4;
             this.btnEncryptDES2.Text = "计算";
             this.btnEncryptDES2.UseVisualStyleBackColor = true;
             this.btnEncryptDES2.Click += new System.EventHandler(this.btnEncryptDES2_Click);
@@ -309,7 +313,7 @@
             this.textEncryptDESKey.MaxLength = 16;
             this.textEncryptDESKey.Name = "textEncryptDESKey";
             this.textEncryptDESKey.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptDESKey.TabIndex = 11;
+            this.textEncryptDESKey.TabIndex = 2;
             this.textEncryptDESKey.TextChanged += new System.EventHandler(this.textEncryptDESKey_TextChanged);
             this.textEncryptDESKey.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptDESKey_MouseDown);
             // 
@@ -319,7 +323,7 @@
             this.textEncryptDESData.MaxLength = 327670;
             this.textEncryptDESData.Name = "textEncryptDESData";
             this.textEncryptDESData.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptDESData.TabIndex = 10;
+            this.textEncryptDESData.TabIndex = 1;
             this.textEncryptDESData.TextChanged += new System.EventHandler(this.textEncryptDESData_TextChanged);
             this.textEncryptDESData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptDESData_MouseDown);
             // 
@@ -379,7 +383,7 @@
             this.textEncryptTriDESResult.Name = "textEncryptTriDESResult";
             this.textEncryptTriDESResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textEncryptTriDESResult.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriDESResult.TabIndex = 28;
+            this.textEncryptTriDESResult.TabIndex = 3;
             this.textEncryptTriDESResult.TextChanged += new System.EventHandler(this.textEncryptTriDESResult_TextChanged);
             // 
             // lblEncryptTriDES3
@@ -396,7 +400,7 @@
             this.btmEncryptTriDES2.Location = new System.Drawing.Point(302, 189);
             this.btmEncryptTriDES2.Name = "btmEncryptTriDES2";
             this.btmEncryptTriDES2.Size = new System.Drawing.Size(75, 31);
-            this.btmEncryptTriDES2.TabIndex = 26;
+            this.btmEncryptTriDES2.TabIndex = 4;
             this.btmEncryptTriDES2.Text = "计算";
             this.btmEncryptTriDES2.UseVisualStyleBackColor = true;
             this.btmEncryptTriDES2.Click += new System.EventHandler(this.btnEncryptTriDES2_Click);
@@ -435,7 +439,7 @@
             this.textEncryptTriDESKey.MaxLength = 32;
             this.textEncryptTriDESKey.Name = "textEncryptTriDESKey";
             this.textEncryptTriDESKey.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriDESKey.TabIndex = 22;
+            this.textEncryptTriDESKey.TabIndex = 2;
             this.textEncryptTriDESKey.TextChanged += new System.EventHandler(this.textEncryptTriDESKey_TextChanged);
             this.textEncryptTriDESKey.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptTriDESKey_MouseDown);
             // 
@@ -445,7 +449,7 @@
             this.textEncryptTriDESData.MaxLength = 327670;
             this.textEncryptTriDESData.Name = "textEncryptTriDESData";
             this.textEncryptTriDESData.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriDESData.TabIndex = 21;
+            this.textEncryptTriDESData.TabIndex = 1;
             this.textEncryptTriDESData.TextChanged += new System.EventHandler(this.textEncryptTriDESData_TextChanged);
             this.textEncryptTriDESData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptTriDESData_MouseDown);
             // 
@@ -503,7 +507,7 @@
             this.textEncryptTriMACResult.MaxLength = 327670;
             this.textEncryptTriMACResult.Name = "textEncryptTriMACResult";
             this.textEncryptTriMACResult.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriMACResult.TabIndex = 28;
+            this.textEncryptTriMACResult.TabIndex = 3;
             this.textEncryptTriMACResult.TextChanged += new System.EventHandler(this.textEncryptTriMACResult_TextChanged);
             // 
             // lblEncryptTriMAC3
@@ -520,7 +524,7 @@
             this.btnEncryptTriMAC2.Location = new System.Drawing.Point(304, 189);
             this.btnEncryptTriMAC2.Name = "btnEncryptTriMAC2";
             this.btnEncryptTriMAC2.Size = new System.Drawing.Size(75, 31);
-            this.btnEncryptTriMAC2.TabIndex = 26;
+            this.btnEncryptTriMAC2.TabIndex = 4;
             this.btnEncryptTriMAC2.Text = "计算";
             this.btnEncryptTriMAC2.UseVisualStyleBackColor = true;
             this.btnEncryptTriMAC2.Click += new System.EventHandler(this.btnEncryptTriMAC2_Click);
@@ -559,7 +563,7 @@
             this.textEncryptTriMACKey.MaxLength = 32;
             this.textEncryptTriMACKey.Name = "textEncryptTriMACKey";
             this.textEncryptTriMACKey.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriMACKey.TabIndex = 22;
+            this.textEncryptTriMACKey.TabIndex = 2;
             this.textEncryptTriMACKey.TextChanged += new System.EventHandler(this.textEncryptTriMACKey_TextChanged);
             this.textEncryptTriMACKey.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptTriMACKey_MouseDown);
             // 
@@ -569,7 +573,7 @@
             this.textEncryptTriMACData.MaxLength = 327670;
             this.textEncryptTriMACData.Name = "textEncryptTriMACData";
             this.textEncryptTriMACData.Size = new System.Drawing.Size(227, 26);
-            this.textEncryptTriMACData.TabIndex = 21;
+            this.textEncryptTriMACData.TabIndex = 1;
             this.textEncryptTriMACData.TextChanged += new System.EventHandler(this.textEncryptTriMACData_TextChanged);
             this.textEncryptTriMACData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEncryptTriMACData_MouseDown);
             // 
@@ -598,7 +602,7 @@
             this.ClientSize = new System.Drawing.Size(507, 300);
             this.Controls.Add(this.tabCtrlEncrypt);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "EncryptForm";

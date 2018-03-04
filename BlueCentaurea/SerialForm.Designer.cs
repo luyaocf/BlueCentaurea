@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerialForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSerialStatus = new System.Windows.Forms.Label();
             this.btnOpenSerial = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textRecvRegion = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.textSendRegion2 = new System.Windows.Forms.TextBox();
@@ -106,6 +106,9 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.lblRecvStatus = new System.Windows.Forms.Label();
             this.lblSendStatus = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textRecvRegion = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -116,6 +119,7 @@
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -159,7 +163,7 @@
             this.btnOpenSerial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOpenSerial.Name = "btnOpenSerial";
             this.btnOpenSerial.Size = new System.Drawing.Size(77, 23);
-            this.btnOpenSerial.TabIndex = 11;
+            this.btnOpenSerial.TabIndex = 6;
             this.btnOpenSerial.Text = "打开串口";
             this.btnOpenSerial.UseVisualStyleBackColor = true;
             this.btnOpenSerial.Click += new System.EventHandler(this.btnOpenSerial_Click);
@@ -180,7 +184,7 @@
             this.combBStopBits.Name = "combBStopBits";
             this.combBStopBits.Size = new System.Drawing.Size(74, 23);
             this.combBStopBits.Sorted = true;
-            this.combBStopBits.TabIndex = 10;
+            this.combBStopBits.TabIndex = 5;
             this.combBStopBits.Text = "1";
             // 
             // combBParity
@@ -198,7 +202,7 @@
             this.combBParity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combBParity.Name = "combBParity";
             this.combBParity.Size = new System.Drawing.Size(74, 23);
-            this.combBParity.TabIndex = 9;
+            this.combBParity.TabIndex = 4;
             this.combBParity.Text = "无";
             // 
             // combBDataBits
@@ -216,7 +220,7 @@
             this.combBDataBits.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combBDataBits.Name = "combBDataBits";
             this.combBDataBits.Size = new System.Drawing.Size(74, 23);
-            this.combBDataBits.TabIndex = 8;
+            this.combBDataBits.TabIndex = 3;
             this.combBDataBits.Text = "8";
             // 
             // combBBaudRate
@@ -244,7 +248,7 @@
             this.combBBaudRate.MaxDropDownItems = 20;
             this.combBBaudRate.Name = "combBBaudRate";
             this.combBBaudRate.Size = new System.Drawing.Size(74, 23);
-            this.combBBaudRate.TabIndex = 7;
+            this.combBBaudRate.TabIndex = 2;
             this.combBBaudRate.Text = "9600";
             // 
             // combBPortName
@@ -276,7 +280,7 @@
             this.combBPortName.MaxDropDownItems = 20;
             this.combBPortName.Name = "combBPortName";
             this.combBPortName.Size = new System.Drawing.Size(74, 23);
-            this.combBPortName.TabIndex = 7;
+            this.combBPortName.TabIndex = 1;
             this.combBPortName.Text = "COM1";
             // 
             // label6
@@ -370,14 +374,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区";
             // 
-            // textRecvRegion
-            // 
-            this.textRecvRegion.Location = new System.Drawing.Point(9, 18);
-            this.textRecvRegion.Name = "textRecvRegion";
-            this.textRecvRegion.Size = new System.Drawing.Size(460, 244);
-            this.textRecvRegion.TabIndex = 1;
-            this.textRecvRegion.Text = "";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label27);
@@ -414,6 +410,9 @@
             // 
             // textSendRegion2
             // 
+            this.textSendRegion2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion2.Location = new System.Drawing.Point(199, 43);
             this.textSendRegion2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion2.MaxLength = 327670;
@@ -421,7 +420,7 @@
             this.textSendRegion2.Name = "textSendRegion2";
             this.textSendRegion2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textSendRegion2.Size = new System.Drawing.Size(648, 23);
-            this.textSendRegion2.TabIndex = 15;
+            this.textSendRegion2.TabIndex = 9;
             // 
             // btnManualSend2
             // 
@@ -429,7 +428,7 @@
             this.btnManualSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend2.Name = "btnManualSend2";
             this.btnManualSend2.Size = new System.Drawing.Size(75, 23);
-            this.btnManualSend2.TabIndex = 14;
+            this.btnManualSend2.TabIndex = 10;
             this.btnManualSend2.Text = "手动发送";
             this.btnManualSend2.UseVisualStyleBackColor = true;
             // 
@@ -456,13 +455,16 @@
             // 
             // textSendRegion3
             // 
+            this.textSendRegion3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion3.Location = new System.Drawing.Point(198, 70);
             this.textSendRegion3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion3.MaxLength = 327670;
             this.textSendRegion3.Multiline = true;
             this.textSendRegion3.Name = "textSendRegion3";
             this.textSendRegion3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textSendRegion3.Size = new System.Drawing.Size(648, 23);
+            this.textSendRegion3.Size = new System.Drawing.Size(649, 23);
             this.textSendRegion3.TabIndex = 11;
             // 
             // btnManualSend3
@@ -471,7 +473,7 @@
             this.btnManualSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend3.Name = "btnManualSend3";
             this.btnManualSend3.Size = new System.Drawing.Size(75, 23);
-            this.btnManualSend3.TabIndex = 10;
+            this.btnManualSend3.TabIndex = 12;
             this.btnManualSend3.Text = "手动发送";
             this.btnManualSend3.UseVisualStyleBackColor = true;
             // 
@@ -498,6 +500,9 @@
             // 
             // textSendRegion1
             // 
+            this.textSendRegion1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion1.Location = new System.Drawing.Point(199, 15);
             this.textSendRegion1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion1.MaxLength = 327670;
@@ -505,7 +510,7 @@
             this.textSendRegion1.Name = "textSendRegion1";
             this.textSendRegion1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textSendRegion1.Size = new System.Drawing.Size(648, 23);
-            this.textSendRegion1.TabIndex = 3;
+            this.textSendRegion1.TabIndex = 7;
             // 
             // btnManualSend1
             // 
@@ -513,7 +518,7 @@
             this.btnManualSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend1.Name = "btnManualSend1";
             this.btnManualSend1.Size = new System.Drawing.Size(75, 23);
-            this.btnManualSend1.TabIndex = 2;
+            this.btnManualSend1.TabIndex = 8;
             this.btnManualSend1.Text = "手动发送";
             this.btnManualSend1.UseVisualStyleBackColor = true;
             this.btnManualSend1.Click += new System.EventHandler(this.btnManualSend1_Click);
@@ -1056,12 +1061,48 @@
             this.lblSendStatus.TabIndex = 13;
             this.lblSendStatus.Text = " ";
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.richTextBox1);
+            this.groupBox11.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox11.Location = new System.Drawing.Point(680, 387);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox11.Size = new System.Drawing.Size(184, 93);
+            this.groupBox11.TabIndex = 10;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "数据缓存区";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 21);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(172, 67);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // textRecvRegion
+            // 
+            this.textRecvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRecvRegion.Location = new System.Drawing.Point(9, 18);
+            this.textRecvRegion.Name = "textRecvRegion";
+            this.textRecvRegion.Size = new System.Drawing.Size(460, 244);
+            this.textRecvRegion.TabIndex = 1;
+            this.textRecvRegion.Text = "";
+            // 
             // SerialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(876, 484);
+            this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
@@ -1074,7 +1115,8 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SerialForm";
@@ -1099,6 +1141,7 @@
             this.groupBox9.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1182,6 +1225,8 @@
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label lblRecvStatus;
         private System.Windows.Forms.Label lblSendStatus;
+        private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.RichTextBox textRecvRegion;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

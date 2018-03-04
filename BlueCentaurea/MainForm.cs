@@ -127,6 +127,18 @@ namespace BlueCentaurea
                 "2018-02-28\r   1 使用ESC快捷键关闭窗口\r"
                 , "更新日志");
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Check_ToolStripMenuItem_Clic(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            checkForm.StartPosition = FormStartPosition.CenterParent;
+            checkForm.Show();
+        }
     }
 
     public class ConstValue
@@ -162,6 +174,31 @@ namespace BlueCentaurea
             for (int i = 0; i < bys.Length; i++)
             {
                 returnStr.Append(bys[i].ToString("X2"));
+            }
+
+            return returnStr.ToString();
+        }
+
+        public static String BytesToHexString(byte[] bys, bool flag = true)
+        {
+            if (bys == null)
+            {
+                return null;
+            }
+            StringBuilder returnStr = new StringBuilder();
+            if (flag != true)
+            {
+                for (int i = 0; i < bys.Length; i++)
+                {
+                    returnStr.Append(bys[i].ToString("X2"));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < bys.Length; i++)
+                {
+                    returnStr.Append(bys[i].ToString("X2") + " ");
+                }
             }
 
             return returnStr.ToString();
