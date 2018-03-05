@@ -143,7 +143,7 @@ namespace BlueCentaurea
 
     public class ConstValue
     {
-        public static string TEXT_TRANS_DATA_1 = "C7EBCAE4C8EB3136BDF8D6C6D7D6B7FBB4AEA3A1";
+        public static string TEXT_TRANS_DATA_1 = "请输入16进制字符串！";
         public static string TEXT_TRANS_DATA_2 = "请输入汉字！";
         public static string TEXT_TRANS_DATA_3 = "请输入16进制字符串！";
         public static string TEXT_TRANS_DATA_4 = "请输入ASCII码！";

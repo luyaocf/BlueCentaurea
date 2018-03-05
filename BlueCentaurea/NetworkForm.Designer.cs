@@ -41,6 +41,8 @@
             this.lblLocalhost = new System.Windows.Forms.Label();
             this.lblProtocol = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnRecvClr = new System.Windows.Forms.Button();
             this.chkbPause = new System.Windows.Forms.CheckBox();
             this.chkbRecvTime = new System.Windows.Forms.CheckBox();
@@ -71,6 +73,11 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.listBoxOnline = new System.Windows.Forms.ListBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.richTextBoxTips = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxRecvBytes = new System.Windows.Forms.TextBox();
+            this.textBoxSendBytes = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -96,7 +103,7 @@
             this.groupBox1.Controls.Add(this.lblLocalhost);
             this.groupBox1.Controls.Add(this.lblProtocol);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(123, 415);
+            this.groupBox1.Location = new System.Drawing.Point(286, 512);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(314, 106);
             this.groupBox1.TabIndex = 0;
@@ -212,17 +219,41 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Controls.Add(this.btnRecvClr);
             this.groupBox2.Controls.Add(this.chkbPause);
             this.groupBox2.Controls.Add(this.chkbRecvTime);
             this.groupBox2.Controls.Add(this.chkbHEX);
             this.groupBox2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(443, 415);
+            this.groupBox2.Location = new System.Drawing.Point(606, 512);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 106);
+            this.groupBox2.Size = new System.Drawing.Size(221, 106);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区设置";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(174, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(46, 19);
+            this.radioButton2.TabIndex = 14;
+            this.radioButton2.Text = "GBK";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(108, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(60, 19);
+            this.radioButton1.TabIndex = 13;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "UTF-8";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // btnRecvClr
             // 
@@ -264,9 +295,9 @@
             this.chkbHEX.Location = new System.Drawing.Point(6, 21);
             this.chkbHEX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkbHEX.Name = "chkbHEX";
-            this.chkbHEX.Size = new System.Drawing.Size(110, 19);
+            this.chkbHEX.Size = new System.Drawing.Size(96, 19);
             this.chkbHEX.TabIndex = 1;
-            this.chkbHEX.Text = "十六进制显示";
+            this.chkbHEX.Text = "16进制显示";
             this.chkbHEX.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -279,7 +310,7 @@
             this.groupBox3.Controls.Add(this.chkbSendLoop);
             this.groupBox3.Controls.Add(this.chkbSendHEX);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(664, 415);
+            this.groupBox3.Location = new System.Drawing.Point(839, 512);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(167, 106);
             this.groupBox3.TabIndex = 9;
@@ -361,7 +392,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(655, 288);
+            this.groupBox4.Size = new System.Drawing.Size(830, 385);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "接收区";
@@ -374,7 +405,7 @@
             this.textRecvRegion.HideSelection = false;
             this.textRecvRegion.Location = new System.Drawing.Point(6, 18);
             this.textRecvRegion.Name = "textRecvRegion";
-            this.textRecvRegion.Size = new System.Drawing.Size(643, 263);
+            this.textRecvRegion.Size = new System.Drawing.Size(818, 360);
             this.textRecvRegion.TabIndex = 2;
             this.textRecvRegion.Text = "";
             // 
@@ -396,11 +427,11 @@
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Controls.Add(this.checkBoxSend1);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(3, 298);
+            this.groupBox5.Location = new System.Drawing.Point(3, 395);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(828, 110);
+            this.groupBox5.Size = new System.Drawing.Size(1003, 110);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "发送区";
@@ -410,7 +441,7 @@
             this.btnSendRegion3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendRegion3.ForeColor = System.Drawing.Color.Red;
-            this.btnSendRegion3.Location = new System.Drawing.Point(776, 77);
+            this.btnSendRegion3.Location = new System.Drawing.Point(951, 77);
             this.btnSendRegion3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegion3.Name = "btnSendRegion3";
             this.btnSendRegion3.Size = new System.Drawing.Size(46, 22);
@@ -424,7 +455,7 @@
             this.btnSendRegion2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendRegion2.ForeColor = System.Drawing.Color.Red;
-            this.btnSendRegion2.Location = new System.Drawing.Point(776, 47);
+            this.btnSendRegion2.Location = new System.Drawing.Point(951, 47);
             this.btnSendRegion2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegion2.Name = "btnSendRegion2";
             this.btnSendRegion2.Size = new System.Drawing.Size(46, 22);
@@ -438,7 +469,7 @@
             this.btnSendRegion1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendRegion1.ForeColor = System.Drawing.Color.Red;
-            this.btnSendRegion1.Location = new System.Drawing.Point(776, 17);
+            this.btnSendRegion1.Location = new System.Drawing.Point(951, 17);
             this.btnSendRegion1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegion1.Name = "btnSendRegion1";
             this.btnSendRegion1.Size = new System.Drawing.Size(46, 22);
@@ -452,7 +483,7 @@
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.ForeColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(727, 77);
+            this.button3.Location = new System.Drawing.Point(902, 77);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(46, 22);
@@ -465,7 +496,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(727, 48);
+            this.button2.Location = new System.Drawing.Point(902, 48);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(46, 22);
@@ -478,7 +509,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(727, 17);
+            this.button1.Location = new System.Drawing.Point(902, 17);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(46, 22);
@@ -491,7 +522,7 @@
             this.checkBoxSend3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend3.AutoSize = true;
-            this.checkBoxSend3.Location = new System.Drawing.Point(667, 80);
+            this.checkBoxSend3.Location = new System.Drawing.Point(842, 80);
             this.checkBoxSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend3.Name = "checkBoxSend3";
             this.checkBoxSend3.Size = new System.Drawing.Size(54, 19);
@@ -506,7 +537,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion3.Location = new System.Drawing.Point(6, 78);
             this.textSendRegion3.Name = "textSendRegion3";
-            this.textSendRegion3.Size = new System.Drawing.Size(643, 24);
+            this.textSendRegion3.Size = new System.Drawing.Size(818, 24);
             this.textSendRegion3.TabIndex = 5;
             this.textSendRegion3.Text = "";
             // 
@@ -517,7 +548,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion2.Location = new System.Drawing.Point(6, 48);
             this.textSendRegion2.Name = "textSendRegion2";
-            this.textSendRegion2.Size = new System.Drawing.Size(643, 24);
+            this.textSendRegion2.Size = new System.Drawing.Size(818, 24);
             this.textSendRegion2.TabIndex = 4;
             this.textSendRegion2.Text = "";
             // 
@@ -526,7 +557,7 @@
             this.checkBoxSend2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend2.AutoSize = true;
-            this.checkBoxSend2.Location = new System.Drawing.Point(667, 50);
+            this.checkBoxSend2.Location = new System.Drawing.Point(842, 50);
             this.checkBoxSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend2.Name = "checkBoxSend2";
             this.checkBoxSend2.Size = new System.Drawing.Size(54, 19);
@@ -541,7 +572,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion1.Location = new System.Drawing.Point(6, 18);
             this.textSendRegion1.Name = "textSendRegion1";
-            this.textSendRegion1.Size = new System.Drawing.Size(643, 24);
+            this.textSendRegion1.Size = new System.Drawing.Size(818, 24);
             this.textSendRegion1.TabIndex = 3;
             this.textSendRegion1.Text = "";
             // 
@@ -559,7 +590,7 @@
             this.checkBoxSend1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend1.AutoSize = true;
-            this.checkBoxSend1.Location = new System.Drawing.Point(667, 20);
+            this.checkBoxSend1.Location = new System.Drawing.Point(842, 20);
             this.checkBoxSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend1.Name = "checkBoxSend1";
             this.checkBoxSend1.Size = new System.Drawing.Size(54, 19);
@@ -573,11 +604,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.listBoxOnline);
             this.groupBox6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(664, 2);
+            this.groupBox6.Location = new System.Drawing.Point(839, 2);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(167, 288);
+            this.groupBox6.Size = new System.Drawing.Size(167, 385);
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "在线列表";
@@ -588,42 +619,102 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxOnline.FormattingEnabled = true;
             this.listBoxOnline.ItemHeight = 15;
-            this.listBoxOnline.Location = new System.Drawing.Point(6, 22);
+            this.listBoxOnline.Location = new System.Drawing.Point(6, 18);
             this.listBoxOnline.Name = "listBoxOnline";
-            this.listBoxOnline.Size = new System.Drawing.Size(155, 259);
+            this.listBoxOnline.Size = new System.Drawing.Size(155, 349);
             this.listBoxOnline.TabIndex = 13;
             // 
             // groupBox7
             // 
             this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.richTextBoxTips);
+            this.groupBox7.Controls.Add(this.label5);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.textBoxRecvBytes);
+            this.groupBox7.Controls.Add(this.textBoxSendBytes);
             this.groupBox7.Controls.Add(this.label2);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(3, 415);
+            this.groupBox7.Location = new System.Drawing.Point(3, 512);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(114, 106);
+            this.groupBox7.Size = new System.Drawing.Size(277, 106);
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "统计";
+            this.groupBox7.Text = "统计和tips";
+            // 
+            // richTextBoxTips
+            // 
+            this.richTextBoxTips.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxTips.Location = new System.Drawing.Point(6, 19);
+            this.richTextBoxTips.Name = "richTextBoxTips";
+            this.richTextBoxTips.Size = new System.Drawing.Size(136, 81);
+            this.richTextBoxTips.TabIndex = 11;
+            this.richTextBoxTips.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 9F);
+            this.label5.Location = new System.Drawing.Point(229, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 14);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "字节";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 9F);
+            this.label3.Location = new System.Drawing.Point(229, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 14);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "字节";
+            // 
+            // textBoxRecvBytes
+            // 
+            this.textBoxRecvBytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRecvBytes.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRecvBytes.ForeColor = System.Drawing.Color.Red;
+            this.textBoxRecvBytes.Location = new System.Drawing.Point(148, 78);
+            this.textBoxRecvBytes.Name = "textBoxRecvBytes";
+            this.textBoxRecvBytes.Size = new System.Drawing.Size(78, 20);
+            this.textBoxRecvBytes.TabIndex = 8;
+            // 
+            // textBoxSendBytes
+            // 
+            this.textBoxSendBytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSendBytes.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSendBytes.ForeColor = System.Drawing.Color.Red;
+            this.textBoxSendBytes.Location = new System.Drawing.Point(148, 38);
+            this.textBoxSendBytes.Name = "textBoxSendBytes";
+            this.textBoxSendBytes.Size = new System.Drawing.Size(78, 20);
+            this.textBoxSendBytes.TabIndex = 7;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label2.Location = new System.Drawing.Point(9, 60);
+            this.label2.Location = new System.Drawing.Point(148, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 14);
+            this.label2.Size = new System.Drawing.Size(42, 14);
             this.label2.TabIndex = 6;
-            this.label2.Text = "接收";
+            this.label2.Text = "接收:";
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label1.Location = new System.Drawing.Point(9, 24);
+            this.label1.Location = new System.Drawing.Point(148, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 14);
             this.label1.TabIndex = 5;
@@ -634,7 +725,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(843, 532);
+            this.ClientSize = new System.Drawing.Size(1018, 629);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -648,6 +739,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NetworkForm";
             this.Text = "网络调试助手";
+            this.Load += new System.EventHandler(this.NetworkForm_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NetworkForm_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -711,5 +803,12 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxRecvBytes;
+        private System.Windows.Forms.TextBox textBoxSendBytes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBoxTips;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
