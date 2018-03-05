@@ -46,6 +46,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textRecvRegion = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.textSendRegion2 = new System.Windows.Forms.TextBox();
@@ -108,7 +109,6 @@
             this.lblSendStatus = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textRecvRegion = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -373,6 +373,17 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区";
+            // 
+            // textRecvRegion
+            // 
+            this.textRecvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRecvRegion.Location = new System.Drawing.Point(9, 18);
+            this.textRecvRegion.Name = "textRecvRegion";
+            this.textRecvRegion.Size = new System.Drawing.Size(460, 244);
+            this.textRecvRegion.TabIndex = 1;
+            this.textRecvRegion.Text = "";
             // 
             // groupBox3
             // 
@@ -1085,17 +1096,6 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
-            // textRecvRegion
-            // 
-            this.textRecvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textRecvRegion.Location = new System.Drawing.Point(9, 18);
-            this.textRecvRegion.Name = "textRecvRegion";
-            this.textRecvRegion.Size = new System.Drawing.Size(460, 244);
-            this.textRecvRegion.TabIndex = 1;
-            this.textRecvRegion.Text = "";
-            // 
             // SerialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1120,7 +1120,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SerialForm";
-            this.Text = "串口工具 V1.0";
+            this.Text = "串口助手";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SerialForm_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -232,6 +232,7 @@ namespace BlueCentaurea
                     if (length > 0)
                     {
                         tmp = new byte[length];
+                        this.textBoxRecvBytes.Text = (int.Parse(this.textBoxRecvBytes.Text) + length).ToString();
                         Array.Copy(arrMsgRec, tmp, length);
                         if (this.chkbHEX.Checked)
                         {
@@ -239,31 +240,25 @@ namespace BlueCentaurea
                         }
                         else
                         {
-                            ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("GBK").GetString(tmp));
+                            if (this.radioButtonUtf8.Checked)
+                            {
+                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("UTF-8").GetString(tmp));
+                            }
+                            else
+                            {
+                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("GBK").GetString(tmp));
+                            }
                         }
                         if (this.textSendRegion1.Text != null && this.textSendRegion1.Text != string.Empty && this.checkBoxSend1.Checked)
                         {
-                            //if (this.chkbSendHEX.Checked)
-                            //{
-                            //    byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion1.Text);
-                            //    this.textSendRegion1.Text = MyTools.BytesToHexString(bytes, true);
-                            //    sokClient.Send(Encoding.GetEncoding("UTF-8").GetBytes(this.textSendRegion1.Text));
-                            //}
-                            //else
-                            //{
-                            //    byte[] bytes = MyTools.HexStringToBytes(Regex.Replace(this.textSendRegion1.Text, @"\s", ""));
-                            //    if (bytes == null)
-                            //    {
-                            //        MessageBox.Show("数据不合法，请参照提示重新输入！", "错误");
-                            //    }
-                            //    this.textSendRegion1.Text = Encoding.GetEncoding("GBK").GetString(bytes);
                             if (this.chkbSendLoop.Checked && this.textSendInterval.Text != string.Empty)
                             {
                                 int sleep = int.Parse(this.textSendInterval.Text);
                                 Thread.Sleep(sleep);
                             }
-                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion1.Text));
-                            // }
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion1.Text);
+                            sokClient.Send(bytes);
+                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
                         }
                         if (this.textSendRegion2.Text != null && this.textSendRegion2.Text != string.Empty && this.checkBoxSend2.Checked)
                         {
@@ -272,7 +267,9 @@ namespace BlueCentaurea
                                 int sleep = int.Parse(this.textSendInterval.Text);
                                 Thread.Sleep(sleep);
                             }
-                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion2.Text));
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion2.Text);
+                            sokClient.Send(bytes);
+                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
                         }
                         if (this.textSendRegion3.Text != null && this.textSendRegion3.Text != string.Empty && this.checkBoxSend3.Checked)
                         {
@@ -281,7 +278,9 @@ namespace BlueCentaurea
                                 int sleep = int.Parse(this.textSendInterval.Text);
                                 Thread.Sleep(sleep);
                             }
-                            sokClient.Send(Encoding.GetEncoding("GBK").GetBytes(textSendRegion3.Text));
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion3.Text);
+                            sokClient.Send(bytes);
+                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
                         }
                     }
                     else
@@ -466,6 +465,12 @@ namespace BlueCentaurea
         {
             this.richTextBoxTips.Text = "小心谨慎，虚心学习，专心做事不是为了感动别人，而是为了感动自己。";
             this.richTextBoxTips.Enabled = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.textBoxRecvBytes.Text = "0";
+            this.textBoxSendBytes.Text = "0";
         }
     }
 }
