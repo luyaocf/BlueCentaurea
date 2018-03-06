@@ -17,31 +17,38 @@ namespace BlueCentaurea
     public partial class NetworkForm : Form
     {
         private static int ProtocolFlag = -1;
+        private bool ServerFlag = true;
         Thread threadWatch = null;  // 负责监听客户端连接请求的 线程；
         Socket socketWatch = null;
-        Dictionary<string, Socket> dict = new Dictionary<string, Socket>();         // 存放套接字
-        Dictionary<string, Thread> dictThread = new Dictionary<string, Thread>();   // 存放线程
+        Dictionary<string, Socket> dictServerSocketConn = new Dictionary<string, Socket>();     // 存放套接字
+        Dictionary<string, Thread> dictServerSocketThread = new Dictionary<string, Thread>();   // 存放线程
 
         private int netConnectStatusIndex = 1;  // 网络连接标志
-        private String ip = "";                 // 本机IP地址
-
+        
         public NetworkForm()
         {
+            InitializeComponent();              // 容器初始化
+            NetworkForm_SetLocalHost();         // 设置获取到的本机IP
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;   // 问题：线程间操作无效：从不是创建控件“textBox1”的线程访问它
+        }
+        private void NetworkForm_SetLocalHost()
+        {
             IPAddress[] IP = Dns.GetHostAddresses(Dns.GetHostName());
-            for (int i=0,j=0; i < IP.Length; i++)
+            Dictionary<int, string> kvDictonary = new Dictionary<int, string>();
+            int j = 0;
+            kvDictonary.Add(j++, "127.0.0.1");
+            for (int i=0; i < IP.Length; i++)
             {
                 if (Regex.IsMatch(IP[i].ToString(), @"^(\d{1,3}\.){3}\d{1,3}$"))
                 {
-                    ip = IP[i].ToString();  // 获取IP地址
-                    //comboBox1.Items.Add("ComboBox1");
-
-                    //  this.combBLocalhost.Items.Add(ip);
-                    //this.combBLocalhost.SelectedIndex = j++;
-                  break;
+                    kvDictonary.Add(j++, IP[i].ToString());
                 }
             }
-            InitializeComponent();              // 容器初始化
-            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;   // 问题：线程间操作无效：从不是创建控件“textBox1”的线程访问它
+            BindingSource bs = new BindingSource();
+            bs.DataSource = kvDictonary;
+            this.combBLocalhost.DataSource = bs;
+            this.combBLocalhost.ValueMember = "Key";
+            this.combBLocalhost.DisplayMember = "Value";
         }
 
         /******radioButton选择改变*************************************************************************/
@@ -49,20 +56,16 @@ namespace BlueCentaurea
         private void raBtnUDP_CheckedChanged(object sender, EventArgs e)
         {
             lblMultiFunc.Text = "本地主机端口";
-            textLocalhost.Text = this.ip;
         }
 
         private void rabtnClient_CheckedChanged(object sender, EventArgs e)
         {
             lblMultiFunc.Text = "远程主机地址";
-            textLocalhost.Text = this.ip;
-
         }
 
         private void rabtnServer_CheckedChanged(object sender, EventArgs e)
         {
             lblMultiFunc.Text = "本地主机端口";
-            textLocalhost.Text = this.ip;
         }
 
 
@@ -74,53 +77,7 @@ namespace BlueCentaurea
                 this.Close();
                 return;
             }
-        }
-
-        /******单击*************************************************************************/
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            bool flag = NetworkForm_HostChecked();  // 主机地址检查
-            if (flag == true)
-            {
-                this.textLocalhost.Enabled = !this.textLocalhost.Enabled;
-                this.textMultiFunc.Enabled = !this.textMultiFunc.Enabled;
-                this.raBtnUDP.Enabled = !this.raBtnUDP.Enabled;
-                this.rabtnClient.Enabled = !this.rabtnClient.Enabled;
-                this.rabtnServer.Enabled = !this.rabtnServer.Enabled;
-
-                NetworkForm_ChangeBtnConntec();     // 修改连接按扭状态
-                if (!"断开".Equals(btnConnect.Text))
-                {
-                    switch(ProtocolFlag)
-                    {
-                        case 0:
-                            NetworkForm_UDPClose();          // UDP关闭
-                            break;
-                        case 1:
-                            NetworkForm_ClientClose();       // 客户端关闭
-                            break;
-                        case 2:
-                            NetworkForm_ServerClose();       // 服务器关闭
-                            break;
-                    }
-                }
-                else
-                {
-                    switch (ProtocolFlag)
-                    {
-                        case 0:
-                            NetworkForm_UDPOpen();          // UDP打开
-                            break;
-                        case 1:
-                            NetworkForm_ClientOpen();       // 客户端打开
-                            break;
-                        case 2:
-                            NetworkForm_ServerOpen();       // 服务器打开
-                            break;
-                    }
-                }
-            }
-        }
+        }   
 
         private void NetworkForm_UDPClose()
         {
@@ -134,13 +91,38 @@ namespace BlueCentaurea
         
         private void NetworkForm_ServerClose()
         {
+            ServerFlag = false;
             // 从 通信套接字 集合中删除被中断连接的通信套接字;
-            dict.Clear();
+            foreach (var item in dictServerSocketConn)
+            {
+                try
+                {
+                    item.Value.Shutdown(SocketShutdown.Both);
+                    item.Value.Close();
+                }
+                catch(Exception se)
+                {
+                    ShowMsg("【关闭】Socket异常！");
+                }
+            }
+            dictServerSocketConn.Clear();
+
             // 从通信线程集合中删除被中断连接的通信线程对象;
-            dictThread.Clear();
+            foreach (var item in dictServerSocketThread)
+            {
+                item.Value.Abort();
+            }
+            dictServerSocketThread.Clear();
+            
             // 从列表中移除被中断的连接IP
             listBoxOnline.Items.Clear();
 
+            // 关闭服务器端Socket
+            // this.socketWatch.Shutdown(SocketShutdown.Both);
+            if (this.socketWatch != null)
+            {
+                this.socketWatch.Close();
+            }
             ShowMsg("【服务器】已关闭！\r\n");
         }
 
@@ -155,26 +137,22 @@ namespace BlueCentaurea
             ShowMsg("【客户端】开始启动！");
         }
 
-        private void NetworkForm_ServerOpen()
+        private void NetworkForm_ServerOpen(string localhost, string port)
         {
             ShowMsg("【服务器】开始启动！");
-            #region 属性设置
-            // btnConnect.Enabled = false;
-            // textLocalhost.Enabled = false;
-            // textMultiFunc.Enabled = false;
-            // textRecvRegion.Enabled = false;
-            #endregion
             // 创建负责监听的套接字，注意其中的参数
             this.socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             // 获得文本框中的IP对象
-            IPAddress address = IPAddress.Parse(textLocalhost.Text.Trim());
+            // IPAddress address = IPAddress.Parse(this.combBLocalhost.Text.Trim());
+            IPAddress address = IPAddress.Parse(localhost);
             // 创建包含IP和端口号的网络节点对象
-            IPEndPoint endPoint = new IPEndPoint(address, int.Parse(textMultiFunc.Text.Trim()));
+            // IPEndPoint endPoint = new IPEndPoint(address, int.Parse(textMultiFunc.Text.Trim()));
+            IPEndPoint endPoint = new IPEndPoint(address, int.Parse(port));
             try
             {
                 // 将负责监听的套接字绑定到唯一的IP和端口上
-                socketWatch.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                socketWatch.Bind(endPoint);
+                this.socketWatch.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                this.socketWatch.Bind(endPoint);
             }
             catch(SocketException se)
             {
@@ -185,7 +163,9 @@ namespace BlueCentaurea
             // 设置监听队列的长度
             socketWatch.Listen(10000);
             // 创建负责监听的线程
+            // WatchConnecting();
             threadWatch = new Thread(WatchConnecting);
+            ServerFlag = true;
             threadWatch.IsBackground = true;
             threadWatch.Start();
             ShowMsg("【服务器】启动监听成功！");
@@ -193,10 +173,19 @@ namespace BlueCentaurea
 
         private void WatchConnecting()
         {
-            while (true)
+            while (ServerFlag)
             {
                 // 开始监听客户端连接请求，Accept()方法会阻断当前的线程
-                Socket sokConnection = socketWatch.Accept();
+                Socket sokConnection = null;
+                try
+                {
+                    sokConnection = socketWatch.Accept();
+                }
+                catch (Exception e)
+                {
+                    
+                    break; 
+                }
                 // var ssss = sokConnection.RemoteEndPoint.ToString().Split(':');
                 var ssss = sokConnection.RemoteEndPoint.ToString();
 
@@ -208,11 +197,11 @@ namespace BlueCentaurea
                 {
                     listBoxOnline.Items.Add(sokConnection.RemoteEndPoint.ToString());
                 }
-                dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);                
+                dictServerSocketConn.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);                
                 Thread thread = new Thread(RecMsg);
                 thread.IsBackground = true;
                 thread.Start(sokConnection);
-                dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thread);
+                dictServerSocketThread.Add(sokConnection.RemoteEndPoint.ToString(), thread);
             }            
         }
 
@@ -286,9 +275,9 @@ namespace BlueCentaurea
                     else
                     {
                         // 从 通信套接字 集合中删除被中断连接的通信套接字;
-                        dict.Remove(sokClient.RemoteEndPoint.ToString());
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
                         // 从通信线程集合中删除被中断连接的通信线程对象;
-                        dictThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
                         // 从列表中移除被中断的连接IP
                         listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
                         ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + "断开连接\r\n");
@@ -298,26 +287,31 @@ namespace BlueCentaurea
                 }
                 catch (SocketException se)
                 {
-                    // 从通信套接字集合中删除被中断连接的通信套接字;
-                    dict.Remove(sokClient.RemoteEndPoint.ToString());
-                    // 从通信线程集合中删除被中断连接的通信线程对象;
-                    dictThread.Remove(sokClient.RemoteEndPoint.ToString());
-                    // 从列表中移除被中断的连接IP
-                    listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                    ShowMsg("" + sokClient.RemoteEndPoint.ToString() + "断开,异常消息：" + se.Message + "\r\n");
+                    if (ServerFlag)
+                    {
+                        // 从通信套接字集合中删除被中断连接的通信套接字;
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从通信线程集合中删除被中断连接的通信线程对象;
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从列表中移除被中断的连接IP
+                        listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
+                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
+                    }
                     
                     break;
                 }
-                catch(Exception e)
+                catch(Exception se)
                 {
-                    // 从 通信套接字 集合中删除被中断连接的通信套接字;
-                    dict.Remove(sokClient.RemoteEndPoint.ToString());
-                    // 从通信线程集合中删除被中断连接的通信线程对象;
-                    dictThread.Remove(sokClient.RemoteEndPoint.ToString());
-                    // 从列表中移除被中断的连接IP
-                    listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                    ShowMsg("异常消息：" + e.Message + "\r\n");
-
+                    if (ServerFlag)
+                    {
+                        // 从 通信套接字 集合中删除被中断连接的通信套接字;
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从通信线程集合中删除被中断连接的通信线程对象;
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从列表中移除被中断的连接IP
+                        listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
+                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
+                    }
                     break;
                 }
             }
@@ -355,12 +349,6 @@ namespace BlueCentaurea
 
         private bool NetworkForm_HostChecked()
         {
-            if (!Regex.IsMatch(textLocalhost.Text, @"^(\d{1,3}\.){3}\d{1,3}$"))
-            {
-                MessageBox.Show("【本机主机地址】格式有误！", "错误");
-                return false;
-            }
-
             if (raBtnUDP.Checked)
             {
                 if (!Regex.IsMatch(textMultiFunc.Text, @"^\d{1,5}$"))
@@ -416,8 +404,8 @@ namespace BlueCentaurea
                         Image image = BlueCentaurea.Properties.Resources.LightOff1;
                         this.lblConnectStatus.Image = image.Clone() as Image;
                         image.Dispose();
-                        btnConnect.Text = "连接";
                         btnConnect.ForeColor = Color.Black;
+                        btnConnect.Text = "连接";
                         break;
                     }
                 case 1:
@@ -426,8 +414,8 @@ namespace BlueCentaurea
                         Image image = BlueCentaurea.Properties.Resources.LightOn;
                         this.lblConnectStatus.Image = image.Clone() as Image;
                         image.Dispose();
-                        btnConnect.Text = "断开";
                         btnConnect.ForeColor = Color.Red;
+                        btnConnect.Text = "断开";
                         break;
                     }
                 default:
@@ -436,6 +424,51 @@ namespace BlueCentaurea
             }
         }
 
+        /******单击*************************************************************************/
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            bool flag = NetworkForm_HostChecked();  // 主机地址检查
+            if (flag == true)
+            {
+                this.textMultiFunc.Enabled = !this.textMultiFunc.Enabled;
+                this.raBtnUDP.Enabled = !this.raBtnUDP.Enabled;
+                this.rabtnClient.Enabled = !this.rabtnClient.Enabled;
+                this.rabtnServer.Enabled = !this.rabtnServer.Enabled;
+                this.combBLocalhost.Enabled = !this.combBLocalhost.Enabled;
+
+                NetworkForm_ChangeBtnConntec();     // 修改连接按扭状态
+                if (!"断开".Equals(btnConnect.Text))
+                {
+                    switch (ProtocolFlag)
+                    {
+                        case 0:
+                            NetworkForm_UDPClose();          // UDP关闭
+                            break;
+                        case 1:
+                            NetworkForm_ClientClose();       // 客户端关闭
+                            break;
+                        case 2:
+                            NetworkForm_ServerClose();       // 服务器关闭
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (ProtocolFlag)
+                    {
+                        case 0:
+                            NetworkForm_UDPOpen();          // UDP打开
+                            break;
+                        case 1:
+                            NetworkForm_ClientOpen();       // 客户端打开
+                            break;
+                        case 2:
+                            NetworkForm_ServerOpen(this.combBLocalhost.Text.Trim(), textMultiFunc.Text.Trim());       // 服务器打开
+                            break;
+                    }
+                }
+            }
+        }
         private void btnSendClr_Click(object sender, EventArgs e)
         {
             textSendRegion1.Text = String.Empty;
@@ -472,5 +505,26 @@ namespace BlueCentaurea
             this.textBoxRecvBytes.Text = "0";
             this.textBoxSendBytes.Text = "0";
         }
+    }
+
+
+
+    public class UDP
+    {
+
+    }
+
+    public class Client
+    {
+
+    }
+
+    public class Server
+    {
+        Thread threadWatch = null;  // 负责监听客户端连接请求的 线程；
+        Socket socketWatch = null;
+        Dictionary<string, Socket> dict = new Dictionary<string, Socket>();         // 存放套接字
+        Dictionary<string, Thread> dictThread = new Dictionary<string, Thread>();   // 存放线程
+       
     }
 }

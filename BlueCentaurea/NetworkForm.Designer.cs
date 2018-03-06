@@ -30,17 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.combBLocalhost = new System.Windows.Forms.ComboBox();
             this.rabtnServer = new System.Windows.Forms.RadioButton();
             this.rabtnClient = new System.Windows.Forms.RadioButton();
             this.raBtnUDP = new System.Windows.Forms.RadioButton();
             this.lblConnectStatus = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.textMultiFunc = new System.Windows.Forms.TextBox();
-            this.textLocalhost = new System.Windows.Forms.TextBox();
             this.lblMultiFunc = new System.Windows.Forms.Label();
             this.lblLocalhost = new System.Windows.Forms.Label();
             this.lblProtocol = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.radioButtonBbk = new System.Windows.Forms.RadioButton();
             this.radioButtonUtf8 = new System.Windows.Forms.RadioButton();
             this.btnRecvClr = new System.Windows.Forms.Button();
@@ -95,23 +97,40 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.combBLocalhost);
             this.groupBox1.Controls.Add(this.rabtnServer);
             this.groupBox1.Controls.Add(this.rabtnClient);
             this.groupBox1.Controls.Add(this.raBtnUDP);
             this.groupBox1.Controls.Add(this.lblConnectStatus);
             this.groupBox1.Controls.Add(this.btnConnect);
             this.groupBox1.Controls.Add(this.textMultiFunc);
-            this.groupBox1.Controls.Add(this.textLocalhost);
             this.groupBox1.Controls.Add(this.lblMultiFunc);
             this.groupBox1.Controls.Add(this.lblLocalhost);
             this.groupBox1.Controls.Add(this.lblProtocol);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(192, 445);
+            this.groupBox1.Location = new System.Drawing.Point(180, 445);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(286, 106);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "网络设置";
+            // 
+            // combBLocalhost
+            // 
+            this.combBLocalhost.DropDownWidth = 106;
+            this.combBLocalhost.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combBLocalhost.ForeColor = System.Drawing.Color.Red;
+            this.combBLocalhost.FormattingEnabled = true;
+            this.combBLocalhost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.combBLocalhost.IntegralHeight = false;
+            this.combBLocalhost.ItemHeight = 15;
+            this.combBLocalhost.Location = new System.Drawing.Point(104, 47);
+            this.combBLocalhost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.combBLocalhost.MaxDropDownItems = 20;
+            this.combBLocalhost.Name = "combBLocalhost";
+            this.combBLocalhost.Size = new System.Drawing.Size(112, 23);
+            this.combBLocalhost.TabIndex = 15;
+            this.combBLocalhost.Text = "127.0.0.1";
             // 
             // rabtnServer
             // 
@@ -180,16 +199,6 @@
             this.textMultiFunc.Size = new System.Drawing.Size(112, 22);
             this.textMultiFunc.TabIndex = 3;
             // 
-            // textLocalhost
-            // 
-            this.textLocalhost.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLocalhost.ForeColor = System.Drawing.Color.Red;
-            this.textLocalhost.Location = new System.Drawing.Point(104, 50);
-            this.textLocalhost.Multiline = true;
-            this.textLocalhost.Name = "textLocalhost";
-            this.textLocalhost.Size = new System.Drawing.Size(112, 21);
-            this.textLocalhost.TabIndex = 2;
-            // 
             // lblMultiFunc
             // 
             this.lblMultiFunc.AutoSize = true;
@@ -222,6 +231,8 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.radioButtonBbk);
             this.groupBox2.Controls.Add(this.radioButtonUtf8);
             this.groupBox2.Controls.Add(this.btnRecvClr);
@@ -229,17 +240,37 @@
             this.groupBox2.Controls.Add(this.chkbRecvTime);
             this.groupBox2.Controls.Add(this.chkbHEX);
             this.groupBox2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(484, 445);
+            this.groupBox2.Location = new System.Drawing.Point(472, 445);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(233, 106);
+            this.groupBox2.Size = new System.Drawing.Size(245, 106);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区设置";
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.SkyBlue;
+            this.textBox1.Location = new System.Drawing.Point(123, 76);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(116, 23);
+            this.textBox1.TabIndex = 16;
+            // 
+            // button5
+            // 
+            this.button5.ForeColor = System.Drawing.Color.Red;
+            this.button5.Location = new System.Drawing.Point(124, 45);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(55, 27);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "保存";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // radioButtonBbk
             // 
             this.radioButtonBbk.AutoSize = true;
-            this.radioButtonBbk.Location = new System.Drawing.Point(181, 20);
+            this.radioButtonBbk.Location = new System.Drawing.Point(193, 20);
             this.radioButtonBbk.Name = "radioButtonBbk";
             this.radioButtonBbk.Size = new System.Drawing.Size(46, 19);
             this.radioButtonBbk.TabIndex = 14;
@@ -250,7 +281,7 @@
             // 
             this.radioButtonUtf8.AutoSize = true;
             this.radioButtonUtf8.Checked = true;
-            this.radioButtonUtf8.Location = new System.Drawing.Point(115, 20);
+            this.radioButtonUtf8.Location = new System.Drawing.Point(128, 20);
             this.radioButtonUtf8.Name = "radioButtonUtf8";
             this.radioButtonUtf8.Size = new System.Drawing.Size(46, 19);
             this.radioButtonUtf8.TabIndex = 13;
@@ -261,7 +292,7 @@
             // btnRecvClr
             // 
             this.btnRecvClr.ForeColor = System.Drawing.Color.Red;
-            this.btnRecvClr.Location = new System.Drawing.Point(145, 44);
+            this.btnRecvClr.Location = new System.Drawing.Point(184, 44);
             this.btnRecvClr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRecvClr.Name = "btnRecvClr";
             this.btnRecvClr.Size = new System.Drawing.Size(55, 27);
@@ -286,7 +317,7 @@
             this.chkbRecvTime.AutoSize = true;
             this.chkbRecvTime.Checked = true;
             this.chkbRecvTime.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkbRecvTime.Location = new System.Drawing.Point(6, 50);
+            this.chkbRecvTime.Location = new System.Drawing.Point(6, 49);
             this.chkbRecvTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkbRecvTime.Name = "chkbRecvTime";
             this.chkbRecvTime.Size = new System.Drawing.Size(110, 19);
@@ -345,6 +376,7 @@
             // 
             // textSendInterval
             // 
+            this.textSendInterval.BackColor = System.Drawing.Color.SkyBlue;
             this.textSendInterval.Font = new System.Drawing.Font("Consolas", 9.75F);
             this.textSendInterval.Location = new System.Drawing.Point(47, 76);
             this.textSendInterval.Multiline = true;
@@ -639,7 +671,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(183, 106);
+            this.groupBox7.Size = new System.Drawing.Size(171, 106);
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "统计和tips";
@@ -651,7 +683,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxTips.Location = new System.Drawing.Point(6, 19);
             this.richTextBoxTips.Name = "richTextBoxTips";
-            this.richTextBoxTips.Size = new System.Drawing.Size(171, 81);
+            this.richTextBoxTips.Size = new System.Drawing.Size(159, 81);
             this.richTextBoxTips.TabIndex = 11;
             this.richTextBoxTips.Text = "";
             // 
@@ -821,7 +853,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         internal System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.ListBox listBoxOnline;
-        private System.Windows.Forms.TextBox textLocalhost;
         private System.Windows.Forms.TextBox textMultiFunc;
         private System.Windows.Forms.RadioButton raBtnUDP;
         private System.Windows.Forms.RadioButton rabtnClient;
@@ -852,5 +883,8 @@
         private System.Windows.Forms.RadioButton radioButtonBbk;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox combBLocalhost;
     }
 }

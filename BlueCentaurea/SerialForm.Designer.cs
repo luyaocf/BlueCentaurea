@@ -424,18 +424,18 @@
             this.textSendRegion2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSendRegion2.Location = new System.Drawing.Point(199, 43);
+            this.textSendRegion2.Location = new System.Drawing.Point(204, 43);
             this.textSendRegion2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion2.MaxLength = 327670;
             this.textSendRegion2.Multiline = true;
             this.textSendRegion2.Name = "textSendRegion2";
             this.textSendRegion2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textSendRegion2.Size = new System.Drawing.Size(648, 23);
+            this.textSendRegion2.Size = new System.Drawing.Size(643, 23);
             this.textSendRegion2.TabIndex = 9;
             // 
             // btnManualSend2
             // 
-            this.btnManualSend2.Location = new System.Drawing.Point(117, 44);
+            this.btnManualSend2.Location = new System.Drawing.Point(125, 42);
             this.btnManualSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend2.Name = "btnManualSend2";
             this.btnManualSend2.Size = new System.Drawing.Size(75, 23);
@@ -445,7 +445,7 @@
             // 
             // btnSendRegionClear2
             // 
-            this.btnSendRegionClear2.Location = new System.Drawing.Point(69, 44);
+            this.btnSendRegionClear2.Location = new System.Drawing.Point(76, 42);
             this.btnSendRegionClear2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegionClear2.Name = "btnSendRegionClear2";
             this.btnSendRegionClear2.Size = new System.Drawing.Size(43, 23);
@@ -458,7 +458,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label13.Location = new System.Drawing.Point(7, 48);
+            this.label13.Location = new System.Drawing.Point(6, 47);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 14);
             this.label13.TabIndex = 12;
@@ -469,18 +469,18 @@
             this.textSendRegion3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSendRegion3.Location = new System.Drawing.Point(198, 70);
+            this.textSendRegion3.Location = new System.Drawing.Point(204, 70);
             this.textSendRegion3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion3.MaxLength = 327670;
             this.textSendRegion3.Multiline = true;
             this.textSendRegion3.Name = "textSendRegion3";
             this.textSendRegion3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textSendRegion3.Size = new System.Drawing.Size(649, 23);
+            this.textSendRegion3.Size = new System.Drawing.Size(643, 23);
             this.textSendRegion3.TabIndex = 11;
             // 
             // btnManualSend3
             // 
-            this.btnManualSend3.Location = new System.Drawing.Point(116, 71);
+            this.btnManualSend3.Location = new System.Drawing.Point(125, 69);
             this.btnManualSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend3.Name = "btnManualSend3";
             this.btnManualSend3.Size = new System.Drawing.Size(75, 23);
@@ -490,7 +490,7 @@
             // 
             // btnSendRegionClear3
             // 
-            this.btnSendRegionClear3.Location = new System.Drawing.Point(68, 71);
+            this.btnSendRegionClear3.Location = new System.Drawing.Point(76, 69);
             this.btnSendRegionClear3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegionClear3.Name = "btnSendRegionClear3";
             this.btnSendRegionClear3.Size = new System.Drawing.Size(43, 23);
@@ -503,7 +503,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label14.Location = new System.Drawing.Point(6, 75);
+            this.label14.Location = new System.Drawing.Point(7, 74);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 14);
             this.label14.TabIndex = 8;
@@ -514,18 +514,18 @@
             this.textSendRegion1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSendRegion1.Location = new System.Drawing.Point(199, 15);
+            this.textSendRegion1.Location = new System.Drawing.Point(204, 15);
             this.textSendRegion1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegion1.MaxLength = 327670;
             this.textSendRegion1.Multiline = true;
             this.textSendRegion1.Name = "textSendRegion1";
             this.textSendRegion1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textSendRegion1.Size = new System.Drawing.Size(648, 23);
+            this.textSendRegion1.Size = new System.Drawing.Size(643, 23);
             this.textSendRegion1.TabIndex = 7;
             // 
             // btnManualSend1
             // 
-            this.btnManualSend1.Location = new System.Drawing.Point(117, 15);
+            this.btnManualSend1.Location = new System.Drawing.Point(125, 14);
             this.btnManualSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManualSend1.Name = "btnManualSend1";
             this.btnManualSend1.Size = new System.Drawing.Size(75, 23);
@@ -538,7 +538,7 @@
             // 
             // btnSendRegionClear1
             // 
-            this.btnSendRegionClear1.Location = new System.Drawing.Point(69, 15);
+            this.btnSendRegionClear1.Location = new System.Drawing.Point(76, 14);
             this.btnSendRegionClear1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegionClear1.Name = "btnSendRegionClear1";
             this.btnSendRegionClear1.Size = new System.Drawing.Size(43, 23);
@@ -551,7 +551,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label12.Location = new System.Drawing.Point(7, 20);
+            this.label12.Location = new System.Drawing.Point(6, 19);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 14);
             this.label12.TabIndex = 0;
