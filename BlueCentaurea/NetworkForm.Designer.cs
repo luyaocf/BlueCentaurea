@@ -83,7 +83,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -760,7 +760,7 @@
             // groupBox8
             // 
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox8.Controls.Add(this.button4);
+            this.groupBox8.Controls.Add(this.btnCelar);
             this.groupBox8.Controls.Add(this.label1);
             this.groupBox8.Controls.Add(this.label5);
             this.groupBox8.Controls.Add(this.label2);
@@ -777,18 +777,18 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "统计区";
             // 
-            // button4
+            // btnCelar
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(32, 110);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(56, 23);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "清空";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnCelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCelar.ForeColor = System.Drawing.Color.Red;
+            this.btnCelar.Location = new System.Drawing.Point(32, 110);
+            this.btnCelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCelar.Name = "btnCelar";
+            this.btnCelar.Size = new System.Drawing.Size(56, 23);
+            this.btnCelar.TabIndex = 18;
+            this.btnCelar.Text = "清空";
+            this.btnCelar.UseVisualStyleBackColor = true;
+            this.btnCelar.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // NetworkForm
             // 
@@ -810,6 +810,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NetworkForm";
             this.Text = "网络调试助手";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NetworkForm_FormClosing);
             this.Load += new System.EventHandler(this.NetworkForm_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NetworkForm_KeyPress);
             this.groupBox1.ResumeLayout(false);
@@ -844,26 +845,14 @@
         private System.Windows.Forms.Button btnRecvClr;
         private System.Windows.Forms.CheckBox chkbPause;
         private System.Windows.Forms.CheckBox chkbRecvTime;
-        private System.Windows.Forms.CheckBox chkbHEX;
-        private System.Windows.Forms.CheckBox chkbSendLoop;
         private System.Windows.Forms.CheckBox chkbSendHEX;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textSendInterval;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox6;
         internal System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.ListBox listBoxOnline;
-        private System.Windows.Forms.TextBox textMultiFunc;
         private System.Windows.Forms.RadioButton raBtnUDP;
         private System.Windows.Forms.RadioButton rabtnClient;
         private System.Windows.Forms.RadioButton rabtnServer;
-        private System.Windows.Forms.RichTextBox textRecvRegion;
-        private System.Windows.Forms.RichTextBox textSendRegion1;
-        private System.Windows.Forms.RichTextBox textSendRegion3;
-        private System.Windows.Forms.RichTextBox textSendRegion2;
-        private System.Windows.Forms.CheckBox checkBoxSend3;
-        private System.Windows.Forms.CheckBox checkBoxSend2;
-        private System.Windows.Forms.CheckBox checkBoxSend1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -874,17 +863,29 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxRecvBytes;
-        private System.Windows.Forms.TextBox textBoxSendBytes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBoxTips;
-        private System.Windows.Forms.RadioButton radioButtonUtf8;
-        private System.Windows.Forms.RadioButton radioButtonBbk;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCelar;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox combBLocalhost;
+        internal System.Windows.Forms.ComboBox combBLocalhost;
+        internal System.Windows.Forms.TextBox textMultiFunc;
+        internal System.Windows.Forms.RichTextBox textRecvRegion;
+        internal System.Windows.Forms.RichTextBox textSendRegion1;
+        internal System.Windows.Forms.RichTextBox textSendRegion3;
+        internal System.Windows.Forms.RichTextBox textSendRegion2;
+        internal System.Windows.Forms.ListBox listBoxOnline;
+        internal System.Windows.Forms.TextBox textBoxRecvBytes;
+        internal System.Windows.Forms.TextBox textBoxSendBytes;
+        internal System.Windows.Forms.CheckBox checkBoxSend1;
+        internal System.Windows.Forms.CheckBox chkbSendLoop;
+        internal System.Windows.Forms.TextBox textSendInterval;
+        internal System.Windows.Forms.CheckBox checkBoxSend3;
+        internal System.Windows.Forms.CheckBox checkBoxSend2;
+        internal System.Windows.Forms.RadioButton radioButtonUtf8;
+        internal System.Windows.Forms.RadioButton radioButtonBbk;
+        internal System.Windows.Forms.CheckBox chkbHEX;
     }
 }

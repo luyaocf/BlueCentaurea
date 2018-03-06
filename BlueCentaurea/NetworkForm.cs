@@ -16,18 +16,17 @@ namespace BlueCentaurea
 {
     public partial class NetworkForm : Form
     {
+        public static NetworkForm network;
+        public static MyUDP myUDP = null;
+        public static MyClient myClient = null;
+        public static MyServer myServer = null;
         private static int ProtocolFlag = -1;
-        private bool ServerFlag = true;
-        Thread threadWatch = null;  // 负责监听客户端连接请求的 线程；
-        Socket socketWatch = null;
-        Dictionary<string, Socket> dictServerSocketConn = new Dictionary<string, Socket>();     // 存放套接字
-        Dictionary<string, Thread> dictServerSocketThread = new Dictionary<string, Thread>();   // 存放线程
-
         private int netConnectStatusIndex = 1;  // 网络连接标志
         
         public NetworkForm()
         {
             InitializeComponent();              // 容器初始化
+            network = this;
             NetworkForm_SetLocalHost();         // 设置获取到的本机IP
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;   // 问题：线程间操作无效：从不是创建控件“textBox1”的线程访问它
         }
@@ -74,278 +73,27 @@ namespace BlueCentaurea
         {
             if (e.KeyChar == (char)27)
             {
+                if ("断开".Equals(btnConnect.Text))
+                {
+                    switch (ProtocolFlag)
+                    {
+                        case 0:
+                            myUDP.NetworkForm_UDPClose();          // UDP关闭
+                            break;
+                        case 1:
+                            myClient.NetworkForm_ClientClose();       // 客户端关闭
+                            break;
+                        case 2:
+                            myServer.NetworkForm_ServerClose();       // 服务器关闭
+                            break;
+                    }
+                }
                 this.Close();
                 return;
             }
         }   
 
-        private void NetworkForm_UDPClose()
-        {
-            ShowMsg("【UDP】关闭！");
-        }
 
-        private void NetworkForm_ClientClose()
-        {
-            ShowMsg("【客户端】已关闭！");
-        }
-        
-        private void NetworkForm_ServerClose()
-        {
-            ServerFlag = false;
-            // 从 通信套接字 集合中删除被中断连接的通信套接字;
-            foreach (var item in dictServerSocketConn)
-            {
-                try
-                {
-                    item.Value.Shutdown(SocketShutdown.Both);
-                    item.Value.Close();
-                }
-                catch(Exception se)
-                {
-                    ShowMsg("【关闭】Socket异常！");
-                }
-            }
-            dictServerSocketConn.Clear();
-
-            // 从通信线程集合中删除被中断连接的通信线程对象;
-            foreach (var item in dictServerSocketThread)
-            {
-                item.Value.Abort();
-            }
-            dictServerSocketThread.Clear();
-            
-            // 从列表中移除被中断的连接IP
-            listBoxOnline.Items.Clear();
-
-            // 关闭服务器端Socket
-            // this.socketWatch.Shutdown(SocketShutdown.Both);
-            if (this.socketWatch != null)
-            {
-                this.socketWatch.Close();
-            }
-            ShowMsg("【服务器】已关闭！\r\n");
-        }
-
-        private void NetworkForm_UDPOpen()
-        {
-            ShowMsg("【UDP】开始启动！");
-            
-        }
-
-        private void NetworkForm_ClientOpen()
-        {
-            ShowMsg("【客户端】开始启动！");
-        }
-
-        private void NetworkForm_ServerOpen(string localhost, string port)
-        {
-            ShowMsg("【服务器】开始启动！");
-            // 创建负责监听的套接字，注意其中的参数
-            this.socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            // 获得文本框中的IP对象
-            // IPAddress address = IPAddress.Parse(this.combBLocalhost.Text.Trim());
-            IPAddress address = IPAddress.Parse(localhost);
-            // 创建包含IP和端口号的网络节点对象
-            // IPEndPoint endPoint = new IPEndPoint(address, int.Parse(textMultiFunc.Text.Trim()));
-            IPEndPoint endPoint = new IPEndPoint(address, int.Parse(port));
-            try
-            {
-                // 将负责监听的套接字绑定到唯一的IP和端口上
-                this.socketWatch.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                this.socketWatch.Bind(endPoint);
-            }
-            catch(SocketException se)
-            {
-                MessageBox.Show("异常："+se.Message);
-                return;
-            }
-
-            // 设置监听队列的长度
-            socketWatch.Listen(10000);
-            // 创建负责监听的线程
-            // WatchConnecting();
-            threadWatch = new Thread(WatchConnecting);
-            ServerFlag = true;
-            threadWatch.IsBackground = true;
-            threadWatch.Start();
-            ShowMsg("【服务器】启动监听成功！");
-        }
-
-        private void WatchConnecting()
-        {
-            while (ServerFlag)
-            {
-                // 开始监听客户端连接请求，Accept()方法会阻断当前的线程
-                Socket sokConnection = null;
-                try
-                {
-                    sokConnection = socketWatch.Accept();
-                }
-                catch (Exception e)
-                {
-                    
-                    break; 
-                }
-                // var ssss = sokConnection.RemoteEndPoint.ToString().Split(':');
-                var ssss = sokConnection.RemoteEndPoint.ToString();
-
-                if (listBoxOnline.FindString(ssss) >= 0)
-                {
-                    listBoxOnline.Items.Remove(sokConnection.RemoteEndPoint.ToString());
-                }
-                else
-                {
-                    listBoxOnline.Items.Add(sokConnection.RemoteEndPoint.ToString());
-                }
-                dictServerSocketConn.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);                
-                Thread thread = new Thread(RecMsg);
-                thread.IsBackground = true;
-                thread.Start(sokConnection);
-                dictServerSocketThread.Add(sokConnection.RemoteEndPoint.ToString(), thread);
-            }            
-        }
-
-        private void RecMsg(object sokConnectionparn)
-        {
-            Socket sokClient = sokConnectionparn as Socket;
-            while (true)
-            {
-                // 定义一个缓存区
-                byte[] arrMsgRec = new byte[1024];
-                byte[] tmp;
-                // 将接收到的数据保存
-                int length = -1;
-                try
-                {
-                    length = sokClient.Receive(arrMsgRec);
-                    if (length > 0)
-                    {
-                        tmp = new byte[length];
-                        this.textBoxRecvBytes.Text = (int.Parse(this.textBoxRecvBytes.Text) + length).ToString();
-                        Array.Copy(arrMsgRec, tmp, length);
-                        if (this.chkbHEX.Checked)
-                        {
-                            ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + MyTools.BytesToHexString(tmp, true).Trim());
-                        }
-                        else
-                        {
-                            if (this.radioButtonUtf8.Checked)
-                            {
-                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("UTF-8").GetString(tmp));
-                            }
-                            else
-                            {
-                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("GBK").GetString(tmp));
-                            }
-                        }
-                        if (this.textSendRegion1.Text != null && this.textSendRegion1.Text != string.Empty && this.checkBoxSend1.Checked)
-                        {
-                            if (this.chkbSendLoop.Checked && this.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(this.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion1.Text);
-                            sokClient.Send(bytes);
-                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
-                        if (this.textSendRegion2.Text != null && this.textSendRegion2.Text != string.Empty && this.checkBoxSend2.Checked)
-                        {
-                            if (this.chkbSendLoop.Checked && this.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(this.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion2.Text);
-                            sokClient.Send(bytes);
-                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
-                        if (this.textSendRegion3.Text != null && this.textSendRegion3.Text != string.Empty && this.checkBoxSend3.Checked)
-                        {
-                            if (this.chkbSendLoop.Checked && this.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(this.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(this.textSendRegion3.Text);
-                            sokClient.Send(bytes);
-                            this.textBoxSendBytes.Text = (int.Parse(this.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
-                    }
-                    else
-                    {
-                        // 从 通信套接字 集合中删除被中断连接的通信套接字;
-                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从通信线程集合中删除被中断连接的通信线程对象;
-                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从列表中移除被中断的连接IP
-                        listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + "断开连接\r\n");
-
-                        break;
-                    }
-                }
-                catch (SocketException se)
-                {
-                    if (ServerFlag)
-                    {
-                        // 从通信套接字集合中删除被中断连接的通信套接字;
-                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从通信线程集合中删除被中断连接的通信线程对象;
-                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从列表中移除被中断的连接IP
-                        listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
-                    }
-                    
-                    break;
-                }
-                catch(Exception se)
-                {
-                    if (ServerFlag)
-                    {
-                        // 从 通信套接字 集合中删除被中断连接的通信套接字;
-                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从通信线程集合中删除被中断连接的通信线程对象;
-                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
-                        // 从列表中移除被中断的连接IP
-                        listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
-                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
-                    }
-                    break;
-                }
-            }
-        }
-
-        private void ShowMsg(String str)
-        {
-            if (!ChangeByte(textRecvRegion.Text, 20000))
-            {
-                textRecvRegion.Text = "";
-            }
-           
-            string now = DateTime.Now.ToString();
-            this.textRecvRegion.SelectionColor = Color.Blue;
-            textRecvRegion.AppendText("【" + now.Substring(now.Length - 8) + "】");
-            this.textRecvRegion.SelectionColor = Color.Black;
-            // Font font = this.textSendRegion1.SelectionFont;
-            // this.textRecvRegion.SelectionFont = new Font(font.Name, 10);
-            textRecvRegion.AppendText(str + "\r\n");
-        }
-
-        private bool ChangeByte(string str, int i)
-        {
-            byte[] b = Encoding.Default.GetBytes(str);
-            int m = b.Length;
-            if (m < i)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private bool NetworkForm_HostChecked()
         {
@@ -442,13 +190,13 @@ namespace BlueCentaurea
                     switch (ProtocolFlag)
                     {
                         case 0:
-                            NetworkForm_UDPClose();          // UDP关闭
+                            myUDP.NetworkForm_UDPClose();          // UDP关闭
                             break;
                         case 1:
-                            NetworkForm_ClientClose();       // 客户端关闭
+                            myClient.NetworkForm_ClientClose();       // 客户端关闭
                             break;
                         case 2:
-                            NetworkForm_ServerClose();       // 服务器关闭
+                            myServer.NetworkForm_ServerClose();       // 服务器关闭
                             break;
                     }
                 }
@@ -457,18 +205,22 @@ namespace BlueCentaurea
                     switch (ProtocolFlag)
                     {
                         case 0:
-                            NetworkForm_UDPOpen();          // UDP打开
+                            myUDP = new MyUDP();
+                            myUDP.NetworkForm_UDPOpen();          // UDP打开
                             break;
                         case 1:
-                            NetworkForm_ClientOpen();       // 客户端打开
+                            myClient = new MyClient();
+                            myClient.NetworkForm_ClientOpen();       // 客户端打开
                             break;
                         case 2:
-                            NetworkForm_ServerOpen(this.combBLocalhost.Text.Trim(), textMultiFunc.Text.Trim());       // 服务器打开
+                            myServer = new MyServer();
+                            myServer.NetworkForm_ServerOpen();                            
                             break;
                     }
                 }
             }
         }
+
         private void btnSendClr_Click(object sender, EventArgs e)
         {
             textSendRegion1.Text = String.Empty;
@@ -500,31 +252,341 @@ namespace BlueCentaurea
             this.richTextBoxTips.Enabled = false;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             this.textBoxRecvBytes.Text = "0";
             this.textBoxSendBytes.Text = "0";
         }
+
+        private void NetworkForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ("断开".Equals(btnConnect.Text))
+            {
+                switch (ProtocolFlag)
+                {
+                    case 0:
+                        myUDP.NetworkForm_UDPClose();          // UDP关闭
+                        break;
+                    case 1:
+                        myClient.NetworkForm_ClientClose();       // 客户端关闭
+                        break;
+                    case 2:
+                        myServer.NetworkForm_ServerClose();       // 服务器关闭
+                        break;
+                }
+            }
+        }
+
+        /******公共方法*************************************************************************/
+        public void ShowMsg(String str)
+        {
+            if (!ChangeByte(this.textRecvRegion.Text, 200000))
+            {
+                this.textRecvRegion.Text = "";
+            }
+
+            string now = DateTime.Now.ToString();
+            this.textRecvRegion.SelectionColor = Color.Blue;
+            this.textRecvRegion.AppendText("【" + now.Substring(now.Length - 8) + "】");
+            this.textRecvRegion.SelectionColor = Color.Black;
+            this.textRecvRegion.AppendText(str + "\r\n");
+        }
+
+        private bool ChangeByte(string str, int i)
+        {
+            byte[] b = Encoding.Default.GetBytes(str);
+            int m = b.Length;
+            if (m < i)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 
 
 
-    public class UDP
+    public class MyUDP
     {
+        public void NetworkForm_UDPClose()
+        {
+            ShowMsg("【UDP】关闭！");
+        }
 
+        public void NetworkForm_UDPOpen()
+        {
+            ShowMsg("【UDP】开始启动！");
+
+        }
+        private void ShowMsg(string msg)
+        {
+            NetworkForm.network.ShowMsg(msg);
+        }
     }
 
-    public class Client
+    public class MyClient
     {
+        public void NetworkForm_ClientOpen()
+        {
+            string[] tmp = Regex.Split(NetworkForm.network.textMultiFunc.Text, ":");
+            IPAddress ip = IPAddress.Parse(tmp[0]);
+            int port = int.Parse(tmp[1]);
+            Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                client.Connect(new IPEndPoint(ip, port));
+                ShowMsg("【客户端】连接成功！");
+            }
+            catch
+            {
+                ShowMsg("【客户端】连接失败！");
+            }
+        }
 
+        public void NetworkForm_ClientClose()
+        {
+            ShowMsg("【客户端】已关闭！");
+        }
+
+        private void ShowMsg(string msg)
+        {
+            NetworkForm.network.ShowMsg(msg);
+        }
     }
 
-    public class Server
+    public class MyServer
     {
+        private bool ServerFlag = true;
         Thread threadWatch = null;  // 负责监听客户端连接请求的 线程；
         Socket socketWatch = null;
-        Dictionary<string, Socket> dict = new Dictionary<string, Socket>();         // 存放套接字
-        Dictionary<string, Thread> dictThread = new Dictionary<string, Thread>();   // 存放线程
-       
+        Dictionary<string, Socket> dictServerSocketConn = new Dictionary<string, Socket>();     // 存放套接字
+        Dictionary<string, Thread> dictServerSocketThread = new Dictionary<string, Thread>();   // 存放线程
+
+        public void NetworkForm_ServerClose()
+        {
+            ServerFlag = false;
+            // 从 通信套接字 集合中删除被中断连接的通信套接字;
+            foreach (var item in dictServerSocketConn)
+            {
+                try
+                {
+                    item.Value.Shutdown(SocketShutdown.Both);
+                    item.Value.Close();
+                }
+                catch (Exception se)
+                {
+                    ShowMsg("【关闭】Socket异常！");
+                }
+            }
+            dictServerSocketConn.Clear();
+
+            // 从通信线程集合中删除被中断连接的通信线程对象;
+            foreach (var item in dictServerSocketThread)
+            {
+                item.Value.Abort();
+            }
+            dictServerSocketThread.Clear();
+
+            // 从列表中移除被中断的连接IP
+            NetworkForm.network.listBoxOnline.Items.Clear();
+
+            // 关闭服务器端Socket
+            // this.socketWatch.Shutdown(SocketShutdown.Both);
+            if (this.socketWatch != null)
+            {
+                this.socketWatch.Close();
+            }
+            ShowMsg("【服务器】已关闭！\r\n");
+        }
+
+        public void NetworkForm_ServerOpen()
+        {
+            this.ShowMsg("【服务器】开始启动！");
+
+            string localhost = NetworkForm.network.combBLocalhost.Text;
+            string port = NetworkForm.network.textMultiFunc.Text;
+            // 创建负责监听的套接字，注意其中的参数
+            this.socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            // 获得文本框中的IP对象
+            IPAddress address = IPAddress.Parse(localhost);
+            // 创建包含IP和端口号的网络节点对象
+            IPEndPoint endPoint = new IPEndPoint(address, int.Parse(port));
+            try
+            {
+                // 将负责监听的套接字绑定到唯一的IP和端口上
+                this.socketWatch.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                this.socketWatch.Bind(endPoint);
+            }
+            catch (SocketException se)
+            {
+                MessageBox.Show("异常：" + se.Message);
+                return;
+            }
+
+            // 设置监听队列的长度
+            socketWatch.Listen(10000);
+            // 创建负责监听的线程
+            // WatchConnecting();
+            threadWatch = new Thread(WatchConnecting);
+            ServerFlag = true;
+            threadWatch.IsBackground = true;
+            threadWatch.Start();
+            ShowMsg("【服务器】启动监听成功！");
+        }
+
+        private void WatchConnecting()
+        {
+            while (ServerFlag)
+            {
+                // 开始监听客户端连接请求，Accept()方法会阻断当前的线程
+                Socket sokConnection = null;
+                try
+                {
+                    sokConnection = socketWatch.Accept();
+                }
+                catch (Exception e)
+                {
+
+                    break;
+                }
+
+                var ssss = sokConnection.RemoteEndPoint.ToString();
+                if (NetworkForm.network.listBoxOnline.FindString(ssss) >= 0)
+                {
+                    NetworkForm.network.listBoxOnline.Items.Remove(sokConnection.RemoteEndPoint.ToString());
+                }
+                else
+                {
+                    NetworkForm.network.listBoxOnline.Items.Add(sokConnection.RemoteEndPoint.ToString());
+                }
+                dictServerSocketConn.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                Thread thread = new Thread(RecMsg);
+                thread.IsBackground = true;
+                thread.Start(sokConnection);
+                dictServerSocketThread.Add(sokConnection.RemoteEndPoint.ToString(), thread);
+            }
+        }
+
+        private void RecMsg(object sokConnectionparn)
+        {
+            Socket sokClient = sokConnectionparn as Socket;
+            while (true)
+            {
+                // 定义一个缓存区
+                byte[] arrMsgRec = new byte[1024];
+                byte[] tmp;
+                // 将接收到的数据保存
+                int length = -1;
+                try
+                {
+                    length = sokClient.Receive(arrMsgRec);
+                    if (length > 0)
+                    {
+                        tmp = new byte[length];
+                        NetworkForm.network.textBoxRecvBytes.Text = (int.Parse(NetworkForm.network.textBoxRecvBytes.Text) + length).ToString();
+                        Array.Copy(arrMsgRec, tmp, length);
+                        if (NetworkForm.network.chkbHEX.Checked)
+                        {
+                            ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + MyTools.BytesToHexString(tmp, true).Trim());
+                        }
+                        else
+                        {
+                            if (NetworkForm.network.radioButtonUtf8.Checked)
+                            {
+                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("UTF-8").GetString(tmp));
+                            }
+                            else
+                            {
+                                ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("GBK").GetString(tmp));
+                            }
+                        }
+                        if (NetworkForm.network.textSendRegion1.Text != null && NetworkForm.network.textSendRegion1.Text != string.Empty && NetworkForm.network.checkBoxSend1.Checked)
+                        {
+                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            {
+                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                                Thread.Sleep(sleep);
+                            }
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion1.Text);
+                            sokClient.Send(bytes);
+                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        }
+                        if (NetworkForm.network.textSendRegion2.Text != null && NetworkForm.network.textSendRegion2.Text != string.Empty && NetworkForm.network.checkBoxSend2.Checked)
+                        {
+                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            {
+                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                                Thread.Sleep(sleep);
+                            }
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion2.Text);
+                            sokClient.Send(bytes);
+                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        }
+                        if (NetworkForm.network.textSendRegion3.Text != null && NetworkForm.network.textSendRegion3.Text != string.Empty && NetworkForm.network.checkBoxSend3.Checked)
+                        {
+                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            {
+                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                                Thread.Sleep(sleep);
+                            }
+                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion3.Text);
+                            sokClient.Send(bytes);
+                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        }
+                    }
+                    else
+                    {
+                        // 从 通信套接字 集合中删除被中断连接的通信套接字;
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从通信线程集合中删除被中断连接的通信线程对象;
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从列表中移除被中断的连接IP
+                        NetworkForm.network.listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
+                        ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + "断开连接\r\n");
+
+                        break;
+                    }
+                }
+                catch (SocketException se)
+                {
+                    if (ServerFlag)
+                    {
+                        // 从通信套接字集合中删除被中断连接的通信套接字;
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从通信线程集合中删除被中断连接的通信线程对象;
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从列表中移除被中断的连接IP
+                        NetworkForm.network.listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
+                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
+                    }
+
+                    break;
+                }
+                catch (Exception se)
+                {
+                    if (ServerFlag)
+                    {
+                        // 从 通信套接字 集合中删除被中断连接的通信套接字;
+                        dictServerSocketConn.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从通信线程集合中删除被中断连接的通信线程对象;
+                        dictServerSocketThread.Remove(sokClient.RemoteEndPoint.ToString());
+                        // 从列表中移除被中断的连接IP
+                        NetworkForm.network.listBoxOnline.Items.Remove(sokClient.RemoteEndPoint.ToString());
+                        ShowMsg("【异常消息】：" + se.Message + "\r\n");
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void ShowMsg(string msg)
+        {
+            NetworkForm.network.ShowMsg(msg);
+        }
+
     }
 }

@@ -91,8 +91,8 @@ namespace BlueCentaurea
         private void Network_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NetworkForm networkForm = new NetworkForm();
-            networkForm.StartPosition = FormStartPosition.CenterParent;
-            networkForm.Show();
+            NetworkForm.network.StartPosition = FormStartPosition.CenterParent;
+            NetworkForm.network.Show();
         }
 
         /********************************************************************************************/
