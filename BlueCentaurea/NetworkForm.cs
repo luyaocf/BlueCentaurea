@@ -306,6 +306,29 @@ namespace BlueCentaurea
             }
         }
 
+        private void btnSend1_Click(object sender, EventArgs e)
+        {
+            if (ProtocolFlag == 2 && myServer != null)
+            {
+                myServer.SendMsg(1);
+            }
+        }
+
+        private void btnSend2_Click(object sender, EventArgs e)
+        {
+            if (ProtocolFlag == 2 && myServer != null)
+            {
+                myServer.SendMsg(2);
+            }
+        }
+
+        private void btnSend3_Click(object sender, EventArgs e)
+        {
+            if (ProtocolFlag == 2 && myServer != null)
+            {
+                myServer.SendMsg(3);
+            }
+        }
     }
 
 
@@ -506,7 +529,7 @@ namespace BlueCentaurea
                         }
                         if (NetworkForm.network.textSendRegion1.Text != null && NetworkForm.network.textSendRegion1.Text != string.Empty && NetworkForm.network.checkBoxSend1.Checked)
                         {
-                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
                             {
                                 int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
                                 Thread.Sleep(sleep);
@@ -517,7 +540,7 @@ namespace BlueCentaurea
                         }
                         if (NetworkForm.network.textSendRegion2.Text != null && NetworkForm.network.textSendRegion2.Text != string.Empty && NetworkForm.network.checkBoxSend2.Checked)
                         {
-                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
                             {
                                 int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
                                 Thread.Sleep(sleep);
@@ -528,7 +551,7 @@ namespace BlueCentaurea
                         }
                         if (NetworkForm.network.textSendRegion3.Text != null && NetworkForm.network.textSendRegion3.Text != string.Empty && NetworkForm.network.checkBoxSend3.Checked)
                         {
-                            if (NetworkForm.network.chkbSendLoop.Checked && NetworkForm.network.textSendInterval.Text != string.Empty)
+                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
                             {
                                 int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
                                 Thread.Sleep(sleep);
@@ -583,6 +606,102 @@ namespace BlueCentaurea
             }
         }
 
+        /**
+         * 
+         * */
+        public void SendMsg(int flag)
+        {
+            switch (flag)
+            {
+                case 1:
+                    // 发送区1
+                    this.SendMsg(NetworkForm.network.textSendRegion1.Text);
+                    break;
+                case 2:
+                    // 发送区2
+                    this.SendMsg(NetworkForm.network.textSendRegion2.Text);
+                    break;
+                case 3:
+                    // 发送区3
+                    this.SendMsg(NetworkForm.network.textSendRegion3.Text);
+                    break;
+
+            }
+        }
+        
+        public void SendMsg(string msg)
+        {
+            if (msg == string.Empty)
+            {
+                MessageBox.Show("发送区内容为空！", "警告");
+            }
+            else
+            {
+                if (NetworkForm.network.listBoxOnline.SelectedItems.Count == 0)
+                {
+                    this.ShowMsg("【未选择客户端】则发送给所有的客户端！");
+                    foreach (var item in NetworkForm.network.listBoxOnline.Items)
+                    {
+                        Socket client = null;
+                        if (dictServerSocketConn.TryGetValue(item.ToString(), out client))
+                        {
+                            byte[] bytes = null;
+                            if (NetworkForm.network.radioBtnSendGBK.Checked)
+                            {
+                                bytes = Encoding.GetEncoding("GBK").GetBytes(msg);
+                                if (NetworkForm.network.chboxDisplaySend.Checked && NetworkForm.network.radioBtnHEXSendYes.Checked)
+                                {
+                                    this.ShowMsg("【发送到：" + item.ToString() + "】"+MyTools.BytesToHexString(bytes, true));
+                                }
+                                else if (NetworkForm.network.chboxDisplaySend.Checked && NetworkForm.network.radioBtnHEXSendNo.Checked)
+                                {
+                                    this.ShowMsg("【发送到：" + item.ToString() + "】" + msg);
+                                }
+                                else
+                                { }
+                            }
+                            else
+                            {
+                                bytes = Encoding.GetEncoding("UTF-8").GetBytes(msg);
+                                if (NetworkForm.network.chboxDisplaySend.Checked && NetworkForm.network.radioBtnHEXSendYes.Checked)
+                                {
+                                    this.ShowMsg("【发送到：" + item.ToString() + "】" + MyTools.BytesToHexString(bytes, true));
+                                }
+                                else if (NetworkForm.network.chboxDisplaySend.Checked && NetworkForm.network.radioBtnHEXSendNo.Checked)
+                                {
+                                    this.ShowMsg("【发送到：" + item.ToString() + "】" + msg);
+                                }
+                                else
+                                { }
+                            }
+                            client.Send(bytes);
+                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item in NetworkForm.network.listBoxOnline.SelectedItems)
+                    {
+                        Socket client = null;
+                        if (dictServerSocketConn.TryGetValue(item.ToString(), out client))
+                        {
+                            byte[] bytes = null;
+                            if (NetworkForm.network.radioBtnSendGBK.Checked)
+                            {
+                                bytes = Encoding.GetEncoding("GBK").GetBytes(msg);
+                            }
+                            else
+                            {
+                                bytes = Encoding.GetEncoding("UTF-8").GetBytes(msg);
+                            }
+                            client.Send(bytes);
+                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        }
+                    }
+                }
+            }
+        }
         private void ShowMsg(string msg)
         {
             NetworkForm.network.ShowMsg(msg);

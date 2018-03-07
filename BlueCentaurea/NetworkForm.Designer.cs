@@ -41,8 +41,6 @@
             this.lblLocalhost = new System.Windows.Forms.Label();
             this.lblProtocol = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.radioButtonBbk = new System.Windows.Forms.RadioButton();
             this.radioButtonUtf8 = new System.Windows.Forms.RadioButton();
             this.btnRecvClr = new System.Windows.Forms.Button();
@@ -50,21 +48,19 @@
             this.chkbRecvTime = new System.Windows.Forms.CheckBox();
             this.chkbHEX = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSendLoop = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textSendInterval = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.chkbSendLoop = new System.Windows.Forms.CheckBox();
-            this.chkbSendHEX = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textRecvRegion = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnSendRegion3 = new System.Windows.Forms.Button();
             this.btnSendRegion2 = new System.Windows.Forms.Button();
             this.btnSendRegion1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSend3 = new System.Windows.Forms.Button();
+            this.btnSend2 = new System.Windows.Forms.Button();
+            this.btnSend1 = new System.Windows.Forms.Button();
             this.checkBoxSend3 = new System.Windows.Forms.CheckBox();
             this.textSendRegion3 = new System.Windows.Forms.RichTextBox();
             this.textSendRegion2 = new System.Windows.Forms.RichTextBox();
@@ -84,6 +80,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.btnCelar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioBtnSendGBK = new System.Windows.Forms.RadioButton();
+            this.radioBtnSendUTF = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioBtnHEXSendNo = new System.Windows.Forms.RadioButton();
+            this.radioBtnHEXSendYes = new System.Windows.Forms.RadioButton();
+            this.chboxDisplaySend = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -92,6 +95,8 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -135,6 +140,7 @@
             // rabtnServer
             // 
             this.rabtnServer.AutoSize = true;
+            this.rabtnServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rabtnServer.Location = new System.Drawing.Point(210, 19);
             this.rabtnServer.Name = "rabtnServer";
             this.rabtnServer.Size = new System.Drawing.Size(67, 19);
@@ -146,6 +152,7 @@
             // rabtnClient
             // 
             this.rabtnClient.AutoSize = true;
+            this.rabtnClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rabtnClient.Location = new System.Drawing.Point(135, 20);
             this.rabtnClient.Name = "rabtnClient";
             this.rabtnClient.Size = new System.Drawing.Size(67, 19);
@@ -158,6 +165,7 @@
             // 
             this.raBtnUDP.AutoSize = true;
             this.raBtnUDP.Checked = true;
+            this.raBtnUDP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.raBtnUDP.Location = new System.Drawing.Point(83, 20);
             this.raBtnUDP.Name = "raBtnUDP";
             this.raBtnUDP.Size = new System.Drawing.Size(46, 19);
@@ -172,7 +180,7 @@
             this.lblConnectStatus.AutoSize = true;
             this.lblConnectStatus.BackColor = System.Drawing.Color.SkyBlue;
             this.lblConnectStatus.Image = global::BlueCentaurea.Properties.Resources.LightOff;
-            this.lblConnectStatus.Location = new System.Drawing.Point(245, 79);
+            this.lblConnectStatus.Location = new System.Drawing.Point(242, 51);
             this.lblConnectStatus.Name = "lblConnectStatus";
             this.lblConnectStatus.Size = new System.Drawing.Size(14, 15);
             this.lblConnectStatus.TabIndex = 14;
@@ -181,7 +189,7 @@
             // btnConnect
             // 
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
-            this.btnConnect.Location = new System.Drawing.Point(226, 45);
+            this.btnConnect.Location = new System.Drawing.Point(225, 73);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(55, 27);
             this.btnConnect.TabIndex = 4;
@@ -231,8 +239,6 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.radioButtonBbk);
             this.groupBox2.Controls.Add(this.radioButtonUtf8);
             this.groupBox2.Controls.Add(this.btnRecvClr);
@@ -242,35 +248,16 @@
             this.groupBox2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(472, 445);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(245, 106);
+            this.groupBox2.Size = new System.Drawing.Size(203, 106);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收区设置";
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.SkyBlue;
-            this.textBox1.Location = new System.Drawing.Point(123, 76);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 23);
-            this.textBox1.TabIndex = 16;
-            // 
-            // button5
-            // 
-            this.button5.ForeColor = System.Drawing.Color.Red;
-            this.button5.Location = new System.Drawing.Point(124, 45);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(55, 27);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "保存";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // radioButtonBbk
             // 
             this.radioButtonBbk.AutoSize = true;
-            this.radioButtonBbk.Location = new System.Drawing.Point(193, 20);
+            this.radioButtonBbk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonBbk.Location = new System.Drawing.Point(152, 20);
             this.radioButtonBbk.Name = "radioButtonBbk";
             this.radioButtonBbk.Size = new System.Drawing.Size(46, 19);
             this.radioButtonBbk.TabIndex = 14;
@@ -281,7 +268,8 @@
             // 
             this.radioButtonUtf8.AutoSize = true;
             this.radioButtonUtf8.Checked = true;
-            this.radioButtonUtf8.Location = new System.Drawing.Point(128, 20);
+            this.radioButtonUtf8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonUtf8.Location = new System.Drawing.Point(102, 21);
             this.radioButtonUtf8.Name = "radioButtonUtf8";
             this.radioButtonUtf8.Size = new System.Drawing.Size(46, 19);
             this.radioButtonUtf8.TabIndex = 13;
@@ -292,7 +280,7 @@
             // btnRecvClr
             // 
             this.btnRecvClr.ForeColor = System.Drawing.Color.Red;
-            this.btnRecvClr.Location = new System.Drawing.Point(184, 44);
+            this.btnRecvClr.Location = new System.Drawing.Point(132, 73);
             this.btnRecvClr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRecvClr.Name = "btnRecvClr";
             this.btnRecvClr.Size = new System.Drawing.Size(55, 27);
@@ -339,36 +327,36 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Controls.Add(this.panel2);
+            this.groupBox3.Controls.Add(this.panel1);
+            this.groupBox3.Controls.Add(this.btnSendLoop);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textSendInterval);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.chkbSendLoop);
-            this.groupBox3.Controls.Add(this.chkbSendHEX);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(723, 445);
+            this.groupBox3.Location = new System.Drawing.Point(681, 445);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(167, 106);
+            this.groupBox3.Size = new System.Drawing.Size(209, 106);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送区设置";
             // 
-            // button7
+            // btnSendLoop
             // 
-            this.button7.ForeColor = System.Drawing.Color.Green;
-            this.button7.Location = new System.Drawing.Point(106, 44);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(55, 27);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "发送";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSendLoop.ForeColor = System.Drawing.Color.Green;
+            this.btnSendLoop.Location = new System.Drawing.Point(126, 73);
+            this.btnSendLoop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSendLoop.Name = "btnSendLoop";
+            this.btnSendLoop.Size = new System.Drawing.Size(77, 27);
+            this.btnSendLoop.TabIndex = 13;
+            this.btnSendLoop.Text = "循环发送";
+            this.btnSendLoop.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 9F);
-            this.label4.Location = new System.Drawing.Point(142, 80);
+            this.label4.Location = new System.Drawing.Point(101, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 14);
             this.label4.TabIndex = 6;
@@ -378,11 +366,13 @@
             // 
             this.textSendInterval.BackColor = System.Drawing.Color.SkyBlue;
             this.textSendInterval.Font = new System.Drawing.Font("Consolas", 9.75F);
-            this.textSendInterval.Location = new System.Drawing.Point(47, 76);
+            this.textSendInterval.ForeColor = System.Drawing.Color.Red;
+            this.textSendInterval.Location = new System.Drawing.Point(42, 76);
             this.textSendInterval.Multiline = true;
             this.textSendInterval.Name = "textSendInterval";
-            this.textSendInterval.Size = new System.Drawing.Size(89, 22);
+            this.textSendInterval.Size = new System.Drawing.Size(48, 22);
             this.textSendInterval.TabIndex = 5;
+            this.textSendInterval.Text = "10000";
             // 
             // label12
             // 
@@ -393,30 +383,6 @@
             this.label12.Size = new System.Drawing.Size(35, 14);
             this.label12.TabIndex = 4;
             this.label12.Text = "间隔";
-            // 
-            // chkbSendLoop
-            // 
-            this.chkbSendLoop.AutoSize = true;
-            this.chkbSendLoop.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbSendLoop.Location = new System.Drawing.Point(6, 50);
-            this.chkbSendLoop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkbSendLoop.Name = "chkbSendLoop";
-            this.chkbSendLoop.Size = new System.Drawing.Size(82, 19);
-            this.chkbSendLoop.TabIndex = 3;
-            this.chkbSendLoop.Text = "循环发送";
-            this.chkbSendLoop.UseVisualStyleBackColor = true;
-            // 
-            // chkbSendHEX
-            // 
-            this.chkbSendHEX.AutoSize = true;
-            this.chkbSendHEX.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbSendHEX.Location = new System.Drawing.Point(6, 21);
-            this.chkbSendHEX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkbSendHEX.Name = "chkbSendHEX";
-            this.chkbSendHEX.Size = new System.Drawing.Size(96, 19);
-            this.chkbSendHEX.TabIndex = 2;
-            this.chkbSendHEX.Text = "16进制发送";
-            this.chkbSendHEX.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -453,9 +419,9 @@
             this.groupBox5.Controls.Add(this.btnSendRegion3);
             this.groupBox5.Controls.Add(this.btnSendRegion2);
             this.groupBox5.Controls.Add(this.btnSendRegion1);
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.button2);
-            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.btnSend3);
+            this.groupBox5.Controls.Add(this.btnSend2);
+            this.groupBox5.Controls.Add(this.btnSend1);
             this.groupBox5.Controls.Add(this.checkBoxSend3);
             this.groupBox5.Controls.Add(this.textSendRegion3);
             this.groupBox5.Controls.Add(this.textSendRegion2);
@@ -515,44 +481,47 @@
             this.btnSendRegion1.UseVisualStyleBackColor = true;
             this.btnSendRegion1.Click += new System.EventHandler(this.btnSendRegion1_Click);
             // 
-            // button3
+            // btnSend3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnSend3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.ForeColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(786, 77);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 22);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "发送";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSend3.ForeColor = System.Drawing.Color.Green;
+            this.btnSend3.Location = new System.Drawing.Point(786, 77);
+            this.btnSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSend3.Name = "btnSend3";
+            this.btnSend3.Size = new System.Drawing.Size(46, 22);
+            this.btnSend3.TabIndex = 14;
+            this.btnSend3.Text = "发送";
+            this.btnSend3.UseVisualStyleBackColor = true;
+            this.btnSend3.Click += new System.EventHandler(this.btnSend3_Click);
             // 
-            // button2
+            // btnSend2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnSend2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(786, 48);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 22);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "发送";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSend2.ForeColor = System.Drawing.Color.Green;
+            this.btnSend2.Location = new System.Drawing.Point(786, 48);
+            this.btnSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSend2.Name = "btnSend2";
+            this.btnSend2.Size = new System.Drawing.Size(46, 22);
+            this.btnSend2.TabIndex = 13;
+            this.btnSend2.Text = "发送";
+            this.btnSend2.UseVisualStyleBackColor = true;
+            this.btnSend2.Click += new System.EventHandler(this.btnSend2_Click);
             // 
-            // button1
+            // btnSend1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnSend1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(786, 17);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 22);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "发送";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSend1.ForeColor = System.Drawing.Color.Green;
+            this.btnSend1.Location = new System.Drawing.Point(786, 17);
+            this.btnSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSend1.Name = "btnSend1";
+            this.btnSend1.Size = new System.Drawing.Size(46, 22);
+            this.btnSend1.TabIndex = 12;
+            this.btnSend1.Text = "发送";
+            this.btnSend1.UseVisualStyleBackColor = true;
+            this.btnSend1.Click += new System.EventHandler(this.btnSend1_Click);
             // 
             // checkBoxSend3
             // 
@@ -790,6 +759,87 @@
             this.btnCelar.UseVisualStyleBackColor = true;
             this.btnCelar.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioBtnSendGBK);
+            this.panel1.Controls.Add(this.radioBtnSendUTF);
+            this.panel1.Location = new System.Drawing.Point(4, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(198, 26);
+            this.panel1.TabIndex = 12;
+            // 
+            // radioBtnSendGBK
+            // 
+            this.radioBtnSendGBK.AutoSize = true;
+            this.radioBtnSendGBK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnSendGBK.Location = new System.Drawing.Point(111, 3);
+            this.radioBtnSendGBK.Name = "radioBtnSendGBK";
+            this.radioBtnSendGBK.Size = new System.Drawing.Size(74, 19);
+            this.radioBtnSendGBK.TabIndex = 18;
+            this.radioBtnSendGBK.Text = "GBK发送";
+            this.radioBtnSendGBK.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnSendUTF
+            // 
+            this.radioBtnSendUTF.AutoSize = true;
+            this.radioBtnSendUTF.Checked = true;
+            this.radioBtnSendUTF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnSendUTF.Location = new System.Drawing.Point(0, 4);
+            this.radioBtnSendUTF.Name = "radioBtnSendUTF";
+            this.radioBtnSendUTF.Size = new System.Drawing.Size(88, 19);
+            this.radioBtnSendUTF.TabIndex = 17;
+            this.radioBtnSendUTF.TabStop = true;
+            this.radioBtnSendUTF.Text = "UTF-8发送";
+            this.radioBtnSendUTF.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioBtnHEXSendNo);
+            this.panel2.Controls.Add(this.radioBtnHEXSendYes);
+            this.panel2.Controls.Add(this.chboxDisplaySend);
+            this.panel2.Location = new System.Drawing.Point(4, 45);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(198, 28);
+            this.panel2.TabIndex = 3;
+            // 
+            // radioBtnHEXSendNo
+            // 
+            this.radioBtnHEXSendNo.AutoSize = true;
+            this.radioBtnHEXSendNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnHEXSendNo.Location = new System.Drawing.Point(160, 6);
+            this.radioBtnHEXSendNo.Name = "radioBtnHEXSendNo";
+            this.radioBtnHEXSendNo.Size = new System.Drawing.Size(39, 19);
+            this.radioBtnHEXSendNo.TabIndex = 21;
+            this.radioBtnHEXSendNo.Text = "否";
+            this.radioBtnHEXSendNo.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnHEXSendYes
+            // 
+            this.radioBtnHEXSendYes.AutoSize = true;
+            this.radioBtnHEXSendYes.Checked = true;
+            this.radioBtnHEXSendYes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnHEXSendYes.Location = new System.Drawing.Point(115, 6);
+            this.radioBtnHEXSendYes.Name = "radioBtnHEXSendYes";
+            this.radioBtnHEXSendYes.Size = new System.Drawing.Size(39, 19);
+            this.radioBtnHEXSendYes.TabIndex = 19;
+            this.radioBtnHEXSendYes.TabStop = true;
+            this.radioBtnHEXSendYes.Text = "是";
+            this.radioBtnHEXSendYes.UseVisualStyleBackColor = true;
+            // 
+            // chboxDisplaySend
+            // 
+            this.chboxDisplaySend.AutoSize = true;
+            this.chboxDisplaySend.Checked = true;
+            this.chboxDisplaySend.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chboxDisplaySend.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chboxDisplaySend.Location = new System.Drawing.Point(1, 6);
+            this.chboxDisplaySend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chboxDisplaySend.Name = "chboxDisplaySend";
+            this.chboxDisplaySend.Size = new System.Drawing.Size(117, 19);
+            this.chboxDisplaySend.TabIndex = 20;
+            this.chboxDisplaySend.Text = "显示发送  HEX";
+            this.chboxDisplaySend.UseVisualStyleBackColor = true;
+            // 
             // NetworkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -826,6 +876,10 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -845,7 +899,6 @@
         private System.Windows.Forms.Button btnRecvClr;
         private System.Windows.Forms.CheckBox chkbPause;
         private System.Windows.Forms.CheckBox chkbRecvTime;
-        private System.Windows.Forms.CheckBox chkbSendHEX;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -853,13 +906,13 @@
         private System.Windows.Forms.RadioButton raBtnUDP;
         private System.Windows.Forms.RadioButton rabtnClient;
         private System.Windows.Forms.RadioButton rabtnServer;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSend1;
+        private System.Windows.Forms.Button btnSend3;
+        private System.Windows.Forms.Button btnSend2;
         private System.Windows.Forms.Button btnSendRegion3;
         private System.Windows.Forms.Button btnSendRegion2;
         private System.Windows.Forms.Button btnSendRegion1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSendLoop;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -868,8 +921,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxTips;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button btnCelar;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.ComboBox combBLocalhost;
         internal System.Windows.Forms.TextBox textMultiFunc;
         internal System.Windows.Forms.RichTextBox textRecvRegion;
@@ -880,12 +931,18 @@
         internal System.Windows.Forms.TextBox textBoxRecvBytes;
         internal System.Windows.Forms.TextBox textBoxSendBytes;
         internal System.Windows.Forms.CheckBox checkBoxSend1;
-        internal System.Windows.Forms.CheckBox chkbSendLoop;
         internal System.Windows.Forms.TextBox textSendInterval;
         internal System.Windows.Forms.CheckBox checkBoxSend3;
         internal System.Windows.Forms.CheckBox checkBoxSend2;
         internal System.Windows.Forms.RadioButton radioButtonUtf8;
         internal System.Windows.Forms.RadioButton radioButtonBbk;
         internal System.Windows.Forms.CheckBox chkbHEX;
+        private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.RadioButton radioBtnSendGBK;
+        internal System.Windows.Forms.RadioButton radioBtnSendUTF;
+        private System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.RadioButton radioBtnHEXSendNo;
+        internal System.Windows.Forms.RadioButton radioBtnHEXSendYes;
+        internal System.Windows.Forms.CheckBox chboxDisplaySend;
     }
 }
