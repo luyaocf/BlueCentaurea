@@ -48,6 +48,13 @@
             this.chkbRecvTime = new System.Windows.Forms.CheckBox();
             this.chkbHEX = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioBtnHEXSendNo = new System.Windows.Forms.RadioButton();
+            this.radioBtnHEXSendYes = new System.Windows.Forms.RadioButton();
+            this.chboxDisplaySend = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioBtnSendGBK = new System.Windows.Forms.RadioButton();
+            this.radioBtnSendUTF = new System.Windows.Forms.RadioButton();
             this.btnSendLoop = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textSendInterval = new System.Windows.Forms.TextBox();
@@ -80,23 +87,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.btnCelar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioBtnSendGBK = new System.Windows.Forms.RadioButton();
-            this.radioBtnSendUTF = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radioBtnHEXSendNo = new System.Windows.Forms.RadioButton();
-            this.radioBtnHEXSendYes = new System.Windows.Forms.RadioButton();
-            this.chboxDisplaySend = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -341,6 +341,87 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送区设置";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioBtnHEXSendNo);
+            this.panel2.Controls.Add(this.radioBtnHEXSendYes);
+            this.panel2.Controls.Add(this.chboxDisplaySend);
+            this.panel2.Location = new System.Drawing.Point(4, 45);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(198, 28);
+            this.panel2.TabIndex = 3;
+            // 
+            // radioBtnHEXSendNo
+            // 
+            this.radioBtnHEXSendNo.AutoSize = true;
+            this.radioBtnHEXSendNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnHEXSendNo.Location = new System.Drawing.Point(160, 6);
+            this.radioBtnHEXSendNo.Name = "radioBtnHEXSendNo";
+            this.radioBtnHEXSendNo.Size = new System.Drawing.Size(39, 19);
+            this.radioBtnHEXSendNo.TabIndex = 21;
+            this.radioBtnHEXSendNo.Text = "否";
+            this.radioBtnHEXSendNo.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnHEXSendYes
+            // 
+            this.radioBtnHEXSendYes.AutoSize = true;
+            this.radioBtnHEXSendYes.Checked = true;
+            this.radioBtnHEXSendYes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnHEXSendYes.Location = new System.Drawing.Point(115, 6);
+            this.radioBtnHEXSendYes.Name = "radioBtnHEXSendYes";
+            this.radioBtnHEXSendYes.Size = new System.Drawing.Size(39, 19);
+            this.radioBtnHEXSendYes.TabIndex = 19;
+            this.radioBtnHEXSendYes.TabStop = true;
+            this.radioBtnHEXSendYes.Text = "是";
+            this.radioBtnHEXSendYes.UseVisualStyleBackColor = true;
+            // 
+            // chboxDisplaySend
+            // 
+            this.chboxDisplaySend.AutoSize = true;
+            this.chboxDisplaySend.Checked = true;
+            this.chboxDisplaySend.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chboxDisplaySend.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chboxDisplaySend.Location = new System.Drawing.Point(1, 6);
+            this.chboxDisplaySend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chboxDisplaySend.Name = "chboxDisplaySend";
+            this.chboxDisplaySend.Size = new System.Drawing.Size(117, 19);
+            this.chboxDisplaySend.TabIndex = 20;
+            this.chboxDisplaySend.Text = "显示发送  HEX";
+            this.chboxDisplaySend.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioBtnSendGBK);
+            this.panel1.Controls.Add(this.radioBtnSendUTF);
+            this.panel1.Location = new System.Drawing.Point(4, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(198, 26);
+            this.panel1.TabIndex = 12;
+            // 
+            // radioBtnSendGBK
+            // 
+            this.radioBtnSendGBK.AutoSize = true;
+            this.radioBtnSendGBK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnSendGBK.Location = new System.Drawing.Point(111, 3);
+            this.radioBtnSendGBK.Name = "radioBtnSendGBK";
+            this.radioBtnSendGBK.Size = new System.Drawing.Size(74, 19);
+            this.radioBtnSendGBK.TabIndex = 18;
+            this.radioBtnSendGBK.Text = "GBK发送";
+            this.radioBtnSendGBK.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnSendUTF
+            // 
+            this.radioBtnSendUTF.AutoSize = true;
+            this.radioBtnSendUTF.Checked = true;
+            this.radioBtnSendUTF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioBtnSendUTF.Location = new System.Drawing.Point(0, 4);
+            this.radioBtnSendUTF.Name = "radioBtnSendUTF";
+            this.radioBtnSendUTF.Size = new System.Drawing.Size(88, 19);
+            this.radioBtnSendUTF.TabIndex = 17;
+            this.radioBtnSendUTF.TabStop = true;
+            this.radioBtnSendUTF.Text = "UTF-8发送";
+            this.radioBtnSendUTF.UseVisualStyleBackColor = true;
+            // 
             // btnSendLoop
             // 
             this.btnSendLoop.ForeColor = System.Drawing.Color.Green;
@@ -351,6 +432,7 @@
             this.btnSendLoop.TabIndex = 13;
             this.btnSendLoop.Text = "循环发送";
             this.btnSendLoop.UseVisualStyleBackColor = true;
+            this.btnSendLoop.Click += new System.EventHandler(this.btnSendLoop_Click);
             // 
             // label4
             // 
@@ -759,87 +841,6 @@
             this.btnCelar.UseVisualStyleBackColor = true;
             this.btnCelar.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.radioBtnSendGBK);
-            this.panel1.Controls.Add(this.radioBtnSendUTF);
-            this.panel1.Location = new System.Drawing.Point(4, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(198, 26);
-            this.panel1.TabIndex = 12;
-            // 
-            // radioBtnSendGBK
-            // 
-            this.radioBtnSendGBK.AutoSize = true;
-            this.radioBtnSendGBK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnSendGBK.Location = new System.Drawing.Point(111, 3);
-            this.radioBtnSendGBK.Name = "radioBtnSendGBK";
-            this.radioBtnSendGBK.Size = new System.Drawing.Size(74, 19);
-            this.radioBtnSendGBK.TabIndex = 18;
-            this.radioBtnSendGBK.Text = "GBK发送";
-            this.radioBtnSendGBK.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnSendUTF
-            // 
-            this.radioBtnSendUTF.AutoSize = true;
-            this.radioBtnSendUTF.Checked = true;
-            this.radioBtnSendUTF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnSendUTF.Location = new System.Drawing.Point(0, 4);
-            this.radioBtnSendUTF.Name = "radioBtnSendUTF";
-            this.radioBtnSendUTF.Size = new System.Drawing.Size(88, 19);
-            this.radioBtnSendUTF.TabIndex = 17;
-            this.radioBtnSendUTF.TabStop = true;
-            this.radioBtnSendUTF.Text = "UTF-8发送";
-            this.radioBtnSendUTF.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.radioBtnHEXSendNo);
-            this.panel2.Controls.Add(this.radioBtnHEXSendYes);
-            this.panel2.Controls.Add(this.chboxDisplaySend);
-            this.panel2.Location = new System.Drawing.Point(4, 45);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(198, 28);
-            this.panel2.TabIndex = 3;
-            // 
-            // radioBtnHEXSendNo
-            // 
-            this.radioBtnHEXSendNo.AutoSize = true;
-            this.radioBtnHEXSendNo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnHEXSendNo.Location = new System.Drawing.Point(160, 6);
-            this.radioBtnHEXSendNo.Name = "radioBtnHEXSendNo";
-            this.radioBtnHEXSendNo.Size = new System.Drawing.Size(39, 19);
-            this.radioBtnHEXSendNo.TabIndex = 21;
-            this.radioBtnHEXSendNo.Text = "否";
-            this.radioBtnHEXSendNo.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnHEXSendYes
-            // 
-            this.radioBtnHEXSendYes.AutoSize = true;
-            this.radioBtnHEXSendYes.Checked = true;
-            this.radioBtnHEXSendYes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnHEXSendYes.Location = new System.Drawing.Point(115, 6);
-            this.radioBtnHEXSendYes.Name = "radioBtnHEXSendYes";
-            this.radioBtnHEXSendYes.Size = new System.Drawing.Size(39, 19);
-            this.radioBtnHEXSendYes.TabIndex = 19;
-            this.radioBtnHEXSendYes.TabStop = true;
-            this.radioBtnHEXSendYes.Text = "是";
-            this.radioBtnHEXSendYes.UseVisualStyleBackColor = true;
-            // 
-            // chboxDisplaySend
-            // 
-            this.chboxDisplaySend.AutoSize = true;
-            this.chboxDisplaySend.Checked = true;
-            this.chboxDisplaySend.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chboxDisplaySend.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chboxDisplaySend.Location = new System.Drawing.Point(1, 6);
-            this.chboxDisplaySend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chboxDisplaySend.Name = "chboxDisplaySend";
-            this.chboxDisplaySend.Size = new System.Drawing.Size(117, 19);
-            this.chboxDisplaySend.TabIndex = 20;
-            this.chboxDisplaySend.Text = "显示发送  HEX";
-            this.chboxDisplaySend.UseVisualStyleBackColor = true;
-            // 
             // NetworkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -869,6 +870,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -876,10 +881,6 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

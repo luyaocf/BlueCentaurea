@@ -329,6 +329,34 @@ namespace BlueCentaurea
                 myServer.SendMsg(3);
             }
         }
+
+        private void btnSendLoop_Click(object sender, EventArgs e)
+        {
+            if (ProtocolFlag == 2 && myServer != null)
+            {
+                // bool stopFlag = true;
+                string waitTime = this.textSendInterval.Text==string.Empty ? "0" : this.textSendInterval.Text;
+
+                // while (stopFlag)
+                {
+                    if (this.checkBoxSend1.Checked && myServer != null)
+                    {
+                        myServer.SendMsg(1);
+                    }
+                    Thread.Sleep(int.Parse(waitTime));
+                    if (this.checkBoxSend2.Checked && myServer != null)
+                    {
+                        myServer.SendMsg(2);
+                    }
+                    Thread.Sleep(int.Parse(this.textSendInterval.Text));
+                    if (this.checkBoxSend3.Checked && myServer != null)
+                    {
+                        myServer.SendMsg(3);
+                    }
+                    Thread.Sleep(int.Parse(this.textSendInterval.Text));
+                }
+            }
+        }
     }
 
 
