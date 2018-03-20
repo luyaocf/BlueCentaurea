@@ -39,6 +39,7 @@
             this.文件校验ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mD5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sHA1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strLenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计算MD5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dES加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,25 +124,35 @@
             // 
             this.文件校验ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mD5ToolStripMenuItem,
-            this.sHA1ToolStripMenuItem});
+            this.sHA1ToolStripMenuItem,
+            this.strLenToolStripMenuItem});
             this.文件校验ToolStripMenuItem.Name = "文件校验ToolStripMenuItem";
             this.文件校验ToolStripMenuItem.Size = new System.Drawing.Size(120, 23);
             this.文件校验ToolStripMenuItem.Text = "文件校验(&C)";
-            this.文件校验ToolStripMenuItem.Click += new System.EventHandler(this.Check_ToolStripMenuItem_Clic);
             // 
             // mD5ToolStripMenuItem
             // 
             this.mD5ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.校验;
             this.mD5ToolStripMenuItem.Name = "mD5ToolStripMenuItem";
-            this.mD5ToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.mD5ToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.mD5ToolStripMenuItem.Text = "MD5(&M)";
+            this.mD5ToolStripMenuItem.Click += new System.EventHandler(this.mD5ToolStripMenuItem_Click);
             // 
             // sHA1ToolStripMenuItem
             // 
             this.sHA1ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.校验1;
             this.sHA1ToolStripMenuItem.Name = "sHA1ToolStripMenuItem";
-            this.sHA1ToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.sHA1ToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.sHA1ToolStripMenuItem.Text = "SHA1(&S)";
+            this.sHA1ToolStripMenuItem.Click += new System.EventHandler(this.sHA1ToolStripMenuItem_Click);
+            // 
+            // strLenToolStripMenuItem
+            // 
+            this.strLenToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.calc;
+            this.strLenToolStripMenuItem.Name = "strLenToolStripMenuItem";
+            this.strLenToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
+            this.strLenToolStripMenuItem.Text = "字符串长度(&L)";
+            this.strLenToolStripMenuItem.Click += new System.EventHandler(this.calcStrLenToolStripMenuItem_Click);
             // 
             // 加密ToolStripMenuItem
             // 
@@ -329,6 +340,7 @@
         private System.Windows.Forms.ToolStripMenuItem 更新日志ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于BlueCentaureaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem strLenToolStripMenuItem;
     }
 }
 

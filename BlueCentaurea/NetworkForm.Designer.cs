@@ -188,6 +188,7 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
             this.btnConnect.Location = new System.Drawing.Point(225, 73);
             this.btnConnect.Name = "btnConnect";
@@ -323,6 +324,7 @@
             this.chkbHEX.TabIndex = 1;
             this.chkbHEX.Text = "16进制显示";
             this.chkbHEX.UseVisualStyleBackColor = true;
+            this.chkbHEX.CheckedChanged += new System.EventHandler(this.chkbHEX_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -346,7 +348,7 @@
             this.panel2.Controls.Add(this.radioBtnHEXSendNo);
             this.panel2.Controls.Add(this.radioBtnHEXSendYes);
             this.panel2.Controls.Add(this.chboxDisplaySend);
-            this.panel2.Location = new System.Drawing.Point(4, 45);
+            this.panel2.Location = new System.Drawing.Point(5, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(198, 28);
             this.panel2.TabIndex = 3;
@@ -355,7 +357,7 @@
             // 
             this.radioBtnHEXSendNo.AutoSize = true;
             this.radioBtnHEXSendNo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnHEXSendNo.Location = new System.Drawing.Point(160, 6);
+            this.radioBtnHEXSendNo.Location = new System.Drawing.Point(156, 6);
             this.radioBtnHEXSendNo.Name = "radioBtnHEXSendNo";
             this.radioBtnHEXSendNo.Size = new System.Drawing.Size(39, 19);
             this.radioBtnHEXSendNo.TabIndex = 21;
@@ -367,7 +369,7 @@
             this.radioBtnHEXSendYes.AutoSize = true;
             this.radioBtnHEXSendYes.Checked = true;
             this.radioBtnHEXSendYes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnHEXSendYes.Location = new System.Drawing.Point(115, 6);
+            this.radioBtnHEXSendYes.Location = new System.Drawing.Point(111, 5);
             this.radioBtnHEXSendYes.Name = "radioBtnHEXSendYes";
             this.radioBtnHEXSendYes.Size = new System.Drawing.Size(39, 19);
             this.radioBtnHEXSendYes.TabIndex = 19;
@@ -384,16 +386,17 @@
             this.chboxDisplaySend.Location = new System.Drawing.Point(1, 6);
             this.chboxDisplaySend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chboxDisplaySend.Name = "chboxDisplaySend";
-            this.chboxDisplaySend.Size = new System.Drawing.Size(117, 19);
+            this.chboxDisplaySend.Size = new System.Drawing.Size(103, 19);
             this.chboxDisplaySend.TabIndex = 20;
-            this.chboxDisplaySend.Text = "显示发送  HEX";
+            this.chboxDisplaySend.Text = "HEX显示发送";
             this.chboxDisplaySend.UseVisualStyleBackColor = true;
+            this.chboxDisplaySend.CheckedChanged += new System.EventHandler(this.chboxDisplaySend_CheckedChanged);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.radioBtnSendGBK);
             this.panel1.Controls.Add(this.radioBtnSendUTF);
-            this.panel1.Location = new System.Drawing.Point(4, 16);
+            this.panel1.Location = new System.Drawing.Point(5, 16);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(198, 26);
             this.panel1.TabIndex = 12;
@@ -414,7 +417,7 @@
             this.radioBtnSendUTF.AutoSize = true;
             this.radioBtnSendUTF.Checked = true;
             this.radioBtnSendUTF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioBtnSendUTF.Location = new System.Drawing.Point(0, 4);
+            this.radioBtnSendUTF.Location = new System.Drawing.Point(1, 4);
             this.radioBtnSendUTF.Name = "radioBtnSendUTF";
             this.radioBtnSendUTF.Size = new System.Drawing.Size(88, 19);
             this.radioBtnSendUTF.TabIndex = 17;
@@ -424,6 +427,7 @@
             // 
             // btnSendLoop
             // 
+            this.btnSendLoop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSendLoop.ForeColor = System.Drawing.Color.Green;
             this.btnSendLoop.Location = new System.Drawing.Point(126, 73);
             this.btnSendLoop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -454,7 +458,7 @@
             this.textSendInterval.Name = "textSendInterval";
             this.textSendInterval.Size = new System.Drawing.Size(48, 22);
             this.textSendInterval.TabIndex = 5;
-            this.textSendInterval.Text = "10000";
+            this.textSendInterval.Text = "1000";
             // 
             // label12
             // 
@@ -567,6 +571,7 @@
             // 
             this.btnSend3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSend3.ForeColor = System.Drawing.Color.Green;
             this.btnSend3.Location = new System.Drawing.Point(786, 77);
             this.btnSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -581,6 +586,7 @@
             // 
             this.btnSend2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSend2.ForeColor = System.Drawing.Color.Green;
             this.btnSend2.Location = new System.Drawing.Point(786, 48);
             this.btnSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -595,6 +601,7 @@
             // 
             this.btnSend1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSend1.ForeColor = System.Drawing.Color.Green;
             this.btnSend1.Location = new System.Drawing.Point(786, 17);
             this.btnSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -610,6 +617,7 @@
             this.checkBoxSend3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend3.AutoSize = true;
+            this.checkBoxSend3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxSend3.Location = new System.Drawing.Point(726, 80);
             this.checkBoxSend3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend3.Name = "checkBoxSend3";
@@ -645,6 +653,7 @@
             this.checkBoxSend2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend2.AutoSize = true;
+            this.checkBoxSend2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxSend2.Location = new System.Drawing.Point(726, 50);
             this.checkBoxSend2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend2.Name = "checkBoxSend2";
@@ -678,6 +687,7 @@
             this.checkBoxSend1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSend1.AutoSize = true;
+            this.checkBoxSend1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxSend1.Location = new System.Drawing.Point(726, 20);
             this.checkBoxSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxSend1.Name = "checkBoxSend1";

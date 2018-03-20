@@ -135,9 +135,28 @@ namespace BlueCentaurea
 
         private void Check_ToolStripMenuItem_Clic(object sender, EventArgs e)
         {
+            
+        }
+
+        private void calcStrLenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             CheckForm checkForm = new CheckForm();
             checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.Show();
+            checkForm.SelectTabPages(2);
+        }
+
+        private void mD5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            checkForm.StartPosition = FormStartPosition.CenterParent;
+            checkForm.SelectTabPages(0);
+        }
+
+        private void sHA1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            checkForm.StartPosition = FormStartPosition.CenterParent;
+            checkForm.SelectTabPages(1);
         }
     }
 

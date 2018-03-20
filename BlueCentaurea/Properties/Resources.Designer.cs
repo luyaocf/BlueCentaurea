@@ -93,6 +93,16 @@ namespace BlueCentaurea.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap calc {
+            get {
+                object obj = ResourceManager.GetObject("calc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CKFinder_resize_lock {
             get {
                 object obj = ResourceManager.GetObject("CKFinder_resize_lock", resourceCulture);

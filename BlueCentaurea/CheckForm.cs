@@ -17,6 +17,16 @@ namespace BlueCentaurea
         public CheckForm()
         {
             InitializeComponent();
+            this.textBoxUTF.Text = "请输入字符串";
+            this.textBoxGB2312.Text = "请输入字符串";
+            this.textBoxGBK.Text = "请输入字符串";
+            this.textBoxUnicode.Text = "请输入字符串";
+        }
+
+        public void SelectTabPages(int index)
+        {
+            this.tabCtrlCheck.SelectedIndex = index;
+            this.Show();
         }
 
         private void btnCheckSelect_Click(object sender, EventArgs e)
@@ -90,6 +100,81 @@ namespace BlueCentaurea
             {
                 MessageBox.Show("检查文件是否存在！", "错误");
             }
+        }
+
+        private void textBoxUTF_TextChanged(object sender, EventArgs e)
+        {
+            int len = Encoding.GetEncoding("UTF-8").GetBytes(this.textBoxUTF.Text).Length;
+            this.labelUtf.Text = "【" + len + "字节】";
+        }
+
+        private void textBoxUTF_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.textBoxUTF.Text == "请输入字符串")
+            {
+                this.textBoxUTF.Text = string.Empty;
+                this.textBoxUTF.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxGB2312_TextChanged(object sender, EventArgs e)
+        {
+            int len = Encoding.GetEncoding("GB2312").GetBytes(this.textBoxGB2312.Text).Length;
+            this.labelGB2312.Text = "【" + len + "字节】";
+        }
+
+        private void textBoxGB2312_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.textBoxGB2312.Text == "请输入字符串")
+            {
+                this.textBoxGB2312.Text = string.Empty;
+                this.textBoxGB2312.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxGBK_TextChanged(object sender, EventArgs e)
+        {
+            int len = Encoding.GetEncoding("GBK").GetBytes(this.textBoxGBK.Text).Length;
+            this.labelGBK.Text = "【" + len + "字节】";
+        }
+
+        private void textBoxGBK_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.textBoxGBK.Text == "请输入字符串")
+            {
+                this.textBoxGBK.Text = string.Empty;
+                this.textBoxGBK.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxUnicode_TextChanged(object sender, EventArgs e)
+        {
+            int len = Encoding.GetEncoding("Unicode").GetBytes(this.textBoxUnicode.Text).Length;
+            this.labelUnicode.Text = "【" + len + "字节】";
+        }
+
+        private void textBoxUnicode_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.textBoxUnicode.Text == "请输入字符串")
+            {
+                this.textBoxUnicode.Text = string.Empty;
+                this.textBoxUnicode.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbpCalcStrLen_Click(object sender, EventArgs e)
+        {
+            this.textBoxUTF.Text = "请输入字符串";
+            this.textBoxUTF.ForeColor = Color.Gray;
+
+            this.textBoxGB2312.Text = "请输入字符串";
+            this.textBoxGB2312.ForeColor = Color.Gray;
+
+            this.textBoxGBK.Text = "请输入字符串";
+            this.textBoxGBK.ForeColor = Color.Gray;
+
+            this.textBoxUnicode.Text = "请输入字符串";
+            this.textBoxUnicode.ForeColor = Color.Gray;
         }
     }
 }

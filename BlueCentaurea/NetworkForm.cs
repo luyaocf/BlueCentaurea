@@ -332,29 +332,74 @@ namespace BlueCentaurea
 
         private void btnSendLoop_Click(object sender, EventArgs e)
         {
-            if (ProtocolFlag == 2 && myServer != null)
-            {
-                // bool stopFlag = true;
-                string waitTime = this.textSendInterval.Text==string.Empty ? "0" : this.textSendInterval.Text;
+            Thread thread = new Thread(MyServerSendMsg);
+            thread.IsBackground = true;
+            thread.Start();
+        }
 
-                // while (stopFlag)
+        private void MyServerSendMsg()
+        {
+            if (ProtocolFlag == 2)
+            {
+                if (myServer != null)
                 {
-                    if (this.checkBoxSend1.Checked && myServer != null)
+                    this.btnSendLoop.ForeColor = Color.Red;
+                    
+                    // bool stopFlag = true;
+                    string waitTime = this.textSendInterval.Text == string.Empty ? "0" : this.textSendInterval.Text;
+
+                    // while (stopFlag)
                     {
-                        myServer.SendMsg(1);
+                        if (this.checkBoxSend1.Checked && myServer != null)
+                        {
+                            myServer.SendMsg(1);
+                        }
+                        Thread.Sleep(int.Parse(waitTime));
+                        if (this.checkBoxSend2.Checked && myServer != null)
+                        {
+                            myServer.SendMsg(2);
+                        }
+                        Thread.Sleep(int.Parse(this.textSendInterval.Text));
+                        if (this.checkBoxSend3.Checked && myServer != null)
+                        {
+                            myServer.SendMsg(3);
+                        }
+                        Thread.Sleep(int.Parse(this.textSendInterval.Text));
                     }
-                    Thread.Sleep(int.Parse(waitTime));
-                    if (this.checkBoxSend2.Checked && myServer != null)
-                    {
-                        myServer.SendMsg(2);
-                    }
-                    Thread.Sleep(int.Parse(this.textSendInterval.Text));
-                    if (this.checkBoxSend3.Checked && myServer != null)
-                    {
-                        myServer.SendMsg(3);
-                    }
-                    Thread.Sleep(int.Parse(this.textSendInterval.Text));
+                    this.btnSendLoop.ForeColor = Color.Black;
                 }
+                else
+                {
+                    MessageBox.Show("服务器已关闭！", "消息提示框");
+                }
+            }
+        }
+
+        private void chboxDisplaySend_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!this.chboxDisplaySend.Checked)
+            {
+                this.radioBtnHEXSendYes.Enabled = false;
+                this.radioBtnHEXSendNo.Enabled = false;
+            }
+            else
+            {
+                this.radioBtnHEXSendYes.Enabled = true;
+                this.radioBtnHEXSendNo.Enabled = true;
+            }
+        }
+
+        private void chkbHEX_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!this.chkbHEX.Checked)
+            {
+                this.radioButtonUtf8.Enabled = false;
+                this.radioButtonBbk.Enabled = false;
+            }
+            else
+            {
+                this.radioButtonUtf8.Enabled = true;
+                this.radioButtonBbk.Enabled = true;
             }
         }
     }
@@ -555,39 +600,39 @@ namespace BlueCentaurea
                                 ShowMsg("【" + sokClient.RemoteEndPoint.ToString() + "】" + Encoding.GetEncoding("GBK").GetString(tmp));
                             }
                         }
-                        if (NetworkForm.network.textSendRegion1.Text != null && NetworkForm.network.textSendRegion1.Text != string.Empty && NetworkForm.network.checkBoxSend1.Checked)
-                        {
-                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion1.Text);
-                            sokClient.Send(bytes);
-                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
-                        if (NetworkForm.network.textSendRegion2.Text != null && NetworkForm.network.textSendRegion2.Text != string.Empty && NetworkForm.network.checkBoxSend2.Checked)
-                        {
-                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion2.Text);
-                            sokClient.Send(bytes);
-                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
-                        if (NetworkForm.network.textSendRegion3.Text != null && NetworkForm.network.textSendRegion3.Text != string.Empty && NetworkForm.network.checkBoxSend3.Checked)
-                        {
-                            if (NetworkForm.network.textSendInterval.Text != string.Empty)
-                            {
-                                int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
-                                Thread.Sleep(sleep);
-                            }
-                            byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion3.Text);
-                            sokClient.Send(bytes);
-                            NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
-                        }
+                        //if (NetworkForm.network.textSendRegion1.Text != null && NetworkForm.network.textSendRegion1.Text != string.Empty && NetworkForm.network.checkBoxSend1.Checked)
+                        //{
+                        //    if (NetworkForm.network.textSendInterval.Text != string.Empty)
+                        //    {
+                        //        int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                        //        Thread.Sleep(sleep);
+                        //    }
+                        //    byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion1.Text);
+                        //    sokClient.Send(bytes);
+                        //    NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        //}
+                        //if (NetworkForm.network.textSendRegion2.Text != null && NetworkForm.network.textSendRegion2.Text != string.Empty && NetworkForm.network.checkBoxSend2.Checked)
+                        //{
+                        //    if (NetworkForm.network.textSendInterval.Text != string.Empty)
+                        //    {
+                        //        int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                        //        Thread.Sleep(sleep);
+                        //    }
+                        //    byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion2.Text);
+                        //    sokClient.Send(bytes);
+                        //    NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        //}
+                        //if (NetworkForm.network.textSendRegion3.Text != null && NetworkForm.network.textSendRegion3.Text != string.Empty && NetworkForm.network.checkBoxSend3.Checked)
+                        //{
+                        //    if (NetworkForm.network.textSendInterval.Text != string.Empty)
+                        //    {
+                        //        int sleep = int.Parse(NetworkForm.network.textSendInterval.Text);
+                        //        Thread.Sleep(sleep);
+                        //    }
+                        //    byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(NetworkForm.network.textSendRegion3.Text);
+                        //    sokClient.Send(bytes);
+                        //    NetworkForm.network.textBoxSendBytes.Text = (int.Parse(NetworkForm.network.textBoxSendBytes.Text) + bytes.Length).ToString();
+                        //}
                     }
                     else
                     {
@@ -667,7 +712,7 @@ namespace BlueCentaurea
             {
                 if (NetworkForm.network.listBoxOnline.SelectedItems.Count == 0)
                 {
-                    this.ShowMsg("【未选择客户端】则发送给所有的客户端！");
+                    // this.ShowMsg("【未选择客户端】则发送给所有的客户端！");
                     foreach (var item in NetworkForm.network.listBoxOnline.Items)
                     {
                         Socket client = null;
