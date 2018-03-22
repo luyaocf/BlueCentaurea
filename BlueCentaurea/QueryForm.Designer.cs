@@ -1,6 +1,6 @@
 ﻿namespace BlueCentaurea
 {
-    partial class CheckForm
+    partial class QueryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckForm));
-            this.tbpCheckSHA1 = new System.Windows.Forms.TabPage();
+            this.tabCtrlQuery = new System.Windows.Forms.TabControl();
+            this.tbpQQOnline = new System.Windows.Forms.TabPage();
+            this.btnQQOnlineClear = new System.Windows.Forms.Button();
+            this.textBoxQQOnlineResult = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxQQNum = new System.Windows.Forms.TextBox();
+            this.btnQQOnlieCheck = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbpTrain = new System.Windows.Forms.TabPage();
             this.txtBoxCheckResultSHA1 = new System.Windows.Forms.TextBox();
             this.txtBoxCheckSelectSHA1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCheckSelectSHA1 = new System.Windows.Forms.Button();
             this.btnCheckResultSHA1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbpCheckMD5 = new System.Windows.Forms.TabPage();
-            this.textBoxCheckResultMD5 = new System.Windows.Forms.TextBox();
-            this.txtBoxCheckSelectMD5 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCheckSelectMD5 = new System.Windows.Forms.Button();
-            this.btnCheckResultMD5 = new System.Windows.Forms.Button();
-            this.lblEncryptMD52 = new System.Windows.Forms.Label();
-            this.tabCtrlCheck = new System.Windows.Forms.TabControl();
-            this.tbpCalcStrLen = new System.Windows.Forms.TabPage();
+            this.tbpAirport = new System.Windows.Forms.TabPage();
             this.labelUnicode = new System.Windows.Forms.Label();
             this.labelGBK = new System.Windows.Forms.Label();
             this.labelGB2312 = new System.Windows.Forms.Label();
@@ -57,29 +56,124 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxUTF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tbpCheckSHA1.SuspendLayout();
-            this.tbpCheckMD5.SuspendLayout();
-            this.tabCtrlCheck.SuspendLayout();
-            this.tbpCalcStrLen.SuspendLayout();
+            this.tbpCheckQQOnline = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxOnlineResult = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxQQOnline = new System.Windows.Forms.TextBox();
+            this.btnQQOnline = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tabCtrlQuery.SuspendLayout();
+            this.tbpQQOnline.SuspendLayout();
+            this.tbpTrain.SuspendLayout();
+            this.tbpAirport.SuspendLayout();
+            this.tbpCheckQQOnline.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbpCheckSHA1
+            // tabCtrlQuery
             // 
-            this.tbpCheckSHA1.BackColor = System.Drawing.Color.SkyBlue;
-            this.tbpCheckSHA1.Controls.Add(this.txtBoxCheckResultSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.txtBoxCheckSelectSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.label2);
-            this.tbpCheckSHA1.Controls.Add(this.btnCheckSelectSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.btnCheckResultSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.label3);
-            this.tbpCheckSHA1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpCheckSHA1.Location = new System.Drawing.Point(4, 28);
-            this.tbpCheckSHA1.Name = "tbpCheckSHA1";
-            this.tbpCheckSHA1.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCheckSHA1.Size = new System.Drawing.Size(500, 245);
-            this.tbpCheckSHA1.TabIndex = 1;
-            this.tbpCheckSHA1.Text = "校验SHA1";
+            this.tabCtrlQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabCtrlQuery.Controls.Add(this.tbpQQOnline);
+            this.tabCtrlQuery.Controls.Add(this.tbpTrain);
+            this.tabCtrlQuery.Controls.Add(this.tbpAirport);
+            this.tabCtrlQuery.Controls.Add(this.tbpCheckQQOnline);
+            this.tabCtrlQuery.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCtrlQuery.Location = new System.Drawing.Point(12, 8);
+            this.tabCtrlQuery.Name = "tabCtrlQuery";
+            this.tabCtrlQuery.SelectedIndex = 0;
+            this.tabCtrlQuery.Size = new System.Drawing.Size(508, 277);
+            this.tabCtrlQuery.TabIndex = 2;
+            // 
+            // tbpQQOnline
+            // 
+            this.tbpQQOnline.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpQQOnline.Controls.Add(this.btnQQOnlineClear);
+            this.tbpQQOnline.Controls.Add(this.textBoxQQOnlineResult);
+            this.tbpQQOnline.Controls.Add(this.label1);
+            this.tbpQQOnline.Controls.Add(this.textBoxQQNum);
+            this.tbpQQOnline.Controls.Add(this.btnQQOnlieCheck);
+            this.tbpQQOnline.Controls.Add(this.label10);
+            this.tbpQQOnline.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpQQOnline.Location = new System.Drawing.Point(4, 28);
+            this.tbpQQOnline.Name = "tbpQQOnline";
+            this.tbpQQOnline.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpQQOnline.Size = new System.Drawing.Size(500, 245);
+            this.tbpQQOnline.TabIndex = 0;
+            this.tbpQQOnline.Text = "QQ在线状态";
+            // 
+            // btnQQOnlineClear
+            // 
+            this.btnQQOnlineClear.Location = new System.Drawing.Point(139, 169);
+            this.btnQQOnlineClear.Name = "btnQQOnlineClear";
+            this.btnQQOnlineClear.Size = new System.Drawing.Size(75, 31);
+            this.btnQQOnlineClear.TabIndex = 32;
+            this.btnQQOnlineClear.Text = "清空";
+            this.btnQQOnlineClear.UseVisualStyleBackColor = true;
+            // 
+            // textBoxQQOnlineResult
+            // 
+            this.textBoxQQOnlineResult.Location = new System.Drawing.Point(173, 108);
+            this.textBoxQQOnlineResult.MaxLength = 327670;
+            this.textBoxQQOnlineResult.Name = "textBoxQQOnlineResult";
+            this.textBoxQQOnlineResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxQQOnlineResult.Size = new System.Drawing.Size(199, 26);
+            this.textBoxQQOnlineResult.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(86, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 19);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "【在线】";
+            // 
+            // textBoxQQNum
+            // 
+            this.textBoxQQNum.Location = new System.Drawing.Point(173, 43);
+            this.textBoxQQNum.MaxLength = 327670;
+            this.textBoxQQNum.Name = "textBoxQQNum";
+            this.textBoxQQNum.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxQQNum.Size = new System.Drawing.Size(199, 26);
+            this.textBoxQQNum.TabIndex = 29;
+            // 
+            // btnQQOnlieCheck
+            // 
+            this.btnQQOnlieCheck.Location = new System.Drawing.Point(287, 169);
+            this.btnQQOnlieCheck.Name = "btnQQOnlieCheck";
+            this.btnQQOnlieCheck.Size = new System.Drawing.Size(75, 31);
+            this.btnQQOnlieCheck.TabIndex = 27;
+            this.btnQQOnlieCheck.Text = "查询";
+            this.btnQQOnlieCheck.UseVisualStyleBackColor = true;
+            this.btnQQOnlieCheck.Click += new System.EventHandler(this.btnQQOnlieCheck_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(86, 46);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 19);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "【QQ号】";
+            // 
+            // tbpTrain
+            // 
+            this.tbpTrain.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpTrain.Controls.Add(this.txtBoxCheckResultSHA1);
+            this.tbpTrain.Controls.Add(this.txtBoxCheckSelectSHA1);
+            this.tbpTrain.Controls.Add(this.label2);
+            this.tbpTrain.Controls.Add(this.btnCheckSelectSHA1);
+            this.tbpTrain.Controls.Add(this.btnCheckResultSHA1);
+            this.tbpTrain.Controls.Add(this.label3);
+            this.tbpTrain.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpTrain.Location = new System.Drawing.Point(4, 28);
+            this.tbpTrain.Name = "tbpTrain";
+            this.tbpTrain.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpTrain.Size = new System.Drawing.Size(500, 245);
+            this.tbpTrain.TabIndex = 1;
+            this.tbpTrain.Text = "火车时刻表";
             // 
             // txtBoxCheckResultSHA1
             // 
@@ -122,7 +216,6 @@
             this.btnCheckSelectSHA1.TabIndex = 23;
             this.btnCheckSelectSHA1.Text = "浏览";
             this.btnCheckSelectSHA1.UseVisualStyleBackColor = true;
-            this.btnCheckSelectSHA1.Click += new System.EventHandler(this.btnCheckSelectSHA1_Click);
             // 
             // btnCheckResultSHA1
             // 
@@ -133,7 +226,6 @@
             this.btnCheckResultSHA1.TabIndex = 21;
             this.btnCheckResultSHA1.Text = "计算";
             this.btnCheckResultSHA1.UseVisualStyleBackColor = true;
-            this.btnCheckResultSHA1.Click += new System.EventHandler(this.btnCheckResultSHA1_Click);
             // 
             // label3
             // 
@@ -145,118 +237,26 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "【结果】";
             // 
-            // tbpCheckMD5
+            // tbpAirport
             // 
-            this.tbpCheckMD5.BackColor = System.Drawing.Color.SkyBlue;
-            this.tbpCheckMD5.Controls.Add(this.textBoxCheckResultMD5);
-            this.tbpCheckMD5.Controls.Add(this.txtBoxCheckSelectMD5);
-            this.tbpCheckMD5.Controls.Add(this.label1);
-            this.tbpCheckMD5.Controls.Add(this.btnCheckSelectMD5);
-            this.tbpCheckMD5.Controls.Add(this.btnCheckResultMD5);
-            this.tbpCheckMD5.Controls.Add(this.lblEncryptMD52);
-            this.tbpCheckMD5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpCheckMD5.Location = new System.Drawing.Point(4, 28);
-            this.tbpCheckMD5.Name = "tbpCheckMD5";
-            this.tbpCheckMD5.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCheckMD5.Size = new System.Drawing.Size(500, 245);
-            this.tbpCheckMD5.TabIndex = 0;
-            this.tbpCheckMD5.Text = "校验MD5";
-            // 
-            // textBoxCheckResultMD5
-            // 
-            this.textBoxCheckResultMD5.Location = new System.Drawing.Point(130, 127);
-            this.textBoxCheckResultMD5.MaxLength = 327670;
-            this.textBoxCheckResultMD5.Multiline = true;
-            this.textBoxCheckResultMD5.Name = "textBoxCheckResultMD5";
-            this.textBoxCheckResultMD5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxCheckResultMD5.Size = new System.Drawing.Size(199, 47);
-            this.textBoxCheckResultMD5.TabIndex = 20;
-            // 
-            // txtBoxCheckSelectMD5
-            // 
-            this.txtBoxCheckSelectMD5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBoxCheckSelectMD5.Location = new System.Drawing.Point(130, 49);
-            this.txtBoxCheckSelectMD5.MaxLength = 327670;
-            this.txtBoxCheckSelectMD5.Name = "txtBoxCheckSelectMD5";
-            this.txtBoxCheckSelectMD5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxCheckSelectMD5.Size = new System.Drawing.Size(199, 26);
-            this.txtBoxCheckSelectMD5.TabIndex = 19;
-            this.txtBoxCheckSelectMD5.Text = "选择文件";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 19);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "【文件】";
-            // 
-            // btnCheckSelectMD5
-            // 
-            this.btnCheckSelectMD5.Location = new System.Drawing.Point(357, 46);
-            this.btnCheckSelectMD5.Name = "btnCheckSelectMD5";
-            this.btnCheckSelectMD5.Size = new System.Drawing.Size(75, 31);
-            this.btnCheckSelectMD5.TabIndex = 16;
-            this.btnCheckSelectMD5.Text = "浏览";
-            this.btnCheckSelectMD5.UseVisualStyleBackColor = true;
-            this.btnCheckSelectMD5.Click += new System.EventHandler(this.btnCheckSelect_Click);
-            // 
-            // btnCheckResultMD5
-            // 
-            this.btnCheckResultMD5.Location = new System.Drawing.Point(357, 136);
-            this.btnCheckResultMD5.Name = "btnCheckResultMD5";
-            this.btnCheckResultMD5.Size = new System.Drawing.Size(75, 31);
-            this.btnCheckResultMD5.TabIndex = 4;
-            this.btnCheckResultMD5.Text = "计算";
-            this.btnCheckResultMD5.UseVisualStyleBackColor = true;
-            this.btnCheckResultMD5.Click += new System.EventHandler(this.btnCheckMD5_Click);
-            // 
-            // lblEncryptMD52
-            // 
-            this.lblEncryptMD52.AutoSize = true;
-            this.lblEncryptMD52.Location = new System.Drawing.Point(33, 142);
-            this.lblEncryptMD52.Name = "lblEncryptMD52";
-            this.lblEncryptMD52.Size = new System.Drawing.Size(81, 19);
-            this.lblEncryptMD52.TabIndex = 9;
-            this.lblEncryptMD52.Text = "【结果】";
-            // 
-            // tabCtrlCheck
-            // 
-            this.tabCtrlCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabCtrlCheck.Controls.Add(this.tbpCheckMD5);
-            this.tabCtrlCheck.Controls.Add(this.tbpCheckSHA1);
-            this.tabCtrlCheck.Controls.Add(this.tbpCalcStrLen);
-            this.tabCtrlCheck.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCtrlCheck.Location = new System.Drawing.Point(12, 3);
-            this.tabCtrlCheck.Name = "tabCtrlCheck";
-            this.tabCtrlCheck.SelectedIndex = 0;
-            this.tabCtrlCheck.Size = new System.Drawing.Size(508, 277);
-            this.tabCtrlCheck.TabIndex = 1;
-            // 
-            // tbpCalcStrLen
-            // 
-            this.tbpCalcStrLen.BackColor = System.Drawing.Color.SkyBlue;
-            this.tbpCalcStrLen.Controls.Add(this.labelUnicode);
-            this.tbpCalcStrLen.Controls.Add(this.labelGBK);
-            this.tbpCalcStrLen.Controls.Add(this.labelGB2312);
-            this.tbpCalcStrLen.Controls.Add(this.labelUtf);
-            this.tbpCalcStrLen.Controls.Add(this.textBoxUnicode);
-            this.tbpCalcStrLen.Controls.Add(this.label7);
-            this.tbpCalcStrLen.Controls.Add(this.textBoxGBK);
-            this.tbpCalcStrLen.Controls.Add(this.label6);
-            this.tbpCalcStrLen.Controls.Add(this.textBoxGB2312);
-            this.tbpCalcStrLen.Controls.Add(this.label5);
-            this.tbpCalcStrLen.Controls.Add(this.textBoxUTF);
-            this.tbpCalcStrLen.Controls.Add(this.label4);
-            this.tbpCalcStrLen.Location = new System.Drawing.Point(4, 28);
-            this.tbpCalcStrLen.Name = "tbpCalcStrLen";
-            this.tbpCalcStrLen.Size = new System.Drawing.Size(500, 245);
-            this.tbpCalcStrLen.TabIndex = 2;
-            this.tbpCalcStrLen.Text = "长度计算";
-            this.tbpCalcStrLen.Click += new System.EventHandler(this.tbpCalcStrLen_Click);
+            this.tbpAirport.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpAirport.Controls.Add(this.labelUnicode);
+            this.tbpAirport.Controls.Add(this.labelGBK);
+            this.tbpAirport.Controls.Add(this.labelGB2312);
+            this.tbpAirport.Controls.Add(this.labelUtf);
+            this.tbpAirport.Controls.Add(this.textBoxUnicode);
+            this.tbpAirport.Controls.Add(this.label7);
+            this.tbpAirport.Controls.Add(this.textBoxGBK);
+            this.tbpAirport.Controls.Add(this.label6);
+            this.tbpAirport.Controls.Add(this.textBoxGB2312);
+            this.tbpAirport.Controls.Add(this.label5);
+            this.tbpAirport.Controls.Add(this.textBoxUTF);
+            this.tbpAirport.Controls.Add(this.label4);
+            this.tbpAirport.Location = new System.Drawing.Point(4, 28);
+            this.tbpAirport.Name = "tbpAirport";
+            this.tbpAirport.Size = new System.Drawing.Size(500, 245);
+            this.tbpAirport.TabIndex = 2;
+            this.tbpAirport.Text = "飞机航班";
             // 
             // labelUnicode
             // 
@@ -308,8 +308,6 @@
             this.textBoxUnicode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxUnicode.Size = new System.Drawing.Size(214, 26);
             this.textBoxUnicode.TabIndex = 33;
-            this.textBoxUnicode.TextChanged += new System.EventHandler(this.textBoxUnicode_TextChanged);
-            this.textBoxUnicode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxUnicode_MouseDown);
             // 
             // label7
             // 
@@ -331,8 +329,6 @@
             this.textBoxGBK.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxGBK.Size = new System.Drawing.Size(214, 26);
             this.textBoxGBK.TabIndex = 31;
-            this.textBoxGBK.TextChanged += new System.EventHandler(this.textBoxGBK_TextChanged);
-            this.textBoxGBK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGBK_MouseDown);
             // 
             // label6
             // 
@@ -354,8 +350,6 @@
             this.textBoxGB2312.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxGB2312.Size = new System.Drawing.Size(214, 26);
             this.textBoxGB2312.TabIndex = 29;
-            this.textBoxGB2312.TextChanged += new System.EventHandler(this.textBoxGB2312_TextChanged);
-            this.textBoxGB2312.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGB2312_MouseDown);
             // 
             // label5
             // 
@@ -377,8 +371,6 @@
             this.textBoxUTF.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxUTF.Size = new System.Drawing.Size(214, 26);
             this.textBoxUTF.TabIndex = 27;
-            this.textBoxUTF.TextChanged += new System.EventHandler(this.textBoxUTF_TextChanged);
-            this.textBoxUTF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxUTF_MouseDown);
             // 
             // label4
             // 
@@ -390,52 +382,114 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "【 UTF-8 】";
             // 
-            // openFileDialog
+            // tbpCheckQQOnline
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.InitialDirectory = "C:\\";
+            this.tbpCheckQQOnline.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpCheckQQOnline.Controls.Add(this.button1);
+            this.tbpCheckQQOnline.Controls.Add(this.textBoxOnlineResult);
+            this.tbpCheckQQOnline.Controls.Add(this.label9);
+            this.tbpCheckQQOnline.Controls.Add(this.textBoxQQOnline);
+            this.tbpCheckQQOnline.Controls.Add(this.btnQQOnline);
+            this.tbpCheckQQOnline.Controls.Add(this.label8);
+            this.tbpCheckQQOnline.Location = new System.Drawing.Point(4, 28);
+            this.tbpCheckQQOnline.Name = "tbpCheckQQOnline";
+            this.tbpCheckQQOnline.Size = new System.Drawing.Size(500, 245);
+            this.tbpCheckQQOnline.TabIndex = 3;
+            this.tbpCheckQQOnline.Text = "待定";
             // 
-            // CheckForm
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(146, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 31);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "清空";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxOnlineResult
+            // 
+            this.textBoxOnlineResult.Location = new System.Drawing.Point(180, 113);
+            this.textBoxOnlineResult.MaxLength = 327670;
+            this.textBoxOnlineResult.Name = "textBoxOnlineResult";
+            this.textBoxOnlineResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOnlineResult.Size = new System.Drawing.Size(199, 26);
+            this.textBoxOnlineResult.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(93, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 19);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "【在线】";
+            // 
+            // textBoxQQOnline
+            // 
+            this.textBoxQQOnline.Location = new System.Drawing.Point(180, 48);
+            this.textBoxQQOnline.MaxLength = 327670;
+            this.textBoxQQOnline.Name = "textBoxQQOnline";
+            this.textBoxQQOnline.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxQQOnline.Size = new System.Drawing.Size(199, 26);
+            this.textBoxQQOnline.TabIndex = 23;
+            // 
+            // btnQQOnline
+            // 
+            this.btnQQOnline.Location = new System.Drawing.Point(294, 174);
+            this.btnQQOnline.Name = "btnQQOnline";
+            this.btnQQOnline.Size = new System.Drawing.Size(75, 31);
+            this.btnQQOnline.TabIndex = 21;
+            this.btnQQOnline.Text = "查询";
+            this.btnQQOnline.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(93, 51);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 19);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "【QQ号】";
+            // 
+            // QueryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 292);
-            this.Controls.Add(this.tabCtrlCheck);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.tabCtrlQuery);
             this.KeyPreview = true;
-            this.Name = "CheckForm";
-            this.Text = "文件校验";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckForm_KeyPress);
-            this.tbpCheckSHA1.ResumeLayout(false);
-            this.tbpCheckSHA1.PerformLayout();
-            this.tbpCheckMD5.ResumeLayout(false);
-            this.tbpCheckMD5.PerformLayout();
-            this.tabCtrlCheck.ResumeLayout(false);
-            this.tbpCalcStrLen.ResumeLayout(false);
-            this.tbpCalcStrLen.PerformLayout();
+            this.Name = "QueryForm";
+            this.Text = "查询";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QueryForm_KeyPress);
+            this.tabCtrlQuery.ResumeLayout(false);
+            this.tbpQQOnline.ResumeLayout(false);
+            this.tbpQQOnline.PerformLayout();
+            this.tbpTrain.ResumeLayout(false);
+            this.tbpTrain.PerformLayout();
+            this.tbpAirport.ResumeLayout(false);
+            this.tbpAirport.PerformLayout();
+            this.tbpCheckQQOnline.ResumeLayout(false);
+            this.tbpCheckQQOnline.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabPage tbpCheckSHA1;
-        private System.Windows.Forms.TabPage tbpCheckMD5;
-        private System.Windows.Forms.Button btnCheckResultMD5;
-        private System.Windows.Forms.Label lblEncryptMD52;
-        private System.Windows.Forms.TabControl tabCtrlCheck;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCheckSelectMD5;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TextBox textBoxCheckResultMD5;
-        private System.Windows.Forms.TextBox txtBoxCheckSelectMD5;
+        private System.Windows.Forms.TabControl tabCtrlQuery;
+        private System.Windows.Forms.TabPage tbpQQOnline;
+        private System.Windows.Forms.TabPage tbpTrain;
         private System.Windows.Forms.TextBox txtBoxCheckResultSHA1;
         private System.Windows.Forms.TextBox txtBoxCheckSelectSHA1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCheckSelectSHA1;
         private System.Windows.Forms.Button btnCheckResultSHA1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tbpCalcStrLen;
+        private System.Windows.Forms.TabPage tbpAirport;
+        private System.Windows.Forms.Label labelUnicode;
+        private System.Windows.Forms.Label labelGBK;
+        private System.Windows.Forms.Label labelGB2312;
+        private System.Windows.Forms.Label labelUtf;
         private System.Windows.Forms.TextBox textBoxUnicode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxGBK;
@@ -444,9 +498,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxUTF;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelUnicode;
-        private System.Windows.Forms.Label labelGBK;
-        private System.Windows.Forms.Label labelGB2312;
-        private System.Windows.Forms.Label labelUtf;
+        private System.Windows.Forms.TabPage tbpCheckQQOnline;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxOnlineResult;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxQQOnline;
+        private System.Windows.Forms.Button btnQQOnline;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnQQOnlineClear;
+        private System.Windows.Forms.TextBox textBoxQQOnlineResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxQQNum;
+        private System.Windows.Forms.Button btnQQOnlieCheck;
+        private System.Windows.Forms.Label label10;
     }
 }
