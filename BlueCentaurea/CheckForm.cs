@@ -66,7 +66,7 @@ namespace BlueCentaurea
             }
             catch (Exception ex)
             {
-                MessageBox.Show("检查文件是否存在！", "错误");
+                MessageBox.Show("检查文件是否存在！" + ex.Message, "错误");
             }
         }
 
@@ -98,7 +98,7 @@ namespace BlueCentaurea
             }
             catch (Exception ex)
             {
-                MessageBox.Show("检查文件是否存在！", "错误");
+                MessageBox.Show("检查文件是否存在！" + ex.Message, "错误");
             }
         }
 
