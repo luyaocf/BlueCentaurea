@@ -124,6 +124,9 @@
   <data name="CKFinder_resize_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CKFinder_resize_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LightOff1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightOff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LightOff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LightOff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,14 +136,8 @@
   <data name="解锁" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\解锁.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="校验1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\校验.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LightOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LightOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LightOff1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LightOff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LightOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="browser-icon-chrome1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\browser-icon-chrome1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +145,8 @@
   <data name="DataRSStatusOn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataRSStatusOn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LightOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LightOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CKFinder_resize_unlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CKFinder_resize_unlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DataRSStatusOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataRSStatusOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,10 +166,10 @@
   <data name="加密" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\加密.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CKFinder_resize_unlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CKFinder_resize_unlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LightOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico\calc.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="校验1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\校验.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -194,7 +194,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\BuleCentaurea.ico" />
-    <None Include="Resources\ico\calc.ico" />
     <None Include="Resources\校验.jpg" />
     <None Include="Resources\解锁.jpg" />
     <None Include="Resources\加密.jpg" />
