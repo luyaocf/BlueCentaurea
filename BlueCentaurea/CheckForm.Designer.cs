@@ -44,20 +44,20 @@
             this.btnCheckResultMD5 = new System.Windows.Forms.Button();
             this.lblEncryptMD52 = new System.Windows.Forms.Label();
             this.tabCtrlCheck = new System.Windows.Forms.TabControl();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tbpCalcStrLen = new System.Windows.Forms.TabPage();
-            this.labelUnicode = new System.Windows.Forms.Label();
-            this.labelGBK = new System.Windows.Forms.Label();
-            this.labelGB2312 = new System.Windows.Forms.Label();
-            this.labelUtf = new System.Windows.Forms.Label();
-            this.textBoxUnicode = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxGBK = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxGB2312 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBoxUTF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.textBoxGB2312 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxGBK = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxUnicode = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelUtf = new System.Windows.Forms.Label();
+            this.labelGB2312 = new System.Windows.Forms.Label();
+            this.labelGBK = new System.Windows.Forms.Label();
+            this.labelUnicode = new System.Windows.Forms.Label();
             this.tbpCheckSHA1.SuspendLayout();
             this.tbpCheckMD5.SuspendLayout();
             this.tabCtrlCheck.SuspendLayout();
@@ -236,6 +236,11 @@
             this.tabCtrlCheck.Size = new System.Drawing.Size(508, 277);
             this.tabCtrlCheck.TabIndex = 1;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.InitialDirectory = "C:\\";
+            // 
             // tbpCalcStrLen
             // 
             this.tbpCalcStrLen.BackColor = System.Drawing.Color.SkyBlue;
@@ -257,115 +262,6 @@
             this.tbpCalcStrLen.TabIndex = 2;
             this.tbpCalcStrLen.Text = "长度计算";
             this.tbpCalcStrLen.Click += new System.EventHandler(this.tbpCalcStrLen_Click);
-            // 
-            // labelUnicode
-            // 
-            this.labelUnicode.AutoSize = true;
-            this.labelUnicode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUnicode.Location = new System.Drawing.Point(352, 148);
-            this.labelUnicode.Name = "labelUnicode";
-            this.labelUnicode.Size = new System.Drawing.Size(90, 19);
-            this.labelUnicode.TabIndex = 37;
-            this.labelUnicode.Text = "【0字节】";
-            // 
-            // labelGBK
-            // 
-            this.labelGBK.AutoSize = true;
-            this.labelGBK.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGBK.Location = new System.Drawing.Point(352, 108);
-            this.labelGBK.Name = "labelGBK";
-            this.labelGBK.Size = new System.Drawing.Size(90, 19);
-            this.labelGBK.TabIndex = 36;
-            this.labelGBK.Text = "【0字节】";
-            // 
-            // labelGB2312
-            // 
-            this.labelGB2312.AutoSize = true;
-            this.labelGB2312.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGB2312.Location = new System.Drawing.Point(352, 66);
-            this.labelGB2312.Name = "labelGB2312";
-            this.labelGB2312.Size = new System.Drawing.Size(90, 19);
-            this.labelGB2312.TabIndex = 35;
-            this.labelGB2312.Text = "【0字节】";
-            // 
-            // labelUtf
-            // 
-            this.labelUtf.AutoSize = true;
-            this.labelUtf.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUtf.Location = new System.Drawing.Point(352, 24);
-            this.labelUtf.Name = "labelUtf";
-            this.labelUtf.Size = new System.Drawing.Size(90, 19);
-            this.labelUtf.TabIndex = 34;
-            this.labelUtf.Text = "【0字节】";
-            // 
-            // textBoxUnicode
-            // 
-            this.textBoxUnicode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnicode.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxUnicode.Location = new System.Drawing.Point(132, 145);
-            this.textBoxUnicode.MaxLength = 327670;
-            this.textBoxUnicode.Name = "textBoxUnicode";
-            this.textBoxUnicode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxUnicode.Size = new System.Drawing.Size(214, 26);
-            this.textBoxUnicode.TabIndex = 33;
-            this.textBoxUnicode.TextChanged += new System.EventHandler(this.textBoxUnicode_TextChanged);
-            this.textBoxUnicode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxUnicode_MouseDown);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 148);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 19);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "【Unicode】";
-            // 
-            // textBoxGBK
-            // 
-            this.textBoxGBK.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGBK.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxGBK.Location = new System.Drawing.Point(132, 105);
-            this.textBoxGBK.MaxLength = 327670;
-            this.textBoxGBK.Name = "textBoxGBK";
-            this.textBoxGBK.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxGBK.Size = new System.Drawing.Size(214, 26);
-            this.textBoxGBK.TabIndex = 31;
-            this.textBoxGBK.TextChanged += new System.EventHandler(this.textBoxGBK_TextChanged);
-            this.textBoxGBK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGBK_MouseDown);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 108);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 19);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "【  GBK  】";
-            // 
-            // textBoxGB2312
-            // 
-            this.textBoxGB2312.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGB2312.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxGB2312.Location = new System.Drawing.Point(132, 63);
-            this.textBoxGB2312.MaxLength = 327670;
-            this.textBoxGB2312.Name = "textBoxGB2312";
-            this.textBoxGB2312.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxGB2312.Size = new System.Drawing.Size(214, 26);
-            this.textBoxGB2312.TabIndex = 29;
-            this.textBoxGB2312.TextChanged += new System.EventHandler(this.textBoxGB2312_TextChanged);
-            this.textBoxGB2312.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGB2312_MouseDown);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 19);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "【 GB2312】";
             // 
             // textBoxUTF
             // 
@@ -390,10 +286,114 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "【 UTF-8 】";
             // 
-            // openFileDialog
+            // textBoxGB2312
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.InitialDirectory = "C:\\";
+            this.textBoxGB2312.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGB2312.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxGB2312.Location = new System.Drawing.Point(132, 63);
+            this.textBoxGB2312.MaxLength = 327670;
+            this.textBoxGB2312.Name = "textBoxGB2312";
+            this.textBoxGB2312.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxGB2312.Size = new System.Drawing.Size(214, 26);
+            this.textBoxGB2312.TabIndex = 29;
+            this.textBoxGB2312.TextChanged += new System.EventHandler(this.textBoxGB2312_TextChanged);
+            this.textBoxGB2312.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGB2312_MouseDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 19);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "【 GB2312】";
+            // 
+            // textBoxGBK
+            // 
+            this.textBoxGBK.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGBK.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxGBK.Location = new System.Drawing.Point(132, 105);
+            this.textBoxGBK.MaxLength = 327670;
+            this.textBoxGBK.Name = "textBoxGBK";
+            this.textBoxGBK.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxGBK.Size = new System.Drawing.Size(214, 26);
+            this.textBoxGBK.TabIndex = 31;
+            this.textBoxGBK.TextChanged += new System.EventHandler(this.textBoxGBK_TextChanged);
+            this.textBoxGBK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxGBK_MouseDown);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 19);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "【  GBK  】";
+            // 
+            // textBoxUnicode
+            // 
+            this.textBoxUnicode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnicode.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxUnicode.Location = new System.Drawing.Point(132, 145);
+            this.textBoxUnicode.MaxLength = 327670;
+            this.textBoxUnicode.Name = "textBoxUnicode";
+            this.textBoxUnicode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxUnicode.Size = new System.Drawing.Size(214, 26);
+            this.textBoxUnicode.TabIndex = 33;
+            this.textBoxUnicode.TextChanged += new System.EventHandler(this.textBoxUnicode_TextChanged);
+            this.textBoxUnicode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxUnicode_MouseDown);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 148);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 19);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "【Unicode】";
+            // 
+            // labelUtf
+            // 
+            this.labelUtf.AutoSize = true;
+            this.labelUtf.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUtf.Location = new System.Drawing.Point(352, 24);
+            this.labelUtf.Name = "labelUtf";
+            this.labelUtf.Size = new System.Drawing.Size(90, 19);
+            this.labelUtf.TabIndex = 34;
+            this.labelUtf.Text = "【0字节】";
+            // 
+            // labelGB2312
+            // 
+            this.labelGB2312.AutoSize = true;
+            this.labelGB2312.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGB2312.Location = new System.Drawing.Point(352, 66);
+            this.labelGB2312.Name = "labelGB2312";
+            this.labelGB2312.Size = new System.Drawing.Size(90, 19);
+            this.labelGB2312.TabIndex = 35;
+            this.labelGB2312.Text = "【0字节】";
+            // 
+            // labelGBK
+            // 
+            this.labelGBK.AutoSize = true;
+            this.labelGBK.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGBK.Location = new System.Drawing.Point(352, 108);
+            this.labelGBK.Name = "labelGBK";
+            this.labelGBK.Size = new System.Drawing.Size(90, 19);
+            this.labelGBK.TabIndex = 36;
+            this.labelGBK.Text = "【0字节】";
+            // 
+            // labelUnicode
+            // 
+            this.labelUnicode.AutoSize = true;
+            this.labelUnicode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUnicode.Location = new System.Drawing.Point(352, 148);
+            this.labelUnicode.Name = "labelUnicode";
+            this.labelUnicode.Size = new System.Drawing.Size(90, 19);
+            this.labelUnicode.TabIndex = 37;
+            this.labelUnicode.Text = "【0字节】";
             // 
             // CheckForm
             // 

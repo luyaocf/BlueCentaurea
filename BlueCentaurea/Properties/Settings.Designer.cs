@@ -22,25 +22,5 @@ namespace BlueCentaurea.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.webxml.com.cn/webservices/qqOnlineWebService.asmx")]
-        public string BlueCentaurea_cn_com_webxml_www_qqOnlineWebService {
-            get {
-                return ((string)(this["BlueCentaurea_cn_com_webxml_www_qqOnlineWebService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.webxml.com.cn/webservices/DomesticAirline.asmx")]
-        public string BlueCentaurea_DomesticAirline_DomesticAirline {
-            get {
-                return ((string)(this["BlueCentaurea_DomesticAirline_DomesticAirline"]));
-            }
-        }
     }
 }

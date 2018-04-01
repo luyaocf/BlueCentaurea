@@ -38,8 +38,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,12 +55,6 @@
     <Compile Include="CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadingControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoadingControl.Designer.cs">
-      <DependentUpon>LoadingControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,12 +66,6 @@
     </Compile>
     <Compile Include="NetworkForm.Designer.cs">
       <DependentUpon>NetworkForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QueryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QueryForm.Designer.cs">
-      <DependentUpon>QueryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TransForm.cs">
       <SubType>Form</SubType>
@@ -106,30 +92,14 @@
     <Compile Include="SerialForm.Designer.cs">
       <DependentUpon>SerialForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Web References\DomesticAirline\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\QQOnlineWebService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoadingControl.resx">
-      <DependentUpon>LoadingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NetworkForm.resx">
       <DependentUpon>NetworkForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QueryForm.resx">
-      <DependentUpon>QueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransForm.resx">
       <DependentUpon>TransForm.cs</DependentUpon>
@@ -154,16 +124,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\DomesticAirline\DomesticAirline.wsdl" />
-    <None Include="Web References\DomesticAirline\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\QQOnlineWebService\qqOnlineWebService.wsdl" />
-    <None Include="Web References\QQOnlineWebService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -197,36 +157,6 @@
     <None Include="Resources\校验.jpg" />
     <None Include="Resources\解锁.jpg" />
     <None Include="Resources\加密.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://www.webxml.com.cn/webservices/DomesticAirline.asmx%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\DomesticAirline\</RelPath>
-      <UpdateFromURL>http://www.webxml.com.cn/webservices/DomesticAirline.asmx%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>BlueCentaurea_DomesticAirline_DomesticAirline</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://www.webxml.com.cn/webservices/qqOnlineWebService.asmx%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\QQOnlineWebService\</RelPath>
-      <UpdateFromURL>http://www.webxml.com.cn/webservices/qqOnlineWebService.asmx%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>BlueCentaurea_cn_com_webxml_www_qqOnlineWebService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

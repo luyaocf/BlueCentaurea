@@ -97,15 +97,15 @@ namespace BlueCentaurea
 
         /********************************************************************************************/
 
-        private void watchHelp_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 查看帮助_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("注意输入文本框的提示内容！", "帮助");
         }
-        private void contectUs_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 联系我们_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("邮箱:861317026@qq.com", "联系我们");
         }
-        private void aboutBlueCentaurea_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 关于BlueCentaurea_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("我承认，我盗了chrome浏览器的图！侵删", "关于 BlueCentaurea V2.0");
         }
@@ -119,7 +119,7 @@ namespace BlueCentaurea
             }
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 更新日志ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("2017-06-14\r   1 编码转换功能实现\r" +
                 "   2 加(解)密功能实现\r" +
@@ -138,34 +138,6 @@ namespace BlueCentaurea
             CheckForm checkForm = new CheckForm();
             checkForm.StartPosition = FormStartPosition.CenterParent;
             checkForm.Show();
-        }
-
-        private void QQOnlineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckForm checkForm = new CheckForm();
-            checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.SelectTabPages(3);
-        }
-
-        private void qqOnlineToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(0);
-        }
-
-        private void trainToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(1);
-        }
-
-        private void airportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(2);
         }
     }
 

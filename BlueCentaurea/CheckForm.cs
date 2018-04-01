@@ -176,6 +176,5 @@ namespace BlueCentaurea
             this.textBoxUnicode.Text = "请输入字符串";
             this.textBoxUnicode.ForeColor = Color.Gray;
         }
-
     }
 }
