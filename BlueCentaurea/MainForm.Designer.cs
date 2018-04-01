@@ -56,10 +56,6 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutBlueCentaureaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.queryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qqOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.airportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -282,7 +278,6 @@
             this.menuStrip1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Consolas", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.queryToolStripMenuItem,
             this.transToolStripMenuItem,
             this.checkToolStripMenuItem,
             this.encryptToolStripMenuItem,
@@ -295,37 +290,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(755, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // queryToolStripMenuItem
-            // 
-            this.queryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.qqOnlineToolStripMenuItem,
-            this.trainToolStripMenuItem,
-            this.airportToolStripMenuItem});
-            this.queryToolStripMenuItem.Name = "queryToolStripMenuItem";
-            this.queryToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
-            this.queryToolStripMenuItem.Text = "查询(&Q)";
-            // 
-            // qqOnlineToolStripMenuItem
-            // 
-            this.qqOnlineToolStripMenuItem.Name = "qqOnlineToolStripMenuItem";
-            this.qqOnlineToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.qqOnlineToolStripMenuItem.Text = "QQ在线状态(&O)";
-            this.qqOnlineToolStripMenuItem.Click += new System.EventHandler(this.qqOnlineToolStripMenuItem_Click_1);
-            // 
-            // trainToolStripMenuItem
-            // 
-            this.trainToolStripMenuItem.Name = "trainToolStripMenuItem";
-            this.trainToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.trainToolStripMenuItem.Text = "火车时刻表(T)";
-            this.trainToolStripMenuItem.Click += new System.EventHandler(this.trainToolStripMenuItem_Click);
-            // 
-            // airportToolStripMenuItem
-            // 
-            this.airportToolStripMenuItem.Name = "airportToolStripMenuItem";
-            this.airportToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.airportToolStripMenuItem.Text = "飞机航班(A)";
-            this.airportToolStripMenuItem.Click += new System.EventHandler(this.airportToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -377,10 +341,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutBlueCentaureaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem strLenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem queryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qqOnlineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trainToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem airportToolStripMenuItem;
     }
 }
 

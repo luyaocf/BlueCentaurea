@@ -164,28 +164,7 @@ namespace BlueCentaurea
             CheckForm checkForm = new CheckForm();
             checkForm.StartPosition = FormStartPosition.CenterParent;
             checkForm.SelectTabPages(3);
-        }
-
-        private void qqOnlineToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(0);
-        }
-
-        private void trainToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(1);
-        }
-
-        private void airportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QueryForm queryForm = new QueryForm();
-            queryForm.StartPosition = FormStartPosition.CenterScreen;
-            queryForm.SelectTabPages(2);
-        }
+        }      
     }
 
     public class ConstValue
@@ -280,7 +259,7 @@ namespace BlueCentaurea
             }
             catch (Exception e)
             {
-                MessageBox.Show("您输入的数据格式不正确！", "消息提示框");
+                MessageBox.Show("您输入的数据格式不正确！" + e.Message, "消息提示框");
             }
 
             return null;
