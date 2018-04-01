@@ -22,7 +22,7 @@ namespace BlueCentaurea
             MyTools.SetDefaultText(textTransData2, ConstValue.TEXT_TRANS_DATA_2);
             MyTools.SetDefaultText(textTransData3, ConstValue.TEXT_TRANS_DATA_3);
             MyTools.SetDefaultText(textTransData4, ConstValue.TEXT_TRANS_DATA_4);
-            MyTools.SetDefaultText(textTransData5, ConstValue.TEXT_TRANS_DATA_5);
+            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
             MyTools.SetDefaultText(textTransData6, ConstValue.TEXT_TRANS_DATA_6);
         }
 
@@ -71,7 +71,13 @@ namespace BlueCentaurea
             {
                 return "数据不合法，请参照提示重新输入！";
             }
-            return Encoding.GetEncoding("GBK").GetString(bs);
+            if (this.radioButtonGBK.Checked)
+            {
+                return Encoding.GetEncoding("GBK").GetString(bs);
+            } else
+            {
+                return Encoding.GetEncoding("UTF-8").GetString(bs);
+            }
         }
         private void btnTransClear1_Click(object sender, EventArgs e)
         {
@@ -106,8 +112,16 @@ namespace BlueCentaurea
         }
         private string GB2312ToHex_Method(string str)
         {
-            byte[] gb = Encoding.GetEncoding("GBK").GetBytes(str);
-            return MyTools.BytesToHexString(gb);
+            if (this.radioButtonGBK2.Checked)
+            {
+                byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(str);
+                return MyTools.BytesToHexString(bytes);
+            }
+            else
+            {
+                byte[] bytes = Encoding.GetEncoding("UTF-8").GetBytes(str);
+                return MyTools.BytesToHexString(bytes);
+            }
         }
         private void btnTransClear2_Click(object sender, EventArgs e)
         {
@@ -207,14 +221,15 @@ namespace BlueCentaurea
 
 
         /******************按钮_Hex2UTF-8*****************************************************************/
-        private void button2_Click(object sender, EventArgs e)
+        private void TransDelSpaceClear_Click(object sender, EventArgs e)
         {
-
+            this.textBoxDelSpace.Text = string.Empty;
+            this.textBoxDelSpaceResult.Text = string.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void TransDelSpace_Click(object sender, EventArgs e)
         {
-
+            this.textBoxDelSpaceResult.Text = Regex.Replace(this.textBoxDelSpace.Text.Trim(), @"\s", "");
         }
 
         /******************按钮_UTF-82Hex*****************************************************************/
@@ -235,6 +250,40 @@ namespace BlueCentaurea
                 this.Close();
                 return;
             }
+        }
+
+        private void radioButtonGBK2_MouseEnter(object sender, EventArgs e)
+        {
+            this.radioButtonGBK2.Text = "一般情况下，GBK编码的汉字占用2个字节！";
+        }
+
+        private void textTransData1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void textBoxDelSpace_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.textBoxDelSpace.Text == ConstValue.TEXT_TRANS_DATA_7)
+            {
+                textBoxDelSpace.Text = string.Empty;
+                textBoxDelSpace.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxDelSpaceResult_TextChanged(object sender, EventArgs e)
+        {
+            lblTransResult5.Text = "【" + textBoxDelSpaceResult.TextLength + "字节】";
+        }
+
+        private void deleteSpace_Click(object sender, EventArgs e)
+        {
+            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
+        }
+
+        private void textBoxDelSpace_TextChanged(object sender, EventArgs e)
+        {
+            lblTransData5.Text = "【" + textBoxDelSpace.TextLength + "字节】";
         }
     }
 }

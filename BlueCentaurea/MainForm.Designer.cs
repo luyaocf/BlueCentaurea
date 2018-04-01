@@ -56,6 +56,7 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutBlueCentaureaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.httpTest = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,48 +77,48 @@
             // 
             this.进制转换为GB2312ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.进制转换为GB2312ToolStripMenuItem.Name = "进制转换为GB2312ToolStripMenuItem";
-            this.进制转换为GB2312ToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.进制转换为GB2312ToolStripMenuItem.Text = "Hex2GBK(&H)";
+            this.进制转换为GB2312ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.进制转换为GB2312ToolStripMenuItem.Text = "HEX --> GBK(&H)";
             this.进制转换为GB2312ToolStripMenuItem.Click += new System.EventHandler(this.Hex2GB2312ToolStripMenuItem_Click);
             // 
             // gB2312转换为16进制ToolStripMenuItem
             // 
             this.gB2312转换为16进制ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.gB2312转换为16进制ToolStripMenuItem.Name = "gB2312转换为16进制ToolStripMenuItem";
-            this.gB2312转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.gB2312转换为16进制ToolStripMenuItem.Text = "GBK2Hex(G)";
+            this.gB2312转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.gB2312转换为16进制ToolStripMenuItem.Text = "GBK --> HEX(G)";
             this.gB2312转换为16进制ToolStripMenuItem.Click += new System.EventHandler(this.GB2312ToHexToolStripMenuItem_Click);
             // 
             // 进制转换为ASCIIToolStripMenuItem
             // 
             this.进制转换为ASCIIToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.进制转换为ASCIIToolStripMenuItem.Name = "进制转换为ASCIIToolStripMenuItem";
-            this.进制转换为ASCIIToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.进制转换为ASCIIToolStripMenuItem.Text = "Hex2ASC(&X)";
+            this.进制转换为ASCIIToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.进制转换为ASCIIToolStripMenuItem.Text = "HEX --> ASC(&X)";
             this.进制转换为ASCIIToolStripMenuItem.Click += new System.EventHandler(this.Hex2ASCII_ToolStripMenuItem_Click);
             // 
             // aSCII转换为16进制ToolStripMenuItem
             // 
             this.aSCII转换为16进制ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.aSCII转换为16进制ToolStripMenuItem.Name = "aSCII转换为16进制ToolStripMenuItem";
-            this.aSCII转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.aSCII转换为16进制ToolStripMenuItem.Text = "ASC2Hex(&A)";
+            this.aSCII转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.aSCII转换为16进制ToolStripMenuItem.Text = "ASC --> HEX(&A)";
             this.aSCII转换为16进制ToolStripMenuItem.Click += new System.EventHandler(this.ASCII2Hex_ToolStripMenuItem_Click);
             // 
             // hex2UTF8ToolStripMenuItem
             // 
             this.hex2UTF8ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.hex2UTF8ToolStripMenuItem.Name = "hex2UTF8ToolStripMenuItem";
-            this.hex2UTF8ToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.hex2UTF8ToolStripMenuItem.Text = "Hex2UTF-8(&E)";
+            this.hex2UTF8ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.hex2UTF8ToolStripMenuItem.Text = "删除空格(&E)";
             this.hex2UTF8ToolStripMenuItem.Click += new System.EventHandler(this.hex2UTF8ToolStripMenuItem_Click);
             // 
             // uTF82HexToolStripMenuItem
             // 
             this.uTF82HexToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.uTF82HexToolStripMenuItem.Name = "uTF82HexToolStripMenuItem";
-            this.uTF82HexToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.uTF82HexToolStripMenuItem.Text = "UTF-82Hex(&U)";
+            this.uTF82HexToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.uTF82HexToolStripMenuItem.Text = "待定(&U)";
             this.uTF82HexToolStripMenuItem.Click += new System.EventHandler(this.uTF82HexToolStripMenuItem_Click);
             // 
             // checkToolStripMenuItem
@@ -148,7 +149,6 @@
             // 
             // strLenToolStripMenuItem
             // 
-            this.strLenToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.calc;
             this.strLenToolStripMenuItem.Name = "strLenToolStripMenuItem";
             this.strLenToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.strLenToolStripMenuItem.Text = "字符串长度(&L)";
@@ -284,19 +284,27 @@
             this.decryptToolStripMenuItem,
             this.serialToolStripMenuItem,
             this.netToolStripMenuItem,
+            this.httpTest,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(755, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(803, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // httpTest
+            // 
+            this.httpTest.Name = "httpTest";
+            this.httpTest.Size = new System.Drawing.Size(120, 23);
+            this.httpTest.Text = "HTTP测试(&H)";
+            this.httpTest.Click += new System.EventHandler(this.httpTest_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
-            this.ClientSize = new System.Drawing.Size(755, 511);
+            this.ClientSize = new System.Drawing.Size(803, 511);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -341,6 +349,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutBlueCentaureaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem strLenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem httpTest;
     }
 }
 

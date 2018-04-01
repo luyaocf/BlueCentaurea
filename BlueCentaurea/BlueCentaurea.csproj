@@ -55,6 +55,12 @@
     <Compile Include="CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HTTPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HTTPForm.Designer.cs">
+      <DependentUpon>HTTPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <EmbeddedResource Include="CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPForm.resx">
+      <DependentUpon>HTTPForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -154,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\BuleCentaurea.ico" />
+    <Content Include="Resources\calc.ico" />
     <None Include="Resources\校验.jpg" />
     <None Include="Resources\解锁.jpg" />
     <None Include="Resources\加密.jpg" />

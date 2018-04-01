@@ -159,12 +159,12 @@ namespace BlueCentaurea
             checkForm.SelectTabPages(1);
         }
 
-        private void QQOnlineToolStripMenuItem_Click(object sender, EventArgs e)
+        private void httpTest_Click(object sender, EventArgs e)
         {
-            CheckForm checkForm = new CheckForm();
-            checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.SelectTabPages(3);
-        }      
+            HTTPForm httpForm = new HTTPForm();
+            HTTPForm.httpForm.StartPosition = FormStartPosition.CenterParent;
+            HTTPForm.httpForm.Show();
+        }
     }
 
     public class ConstValue
@@ -175,6 +175,7 @@ namespace BlueCentaurea
         public static string TEXT_TRANS_DATA_4 = "请输入ASCII码！";
         public static string TEXT_TRANS_DATA_5 = "请输入16进制字符串！";
         public static string TEXT_TRANS_DATA_6 = "请输入汉字！";
+        public static string TEXT_TRANS_DATA_7 = "请输入任意字符！";
 
         public static string TEXT_MD5_DATA = "请输入数据！";
         public static string TEXT_DES_DATA = "请输入需要加密的数据！";
