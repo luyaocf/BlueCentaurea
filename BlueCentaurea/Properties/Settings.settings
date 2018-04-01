@@ -1,12 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BlueCentaurea.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="BlueCentaurea_cn_com_webxml_www_qqOnlineWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://www.webxml.com.cn/webservices/qqOnlineWebService.asmx</Value>
-    </Setting>
-    <Setting Name="BlueCentaurea_DomesticAirline_DomesticAirline" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://www.webxml.com.cn/webservices/DomesticAirline.asmx</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>
