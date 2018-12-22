@@ -182,11 +182,11 @@ namespace BlueCentaurea
 
     public class ConstValue
     {
-        public static string TEXT_TRANS_DATA_1 = "请输入16进制字符串！";
+        public static string TEXT_TRANS_DATA_1 = "请输入16进制字符串！如：D0A1D0C4BDF7C9D0A1D0C4BDF7C9F7A3ACD0E9D0C4D1A7CFB0A3ACD3F6BCFBBACDD0D2B8A3A3A1F7A3ACD0E9D0C4D1A7CFB0A3ACD3F6";
         public static string TEXT_TRANS_DATA_2 = "请输入汉字！";
-        public static string TEXT_TRANS_DATA_3 = "请输入16进制字符串！";
-        public static string TEXT_TRANS_DATA_4 = "请输入ASCII码！";
-        public static string TEXT_TRANS_DATA_5 = "请输入16进制字符串！";
+        public static string TEXT_TRANS_DATA_3 = "请输入16进制字符串！如：69206C696B6520796F7521";
+        public static string TEXT_TRANS_DATA_4 = "请输入ASCII码！如：i like you";
+        public static string TEXT_TRANS_DATA_5 = "请输入任意字符串！";
         public static string TEXT_TRANS_DATA_6 = "请输入汉字！";
         public static string TEXT_TRANS_DATA_7 = "请输入任意字符！";
 

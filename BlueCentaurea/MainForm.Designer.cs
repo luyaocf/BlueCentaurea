@@ -115,7 +115,7 @@
             this.delBlankToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.delBlankToolStripMenuItem.Name = "delBlankToolStripMenuItem";
             this.delBlankToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
-            this.delBlankToolStripMenuItem.Text = "删除空格(&E)";
+            this.delBlankToolStripMenuItem.Text = "增添空格(&B)";
             this.delBlankToolStripMenuItem.ToolTipText = "【删除】一段字符串中的空格";
             this.delBlankToolStripMenuItem.Click += new System.EventHandler(this.hex2UTF8ToolStripMenuItem_Click);
             // 
@@ -124,7 +124,7 @@
             this.addBlankToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.addBlankToolStripMenuItem.Name = "addBlankToolStripMenuItem";
             this.addBlankToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
-            this.addBlankToolStripMenuItem.Text = "添加空格(&U)";
+            this.addBlankToolStripMenuItem.Text = "进制转换(&R)";
             this.addBlankToolStripMenuItem.ToolTipText = "按【指定步距】给一段字符串添加空格";
             this.addBlankToolStripMenuItem.Click += new System.EventHandler(this.uTF82HexToolStripMenuItem_Click);
             // 

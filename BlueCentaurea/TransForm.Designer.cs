@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransForm));
             this.tabCtrlTrans = new System.Windows.Forms.TabControl();
             this.Hex2GBK = new System.Windows.Forms.TabPage();
-            this.btnTrans1 = new System.Windows.Forms.Button();
-            this.btnTransClear1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnTransExecute01 = new System.Windows.Forms.Button();
+            this.btnTransClear01 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton01_02 = new System.Windows.Forms.RadioButton();
             this.radioButton01_01 = new System.Windows.Forms.RadioButton();
@@ -52,15 +53,16 @@
             this.lblTransResult1 = new System.Windows.Forms.Label();
             this.textTransResult01 = new System.Windows.Forms.RichTextBox();
             this.GBK2Hex = new System.Windows.Forms.TabPage();
-            this.btnTrans2 = new System.Windows.Forms.Button();
-            this.btnTransClear2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnTransExecute02 = new System.Windows.Forms.Button();
+            this.btnTransClear02 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textTransData02 = new System.Windows.Forms.RichTextBox();
             this.lblTransData2 = new System.Windows.Forms.Label();
+            this.textTransData02 = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox02_01 = new System.Windows.Forms.TextBox();
             this.radioButton02_04 = new System.Windows.Forms.RadioButton();
@@ -68,18 +70,19 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.radioButton02_02 = new System.Windows.Forms.RadioButton();
             this.radioButton02_01 = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textTransResult02 = new System.Windows.Forms.RichTextBox();
             this.lblTransResult2 = new System.Windows.Forms.Label();
+            this.textTransResult02 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStripData01 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.Hex2ASC = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.radioButton03_02 = new System.Windows.Forms.RadioButton();
             this.radioButton03_01 = new System.Windows.Forms.RadioButton();
-            this.btnTrans3 = new System.Windows.Forms.Button();
-            this.btnTransClear3 = new System.Windows.Forms.Button();
+            this.btnTransExecute03 = new System.Windows.Forms.Button();
+            this.btnTransClear03 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -98,33 +101,42 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textTransResult04 = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnTransClear4 = new System.Windows.Forms.Button();
-            this.btnTrans4 = new System.Windows.Forms.Button();
-            this.lblTransResult4 = new System.Windows.Forms.Label();
+            this.btnTransClear04 = new System.Windows.Forms.Button();
+            this.btnTransExecute04 = new System.Windows.Forms.Button();
+            this.lblTransResult04 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.textTransData04 = new System.Windows.Forms.RichTextBox();
             this.lblTransData4 = new System.Windows.Forms.Label();
-            this.deleteSpace = new System.Windows.Forms.TabPage();
-            this.textBoxDelSpace = new System.Windows.Forms.RichTextBox();
-            this.lblTransResult5 = new System.Windows.Forms.Label();
-            this.lblTransData5 = new System.Windows.Forms.Label();
-            this.buttonDelSpace = new System.Windows.Forms.Button();
-            this.buttonDelSpaceClear = new System.Windows.Forms.Button();
-            this.textBoxDelSpaceResult = new System.Windows.Forms.TextBox();
+            this.operatorBlank = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBox05_01 = new System.Windows.Forms.TextBox();
+            this.radioButton05_02 = new System.Windows.Forms.RadioButton();
+            this.radioButton05_01 = new System.Windows.Forms.RadioButton();
+            this.btnTransExecute05 = new System.Windows.Forms.Button();
+            this.btnTransClear05 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.addSpace = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.label16 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.lblTransResult6 = new System.Windows.Forms.Label();
-            this.lblTransData6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textTransResult6 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.textTransData05 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData05 = new System.Windows.Forms.Label();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.lblTransResult05 = new System.Windows.Forms.Label();
+            this.textTransResult05 = new System.Windows.Forms.RichTextBox();
+            this.radixTrans = new System.Windows.Forms.TabPage();
+            this.richTextBox06_02 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_02 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.richTextBox06_10 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_10 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.richTextBox06_08 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_08 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.richTextBox06_16 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_16 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabCtrlTrans.SuspendLayout();
             this.Hex2GBK.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -138,6 +150,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.contextMenuStripData01.SuspendLayout();
             this.Hex2ASC.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -148,8 +161,12 @@
             this.panel6.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.deleteSpace.SuspendLayout();
-            this.addSpace.SuspendLayout();
+            this.operatorBlank.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.radixTrans.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCtrlTrans
@@ -161,8 +178,8 @@
             this.tabCtrlTrans.Controls.Add(this.GBK2Hex);
             this.tabCtrlTrans.Controls.Add(this.Hex2ASC);
             this.tabCtrlTrans.Controls.Add(this.ASC2Hex);
-            this.tabCtrlTrans.Controls.Add(this.deleteSpace);
-            this.tabCtrlTrans.Controls.Add(this.addSpace);
+            this.tabCtrlTrans.Controls.Add(this.operatorBlank);
+            this.tabCtrlTrans.Controls.Add(this.radixTrans);
             this.tabCtrlTrans.Location = new System.Drawing.Point(13, 0);
             this.tabCtrlTrans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabCtrlTrans.Name = "tabCtrlTrans";
@@ -173,9 +190,9 @@
             // Hex2GBK
             // 
             this.Hex2GBK.BackColor = System.Drawing.Color.SkyBlue;
-            this.Hex2GBK.Controls.Add(this.btnTrans1);
-            this.Hex2GBK.Controls.Add(this.btnTransClear1);
             this.Hex2GBK.Controls.Add(this.label7);
+            this.Hex2GBK.Controls.Add(this.btnTransExecute01);
+            this.Hex2GBK.Controls.Add(this.btnTransClear01);
             this.Hex2GBK.Controls.Add(this.label8);
             this.Hex2GBK.Controls.Add(this.groupBox7);
             this.Hex2GBK.Controls.Add(this.groupBox1);
@@ -190,28 +207,6 @@
             this.Hex2GBK.Text = "HEX转汉字";
             this.Hex2GBK.Click += new System.EventHandler(this.Hex2ChineseChar_Click);
             // 
-            // btnTrans1
-            // 
-            this.btnTrans1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrans1.Location = new System.Drawing.Point(392, 351);
-            this.btnTrans1.Name = "btnTrans1";
-            this.btnTrans1.Size = new System.Drawing.Size(75, 34);
-            this.btnTrans1.TabIndex = 3;
-            this.btnTrans1.Text = "转换";
-            this.btnTrans1.UseVisualStyleBackColor = true;
-            this.btnTrans1.Click += new System.EventHandler(this.btnTransExecute01_Click);
-            // 
-            // btnTransClear1
-            // 
-            this.btnTransClear1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTransClear1.Location = new System.Drawing.Point(200, 351);
-            this.btnTransClear1.Name = "btnTransClear1";
-            this.btnTransClear1.Size = new System.Drawing.Size(75, 34);
-            this.btnTransClear1.TabIndex = 4;
-            this.btnTransClear1.Text = "清除";
-            this.btnTransClear1.UseVisualStyleBackColor = true;
-            this.btnTransClear1.Click += new System.EventHandler(this.btnTransClear01_Click);
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -222,6 +217,28 @@
             this.label7.Size = new System.Drawing.Size(117, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "【结果显示】";
+            // 
+            // btnTransExecute01
+            // 
+            this.btnTransExecute01.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransExecute01.Location = new System.Drawing.Point(392, 351);
+            this.btnTransExecute01.Name = "btnTransExecute01";
+            this.btnTransExecute01.Size = new System.Drawing.Size(75, 34);
+            this.btnTransExecute01.TabIndex = 3;
+            this.btnTransExecute01.Text = "转换";
+            this.btnTransExecute01.UseVisualStyleBackColor = true;
+            this.btnTransExecute01.Click += new System.EventHandler(this.btnTransExecute01_Click);
+            // 
+            // btnTransClear01
+            // 
+            this.btnTransClear01.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransClear01.Location = new System.Drawing.Point(200, 351);
+            this.btnTransClear01.Name = "btnTransClear01";
+            this.btnTransClear01.Size = new System.Drawing.Size(75, 34);
+            this.btnTransClear01.TabIndex = 4;
+            this.btnTransClear01.Text = "清除";
+            this.btnTransClear01.UseVisualStyleBackColor = true;
+            this.btnTransClear01.Click += new System.EventHandler(this.btnTransClear01_Click);
             // 
             // label8
             // 
@@ -238,8 +255,8 @@
             // 
             this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.panel1);
             this.groupBox7.Controls.Add(this.panel2);
             this.groupBox7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,16 +268,6 @@
             this.groupBox7.TabIndex = 39;
             this.groupBox7.TabStop = false;
             // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 19);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "【编码方式】";
-            // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -270,6 +277,16 @@
             this.label15.Size = new System.Drawing.Size(117, 19);
             this.label15.TabIndex = 38;
             this.label15.Text = "【插入空格】";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 19);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "【编码方式】";
             // 
             // panel1
             // 
@@ -284,6 +301,7 @@
             // 
             this.radioButton01_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton01_02.AutoSize = true;
+            this.radioButton01_02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton01_02.Location = new System.Drawing.Point(209, 7);
             this.radioButton01_02.Name = "radioButton01_02";
             this.radioButton01_02.Size = new System.Drawing.Size(72, 23);
@@ -296,6 +314,7 @@
             this.radioButton01_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton01_01.AutoSize = true;
             this.radioButton01_01.Checked = true;
+            this.radioButton01_01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton01_01.Location = new System.Drawing.Point(27, 7);
             this.radioButton01_01.Name = "radioButton01_01";
             this.radioButton01_01.Size = new System.Drawing.Size(54, 23);
@@ -332,6 +351,7 @@
             // 
             this.radioButton01_04.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton01_04.AutoSize = true;
+            this.radioButton01_04.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton01_04.Location = new System.Drawing.Point(209, 9);
             this.radioButton01_04.Name = "radioButton01_04";
             this.radioButton01_04.Size = new System.Drawing.Size(45, 23);
@@ -344,6 +364,7 @@
             this.radioButton01_03.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton01_03.AutoSize = true;
             this.radioButton01_03.Checked = true;
+            this.radioButton01_03.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton01_03.Location = new System.Drawing.Point(27, 9);
             this.radioButton01_03.Name = "radioButton01_03";
             this.radioButton01_03.Size = new System.Drawing.Size(108, 23);
@@ -436,10 +457,10 @@
             // GBK2Hex
             // 
             this.GBK2Hex.BackColor = System.Drawing.Color.SkyBlue;
-            this.GBK2Hex.Controls.Add(this.btnTrans2);
-            this.GBK2Hex.Controls.Add(this.btnTransClear2);
-            this.GBK2Hex.Controls.Add(this.label3);
             this.GBK2Hex.Controls.Add(this.label4);
+            this.GBK2Hex.Controls.Add(this.label3);
+            this.GBK2Hex.Controls.Add(this.btnTransExecute02);
+            this.GBK2Hex.Controls.Add(this.btnTransClear02);
             this.GBK2Hex.Controls.Add(this.groupBox3);
             this.GBK2Hex.Controls.Add(this.groupBox4);
             this.GBK2Hex.Controls.Add(this.groupBox5);
@@ -453,27 +474,14 @@
             this.GBK2Hex.Text = "汉字转HEX";
             this.GBK2Hex.Click += new System.EventHandler(this.ChineseCharToHex_Click);
             // 
-            // btnTrans2
+            // label4
             // 
-            this.btnTrans2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrans2.Location = new System.Drawing.Point(392, 351);
-            this.btnTrans2.Name = "btnTrans2";
-            this.btnTrans2.Size = new System.Drawing.Size(75, 34);
-            this.btnTrans2.TabIndex = 3;
-            this.btnTrans2.Text = "转换";
-            this.btnTrans2.UseVisualStyleBackColor = true;
-            this.btnTrans2.Click += new System.EventHandler(this.btnTransExecute02_Click);
-            // 
-            // btnTransClear2
-            // 
-            this.btnTransClear2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTransClear2.Location = new System.Drawing.Point(200, 351);
-            this.btnTransClear2.Name = "btnTransClear2";
-            this.btnTransClear2.Size = new System.Drawing.Size(75, 34);
-            this.btnTransClear2.TabIndex = 10;
-            this.btnTransClear2.Text = "清除";
-            this.btnTransClear2.UseVisualStyleBackColor = true;
-            this.btnTransClear2.Click += new System.EventHandler(this.btnTransClear02_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "【数据内容】";
             // 
             // label3
             // 
@@ -486,22 +494,35 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "【结果显示】";
             // 
-            // label4
+            // btnTransExecute02
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "【数据内容】";
+            this.btnTransExecute02.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransExecute02.Location = new System.Drawing.Point(392, 351);
+            this.btnTransExecute02.Name = "btnTransExecute02";
+            this.btnTransExecute02.Size = new System.Drawing.Size(75, 34);
+            this.btnTransExecute02.TabIndex = 3;
+            this.btnTransExecute02.Text = "转换";
+            this.btnTransExecute02.UseVisualStyleBackColor = true;
+            this.btnTransExecute02.Click += new System.EventHandler(this.btnTransExecute02_Click);
+            // 
+            // btnTransClear02
+            // 
+            this.btnTransClear02.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransClear02.Location = new System.Drawing.Point(200, 351);
+            this.btnTransClear02.Name = "btnTransClear02";
+            this.btnTransClear02.Size = new System.Drawing.Size(75, 34);
+            this.btnTransClear02.TabIndex = 10;
+            this.btnTransClear02.Text = "清除";
+            this.btnTransClear02.UseVisualStyleBackColor = true;
+            this.btnTransClear02.Click += new System.EventHandler(this.btnTransClear02_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.textTransData02);
             this.groupBox3.Controls.Add(this.lblTransData2);
+            this.groupBox3.Controls.Add(this.textTransData02);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(22, 14);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -510,6 +531,17 @@
             this.groupBox3.Size = new System.Drawing.Size(659, 154);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
+            // 
+            // lblTransData2
+            // 
+            this.lblTransData2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTransData2.AutoSize = true;
+            this.lblTransData2.Location = new System.Drawing.Point(541, 19);
+            this.lblTransData2.Name = "lblTransData2";
+            this.lblTransData2.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData2.TabIndex = 12;
+            this.lblTransData2.Text = "【0字节】";
             // 
             // textTransData02
             // 
@@ -524,25 +556,14 @@
             this.textTransData02.TextChanged += new System.EventHandler(this.textTransData02_TextChanged);
             this.textTransData02.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textTransData02_MouseDown);
             // 
-            // lblTransData2
-            // 
-            this.lblTransData2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTransData2.AutoSize = true;
-            this.lblTransData2.Location = new System.Drawing.Point(541, 19);
-            this.lblTransData2.Name = "lblTransData2";
-            this.lblTransData2.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData2.TabIndex = 12;
-            this.lblTransData2.Text = "【0字节】";
-            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.panel3);
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(22, 176);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -561,6 +582,15 @@
             this.label17.Size = new System.Drawing.Size(117, 19);
             this.label17.TabIndex = 46;
             this.label17.Text = "【插入空格】";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 19);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "【编码方式】";
             // 
             // panel3
             // 
@@ -590,6 +620,7 @@
             // 
             this.radioButton02_04.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton02_04.AutoSize = true;
+            this.radioButton02_04.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton02_04.Location = new System.Drawing.Point(212, 8);
             this.radioButton02_04.Name = "radioButton02_04";
             this.radioButton02_04.Size = new System.Drawing.Size(45, 23);
@@ -602,6 +633,7 @@
             this.radioButton02_03.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton02_03.AutoSize = true;
             this.radioButton02_03.Checked = true;
+            this.radioButton02_03.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton02_03.Location = new System.Drawing.Point(27, 8);
             this.radioButton02_03.Name = "radioButton02_03";
             this.radioButton02_03.Size = new System.Drawing.Size(108, 23);
@@ -622,6 +654,7 @@
             // radioButton02_02
             // 
             this.radioButton02_02.AutoSize = true;
+            this.radioButton02_02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton02_02.Location = new System.Drawing.Point(212, 9);
             this.radioButton02_02.Name = "radioButton02_02";
             this.radioButton02_02.Size = new System.Drawing.Size(72, 23);
@@ -634,6 +667,7 @@
             this.radioButton02_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton02_01.AutoSize = true;
             this.radioButton02_01.Checked = true;
+            this.radioButton02_01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton02_01.Location = new System.Drawing.Point(27, 8);
             this.radioButton02_01.Name = "radioButton02_01";
             this.radioButton02_01.Size = new System.Drawing.Size(54, 23);
@@ -642,21 +676,12 @@
             this.radioButton02_01.Text = "GBK";
             this.radioButton02_01.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 40);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 19);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "【编码方式】";
-            // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.textTransResult02);
             this.groupBox5.Controls.Add(this.lblTransResult2);
+            this.groupBox5.Controls.Add(this.textTransResult02);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(22, 287);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -665,18 +690,6 @@
             this.groupBox5.Size = new System.Drawing.Size(659, 118);
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;
-            // 
-            // textTransResult02
-            // 
-            this.textTransResult02.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTransResult02.Location = new System.Drawing.Point(131, 16);
-            this.textTransResult02.Name = "textTransResult02";
-            this.textTransResult02.Size = new System.Drawing.Size(393, 28);
-            this.textTransResult02.TabIndex = 40;
-            this.textTransResult02.Text = "";
-            this.textTransResult02.TextChanged += new System.EventHandler(this.textTransResult02_TextChanged);
             // 
             // lblTransResult2
             // 
@@ -689,12 +702,38 @@
             this.lblTransResult2.TabIndex = 13;
             this.lblTransResult2.Text = "【0字节】";
             // 
+            // textTransResult02
+            // 
+            this.textTransResult02.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textTransResult02.ContextMenuStrip = this.contextMenuStripData01;
+            this.textTransResult02.Location = new System.Drawing.Point(131, 16);
+            this.textTransResult02.Name = "textTransResult02";
+            this.textTransResult02.Size = new System.Drawing.Size(393, 28);
+            this.textTransResult02.TabIndex = 40;
+            this.textTransResult02.Text = "";
+            this.textTransResult02.TextChanged += new System.EventHandler(this.textTransResult02_TextChanged);
+            // 
+            // contextMenuStripData01
+            // 
+            this.contextMenuStripData01.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_copy});
+            this.contextMenuStripData01.Name = "contextMenuStripData01";
+            this.contextMenuStripData01.Size = new System.Drawing.Size(101, 26);
+            // 
+            // toolStripMenuItem_copy
+            // 
+            this.toolStripMenuItem_copy.Name = "toolStripMenuItem_copy";
+            this.toolStripMenuItem_copy.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem_copy.Text = "复制";
+            // 
             // Hex2ASC
             // 
             this.Hex2ASC.BackColor = System.Drawing.Color.SkyBlue;
             this.Hex2ASC.Controls.Add(this.groupBox6);
-            this.Hex2ASC.Controls.Add(this.btnTrans3);
-            this.Hex2ASC.Controls.Add(this.btnTransClear3);
+            this.Hex2ASC.Controls.Add(this.btnTransExecute03);
+            this.Hex2ASC.Controls.Add(this.btnTransClear03);
             this.Hex2ASC.Controls.Add(this.label5);
             this.Hex2ASC.Controls.Add(this.label6);
             this.Hex2ASC.Controls.Add(this.groupBox8);
@@ -745,6 +784,7 @@
             // 
             this.radioButton03_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton03_02.AutoSize = true;
+            this.radioButton03_02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton03_02.Location = new System.Drawing.Point(219, 9);
             this.radioButton03_02.Name = "radioButton03_02";
             this.radioButton03_02.Size = new System.Drawing.Size(45, 23);
@@ -757,6 +797,7 @@
             this.radioButton03_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton03_01.AutoSize = true;
             this.radioButton03_01.Checked = true;
+            this.radioButton03_01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton03_01.Location = new System.Drawing.Point(24, 9);
             this.radioButton03_01.Name = "radioButton03_01";
             this.radioButton03_01.Size = new System.Drawing.Size(45, 23);
@@ -765,27 +806,27 @@
             this.radioButton03_01.Text = "是";
             this.radioButton03_01.UseVisualStyleBackColor = true;
             // 
-            // btnTrans3
+            // btnTransExecute03
             // 
-            this.btnTrans3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrans3.Location = new System.Drawing.Point(404, 352);
-            this.btnTrans3.Name = "btnTrans3";
-            this.btnTrans3.Size = new System.Drawing.Size(75, 34);
-            this.btnTrans3.TabIndex = 3;
-            this.btnTrans3.Text = "转换";
-            this.btnTrans3.UseVisualStyleBackColor = true;
-            this.btnTrans3.Click += new System.EventHandler(this.btnTrans3_Click);
+            this.btnTransExecute03.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransExecute03.Location = new System.Drawing.Point(404, 352);
+            this.btnTransExecute03.Name = "btnTransExecute03";
+            this.btnTransExecute03.Size = new System.Drawing.Size(75, 34);
+            this.btnTransExecute03.TabIndex = 3;
+            this.btnTransExecute03.Text = "转换";
+            this.btnTransExecute03.UseVisualStyleBackColor = true;
+            this.btnTransExecute03.Click += new System.EventHandler(this.btnTransExecute03_Click);
             // 
-            // btnTransClear3
+            // btnTransClear03
             // 
-            this.btnTransClear3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTransClear3.Location = new System.Drawing.Point(209, 352);
-            this.btnTransClear3.Name = "btnTransClear3";
-            this.btnTransClear3.Size = new System.Drawing.Size(75, 34);
-            this.btnTransClear3.TabIndex = 26;
-            this.btnTransClear3.Text = "清除";
-            this.btnTransClear3.UseVisualStyleBackColor = true;
-            this.btnTransClear3.Click += new System.EventHandler(this.btnTransClear3_Click);
+            this.btnTransClear03.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransClear03.Location = new System.Drawing.Point(209, 352);
+            this.btnTransClear03.Name = "btnTransClear03";
+            this.btnTransClear03.Size = new System.Drawing.Size(75, 34);
+            this.btnTransClear03.TabIndex = 26;
+            this.btnTransClear03.Text = "清除";
+            this.btnTransClear03.UseVisualStyleBackColor = true;
+            this.btnTransClear03.Click += new System.EventHandler(this.btnTransClear03_Click);
             // 
             // label5
             // 
@@ -832,6 +873,8 @@
             this.textTransData03.Size = new System.Drawing.Size(393, 130);
             this.textTransData03.TabIndex = 33;
             this.textTransData03.Text = "";
+            this.textTransData03.Enter += new System.EventHandler(this.textTransData03_Enter);
+            this.textTransData03.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textTransData03_MouseDown);
             // 
             // lblTransData3
             // 
@@ -879,6 +922,7 @@
             this.textTransResult03.Size = new System.Drawing.Size(393, 28);
             this.textTransResult03.TabIndex = 34;
             this.textTransResult03.Text = "";
+            this.textTransResult03.TextChanged += new System.EventHandler(this.textTransResult03_TextChanged);
             // 
             // ASC2Hex
             // 
@@ -933,6 +977,7 @@
             // 
             this.radioButton04_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton04_02.AutoSize = true;
+            this.radioButton04_02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton04_02.Location = new System.Drawing.Point(219, 9);
             this.radioButton04_02.Name = "radioButton04_02";
             this.radioButton04_02.Size = new System.Drawing.Size(45, 23);
@@ -945,6 +990,7 @@
             this.radioButton04_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButton04_01.AutoSize = true;
             this.radioButton04_01.Checked = true;
+            this.radioButton04_01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton04_01.Location = new System.Drawing.Point(24, 9);
             this.radioButton04_01.Name = "radioButton04_01";
             this.radioButton04_01.Size = new System.Drawing.Size(45, 23);
@@ -968,9 +1014,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.textTransResult04);
             this.groupBox10.Controls.Add(this.label11);
-            this.groupBox10.Controls.Add(this.btnTransClear4);
-            this.groupBox10.Controls.Add(this.btnTrans4);
-            this.groupBox10.Controls.Add(this.lblTransResult4);
+            this.groupBox10.Controls.Add(this.btnTransClear04);
+            this.groupBox10.Controls.Add(this.btnTransExecute04);
+            this.groupBox10.Controls.Add(this.lblTransResult04);
             this.groupBox10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(22, 287);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -990,6 +1036,7 @@
             this.textTransResult04.Size = new System.Drawing.Size(393, 24);
             this.textTransResult04.TabIndex = 36;
             this.textTransResult04.Text = "";
+            this.textTransResult04.TextChanged += new System.EventHandler(this.textTransResult04_TextChanged);
             // 
             // label11
             // 
@@ -1000,35 +1047,35 @@
             this.label11.TabIndex = 23;
             this.label11.Text = "【结果展示】";
             // 
-            // btnTransClear4
+            // btnTransClear04
             // 
-            this.btnTransClear4.Location = new System.Drawing.Point(157, 71);
-            this.btnTransClear4.Name = "btnTransClear4";
-            this.btnTransClear4.Size = new System.Drawing.Size(75, 34);
-            this.btnTransClear4.TabIndex = 26;
-            this.btnTransClear4.Text = "清除";
-            this.btnTransClear4.UseVisualStyleBackColor = true;
-            this.btnTransClear4.Click += new System.EventHandler(this.btnTransClear4_Click);
+            this.btnTransClear04.Location = new System.Drawing.Point(157, 71);
+            this.btnTransClear04.Name = "btnTransClear04";
+            this.btnTransClear04.Size = new System.Drawing.Size(75, 34);
+            this.btnTransClear04.TabIndex = 26;
+            this.btnTransClear04.Text = "清除";
+            this.btnTransClear04.UseVisualStyleBackColor = true;
+            this.btnTransClear04.Click += new System.EventHandler(this.btnTransClear04_Click);
             // 
-            // btnTrans4
+            // btnTransExecute04
             // 
-            this.btnTrans4.Location = new System.Drawing.Point(363, 71);
-            this.btnTrans4.Name = "btnTrans4";
-            this.btnTrans4.Size = new System.Drawing.Size(75, 34);
-            this.btnTrans4.TabIndex = 27;
-            this.btnTrans4.Text = "转换";
-            this.btnTrans4.UseVisualStyleBackColor = true;
-            this.btnTrans4.Click += new System.EventHandler(this.btnTrans4_Click);
+            this.btnTransExecute04.Location = new System.Drawing.Point(363, 71);
+            this.btnTransExecute04.Name = "btnTransExecute04";
+            this.btnTransExecute04.Size = new System.Drawing.Size(75, 34);
+            this.btnTransExecute04.TabIndex = 27;
+            this.btnTransExecute04.Text = "转换";
+            this.btnTransExecute04.UseVisualStyleBackColor = true;
+            this.btnTransExecute04.Click += new System.EventHandler(this.btnTransExecute04_Click);
             // 
-            // lblTransResult4
+            // lblTransResult04
             // 
-            this.lblTransResult4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTransResult4.AutoSize = true;
-            this.lblTransResult4.Location = new System.Drawing.Point(539, 19);
-            this.lblTransResult4.Name = "lblTransResult4";
-            this.lblTransResult4.Size = new System.Drawing.Size(90, 19);
-            this.lblTransResult4.TabIndex = 29;
-            this.lblTransResult4.Text = "【0字节】";
+            this.lblTransResult04.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTransResult04.AutoSize = true;
+            this.lblTransResult04.Location = new System.Drawing.Point(539, 19);
+            this.lblTransResult04.Name = "lblTransResult04";
+            this.lblTransResult04.Size = new System.Drawing.Size(90, 19);
+            this.lblTransResult04.TabIndex = 29;
+            this.lblTransResult04.Text = "【0字节】";
             // 
             // groupBox12
             // 
@@ -1038,7 +1085,7 @@
             this.groupBox12.Controls.Add(this.textTransData04);
             this.groupBox12.Controls.Add(this.lblTransData4);
             this.groupBox12.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(22, 14);
+            this.groupBox12.Location = new System.Drawing.Point(22, 16);
             this.groupBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1056,6 +1103,9 @@
             this.textTransData04.Size = new System.Drawing.Size(393, 130);
             this.textTransData04.TabIndex = 35;
             this.textTransData04.Text = "";
+            this.textTransData04.TextChanged += new System.EventHandler(this.textTransData04_TextChanged);
+            this.textTransData04.Enter += new System.EventHandler(this.textTransData04_Enter);
+            this.textTransData04.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textTransData04_MouseDown);
             // 
             // lblTransData4
             // 
@@ -1068,224 +1118,358 @@
             this.lblTransData4.TabIndex = 28;
             this.lblTransData4.Text = "【0字节】";
             // 
-            // deleteSpace
+            // operatorBlank
             // 
-            this.deleteSpace.BackColor = System.Drawing.Color.SkyBlue;
-            this.deleteSpace.Controls.Add(this.textBoxDelSpace);
-            this.deleteSpace.Controls.Add(this.lblTransResult5);
-            this.deleteSpace.Controls.Add(this.lblTransData5);
-            this.deleteSpace.Controls.Add(this.buttonDelSpace);
-            this.deleteSpace.Controls.Add(this.buttonDelSpaceClear);
-            this.deleteSpace.Controls.Add(this.textBoxDelSpaceResult);
-            this.deleteSpace.Controls.Add(this.label13);
-            this.deleteSpace.Controls.Add(this.label14);
-            this.deleteSpace.Location = new System.Drawing.Point(4, 28);
-            this.deleteSpace.Name = "deleteSpace";
-            this.deleteSpace.Size = new System.Drawing.Size(700, 409);
-            this.deleteSpace.TabIndex = 4;
-            this.deleteSpace.Text = "删除空格";
-            this.deleteSpace.Click += new System.EventHandler(this.deleteSpace_Click);
+            this.operatorBlank.BackColor = System.Drawing.Color.SkyBlue;
+            this.operatorBlank.Controls.Add(this.groupBox13);
+            this.operatorBlank.Controls.Add(this.btnTransExecute05);
+            this.operatorBlank.Controls.Add(this.btnTransClear05);
+            this.operatorBlank.Controls.Add(this.label13);
+            this.operatorBlank.Controls.Add(this.label14);
+            this.operatorBlank.Controls.Add(this.groupBox14);
+            this.operatorBlank.Controls.Add(this.groupBox15);
+            this.operatorBlank.Location = new System.Drawing.Point(4, 28);
+            this.operatorBlank.Name = "operatorBlank";
+            this.operatorBlank.Size = new System.Drawing.Size(700, 409);
+            this.operatorBlank.TabIndex = 4;
+            this.operatorBlank.Text = "操作空格";
+            this.operatorBlank.Click += new System.EventHandler(this.OperatorBlank_Click);
             // 
-            // textBoxDelSpace
+            // groupBox13
             // 
-            this.textBoxDelSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDelSpace.Location = new System.Drawing.Point(130, 39);
-            this.textBoxDelSpace.Name = "textBoxDelSpace";
-            this.textBoxDelSpace.Size = new System.Drawing.Size(413, 24);
-            this.textBoxDelSpace.TabIndex = 30;
-            this.textBoxDelSpace.Text = "";
+            this.groupBox13.Controls.Add(this.label2);
+            this.groupBox13.Controls.Add(this.panel7);
+            this.groupBox13.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox13.Location = new System.Drawing.Point(21, 173);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox13.Size = new System.Drawing.Size(659, 101);
+            this.groupBox13.TabIndex = 49;
+            this.groupBox13.TabStop = false;
             // 
-            // lblTransResult5
+            // label2
             // 
-            this.lblTransResult5.AutoSize = true;
-            this.lblTransResult5.Location = new System.Drawing.Point(351, 128);
-            this.lblTransResult5.Name = "lblTransResult5";
-            this.lblTransResult5.Size = new System.Drawing.Size(90, 19);
-            this.lblTransResult5.TabIndex = 29;
-            this.lblTransResult5.Text = "【0字节】";
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 19);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "【空格操作】";
             // 
-            // lblTransData5
+            // panel7
             // 
-            this.lblTransData5.AutoSize = true;
-            this.lblTransData5.Location = new System.Drawing.Point(580, 42);
-            this.lblTransData5.Name = "lblTransData5";
-            this.lblTransData5.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData5.TabIndex = 28;
-            this.lblTransData5.Text = "【0字节】";
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel7.Controls.Add(this.textBox05_01);
+            this.panel7.Controls.Add(this.radioButton05_02);
+            this.panel7.Controls.Add(this.radioButton05_01);
+            this.panel7.Location = new System.Drawing.Point(163, 32);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(315, 36);
+            this.panel7.TabIndex = 43;
             // 
-            // buttonDelSpace
+            // textBox05_01
             // 
-            this.buttonDelSpace.Location = new System.Drawing.Point(260, 182);
-            this.buttonDelSpace.Name = "buttonDelSpace";
-            this.buttonDelSpace.Size = new System.Drawing.Size(75, 34);
-            this.buttonDelSpace.TabIndex = 27;
-            this.buttonDelSpace.Text = "转换";
-            this.buttonDelSpace.UseVisualStyleBackColor = true;
-            this.buttonDelSpace.Click += new System.EventHandler(this.TransDelSpace_Click);
+            this.textBox05_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox05_01.BackColor = System.Drawing.Color.SkyBlue;
+            this.textBox05_01.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox05_01.ForeColor = System.Drawing.Color.Red;
+            this.textBox05_01.Location = new System.Drawing.Point(138, 7);
+            this.textBox05_01.Name = "textBox05_01";
+            this.textBox05_01.Size = new System.Drawing.Size(42, 23);
+            this.textBox05_01.TabIndex = 45;
+            this.textBox05_01.Text = "1";
+            this.textBox05_01.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // buttonDelSpaceClear
+            // radioButton05_02
             // 
-            this.buttonDelSpaceClear.Location = new System.Drawing.Point(117, 182);
-            this.buttonDelSpaceClear.Name = "buttonDelSpaceClear";
-            this.buttonDelSpaceClear.Size = new System.Drawing.Size(75, 34);
-            this.buttonDelSpaceClear.TabIndex = 26;
-            this.buttonDelSpaceClear.Text = "清除";
-            this.buttonDelSpaceClear.UseVisualStyleBackColor = true;
-            this.buttonDelSpaceClear.Click += new System.EventHandler(this.TransDelSpaceClear_Click);
+            this.radioButton05_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButton05_02.AutoSize = true;
+            this.radioButton05_02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButton05_02.Location = new System.Drawing.Point(219, 9);
+            this.radioButton05_02.Name = "radioButton05_02";
+            this.radioButton05_02.Size = new System.Drawing.Size(63, 23);
+            this.radioButton05_02.TabIndex = 37;
+            this.radioButton05_02.Text = "删除";
+            this.radioButton05_02.UseVisualStyleBackColor = true;
             // 
-            // textBoxDelSpaceResult
+            // radioButton05_01
             // 
-            this.textBoxDelSpaceResult.Location = new System.Drawing.Point(117, 125);
-            this.textBoxDelSpaceResult.Name = "textBoxDelSpaceResult";
-            this.textBoxDelSpaceResult.Size = new System.Drawing.Size(218, 26);
-            this.textBoxDelSpaceResult.TabIndex = 25;
-            this.textBoxDelSpaceResult.TextChanged += new System.EventHandler(this.textBoxDelSpaceResult_TextChanged);
+            this.radioButton05_01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButton05_01.AutoSize = true;
+            this.radioButton05_01.Checked = true;
+            this.radioButton05_01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButton05_01.Location = new System.Drawing.Point(24, 9);
+            this.radioButton05_01.Name = "radioButton05_01";
+            this.radioButton05_01.Size = new System.Drawing.Size(117, 23);
+            this.radioButton05_01.TabIndex = 36;
+            this.radioButton05_01.TabStop = true;
+            this.radioButton05_01.Text = "添加,步进:";
+            this.radioButton05_01.UseVisualStyleBackColor = true;
+            // 
+            // btnTransExecute05
+            // 
+            this.btnTransExecute05.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransExecute05.Location = new System.Drawing.Point(403, 347);
+            this.btnTransExecute05.Name = "btnTransExecute05";
+            this.btnTransExecute05.Size = new System.Drawing.Size(75, 34);
+            this.btnTransExecute05.TabIndex = 45;
+            this.btnTransExecute05.Text = "转换";
+            this.btnTransExecute05.UseVisualStyleBackColor = true;
+            this.btnTransExecute05.Click += new System.EventHandler(this.btnTransExecute05_Click);
+            // 
+            // btnTransClear05
+            // 
+            this.btnTransClear05.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTransClear05.Location = new System.Drawing.Point(208, 347);
+            this.btnTransClear05.Name = "btnTransClear05";
+            this.btnTransClear05.Size = new System.Drawing.Size(75, 34);
+            this.btnTransClear05.TabIndex = 48;
+            this.btnTransClear05.Text = "清除";
+            this.btnTransClear05.UseVisualStyleBackColor = true;
+            this.btnTransClear05.Click += new System.EventHandler(this.btnTransClear05_Click);
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 128);
+            this.label13.Location = new System.Drawing.Point(29, 301);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 19);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "【结果】";
+            this.label13.Size = new System.Drawing.Size(117, 19);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "【结果展示】";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(30, 42);
+            this.label14.Location = new System.Drawing.Point(29, 28);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 19);
-            this.label14.TabIndex = 22;
-            this.label14.Text = "【数据】";
+            this.label14.Size = new System.Drawing.Size(117, 19);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "【数据内容】";
             // 
-            // addSpace
+            // groupBox14
             // 
-            this.addSpace.BackColor = System.Drawing.Color.SkyBlue;
-            this.addSpace.Controls.Add(this.richTextBox1);
-            this.addSpace.Controls.Add(this.radioButton3);
-            this.addSpace.Controls.Add(this.label16);
-            this.addSpace.Controls.Add(this.radioButton4);
-            this.addSpace.Controls.Add(this.lblTransResult6);
-            this.addSpace.Controls.Add(this.lblTransData6);
-            this.addSpace.Controls.Add(this.button3);
-            this.addSpace.Controls.Add(this.button4);
-            this.addSpace.Controls.Add(this.textTransResult6);
-            this.addSpace.Controls.Add(this.label19);
-            this.addSpace.Controls.Add(this.label20);
-            this.addSpace.Location = new System.Drawing.Point(4, 28);
-            this.addSpace.Name = "addSpace";
-            this.addSpace.Size = new System.Drawing.Size(700, 409);
-            this.addSpace.TabIndex = 5;
-            this.addSpace.Text = "添加空格";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(135, 33);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(413, 24);
-            this.richTextBox1.TabIndex = 46;
-            this.richTextBox1.Text = "";
+            this.groupBox14.Controls.Add(this.textTransData05);
+            this.groupBox14.Controls.Add(this.lblTransData05);
+            this.groupBox14.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox14.Location = new System.Drawing.Point(21, 9);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox14.Size = new System.Drawing.Size(659, 154);
+            this.groupBox14.TabIndex = 50;
+            this.groupBox14.TabStop = false;
             // 
-            // radioButton3
+            // textTransData05
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(247, 77);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(45, 23);
-            this.radioButton3.TabIndex = 45;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "否";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.textTransData05.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textTransData05.Location = new System.Drawing.Point(125, 16);
+            this.textTransData05.Name = "textTransData05";
+            this.textTransData05.Size = new System.Drawing.Size(393, 130);
+            this.textTransData05.TabIndex = 33;
+            this.textTransData05.Text = "";
+            this.textTransData05.TextChanged += new System.EventHandler(this.textTransData05_TextChanged);
+            this.textTransData05.Enter += new System.EventHandler(this.textTransData05_Enter);
+            this.textTransData05.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textTransData05_MouseDown);
             // 
-            // label16
+            // lblTransData05
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 79);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(81, 19);
-            this.label16.TabIndex = 44;
-            this.label16.Text = "【空格】";
+            this.lblTransData05.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTransData05.AutoSize = true;
+            this.lblTransData05.Location = new System.Drawing.Point(541, 19);
+            this.lblTransData05.Name = "lblTransData05";
+            this.lblTransData05.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData05.TabIndex = 28;
+            this.lblTransData05.Text = "【0字节】";
             // 
-            // radioButton4
+            // groupBox15
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Location = new System.Drawing.Point(135, 77);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 23);
-            this.radioButton4.TabIndex = 43;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "是";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox15.Controls.Add(this.lblTransResult05);
+            this.groupBox15.Controls.Add(this.textTransResult05);
+            this.groupBox15.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox15.Location = new System.Drawing.Point(21, 282);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox15.Size = new System.Drawing.Size(659, 118);
+            this.groupBox15.TabIndex = 51;
+            this.groupBox15.TabStop = false;
             // 
-            // lblTransResult6
+            // lblTransResult05
             // 
-            this.lblTransResult6.AutoSize = true;
-            this.lblTransResult6.Location = new System.Drawing.Point(350, 120);
-            this.lblTransResult6.Name = "lblTransResult6";
-            this.lblTransResult6.Size = new System.Drawing.Size(90, 19);
-            this.lblTransResult6.TabIndex = 42;
-            this.lblTransResult6.Text = "【0字节】";
+            this.lblTransResult05.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTransResult05.AutoSize = true;
+            this.lblTransResult05.Location = new System.Drawing.Point(541, 19);
+            this.lblTransResult05.Name = "lblTransResult05";
+            this.lblTransResult05.Size = new System.Drawing.Size(90, 19);
+            this.lblTransResult05.TabIndex = 29;
+            this.lblTransResult05.Text = "【0字节】";
             // 
-            // lblTransData6
+            // textTransResult05
             // 
-            this.lblTransData6.AutoSize = true;
-            this.lblTransData6.Location = new System.Drawing.Point(575, 36);
-            this.lblTransData6.Name = "lblTransData6";
-            this.lblTransData6.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData6.TabIndex = 41;
-            this.lblTransData6.Text = "【0字节】";
+            this.textTransResult05.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textTransResult05.Location = new System.Drawing.Point(125, 16);
+            this.textTransResult05.Name = "textTransResult05";
+            this.textTransResult05.Size = new System.Drawing.Size(393, 28);
+            this.textTransResult05.TabIndex = 34;
+            this.textTransResult05.Text = "";
+            this.textTransResult05.TextChanged += new System.EventHandler(this.textTransResult05_TextChanged);
             // 
-            // button3
+            // radixTrans
             // 
-            this.button3.Location = new System.Drawing.Point(268, 187);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 34);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "转换";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.radixTrans.BackColor = System.Drawing.Color.SkyBlue;
+            this.radixTrans.Controls.Add(this.richTextBox06_16);
+            this.radixTrans.Controls.Add(this.lblTransData06_16);
+            this.radixTrans.Controls.Add(this.label25);
+            this.radixTrans.Controls.Add(this.richTextBox06_08);
+            this.radixTrans.Controls.Add(this.lblTransData06_08);
+            this.radixTrans.Controls.Add(this.label23);
+            this.radixTrans.Controls.Add(this.richTextBox06_10);
+            this.radixTrans.Controls.Add(this.lblTransData06_10);
+            this.radixTrans.Controls.Add(this.label20);
+            this.radixTrans.Controls.Add(this.richTextBox06_02);
+            this.radixTrans.Controls.Add(this.lblTransData06_02);
+            this.radixTrans.Controls.Add(this.label18);
+            this.radixTrans.Location = new System.Drawing.Point(4, 28);
+            this.radixTrans.Name = "radixTrans";
+            this.radixTrans.Size = new System.Drawing.Size(700, 409);
+            this.radixTrans.TabIndex = 5;
+            this.radixTrans.Text = "进制转换";
+            this.radixTrans.Click += new System.EventHandler(this.radixTrans_Click);
             // 
-            // button4
+            // richTextBox06_02
             // 
-            this.button4.Location = new System.Drawing.Point(93, 187);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 34);
-            this.button4.TabIndex = 39;
-            this.button4.Text = "清除";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.richTextBox06_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_02.Location = new System.Drawing.Point(152, 18);
+            this.richTextBox06_02.Name = "richTextBox06_02";
+            this.richTextBox06_02.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_02.TabIndex = 48;
+            this.richTextBox06_02.Text = "";
+            this.richTextBox06_02.TextChanged += new System.EventHandler(this.richTextBox06_02_TextChanged);
             // 
-            // textTransResult6
+            // lblTransData06_02
             // 
-            this.textTransResult6.Location = new System.Drawing.Point(116, 117);
-            this.textTransResult6.Name = "textTransResult6";
-            this.textTransResult6.Size = new System.Drawing.Size(218, 26);
-            this.textTransResult6.TabIndex = 38;
+            this.lblTransData06_02.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_02.AutoSize = true;
+            this.lblTransData06_02.Location = new System.Drawing.Point(564, 28);
+            this.lblTransData06_02.Name = "lblTransData06_02";
+            this.lblTransData06_02.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_02.TabIndex = 47;
+            this.lblTransData06_02.Text = "【0字节】";
             // 
-            // label19
+            // label18
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(29, 120);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(81, 19);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "【结果】";
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(29, 28);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(99, 19);
+            this.label18.TabIndex = 49;
+            this.label18.Text = "【 2进制】";
+            // 
+            // richTextBox06_10
+            // 
+            this.richTextBox06_10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_10.Location = new System.Drawing.Point(152, 180);
+            this.richTextBox06_10.Name = "richTextBox06_10";
+            this.richTextBox06_10.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_10.TabIndex = 51;
+            this.richTextBox06_10.Text = "";
+            this.richTextBox06_10.TextChanged += new System.EventHandler(this.richTextBox06_10_TextChanged);
+            // 
+            // lblTransData06_10
+            // 
+            this.lblTransData06_10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_10.AutoSize = true;
+            this.lblTransData06_10.Location = new System.Drawing.Point(564, 190);
+            this.lblTransData06_10.Name = "lblTransData06_10";
+            this.lblTransData06_10.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_10.TabIndex = 50;
+            this.lblTransData06_10.Text = "【0字节】";
             // 
             // label20
             // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(29, 36);
+            this.label20.Location = new System.Drawing.Point(29, 190);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 19);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "【数据】";
+            this.label20.Size = new System.Drawing.Size(99, 19);
+            this.label20.TabIndex = 52;
+            this.label20.Text = "【10进制】";
+            // 
+            // richTextBox06_08
+            // 
+            this.richTextBox06_08.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_08.Location = new System.Drawing.Point(152, 96);
+            this.richTextBox06_08.Name = "richTextBox06_08";
+            this.richTextBox06_08.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_08.TabIndex = 54;
+            this.richTextBox06_08.Text = "";
+            this.richTextBox06_08.TextChanged += new System.EventHandler(this.richTextBox06_08_TextChanged);
+            // 
+            // lblTransData06_08
+            // 
+            this.lblTransData06_08.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_08.AutoSize = true;
+            this.lblTransData06_08.Location = new System.Drawing.Point(564, 106);
+            this.lblTransData06_08.Name = "lblTransData06_08";
+            this.lblTransData06_08.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_08.TabIndex = 53;
+            this.lblTransData06_08.Text = "【0字节】";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(29, 106);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(99, 19);
+            this.label23.TabIndex = 55;
+            this.label23.Text = "【 8进制】";
+            // 
+            // richTextBox06_16
+            // 
+            this.richTextBox06_16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_16.Location = new System.Drawing.Point(152, 262);
+            this.richTextBox06_16.Name = "richTextBox06_16";
+            this.richTextBox06_16.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_16.TabIndex = 57;
+            this.richTextBox06_16.Text = "";
+            this.richTextBox06_16.TextChanged += new System.EventHandler(this.richTextBox06_16_TextChanged);
+            // 
+            // lblTransData06_16
+            // 
+            this.lblTransData06_16.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_16.AutoSize = true;
+            this.lblTransData06_16.Location = new System.Drawing.Point(564, 271);
+            this.lblTransData06_16.Name = "lblTransData06_16";
+            this.lblTransData06_16.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_16.TabIndex = 56;
+            this.lblTransData06_16.Text = "【0字节】";
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(29, 271);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(99, 19);
+            this.label25.TabIndex = 58;
+            this.label25.Text = "【16进制】";
             // 
             // TransForm
             // 
@@ -1329,6 +1513,7 @@
             this.panel4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.contextMenuStripData01.ResumeLayout(false);
             this.Hex2ASC.ResumeLayout(false);
             this.Hex2ASC.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1349,10 +1534,18 @@
             this.groupBox10.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.deleteSpace.ResumeLayout(false);
-            this.deleteSpace.PerformLayout();
-            this.addSpace.ResumeLayout(false);
-            this.addSpace.PerformLayout();
+            this.operatorBlank.ResumeLayout(false);
+            this.operatorBlank.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.radixTrans.ResumeLayout(false);
+            this.radixTrans.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1372,51 +1565,34 @@
         private System.Windows.Forms.TabControl tabCtrlTrans;
         private System.Windows.Forms.TabPage Hex2GBK;
         private System.Windows.Forms.TabPage GBK2Hex;
-        private System.Windows.Forms.Button btnTrans2;
-        private System.Windows.Forms.Button btnTransClear2;
+        private System.Windows.Forms.Button btnTransExecute02;
+        private System.Windows.Forms.Button btnTransClear02;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTransResult2;
         private System.Windows.Forms.Label lblTransData2;
         private System.Windows.Forms.Label lblTransResult1;
         private System.Windows.Forms.Label lblTransData1;
-        private System.Windows.Forms.Button btnTrans1;
-        private System.Windows.Forms.Button btnTransClear1;
+        private System.Windows.Forms.Button btnTransExecute01;
+        private System.Windows.Forms.Button btnTransClear01;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage Hex2ASC;
         private System.Windows.Forms.TabPage ASC2Hex;
         private System.Windows.Forms.Label lblTransResult3;
         private System.Windows.Forms.Label lblTransData3;
-        private System.Windows.Forms.Button btnTrans3;
-        private System.Windows.Forms.Button btnTransClear3;
+        private System.Windows.Forms.Button btnTransExecute03;
+        private System.Windows.Forms.Button btnTransClear03;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblTransResult4;
+        private System.Windows.Forms.Label lblTransResult04;
         private System.Windows.Forms.Label lblTransData4;
-        private System.Windows.Forms.Button btnTrans4;
-        private System.Windows.Forms.Button btnTransClear4;
+        private System.Windows.Forms.Button btnTransExecute04;
+        private System.Windows.Forms.Button btnTransClear04;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TabPage deleteSpace;
-        private System.Windows.Forms.TabPage addSpace;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Label lblTransResult6;
-        private System.Windows.Forms.Label lblTransData6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textTransResult6;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label lblTransResult5;
-        private System.Windows.Forms.Label lblTransData5;
-        private System.Windows.Forms.Button buttonDelSpace;
-        private System.Windows.Forms.Button buttonDelSpaceClear;
-        private System.Windows.Forms.TextBox textBoxDelSpaceResult;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TabPage operatorBlank;
+        private System.Windows.Forms.TabPage radixTrans;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton radioButton02_02;
@@ -1429,8 +1605,6 @@
         internal System.Windows.Forms.RichTextBox textTransData02;
         internal System.Windows.Forms.RichTextBox textTransData03;
         internal System.Windows.Forms.RichTextBox textTransData04;
-        internal System.Windows.Forms.RichTextBox textBoxDelSpace;
-        internal System.Windows.Forms.RichTextBox richTextBox1;
         internal System.Windows.Forms.RichTextBox textTransResult01;
         internal System.Windows.Forms.RichTextBox textTransResult02;
         internal System.Windows.Forms.RichTextBox textTransResult03;
@@ -1465,5 +1639,35 @@
         private System.Windows.Forms.GroupBox groupBox12;
         internal System.Windows.Forms.TextBox textBox01_01;
         internal System.Windows.Forms.TextBox textBox02_01;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripData01;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_copy;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel7;
+        internal System.Windows.Forms.RadioButton radioButton05_02;
+        internal System.Windows.Forms.RadioButton radioButton05_01;
+        private System.Windows.Forms.Button btnTransExecute05;
+        private System.Windows.Forms.Button btnTransClear05;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox14;
+        internal System.Windows.Forms.RichTextBox textTransData05;
+        private System.Windows.Forms.Label lblTransData05;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Label lblTransResult05;
+        internal System.Windows.Forms.RichTextBox textTransResult05;
+        internal System.Windows.Forms.TextBox textBox05_01;
+        internal System.Windows.Forms.RichTextBox richTextBox06_02;
+        private System.Windows.Forms.Label lblTransData06_02;
+        private System.Windows.Forms.Label label18;
+        internal System.Windows.Forms.RichTextBox richTextBox06_16;
+        private System.Windows.Forms.Label lblTransData06_16;
+        private System.Windows.Forms.Label label25;
+        internal System.Windows.Forms.RichTextBox richTextBox06_08;
+        private System.Windows.Forms.Label lblTransData06_08;
+        private System.Windows.Forms.Label label23;
+        internal System.Windows.Forms.RichTextBox richTextBox06_10;
+        private System.Windows.Forms.Label lblTransData06_10;
+        private System.Windows.Forms.Label label20;
     }
 }
