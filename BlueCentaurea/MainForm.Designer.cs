@@ -34,8 +34,8 @@
             this.gB2312转换为16进制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.进制转换为ASCIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSCII转换为16进制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hex2UTF8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uTF82HexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delBlankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBlankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mD5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sHA1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,6 +57,7 @@
             this.aboutBlueCentaureaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.httpTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +68,8 @@
             this.gB2312转换为16进制ToolStripMenuItem,
             this.进制转换为ASCIIToolStripMenuItem,
             this.aSCII转换为16进制ToolStripMenuItem,
-            this.hex2UTF8ToolStripMenuItem,
-            this.uTF82HexToolStripMenuItem});
+            this.delBlankToolStripMenuItem,
+            this.addBlankToolStripMenuItem});
             this.transToolStripMenuItem.Name = "transToolStripMenuItem";
             this.transToolStripMenuItem.Size = new System.Drawing.Size(120, 23);
             this.transToolStripMenuItem.Text = "编码转换(&T)";
@@ -77,49 +78,55 @@
             // 
             this.进制转换为GB2312ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.进制转换为GB2312ToolStripMenuItem.Name = "进制转换为GB2312ToolStripMenuItem";
-            this.进制转换为GB2312ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.进制转换为GB2312ToolStripMenuItem.Text = "HEX --> GBK(&H)";
+            this.进制转换为GB2312ToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.进制转换为GB2312ToolStripMenuItem.Text = "HEX --> 汉字(&H)";
+            this.进制转换为GB2312ToolStripMenuItem.ToolTipText = "把【16进制】字符串转换为【GBK编码】的汉字";
             this.进制转换为GB2312ToolStripMenuItem.Click += new System.EventHandler(this.Hex2GB2312ToolStripMenuItem_Click);
             // 
             // gB2312转换为16进制ToolStripMenuItem
             // 
             this.gB2312转换为16进制ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.gB2312转换为16进制ToolStripMenuItem.Name = "gB2312转换为16进制ToolStripMenuItem";
-            this.gB2312转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.gB2312转换为16进制ToolStripMenuItem.Text = "GBK --> HEX(G)";
+            this.gB2312转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.gB2312转换为16进制ToolStripMenuItem.Text = "汉字 --> HEX(G)";
+            this.gB2312转换为16进制ToolStripMenuItem.ToolTipText = "把【中文】转换为【16进制】字符串";
             this.gB2312转换为16进制ToolStripMenuItem.Click += new System.EventHandler(this.GB2312ToHexToolStripMenuItem_Click);
             // 
             // 进制转换为ASCIIToolStripMenuItem
             // 
             this.进制转换为ASCIIToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.进制转换为ASCIIToolStripMenuItem.Name = "进制转换为ASCIIToolStripMenuItem";
-            this.进制转换为ASCIIToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.进制转换为ASCIIToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
             this.进制转换为ASCIIToolStripMenuItem.Text = "HEX --> ASC(&X)";
+            this.进制转换为ASCIIToolStripMenuItem.ToolTipText = "把【16进制】字符串转换为【ASCII码】";
             this.进制转换为ASCIIToolStripMenuItem.Click += new System.EventHandler(this.Hex2ASCII_ToolStripMenuItem_Click);
             // 
             // aSCII转换为16进制ToolStripMenuItem
             // 
             this.aSCII转换为16进制ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.aSCII转换为16进制ToolStripMenuItem.Name = "aSCII转换为16进制ToolStripMenuItem";
-            this.aSCII转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.aSCII转换为16进制ToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
             this.aSCII转换为16进制ToolStripMenuItem.Text = "ASC --> HEX(&A)";
+            this.aSCII转换为16进制ToolStripMenuItem.ToolTipText = "把【ASCII码】转换为【16进制】字符串";
             this.aSCII转换为16进制ToolStripMenuItem.Click += new System.EventHandler(this.ASCII2Hex_ToolStripMenuItem_Click);
             // 
-            // hex2UTF8ToolStripMenuItem
+            // delBlankToolStripMenuItem
             // 
-            this.hex2UTF8ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
-            this.hex2UTF8ToolStripMenuItem.Name = "hex2UTF8ToolStripMenuItem";
-            this.hex2UTF8ToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.hex2UTF8ToolStripMenuItem.Text = "删除空格(&E)";
-            this.hex2UTF8ToolStripMenuItem.Click += new System.EventHandler(this.hex2UTF8ToolStripMenuItem_Click);
+            this.delBlankToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
+            this.delBlankToolStripMenuItem.Name = "delBlankToolStripMenuItem";
+            this.delBlankToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.delBlankToolStripMenuItem.Text = "删除空格(&E)";
+            this.delBlankToolStripMenuItem.ToolTipText = "【删除】一段字符串中的空格";
+            this.delBlankToolStripMenuItem.Click += new System.EventHandler(this.hex2UTF8ToolStripMenuItem_Click);
             // 
-            // uTF82HexToolStripMenuItem
+            // addBlankToolStripMenuItem
             // 
-            this.uTF82HexToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
-            this.uTF82HexToolStripMenuItem.Name = "uTF82HexToolStripMenuItem";
-            this.uTF82HexToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.uTF82HexToolStripMenuItem.Text = "待定(&U)";
-            this.uTF82HexToolStripMenuItem.Click += new System.EventHandler(this.uTF82HexToolStripMenuItem_Click);
+            this.addBlankToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
+            this.addBlankToolStripMenuItem.Name = "addBlankToolStripMenuItem";
+            this.addBlankToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.addBlankToolStripMenuItem.Text = "添加空格(&U)";
+            this.addBlankToolStripMenuItem.ToolTipText = "按【指定步距】给一段字符串添加空格";
+            this.addBlankToolStripMenuItem.Click += new System.EventHandler(this.uTF82HexToolStripMenuItem_Click);
             // 
             // checkToolStripMenuItem
             // 
@@ -137,6 +144,7 @@
             this.mD5ToolStripMenuItem.Name = "mD5ToolStripMenuItem";
             this.mD5ToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.mD5ToolStripMenuItem.Text = "MD5(&M)";
+            this.mD5ToolStripMenuItem.ToolTipText = "计算一个文件的【MD5】";
             this.mD5ToolStripMenuItem.Click += new System.EventHandler(this.mD5ToolStripMenuItem_Click);
             // 
             // sHA1ToolStripMenuItem
@@ -299,14 +307,26 @@
             this.httpTest.Text = "HTTP测试(&H)";
             this.httpTest.Click += new System.EventHandler(this.httpTest_Click);
             // 
+            // mainPanel
+            // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.BackgroundImage = global::BlueCentaurea.Properties.Resources.BlueCentaureaBig;
+            this.mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainPanel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainPanel.Location = new System.Drawing.Point(12, 40);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(780, 460);
+            this.mainPanel.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::BlueCentaurea.Properties.Resources.browser_icon_chrome;
             this.ClientSize = new System.Drawing.Size(803, 511);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -327,8 +347,8 @@
         private System.Windows.Forms.ToolStripMenuItem gB2312转换为16进制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 进制转换为ASCIIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aSCII转换为16进制ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hex2UTF8ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uTF82HexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem delBlankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBlankToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mD5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sHA1ToolStripMenuItem;
@@ -350,6 +370,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem strLenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem httpTest;
+        private System.Windows.Forms.Panel mainPanel;
     }
 }
 

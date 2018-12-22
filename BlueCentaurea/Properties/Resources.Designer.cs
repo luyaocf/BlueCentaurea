@@ -63,6 +63,16 @@ namespace BlueCentaurea.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap BlueCentaureaBig {
+            get {
+                object obj = ResourceManager.GetObject("BlueCentaureaBig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap browser_icon_chrome {
             get {
                 object obj = ResourceManager.GetObject("browser-icon-chrome", resourceCulture);
@@ -236,15 +246,6 @@ namespace BlueCentaurea.Properties {
         internal static System.Drawing.Bitmap 解锁 {
             get {
                 object obj = ResourceManager.GetObject("解锁", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
-        internal static System.Drawing.Bitmap calc
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("calc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

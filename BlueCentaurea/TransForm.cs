@@ -18,12 +18,12 @@ namespace BlueCentaurea
         public TransForm()
         {
             InitializeComponent();
-            MyTools.SetDefaultText(textTransData1, ConstValue.TEXT_TRANS_DATA_1);
-            MyTools.SetDefaultText(textTransData2, ConstValue.TEXT_TRANS_DATA_2);
-            MyTools.SetDefaultText(textTransData3, ConstValue.TEXT_TRANS_DATA_3);
-            MyTools.SetDefaultText(textTransData4, ConstValue.TEXT_TRANS_DATA_4);
-            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
-            MyTools.SetDefaultText(textTransData6, ConstValue.TEXT_TRANS_DATA_6);
+          //  MyTools.SetDefaultText(textTransData1, ConstValue.TEXT_TRANS_DATA_1);
+//            MyTools.SetDefaultText(textTransData2, ConstValue.TEXT_TRANS_DATA_2);
+            //MyTools.SetDefaultText(textTransData3, ConstValue.TEXT_TRANS_DATA_3);
+//            MyTools.SetDefaultText(textTransData4, ConstValue.TEXT_TRANS_DATA_4);
+//            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
+            //MyTools.SetDefaultText(textTransData6, ConstValue.TEXT_TRANS_DATA_6);
         }
 
         public void SelectTabPages(int index)
@@ -32,143 +32,219 @@ namespace BlueCentaurea
             this.Show();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void TransForm_Load(object sender, EventArgs e)
         {
-
+            textTransData01.ForeColor = Color.Gray;
+            textTransData01.Text = ConstValue.TEXT_TRANS_DATA_1;
+            textTransData02.ForeColor = Color.Gray;
+            textTransData02.Text = ConstValue.TEXT_TRANS_DATA_2;
+            textTransData03.ForeColor = Color.Gray;
+            textTransData03.Text = ConstValue.TEXT_TRANS_DATA_3;
+            textTransData04.ForeColor = Color.Gray;
+            textTransData04.Text = ConstValue.TEXT_TRANS_DATA_4;
         }
 
 
-        /******************16进制转换为GB2312*****************************************************************/
-        /*private void textTransData1_Enter(object sender, EventArgs e)
+        /******************【16进制字符串转换为汉字】**************************************************************/
+        /** 第一次进入清空输入框 */
+        private void textTransData01_Enter(object sender, EventArgs e)
         {
-            textTransData1.Text = string.Empty;
-            textTransData1.ForeColor = Color.Black;
-        }*/
-        private void textTransData1_MouseDown(object sender, EventArgs e)
-        {
-            if (this.textTransData1.Text == ConstValue.TEXT_TRANS_DATA_1)
+            if (textTransData01.ForeColor == Color.Gray)
             {
-                textTransData1.Text = string.Empty;
-                textTransData1.ForeColor = Color.Black;
+                textTransData01.Text = string.Empty;
+                textTransData01.ForeColor = Color.Black;
             }
         }
-        private void textTransData1_TextChanged(object sender, EventArgs e)
+        /** 鼠标按下清空输入框 */
+        private void textTransData01_MouseDown(object sender, MouseEventArgs e)
         {
-            lblTransData1.Text = "【" + textTransData1.TextLength + "字节】";
+            if (textTransData01.ForeColor == Color.Gray)
+            {
+                textTransData01.Text = string.Empty;
+                textTransData01.ForeColor = Color.Black;
+            }
         }
-        private void textTransResult1_TextChanged(object sender, EventArgs e)
+        /** 鼠标按下清空步进框 */
+        private void textBox01_01_MouseDown(object sender, MouseEventArgs e)
         {
-            lblTransResult1.Text = "【" + textTransResult1.TextLength + "字节】";
+            this.textBox01_01.Text = string.Empty;
         }
-        private void Hex2GB2312_Click(object sender, EventArgs e)
+
+        /** 输入文本改变 */
+        private void textTransData01_TextChanged(object sender, EventArgs e)
         {
-            MyTools.SetDefaultText(textTransData1, ConstValue.TEXT_TRANS_DATA_1);
+            lblTransData1.Text = "【" + textTransData01.TextLength + "字节】";
         }
-        private string HexToGB2312_Method(string text)
+        /** 结果输出改变 */
+        private void textTransResult01_TextChanged(object sender, EventArgs e)
+        {
+            lblTransResult1.Text = "【" + textTransResult01.TextLength + "字节】";
+        }
+       
+        /** 恢复默认 */
+        private void Hex2ChineseChar_Click(object sender, EventArgs e)
+        {
+            textTransData01.ForeColor = Color.Gray;
+            textTransData01.Text = ConstValue.TEXT_TRANS_DATA_1;
+        }
+
+        /** 清除按钮触发 */
+        private void btnTransClear01_Click(object sender, EventArgs e)
+        {
+            textTransData01.Text = string.Empty;
+            textTransResult01.Text = string.Empty;
+        }
+        /** 执行按钮触发 */
+        private void btnTransExecute01_Click(object sender, EventArgs e)
+        {
+            textTransResult01.Text = Hex2ChineseChar_Method(textTransData01.Text);
+        }
+        /** 计算方法 */
+        private string Hex2ChineseChar_Method(string text)
         {
             byte[] bs = MyTools.HexStringToBytes(Regex.Replace(text, @"\s", ""));
             if (bs == null)
             {
                 return "数据不合法，请参照提示重新输入！";
             }
-            if (this.radioButtonGBK.Checked)
+            if (this.radioButton01_01.Checked)
             {
-                return Encoding.GetEncoding("GBK").GetString(bs);
-            } else
-            {
-                return Encoding.GetEncoding("UTF-8").GetString(bs);
+                if(this.radioButton01_03.Checked)
+                {
+                    return MyTools.addBlank(Encoding.GetEncoding("GBK").GetString(bs), int.Parse(this.textBox01_01.Text), true);
+                }
+                else 
+                {
+                    return Encoding.GetEncoding("GBK").GetString(bs);
+                }
             }
-        }
-        private void btnTransClear1_Click(object sender, EventArgs e)
-        {
-            textTransData1.Text = string.Empty;
-            textTransResult1.Text = string.Empty;
-        }
-        private void btnTrans1_Click(object sender, EventArgs e)
-        {
-            textTransResult1.Text = HexToGB2312_Method(textTransData1.Text);
+            else 
+            {
+                if (this.radioButton01_03.Checked)
+                {
+                    return MyTools.addBlank(Encoding.GetEncoding("UTF-8").GetString(bs), int.Parse(this.textBox01_01.Text), true);
+                }
+                else 
+                {
+                    return Encoding.GetEncoding("UTF-8").GetString(bs);
+                }
+            }
         }
 
-        /******************GB2312转换为16进制*****************************************************************/
-        private void textTransData2_MouseDown(object sender, EventArgs e)
+        /******************【汉字转换为16进制】*****************************************************************/
+        /** 第一次进入清空输入框 */
+        private void textTransData02_Enter(object sender, EventArgs e)
         {
-            if (this.textTransData2.Text == ConstValue.TEXT_TRANS_DATA_2)
+            if (textTransData02.ForeColor == Color.Gray)
             {
-                textTransData2.Text = string.Empty;
-                textTransData2.ForeColor = Color.Black;
+                textTransData02.Text = string.Empty;
+                textTransData02.ForeColor = Color.Black;
             }
         }
-        private void textTransData2_TextChanged(object sender, EventArgs e)
+        /** 鼠标按下清空输入框 */
+        private void textTransData02_MouseDown(object sender, MouseEventArgs e)
         {
-            lblTransData2.Text = "【" + textTransData2.TextLength + "字节】";
+            if (this.textTransData02.ForeColor == Color.Gray)
+            {
+                textTransData02.Text = string.Empty;
+                textTransData02.ForeColor = Color.Black;
+            }
         }
-        private void textTransResult2_TextChanged(object sender, EventArgs e)
+
+        /** 鼠标按下清空步进框 */
+        private void textBox02_01_MouseDown(object sender, MouseEventArgs e)
         {
-            lblTransResult2.Text = "【" + textTransResult2.TextLength + "字节】";
+            this.textBox02_01.Text = string.Empty;
         }
-        private void GB2312ToHex_Click(object sender, EventArgs e)
+
+        /** 输入文本改变 */
+        private void textTransData02_TextChanged(object sender, EventArgs e)
         {
-            MyTools.SetDefaultText(textTransData2, ConstValue.TEXT_TRANS_DATA_2);
+            lblTransData2.Text = "【" + textTransData02.TextLength + "字节】";
         }
-        private string GB2312ToHex_Method(string str)
+        /** 结果输出改变 */
+        private void textTransResult02_TextChanged(object sender, EventArgs e)
         {
-            if (this.radioButtonGBK2.Checked)
+            lblTransResult2.Text = "【" + textTransResult02.TextLength + "字节】";
+        }
+        
+        /** 恢复默认 */
+        private void ChineseCharToHex_Click(object sender, EventArgs e)
+        {
+            textTransData02.ForeColor = Color.Gray;
+            textTransData02.Text = ConstValue.TEXT_TRANS_DATA_2;
+        }
+
+        /** 清除按钮触发 */
+        private void btnTransClear02_Click(object sender, EventArgs e)
+        {
+            textTransData02.Text = string.Empty;
+            textTransResult02.Text = string.Empty;
+        }
+        /** 执行按钮触发 */
+        private void btnTransExecute02_Click(object sender, EventArgs e)
+        {
+            textTransResult02.Text = ChineseCharToHex_Method(textTransData02.Text);
+        }
+        /** 计算方法 */
+        private string ChineseCharToHex_Method(string str)
+        {
+            if (this.radioButton02_01.Checked)
             {
                 byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(str);
+                if (this.radioButton02_03.Checked)
+                {
+                    return MyTools.addBlank(MyTools.BytesToHexString(bytes), int.Parse(this.textBox02_01.Text), false);
+                }
                 return MyTools.BytesToHexString(bytes);
             }
             else
             {
                 byte[] bytes = Encoding.GetEncoding("UTF-8").GetBytes(str);
+                if (this.radioButton02_03.Checked)
+                {
+                    return MyTools.addBlank(MyTools.BytesToHexString(bytes), int.Parse(this.textBox02_01.Text), false);
+                }
                 return MyTools.BytesToHexString(bytes);
             }
         }
-        private void btnTransClear2_Click(object sender, EventArgs e)
-        {
-            textTransData2.Text = string.Empty;
-            textTransResult2.Text = string.Empty;
-        }
-        private void btnTrans2_Click(object sender, EventArgs e)
-        {
-            textTransResult2.Text = GB2312ToHex_Method(textTransData2.Text);
-        }
-
 
         /******************Hex2ASCII*****************************************************************/
-        private void textTransData3_MouseDown(object sender, MouseEventArgs e)
+        private void textTransData03_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.textTransData3.Text == ConstValue.TEXT_TRANS_DATA_3)
+            if (this.textTransData03.Text == ConstValue.TEXT_TRANS_DATA_3)
             {
-                textTransData3.Text = string.Empty;
-                textTransData3.ForeColor = Color.Black;
+                textTransData03.Text = string.Empty;
+                textTransData03.ForeColor = Color.Black;
             }
         }
-        private void textTransData3_TextChanged(object sender, EventArgs e)
+        private void textTransData03_TextChanged(object sender, EventArgs e)
         {
-            lblTransData3.Text = "【" + textTransData3.TextLength + "字节】";
+            lblTransData3.Text = "【" + textTransData03.TextLength + "字节】";
         }
-        private void textTransResult3_TextChanged(object sender, EventArgs e)
+        private void textTransResult03_TextChanged(object sender, EventArgs e)
         {
-            lblTransResult2.Text = "【" + textTransResult2.TextLength + "字节】";
+            lblTransResult2.Text = "【" + textTransResult03.TextLength + "字节】";
         }
         private void Hex2ASC_Click(object sender, EventArgs e)
         {
-            MyTools.SetDefaultText(textTransData3, ConstValue.TEXT_TRANS_DATA_3);
+            textTransData03.ForeColor = Color.Gray;
+            textTransData03.Text = ConstValue.TEXT_TRANS_DATA_3;
         }
         private void btnTransClear3_Click(object sender, EventArgs e)
         {
-            textTransData3.Text = string.Empty;
-            textTransResult3.Text = string.Empty;
+            textTransData03.Text = string.Empty;
+            textTransResult03.Text = string.Empty;
         }
         private void btnTrans3_Click(object sender, EventArgs e)
         {
-            if (raBtnTransHex2ASC1.Checked)
+            if (radioButton03_01.Checked)
             {
-                textTransResult3.Text = MyTools.Hex2ASCII(textTransData3.Text, 1);
+                textTransResult03.Text = MyTools.Hex2ASCII(textTransData03.Text, 1);
             }
-            else if (raBtnTransHex2ASC2.Checked)
+            else if (radioButton03_02.Checked)
             {
-                textTransResult3.Text = MyTools.Hex2ASCII(textTransData3.Text, 0);
+                textTransResult03.Text = MyTools.Hex2ASCII(textTransData03.Text, 0);
             }
             else
             {
@@ -178,40 +254,41 @@ namespace BlueCentaurea
 
 
         /******************ASCII2ASC*****************************************************************/
-        private void textTransData4_MouseDown(object sender, MouseEventArgs e)
+        private void textTransData04_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.textTransData4.Text == ConstValue.TEXT_TRANS_DATA_4)
+            if (this.textTransData04.Text == ConstValue.TEXT_TRANS_DATA_4)
             {
-                textTransData4.Text = string.Empty;
-                textTransData4.ForeColor = Color.Black;
+                textTransData04.Text = string.Empty;
+                textTransData04.ForeColor = Color.Black;
             }
         }
-        private void textTransData4_TextChanged(object sender, EventArgs e)
+        private void textTransData04_TextChanged(object sender, EventArgs e)
         {
-            lblTransData4.Text = "【" + textTransData4.TextLength + "字节】";
+            lblTransData4.Text = "【" + textTransData04.TextLength + "字节】";
         }
-        private void textTransResult4_TextChanged(object sender, EventArgs e)
+        private void textTransResult04_TextChanged(object sender, EventArgs e)
         {
-            lblTransResult4.Text = "【" + textTransResult4.TextLength + "字节】";
+            lblTransResult4.Text = "【" + textTransResult04.TextLength + "字节】";
         }
         private void ASC2Hex_Click(object sender, EventArgs e)
         {
-            MyTools.SetDefaultText(textTransData4, ConstValue.TEXT_TRANS_DATA_4);
+            textTransData04.ForeColor = Color.Gray;
+            textTransData04.Text = ConstValue.TEXT_TRANS_DATA_4;
         }
         private void btnTransClear4_Click(object sender, EventArgs e)
         {
-            textTransData4.Text = string.Empty;
-            textTransResult4.Text = string.Empty;
+            textTransData04.Text = string.Empty;
+            textTransResult04.Text = string.Empty;
         }
         private void btnTrans4_Click(object sender, EventArgs e)
         {
-            if (raBtnTransASC2Hex1.Checked)
+            if (radioButton04_01.Checked)
             {
-                textTransResult4.Text = MyTools.ASCII2Hex(textTransData4.Text, 1);
+                textTransResult04.Text = MyTools.ASCII2Hex(textTransData04.Text, 1);
             }
-            else if (raBtnTransASC2Hex2.Checked)
+            else if (radioButton04_02.Checked)
             {
-                textTransResult4.Text = MyTools.ASCII2Hex(textTransData4.Text, 0);
+                textTransResult04.Text = MyTools.ASCII2Hex(textTransData04.Text, 0);
             }
             else
             {
@@ -220,7 +297,7 @@ namespace BlueCentaurea
         }
 
 
-        /******************按钮_Hex2UTF-8*****************************************************************/
+        /******************清除空格*****************************************************************/
         private void TransDelSpaceClear_Click(object sender, EventArgs e)
         {
             this.textBoxDelSpace.Text = string.Empty;
@@ -232,7 +309,7 @@ namespace BlueCentaurea
             this.textBoxDelSpaceResult.Text = Regex.Replace(this.textBoxDelSpace.Text.Trim(), @"\s", "");
         }
 
-        /******************按钮_UTF-82Hex*****************************************************************/
+        /******************添加空格*****************************************************************/
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -254,13 +331,9 @@ namespace BlueCentaurea
 
         private void radioButtonGBK2_MouseEnter(object sender, EventArgs e)
         {
-            this.radioButtonGBK2.Text = "一般情况下，GBK编码的汉字占用2个字节！";
+            this.radioButton02_01.Text = "一般情况下，GBK编码的汉字占用2个字节！";
         }
 
-        private void textTransData1_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void textBoxDelSpace_MouseDown(object sender, MouseEventArgs e)
         {
@@ -278,13 +351,15 @@ namespace BlueCentaurea
 
         private void deleteSpace_Click(object sender, EventArgs e)
         {
-            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
+            
         }
 
         private void textBoxDelSpace_TextChanged(object sender, EventArgs e)
         {
             lblTransData5.Text = "【" + textBoxDelSpace.TextLength + "字节】";
         }
+
+
     }
 }
 

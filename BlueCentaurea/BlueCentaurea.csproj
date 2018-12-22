@@ -162,6 +162,7 @@
     <None Include="Resources\DataRSStatusOff1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\BlueCentaureaBig.jpg" />
     <Content Include="Resources\BuleCentaurea.ico" />
     <Content Include="Resources\calc.ico" />
     <None Include="Resources\校验.jpg" />

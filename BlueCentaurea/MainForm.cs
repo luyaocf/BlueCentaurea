@@ -17,86 +17,131 @@ namespace BlueCentaurea
         {
             InitializeComponent();
         }
+        /**
+         * 设置窗体进入Panel 
+         */
+        private void SetFormInPanel(Form form)
+        {
+            this.mainPanel.Controls.Clear();
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            form.Parent = this.mainPanel;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+        }
 
+        /******************生成【编码转换】窗口【start】************************************************/
         private void Hex2GB2312ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(0);
         }
         private void GB2312ToHexToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(1);
         }
         private void Hex2ASCII_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(2);
         }
         private void ASCII2Hex_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(3);
         }
         private void hex2UTF8ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(4);
         }
         private void uTF82HexToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransForm transForm = new TransForm();
-            transForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(transForm);
             transForm.SelectTabPages(5);
         }
-        private void Serial_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SerialForm serialForm = new SerialForm();
-            serialForm.StartPosition = FormStartPosition.CenterScreen;
-            serialForm.Show();
-        }
-        /********************************************************************************************/
+        /******************生成【编码转换】窗口【end】*************************************************/
 
+
+        /******************生成【文件校验】窗口【start】***********************************************/
+        private void mD5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            SetFormInPanel(checkForm);
+            checkForm.SelectTabPages(0);
+        }
+
+        private void sHA1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            SetFormInPanel(checkForm);
+            checkForm.SelectTabPages(1);
+        }
+
+        private void calcStrLenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForm checkForm = new CheckForm();
+            SetFormInPanel(checkForm);
+            checkForm.SelectTabPages(2);
+        }
+        /******************生成【文件校验】窗口【end】*************************************************/
+
+
+        /******************生成【加解密】窗口【start】*************************************************/
         private void MD5_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EncryptForm encryptForm = new EncryptForm();
-            encryptForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(encryptForm);
             encryptForm.SelectTabPages(0);
         }
         private void DES_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EncryptForm encryptForm = new EncryptForm();
-            encryptForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(encryptForm);
             encryptForm.SelectTabPages(1);
         }
         private void TriDES_ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EncryptForm encryptForm = new EncryptForm();
-            encryptForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(encryptForm);
             encryptForm.SelectTabPages(2);
         }
         private void TriMac_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EncryptForm encryptForm = new EncryptForm();
-            encryptForm.StartPosition = FormStartPosition.CenterScreen;
+            SetFormInPanel(encryptForm);
             encryptForm.SelectTabPages(3);
         }
+        /******************生成【加解密】窗口【end】**************************************************/
 
-        /********************************************************************************************/
+
+        /******************生成【串口、网口、HTTP】窗口【start】***************************************/
         private void Network_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NetworkForm networkForm = new NetworkForm();
-            NetworkForm.network.StartPosition = FormStartPosition.CenterParent;
-            NetworkForm.network.Show();
+            SetFormInPanel(networkForm);
         }
+        private void Serial_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SerialForm serialForm = new SerialForm();
+            SetFormInPanel(serialForm);
+        }
+        private void httpTest_Click(object sender, EventArgs e)
+        {
+            HTTPForm httpForm = new HTTPForm();
+            SetFormInPanel(httpForm);
+        }
+        /******************生成【串口、网口、HTTP】窗口【end】*****************************************/
 
-        /********************************************************************************************/
 
+        /******************生成【查看帮助、联系我们、关于、更新等】窗口【start】*************************/
         private void watchHelp_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("注意输入文本框的提示内容！", "帮助");
@@ -109,6 +154,16 @@ namespace BlueCentaurea
         {
             MessageBox.Show("我承认，我盗了chrome浏览器的图！侵删", "关于 BlueCentaurea V2.0");
         }
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("2017-06-14\r   1 编码转换功能实现\r" +
+                "   2 加(解)密功能实现\r" +
+                "2018-02-27\r   1 编码转换时，HEX格式的字符串自动去掉空格\r" +
+                "2018-02-28\r   1 使用ESC快捷键关闭窗口\r"
+                , "更新日志");
+        }
+        /******************生成【查看帮助、联系我们、关于、更新等】窗口【end】***************************/
+
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -119,51 +174,9 @@ namespace BlueCentaurea
             }
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("2017-06-14\r   1 编码转换功能实现\r" +
-                "   2 加(解)密功能实现\r" +
-                "2018-02-27\r   1 编码转换时，HEX格式的字符串自动去掉空格\r" +
-                "2018-02-28\r   1 使用ESC快捷键关闭窗口\r"
-                , "更新日志");
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void Check_ToolStripMenuItem_Clic(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void calcStrLenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckForm checkForm = new CheckForm();
-            checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.SelectTabPages(2);
-        }
-
-        private void mD5ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckForm checkForm = new CheckForm();
-            checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.SelectTabPages(0);
-        }
-
-        private void sHA1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckForm checkForm = new CheckForm();
-            checkForm.StartPosition = FormStartPosition.CenterParent;
-            checkForm.SelectTabPages(1);
-        }
-
-        private void httpTest_Click(object sender, EventArgs e)
-        {
-            HTTPForm httpForm = new HTTPForm();
-            HTTPForm.httpForm.StartPosition = FormStartPosition.CenterParent;
-            HTTPForm.httpForm.Show();
         }
     }
 
@@ -191,6 +204,24 @@ namespace BlueCentaurea
 
     public class MyTools
     {
+        public static String addBlank(String src, int step, Boolean isChineseChar)
+        {
+            if (isChineseChar && !System.Text.RegularExpressions.Regex.IsMatch(src, @"[\u4e00-\u9fbb]+$"))
+            {
+                return src;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < src.Length; i += step)
+            {
+                if (i + step >= src.Length)
+                {
+                    sb.Append(src.Substring(i));
+                    break;
+                }
+                sb.Append(src.Substring(i, step)).Append(" ");
+            }
+            return sb.ToString();
+        }
         public static String BytesToHexString(byte[] bys)
         {
             if (bys == null)
