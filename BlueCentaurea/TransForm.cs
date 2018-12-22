@@ -18,12 +18,6 @@ namespace BlueCentaurea
         public TransForm()
         {
             InitializeComponent();
-            //  MyTools.SetDefaultText(textTransData1, ConstValue.TEXT_TRANS_DATA_1);
-            //            MyTools.SetDefaultText(textTransData2, ConstValue.TEXT_TRANS_DATA_2);
-            //MyTools.SetDefaultText(textTransData3, ConstValue.TEXT_TRANS_DATA_3);
-            //            MyTools.SetDefaultText(textTransData4, ConstValue.TEXT_TRANS_DATA_4);
-            //            MyTools.SetDefaultText(textBoxDelSpace, ConstValue.TEXT_TRANS_DATA_7);
-            //MyTools.SetDefaultText(textTransData6, ConstValue.TEXT_TRANS_DATA_6);
         }
 
         public void SelectTabPages(int index)

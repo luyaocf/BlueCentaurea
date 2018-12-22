@@ -34,10 +34,12 @@
             this.btnSend1 = new System.Windows.Forms.Button();
             this.btnSendRegion2 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.combBPortName = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.richTextBoxServerRecv = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@
             this.richTextBoxServerSend = new System.Windows.Forms.RichTextBox();
             this.richTextBoxServerAddress = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.richTextBoxServerRecv = new System.Windows.Forms.RichTextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -131,30 +131,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "HTTP模拟浏览器";
             // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 15);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "【请求】";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 137);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 15);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "【回复】";
-            // 
             // combBPortName
             // 
             this.combBPortName.DropDownWidth = 106;
@@ -175,6 +151,30 @@
             this.combBPortName.Size = new System.Drawing.Size(74, 23);
             this.combBPortName.TabIndex = 19;
             this.combBPortName.Text = "GET";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "【回复】";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 15);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "【请求】";
             // 
             // groupBox3
             // 
@@ -198,6 +198,29 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "HTTP模拟服务器";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 153);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 15);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "【接收】";
+            // 
+            // richTextBoxServerRecv
+            // 
+            this.richTextBoxServerRecv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxServerRecv.Location = new System.Drawing.Point(75, 78);
+            this.richTextBoxServerRecv.Name = "richTextBoxServerRecv";
+            this.richTextBoxServerRecv.Size = new System.Drawing.Size(627, 139);
+            this.richTextBoxServerRecv.TabIndex = 19;
+            this.richTextBoxServerRecv.Text = "";
             // 
             // label9
             // 
@@ -281,29 +304,6 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "l";
             // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 153);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 15);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "【接收】";
-            // 
-            // richTextBoxServerRecv
-            // 
-            this.richTextBoxServerRecv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxServerRecv.Location = new System.Drawing.Point(75, 78);
-            this.richTextBoxServerRecv.Name = "richTextBoxServerRecv";
-            this.richTextBoxServerRecv.Size = new System.Drawing.Size(627, 139);
-            this.richTextBoxServerRecv.TabIndex = 19;
-            this.richTextBoxServerRecv.Text = "";
-            // 
             // HTTPForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -312,6 +312,9 @@
             this.ClientSize = new System.Drawing.Size(784, 495);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HTTPForm";
             this.Text = "HTTPForm";
             this.groupBox5.ResumeLayout(false);

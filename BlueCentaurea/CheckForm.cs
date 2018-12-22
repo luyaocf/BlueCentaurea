@@ -33,35 +33,27 @@ namespace BlueCentaurea
         {
             if(this.openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.txtBoxCheckSelectMD5.Text = string.Empty;
-                this.txtBoxCheckSelectMD5.AppendText(Path.GetDirectoryName(this.openFileDialog.FileName));
-                this.txtBoxCheckSelectMD5.AppendText("\\");
-                this.txtBoxCheckSelectMD5.AppendText(Path.GetFileName(this.openFileDialog.FileName));
-                this.txtBoxCheckSelectMD5.Enabled = false;
+                this.textMD5Path01.Text = string.Empty;
+                this.textMD5Path01.AppendText(Path.GetDirectoryName(this.openFileDialog.FileName));
+                this.textMD5Path01.AppendText("\\");
+                this.textMD5Path01.AppendText(Path.GetFileName(this.openFileDialog.FileName));
+                //this.txtBoxCheckSelectMD5.Enabled = false;
             }
         }
 
-        private void CheckForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)27)
-            {
-                this.Close();
-                return;
-            }
-        }
 
         private void btnCheckMD5_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.txtBoxCheckSelectMD5.Text != null && !"".Equals(this.txtBoxCheckSelectMD5.Text))
+                if (this.textMD5Path01.Text != null && !"".Equals(this.textMD5Path01.Text))
                 {
-                    FileStream file = new FileStream(this.txtBoxCheckSelectMD5.Text, FileMode.Open);
+                    FileStream file = new FileStream(this.textMD5Path01.Text, FileMode.Open);
                     System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
                     byte[] retVal = md5.ComputeHash(file);
                     file.Close();
 
-                    this.textBoxCheckResultMD5.Text = MyTools.BytesToHexString(retVal);                           
+                    this.textMD5Result01.Text = MyTools.BytesToHexString(retVal);                           
                 }
             }
             catch (Exception ex)
@@ -69,6 +61,8 @@ namespace BlueCentaurea
                 MessageBox.Show("检查文件是否存在！" + ex.Message, "错误");
             }
         }
+
+
 
         private void btnCheckSelectSHA1_Click(object sender, EventArgs e)
         {
@@ -101,6 +95,8 @@ namespace BlueCentaurea
                 MessageBox.Show("检查文件是否存在！" + ex.Message, "错误");
             }
         }
+
+
 
         private void textBoxUTF_TextChanged(object sender, EventArgs e)
         {
@@ -175,6 +171,17 @@ namespace BlueCentaurea
 
             this.textBoxUnicode.Text = "请输入字符串";
             this.textBoxUnicode.ForeColor = Color.Gray;
+        }
+
+
+
+        private void CheckForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+            {
+                this.Close();
+                return;
+            }
         }
     }
 }

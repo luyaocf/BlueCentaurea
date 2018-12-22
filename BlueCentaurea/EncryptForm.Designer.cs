@@ -602,9 +602,12 @@
             this.ClientSize = new System.Drawing.Size(507, 300);
             this.Controls.Add(this.tabCtrlEncrypt);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EncryptForm";
             this.Text = "加密";
             this.Load += new System.EventHandler(this.Form3_Load);

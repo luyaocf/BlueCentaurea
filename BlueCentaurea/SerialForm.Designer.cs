@@ -1163,6 +1163,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SerialForm";
             this.Text = "串口助手";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SerialForm_KeyPress);

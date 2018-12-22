@@ -1049,6 +1049,7 @@
             // 
             // btnTransClear04
             // 
+            this.btnTransClear04.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnTransClear04.Location = new System.Drawing.Point(157, 71);
             this.btnTransClear04.Name = "btnTransClear04";
             this.btnTransClear04.Size = new System.Drawing.Size(75, 34);
@@ -1059,6 +1060,7 @@
             // 
             // btnTransExecute04
             // 
+            this.btnTransExecute04.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnTransExecute04.Location = new System.Drawing.Point(363, 71);
             this.btnTransExecute04.Name = "btnTransExecute04";
             this.btnTransExecute04.Size = new System.Drawing.Size(75, 34);

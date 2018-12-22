@@ -35,7 +35,7 @@ namespace BlueCentaurea
         {
             TransForm transForm = new TransForm();
             SetFormInPanel(transForm);
-            transForm.SelectTabPages(0);
+            transForm.SelectTabPages(0);            
         }
         private void GB2312ToHexToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -127,16 +127,22 @@ namespace BlueCentaurea
         {
             NetworkForm networkForm = new NetworkForm();
             SetFormInPanel(networkForm);
+            networkForm.ParentForm.Width = 1000;
+            networkForm.ParentForm.Height = 650;
         }
         private void Serial_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SerialForm serialForm = new SerialForm();
             SetFormInPanel(serialForm);
+            serialForm.ParentForm.Width = 1000;
+            serialForm.ParentForm.Height = 620;
         }
         private void httpTest_Click(object sender, EventArgs e)
         {
             HTTPForm httpForm = new HTTPForm();
             SetFormInPanel(httpForm);
+            httpForm.ParentForm.Width = 1024;
+            httpForm.ParentForm.Height = 1024;
         }
         /******************生成【串口、网口、HTTP】窗口【end】*****************************************/
 
