@@ -202,9 +202,8 @@
             this.textMultiFunc.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMultiFunc.ForeColor = System.Drawing.Color.Red;
             this.textMultiFunc.Location = new System.Drawing.Point(104, 78);
-            this.textMultiFunc.Multiline = true;
             this.textMultiFunc.Name = "textMultiFunc";
-            this.textMultiFunc.Size = new System.Drawing.Size(112, 22);
+            this.textMultiFunc.Size = new System.Drawing.Size(112, 20);
             this.textMultiFunc.TabIndex = 3;
             // 
             // lblMultiFunc
@@ -856,7 +855,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 12F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

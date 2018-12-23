@@ -62,9 +62,7 @@
             // 
             // textSendRegion1
             // 
-            this.textSendRegion1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textSendRegion1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textSendRegion1.Location = new System.Drawing.Point(168, 18);
             this.textSendRegion1.Name = "textSendRegion1";
             this.textSendRegion1.Size = new System.Drawing.Size(534, 24);
@@ -84,8 +82,7 @@
             // 
             // btnSend1
             // 
-            this.btnSend1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnSend1.ForeColor = System.Drawing.Color.Green;
             this.btnSend1.Location = new System.Drawing.Point(708, 17);
             this.btnSend1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -98,8 +95,7 @@
             // 
             // btnSendRegion2
             // 
-            this.btnSendRegion2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendRegion2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnSendRegion2.ForeColor = System.Drawing.Color.Red;
             this.btnSendRegion2.Location = new System.Drawing.Point(708, 65);
             this.btnSendRegion2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -111,7 +107,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.combBPortName);
             this.groupBox5.Controls.Add(this.label1);
@@ -154,9 +150,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 137);
             this.label1.Name = "label1";
@@ -166,9 +160,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 24);
             this.label8.Name = "label8";

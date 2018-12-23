@@ -125,18 +125,19 @@
             this.lblTransResult05 = new System.Windows.Forms.Label();
             this.textTransResult05 = new System.Windows.Forms.RichTextBox();
             this.radixTrans = new System.Windows.Forms.TabPage();
-            this.richTextBox06_02 = new System.Windows.Forms.RichTextBox();
-            this.lblTransData06_02 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.richTextBox06_10 = new System.Windows.Forms.RichTextBox();
-            this.lblTransData06_10 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.richTextBox06_08 = new System.Windows.Forms.RichTextBox();
-            this.lblTransData06_08 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.richTextBox06_16 = new System.Windows.Forms.RichTextBox();
             this.lblTransData06_16 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.richTextBox06_08 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_08 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.richTextBox06_10 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_10 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.richTextBox06_02 = new System.Windows.Forms.RichTextBox();
+            this.lblTransData06_02 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.tabCtrlTrans.SuspendLayout();
             this.Hex2GBK.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -167,6 +168,7 @@
             this.groupBox14.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.radixTrans.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCtrlTrans
@@ -1334,18 +1336,7 @@
             // radixTrans
             // 
             this.radixTrans.BackColor = System.Drawing.Color.SkyBlue;
-            this.radixTrans.Controls.Add(this.richTextBox06_16);
-            this.radixTrans.Controls.Add(this.lblTransData06_16);
-            this.radixTrans.Controls.Add(this.label25);
-            this.radixTrans.Controls.Add(this.richTextBox06_08);
-            this.radixTrans.Controls.Add(this.lblTransData06_08);
-            this.radixTrans.Controls.Add(this.label23);
-            this.radixTrans.Controls.Add(this.richTextBox06_10);
-            this.radixTrans.Controls.Add(this.lblTransData06_10);
-            this.radixTrans.Controls.Add(this.label20);
-            this.radixTrans.Controls.Add(this.richTextBox06_02);
-            this.radixTrans.Controls.Add(this.lblTransData06_02);
-            this.radixTrans.Controls.Add(this.label18);
+            this.radixTrans.Controls.Add(this.groupBox16);
             this.radixTrans.Location = new System.Drawing.Point(4, 28);
             this.radixTrans.Name = "radixTrans";
             this.radixTrans.Size = new System.Drawing.Size(700, 409);
@@ -1353,100 +1344,10 @@
             this.radixTrans.Text = "进制转换";
             this.radixTrans.Click += new System.EventHandler(this.radixTrans_Click);
             // 
-            // richTextBox06_02
-            // 
-            this.richTextBox06_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox06_02.Location = new System.Drawing.Point(152, 18);
-            this.richTextBox06_02.Name = "richTextBox06_02";
-            this.richTextBox06_02.Size = new System.Drawing.Size(393, 35);
-            this.richTextBox06_02.TabIndex = 48;
-            this.richTextBox06_02.Text = "";
-            this.richTextBox06_02.TextChanged += new System.EventHandler(this.richTextBox06_02_TextChanged);
-            // 
-            // lblTransData06_02
-            // 
-            this.lblTransData06_02.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTransData06_02.AutoSize = true;
-            this.lblTransData06_02.Location = new System.Drawing.Point(564, 28);
-            this.lblTransData06_02.Name = "lblTransData06_02";
-            this.lblTransData06_02.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData06_02.TabIndex = 47;
-            this.lblTransData06_02.Text = "【0字节】";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(29, 28);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 19);
-            this.label18.TabIndex = 49;
-            this.label18.Text = "【 2进制】";
-            // 
-            // richTextBox06_10
-            // 
-            this.richTextBox06_10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox06_10.Location = new System.Drawing.Point(152, 180);
-            this.richTextBox06_10.Name = "richTextBox06_10";
-            this.richTextBox06_10.Size = new System.Drawing.Size(393, 35);
-            this.richTextBox06_10.TabIndex = 51;
-            this.richTextBox06_10.Text = "";
-            this.richTextBox06_10.TextChanged += new System.EventHandler(this.richTextBox06_10_TextChanged);
-            // 
-            // lblTransData06_10
-            // 
-            this.lblTransData06_10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTransData06_10.AutoSize = true;
-            this.lblTransData06_10.Location = new System.Drawing.Point(564, 190);
-            this.lblTransData06_10.Name = "lblTransData06_10";
-            this.lblTransData06_10.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData06_10.TabIndex = 50;
-            this.lblTransData06_10.Text = "【0字节】";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(29, 190);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(99, 19);
-            this.label20.TabIndex = 52;
-            this.label20.Text = "【10进制】";
-            // 
-            // richTextBox06_08
-            // 
-            this.richTextBox06_08.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox06_08.Location = new System.Drawing.Point(152, 96);
-            this.richTextBox06_08.Name = "richTextBox06_08";
-            this.richTextBox06_08.Size = new System.Drawing.Size(393, 35);
-            this.richTextBox06_08.TabIndex = 54;
-            this.richTextBox06_08.Text = "";
-            this.richTextBox06_08.TextChanged += new System.EventHandler(this.richTextBox06_08_TextChanged);
-            // 
-            // lblTransData06_08
-            // 
-            this.lblTransData06_08.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTransData06_08.AutoSize = true;
-            this.lblTransData06_08.Location = new System.Drawing.Point(564, 106);
-            this.lblTransData06_08.Name = "lblTransData06_08";
-            this.lblTransData06_08.Size = new System.Drawing.Size(90, 19);
-            this.lblTransData06_08.TabIndex = 53;
-            this.lblTransData06_08.Text = "【0字节】";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(29, 106);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(99, 19);
-            this.label23.TabIndex = 55;
-            this.label23.Text = "【 8进制】";
-            // 
             // richTextBox06_16
             // 
             this.richTextBox06_16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox06_16.Location = new System.Drawing.Point(152, 262);
+            this.richTextBox06_16.Location = new System.Drawing.Point(134, 261);
             this.richTextBox06_16.Name = "richTextBox06_16";
             this.richTextBox06_16.Size = new System.Drawing.Size(393, 35);
             this.richTextBox06_16.TabIndex = 57;
@@ -1457,7 +1358,7 @@
             // 
             this.lblTransData06_16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTransData06_16.AutoSize = true;
-            this.lblTransData06_16.Location = new System.Drawing.Point(564, 271);
+            this.lblTransData06_16.Location = new System.Drawing.Point(546, 270);
             this.lblTransData06_16.Name = "lblTransData06_16";
             this.lblTransData06_16.Size = new System.Drawing.Size(90, 19);
             this.lblTransData06_16.TabIndex = 56;
@@ -1467,11 +1368,122 @@
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(29, 271);
+            this.label25.Location = new System.Drawing.Point(11, 270);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(99, 19);
             this.label25.TabIndex = 58;
             this.label25.Text = "【16进制】";
+            // 
+            // richTextBox06_08
+            // 
+            this.richTextBox06_08.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_08.Location = new System.Drawing.Point(134, 109);
+            this.richTextBox06_08.Name = "richTextBox06_08";
+            this.richTextBox06_08.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_08.TabIndex = 54;
+            this.richTextBox06_08.Text = "";
+            this.richTextBox06_08.TextChanged += new System.EventHandler(this.richTextBox06_08_TextChanged);
+            // 
+            // lblTransData06_08
+            // 
+            this.lblTransData06_08.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_08.AutoSize = true;
+            this.lblTransData06_08.Location = new System.Drawing.Point(546, 118);
+            this.lblTransData06_08.Name = "lblTransData06_08";
+            this.lblTransData06_08.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_08.TabIndex = 53;
+            this.lblTransData06_08.Text = "【0字节】";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(11, 118);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(99, 19);
+            this.label23.TabIndex = 55;
+            this.label23.Text = "【 8进制】";
+            // 
+            // richTextBox06_10
+            // 
+            this.richTextBox06_10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_10.Location = new System.Drawing.Point(134, 188);
+            this.richTextBox06_10.Name = "richTextBox06_10";
+            this.richTextBox06_10.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_10.TabIndex = 51;
+            this.richTextBox06_10.Text = "";
+            this.richTextBox06_10.TextChanged += new System.EventHandler(this.richTextBox06_10_TextChanged);
+            // 
+            // lblTransData06_10
+            // 
+            this.lblTransData06_10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_10.AutoSize = true;
+            this.lblTransData06_10.Location = new System.Drawing.Point(546, 197);
+            this.lblTransData06_10.Name = "lblTransData06_10";
+            this.lblTransData06_10.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_10.TabIndex = 50;
+            this.lblTransData06_10.Text = "【0字节】";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(11, 197);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(99, 19);
+            this.label20.TabIndex = 52;
+            this.label20.Text = "【10进制】";
+            // 
+            // richTextBox06_02
+            // 
+            this.richTextBox06_02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox06_02.Location = new System.Drawing.Point(134, 34);
+            this.richTextBox06_02.Name = "richTextBox06_02";
+            this.richTextBox06_02.Size = new System.Drawing.Size(393, 35);
+            this.richTextBox06_02.TabIndex = 48;
+            this.richTextBox06_02.Text = "";
+            this.richTextBox06_02.TextChanged += new System.EventHandler(this.richTextBox06_02_TextChanged);
+            // 
+            // lblTransData06_02
+            // 
+            this.lblTransData06_02.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTransData06_02.AutoSize = true;
+            this.lblTransData06_02.Location = new System.Drawing.Point(546, 43);
+            this.lblTransData06_02.Name = "lblTransData06_02";
+            this.lblTransData06_02.Size = new System.Drawing.Size(90, 19);
+            this.lblTransData06_02.TabIndex = 47;
+            this.lblTransData06_02.Text = "【0字节】";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 43);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(99, 19);
+            this.label18.TabIndex = 49;
+            this.label18.Text = "【 2进制】";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.lblTransData06_16);
+            this.groupBox16.Controls.Add(this.richTextBox06_16);
+            this.groupBox16.Controls.Add(this.richTextBox06_02);
+            this.groupBox16.Controls.Add(this.label18);
+            this.groupBox16.Controls.Add(this.label25);
+            this.groupBox16.Controls.Add(this.lblTransData06_02);
+            this.groupBox16.Controls.Add(this.lblTransData06_10);
+            this.groupBox16.Controls.Add(this.richTextBox06_10);
+            this.groupBox16.Controls.Add(this.richTextBox06_08);
+            this.groupBox16.Controls.Add(this.label23);
+            this.groupBox16.Controls.Add(this.label20);
+            this.groupBox16.Controls.Add(this.lblTransData06_08);
+            this.groupBox16.Location = new System.Drawing.Point(23, 42);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(656, 325);
+            this.groupBox16.TabIndex = 59;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "进制转换";
             // 
             // TransForm
             // 
@@ -1547,7 +1559,8 @@
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             this.radixTrans.ResumeLayout(false);
-            this.radixTrans.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1671,5 +1684,6 @@
         internal System.Windows.Forms.RichTextBox richTextBox06_10;
         private System.Windows.Forms.Label lblTransData06_10;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox16;
     }
 }

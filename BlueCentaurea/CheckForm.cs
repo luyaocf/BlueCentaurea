@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Threading;
 
 namespace BlueCentaurea
 {
@@ -17,10 +18,6 @@ namespace BlueCentaurea
         public CheckForm()
         {
             InitializeComponent();
-            this.textBoxUTF.Text = "请输入字符串";
-            this.textBoxGB2312.Text = "请输入字符串";
-            this.textBoxGBK.Text = "请输入字符串";
-            this.textBoxUnicode.Text = "请输入字符串";
         }
 
         public void SelectTabPages(int index)
@@ -29,20 +26,20 @@ namespace BlueCentaurea
             this.Show();
         }
 
-        private void btnCheckSelect_Click(object sender, EventArgs e)
+        /****************************【1】【计算MD5】【start】*****************************************************/
+        /** 浏览打开文件 */
+        private void textMD5Path01_Click(object sender, EventArgs e)
         {
-            if(this.openFileDialog.ShowDialog() == DialogResult.OK)
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 this.textMD5Path01.Text = string.Empty;
                 this.textMD5Path01.AppendText(Path.GetDirectoryName(this.openFileDialog.FileName));
                 this.textMD5Path01.AppendText("\\");
                 this.textMD5Path01.AppendText(Path.GetFileName(this.openFileDialog.FileName));
-                //this.txtBoxCheckSelectMD5.Enabled = false;
             }
         }
-
-
-        private void btnCheckMD5_Click(object sender, EventArgs e)
+        /** 计算MD5 */
+        private void btnCheckMD5Execute01_Click(object sender, EventArgs e)
         {
             try
             {
@@ -53,7 +50,7 @@ namespace BlueCentaurea
                     byte[] retVal = md5.ComputeHash(file);
                     file.Close();
 
-                    this.textMD5Result01.Text = MyTools.BytesToHexString(retVal);                           
+                    this.textMD5Result01.Text = MyTools.BytesToHexString(retVal);
                 }
             }
             catch (Exception ex)
@@ -62,8 +59,41 @@ namespace BlueCentaurea
             }
         }
 
+        /** 浏览打开文件 */
+        private void textMD5Path02_Click(object sender, EventArgs e)
+        {
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.textMD5Path02.Text = string.Empty;
+                this.textMD5Path02.AppendText(Path.GetDirectoryName(this.openFileDialog.FileName));
+                this.textMD5Path02.AppendText("\\");
+                this.textMD5Path02.AppendText(Path.GetFileName(this.openFileDialog.FileName));
+            }
+        }
+        /** 计算MD5 */
+        private void btnCheckMD5Execute02_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.textMD5Result02.Text = string.Empty;
+                if (this.textMD5Path02.Text != string.Empty)
+                {
+                    FileStream file = new FileStream(this.textMD5Path02.Text, FileMode.Open);
+                    System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+                    byte[] retVal = md5.ComputeHash(file);
+                    file.Close();
 
+                    this.textMD5Result02.Text = MyTools.BytesToHexString(retVal);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("检查文件是否存在！" + ex.Message, "错误");
+            }
+        }
+        /****************************【1】【计算MD5】【end】*****************************************************/
 
+        /****************************【2】【计算SHA1】【start】*****************************************************/
         private void btnCheckSelectSHA1_Click(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog() == DialogResult.OK)
@@ -80,6 +110,7 @@ namespace BlueCentaurea
         {
             try
             {
+                this.txtBoxCheckResultSHA1.Text = string.Empty;
                 if (this.txtBoxCheckSelectSHA1.Text != null && !"".Equals(this.txtBoxCheckSelectSHA1.Text))
                 {
                     FileStream file = new FileStream(this.txtBoxCheckSelectSHA1.Text, FileMode.Open);
@@ -96,82 +127,8 @@ namespace BlueCentaurea
             }
         }
 
+        /****************************【2】【计算SHA1】【end】*****************************************************/
 
-
-        private void textBoxUTF_TextChanged(object sender, EventArgs e)
-        {
-            int len = Encoding.GetEncoding("UTF-8").GetBytes(this.textBoxUTF.Text).Length;
-            this.labelUtf.Text = "【" + len + "字节】";
-        }
-
-        private void textBoxUTF_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (this.textBoxUTF.Text == "请输入字符串")
-            {
-                this.textBoxUTF.Text = string.Empty;
-                this.textBoxUTF.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxGB2312_TextChanged(object sender, EventArgs e)
-        {
-            int len = Encoding.GetEncoding("GB2312").GetBytes(this.textBoxGB2312.Text).Length;
-            this.labelGB2312.Text = "【" + len + "字节】";
-        }
-
-        private void textBoxGB2312_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (this.textBoxGB2312.Text == "请输入字符串")
-            {
-                this.textBoxGB2312.Text = string.Empty;
-                this.textBoxGB2312.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxGBK_TextChanged(object sender, EventArgs e)
-        {
-            int len = Encoding.GetEncoding("GBK").GetBytes(this.textBoxGBK.Text).Length;
-            this.labelGBK.Text = "【" + len + "字节】";
-        }
-
-        private void textBoxGBK_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (this.textBoxGBK.Text == "请输入字符串")
-            {
-                this.textBoxGBK.Text = string.Empty;
-                this.textBoxGBK.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxUnicode_TextChanged(object sender, EventArgs e)
-        {
-            int len = Encoding.GetEncoding("Unicode").GetBytes(this.textBoxUnicode.Text).Length;
-            this.labelUnicode.Text = "【" + len + "字节】";
-        }
-
-        private void textBoxUnicode_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (this.textBoxUnicode.Text == "请输入字符串")
-            {
-                this.textBoxUnicode.Text = string.Empty;
-                this.textBoxUnicode.ForeColor = Color.Black;
-            }
-        }
-
-        private void tbpCalcStrLen_Click(object sender, EventArgs e)
-        {
-            this.textBoxUTF.Text = "请输入字符串";
-            this.textBoxUTF.ForeColor = Color.Gray;
-
-            this.textBoxGB2312.Text = "请输入字符串";
-            this.textBoxGB2312.ForeColor = Color.Gray;
-
-            this.textBoxGBK.Text = "请输入字符串";
-            this.textBoxGBK.ForeColor = Color.Gray;
-
-            this.textBoxUnicode.Text = "请输入字符串";
-            this.textBoxUnicode.ForeColor = Color.Gray;
-        }
 
 
 

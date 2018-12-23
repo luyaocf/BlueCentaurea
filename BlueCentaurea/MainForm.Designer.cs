@@ -142,7 +142,7 @@
             // 
             this.mD5ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.校验;
             this.mD5ToolStripMenuItem.Name = "mD5ToolStripMenuItem";
-            this.mD5ToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
+            this.mD5ToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.mD5ToolStripMenuItem.Text = "MD5(&M)";
             this.mD5ToolStripMenuItem.ToolTipText = "计算一个文件的【MD5】";
             this.mD5ToolStripMenuItem.Click += new System.EventHandler(this.mD5ToolStripMenuItem_Click);
@@ -151,15 +151,15 @@
             // 
             this.sHA1ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.校验1;
             this.sHA1ToolStripMenuItem.Name = "sHA1ToolStripMenuItem";
-            this.sHA1ToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
+            this.sHA1ToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.sHA1ToolStripMenuItem.Text = "SHA1(&S)";
             this.sHA1ToolStripMenuItem.Click += new System.EventHandler(this.sHA1ToolStripMenuItem_Click);
             // 
             // strLenToolStripMenuItem
             // 
             this.strLenToolStripMenuItem.Name = "strLenToolStripMenuItem";
-            this.strLenToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.strLenToolStripMenuItem.Text = "字符串长度(&L)";
+            this.strLenToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.strLenToolStripMenuItem.Text = "待开发(&L)";
             this.strLenToolStripMenuItem.Click += new System.EventHandler(this.calcStrLenToolStripMenuItem_Click);
             // 
             // encryptToolStripMenuItem

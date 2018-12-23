@@ -75,6 +75,8 @@ namespace BlueCentaurea
         {
             CheckForm checkForm = new CheckForm();
             SetFormInPanel(checkForm);
+            //checkForm.ParentForm.Width = 875;
+            //checkForm.ParentForm.Height = 640;
             checkForm.SelectTabPages(0);
         }
 
@@ -142,7 +144,7 @@ namespace BlueCentaurea
             HTTPForm httpForm = new HTTPForm();
             SetFormInPanel(httpForm);
             httpForm.ParentForm.Width = 1024;
-            httpForm.ParentForm.Height = 1024;
+            httpForm.ParentForm.Height = 736;
         }
         /******************生成【串口、网口、HTTP】窗口【end】*****************************************/
 

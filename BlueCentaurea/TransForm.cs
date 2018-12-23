@@ -410,7 +410,7 @@ namespace BlueCentaurea
                 long radix = System.Convert.ToInt64(richTextBox06_02.Text, 2);
                 richTextBox06_08.Text = System.Convert.ToString(radix, 8);
                 richTextBox06_10.Text = System.Convert.ToString(radix, 10);
-                richTextBox06_16.Text = System.Convert.ToString(radix, 16);
+                richTextBox06_16.Text = System.Convert.ToString(radix, 16).ToUpper();
             }
             Open_TextChanged();
         }
@@ -422,7 +422,7 @@ namespace BlueCentaurea
                 long radix = System.Convert.ToInt64(richTextBox06_08.Text, 8);
                 richTextBox06_02.Text = System.Convert.ToString(radix, 2);
                 richTextBox06_10.Text = System.Convert.ToString(radix, 10);
-                richTextBox06_16.Text = System.Convert.ToString(radix, 16);
+                richTextBox06_16.Text = System.Convert.ToString(radix, 16).ToUpper();
             }
             Open_TextChanged();
         }
@@ -434,7 +434,7 @@ namespace BlueCentaurea
                 long radix = System.Convert.ToInt64(richTextBox06_10.Text, 10);
                 richTextBox06_02.Text = System.Convert.ToString(radix, 2);
                 richTextBox06_08.Text = System.Convert.ToString(radix, 8);
-                richTextBox06_16.Text = System.Convert.ToString(radix, 16);
+                richTextBox06_16.Text = System.Convert.ToString(radix, 16).ToUpper();
             }
             Open_TextChanged();
         }
