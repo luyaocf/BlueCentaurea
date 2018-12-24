@@ -303,7 +303,7 @@
             this.ClientSize = new System.Drawing.Size(784, 495);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HTTPForm";

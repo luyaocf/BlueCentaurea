@@ -96,6 +96,11 @@ namespace BlueCentaurea
                     this.lblSerialStatus.Image = image.Clone() as Image;
                     image.Dispose();
                     btnOpenCloseSerial.Text = "关闭串口";
+                    combBPortName.Enabled = false;
+                    combBBaudRate.Enabled = false;
+                    combBDataBits.Enabled = false;
+                    combBParity.Enabled = false;
+                    combBStopBits.Enabled = false;
                 }
             }
             else
@@ -108,6 +113,11 @@ namespace BlueCentaurea
                     btnOpenCloseSerial.Text = "打开串口";
                     // 关闭串口
                     serialPort.Close();
+                    combBPortName.Enabled = true;
+                    combBBaudRate.Enabled = true;
+                    combBDataBits.Enabled = true;
+                    combBParity.Enabled = true;
+                    combBStopBits.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -141,13 +151,16 @@ namespace BlueCentaurea
         /** 数据接收事件执行方法 */
         private void ComDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            LightOn(lblRecvStatus);
+            Thread.Sleep(30);
             byte[] readBuffer = new byte[serialPort.BytesToRead];
             serialPort.Read(readBuffer, 0, readBuffer.Length);
 
             this.recvFrames++;
-            this.recvBytes += serialPort.BytesToRead;
+            this.recvBytes += readBuffer.Length;
 
             this.ShowReadData(readBuffer);
+            LightOff(lblRecvStatus);
         }
 
         /** 显示数据 */
@@ -155,10 +168,10 @@ namespace BlueCentaurea
         {
             this.BeginInvoke(new MethodInvoker(delegate
             {
-                LightOn(lblRecvStatus);
+
                 RecvRegionShow(MyTools.BytesToHexString(data), true);
                 SetDataNum();
-                LightOff(lblRecvStatus);
+
             }));
         }
 
@@ -210,7 +223,7 @@ namespace BlueCentaurea
                 }
             }
 
-            if(isRecv)
+            if (isRecv)
             {
                 string now = DateTime.Now.ToString();
                 this.textRecvRegion.SelectionColor = Color.Green;

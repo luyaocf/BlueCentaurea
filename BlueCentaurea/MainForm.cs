@@ -136,8 +136,8 @@ namespace BlueCentaurea
         {
             SerialForm serialForm = new SerialForm();
             SetFormInPanel(serialForm);
-            serialForm.ParentForm.Width = 1000;
-            serialForm.ParentForm.Height = 620;
+            serialForm.ParentForm.Width = 960;
+            serialForm.ParentForm.Height = 580;
         }
         private void httpTest_Click(object sender, EventArgs e)
         {
