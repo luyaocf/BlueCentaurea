@@ -14,151 +14,236 @@ namespace BlueCentaurea
 {
     public partial class SerialForm : Form
     {
-        private int serialStatusIndex = 0;  // 串口状态标志位
         private long sendFrames = 0;        // 发送帧数
         private long sendBytes = 0;         // 发送字节数
         private long recvFrames = 0;        // 接收帧数 
         private long recvBytes = 0;         // 接收字节数
 
+        private SerialPort serialPort;      // 串口
+
         public SerialForm()
         {
             InitializeComponent();
+
+            // 初始化串口
+            serialPort = new SerialPort();
+            // 数据接收事件绑定
+            serialPort.DataReceived += new SerialDataReceivedEventHandler(ComDataReceived);
         }
 
-        private void RegisterComm()
+        private Boolean OpenComm()
         {
-            Comm comm = new Comm();
-            comm.serialPort.PortName = combBPortName.Text;
-            comm.serialPort.BaudRate = int.Parse(combBBaudRate.Text);
-            comm.serialPort.DataBits = int.Parse(combBDataBits.Text);
-
-            switch (combBStopBits.Text)
-            {
-                case "1":
-                    comm.serialPort.StopBits = System.IO.Ports.StopBits.One;
-                    break;
-                case "1.5":
-                    comm.serialPort.StopBits = System.IO.Ports.StopBits.OnePointFive;
-                    break;
-                case "2":
-                    comm.serialPort.StopBits = System.IO.Ports.StopBits.Two;
-                    break;
-                default:
-                    comm.serialPort.StopBits = System.IO.Ports.StopBits.None;
-                    break;
-            }
+            // 端口
+            serialPort.PortName = combBPortName.Text;
+            // 波特率
+            serialPort.BaudRate = int.Parse(combBBaudRate.Text);
+            // 数据位
+            serialPort.DataBits = int.Parse(combBDataBits.Text);
+            // 校验位
             switch (combBParity.Text)
             {
                 case "无":
-                    comm.serialPort.Parity = System.IO.Ports.Parity.None;
+                    serialPort.Parity = System.IO.Ports.Parity.None;
                     break;
                 case "奇校验":
-                    comm.serialPort.Parity = System.IO.Ports.Parity.Odd;
+                    serialPort.Parity = System.IO.Ports.Parity.Odd;
                     break;
                 case "偶校验":
-                    comm.serialPort.Parity = System.IO.Ports.Parity.Even;
+                    serialPort.Parity = System.IO.Ports.Parity.Even;
                     break;
             }
-
-            comm.serialPort.ReadTimeout = 100;
-            comm.serialPort.WriteTimeout = -1;
-
-            comm.Open();
-            if (comm.IsOpen())
+            // 停止位
+            switch (combBStopBits.Text)
             {
-                textRecvRegion.AppendText(comm.serialPort.PortName + "\r\n");
-                textRecvRegion.AppendText(comm.serialPort.BaudRate + "\r\n");
-                textRecvRegion.AppendText(comm.serialPort.DataBits + "\r\n");
-                textRecvRegion.AppendText(comm.serialPort.StopBits + "\r\n");
-                textRecvRegion.AppendText(comm.serialPort.Parity + "\r\n");
+                case "1":
+                    serialPort.StopBits = System.IO.Ports.StopBits.One;
+                    break;
+                case "1.5":
+                    serialPort.StopBits = System.IO.Ports.StopBits.OnePointFive;
+                    break;
+                case "2":
+                    serialPort.StopBits = System.IO.Ports.StopBits.Two;
+                    break;
+                default:
+                    serialPort.StopBits = System.IO.Ports.StopBits.None;
+                    break;
+            }
+            // 读写超时时间
+            serialPort.ReadTimeout = 100;
+            serialPort.WriteTimeout = -1;
 
-                // comm.DataReceived += new Comm.EventHandle(comm_DataReceived);
-                textSendRegion1.Text = textSendRegion1.Text.Replace(" ", "");
-                byte[] bytes = MyTools.HexStringToBytes(textSendRegion1.Text);
-                comm.WritePort(bytes, 0, bytes.Length);
-                comm.DataReceived += new Comm.EventHandle(comm_DataReceived);
+            try
+            {
+                // 打开串口
+                serialPort.Open();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void btnOpenCloseSerial_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen == false)
+            {
+                if (this.OpenComm())
+                {
+                    // 打开串口
+                    Image image = BlueCentaurea.Properties.Resources.LightOn;
+                    this.lblSerialStatus.Image = image.Clone() as Image;
+                    image.Dispose();
+                    btnOpenCloseSerial.Text = "关闭串口";
+                }
             }
             else
             {
-                MessageBox.Show("串口打开失败！", "消息提示框");
+                try
+                {
+                    Image image = BlueCentaurea.Properties.Resources.LightOff1;
+                    this.lblSerialStatus.Image = image.Clone() as Image;
+                    image.Dispose();
+                    btnOpenCloseSerial.Text = "打开串口";
+                    // 关闭串口
+                    serialPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            
-        }
-        private void comm_DataReceived(byte[] readBuff)
-        {
-            textRecvRegion.Text = readBuff.Length.ToString();
-            textRecvRegion.AppendText(MyTools.BytesToHexString(readBuff));
-        }
-        private void btnOpenSerial_Click(object sender, EventArgs e)
-        {
-            if (serialStatusIndex % 2 == 0)
-            {
-                // Image image = Image.FromFile(@"C:\Users\jason\Desktop\vs2015\BlueCentaurea\pictures\LightOn.png");
-                Image image = BlueCentaurea.Properties.Resources.LightOn;
-                this.lblSerialStatus.Image = image.Clone() as Image;
-                image.Dispose();
-                btnOpenSerial.Text = "关闭串口";
-            }
-            else if (serialStatusIndex % 2 == 1)
-            {
-                Image image = BlueCentaurea.Properties.Resources.LightOff1;
-                this.lblSerialStatus.Image = image.Clone() as Image;
-                image.Dispose();
-                btnOpenSerial.Text = "打开串口";
-            }
-            serialStatusIndex++;
-
-            this.RegisterComm();
         }
 
+        /**************************【数据发送和接收】************************************************/
+        /** 发送数据 */
+        public bool SendData(byte[] data)
+        {
+            if (serialPort.IsOpen)
+            {
+                try
+                {
+                    serialPort.Write(data, 0, data.Length);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先打开串口！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
+        /** 数据接收事件执行方法 */
+        private void ComDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            byte[] readBuffer = new byte[serialPort.BytesToRead];
+            serialPort.Read(readBuffer, 0, readBuffer.Length);
+
+            this.recvFrames++;
+            this.recvBytes += serialPort.BytesToRead;
+
+            this.ShowReadData(readBuffer);
+        }
+
+        /** 显示数据 */
+        private void ShowReadData(byte[] data)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate
+            {
+                LightOn(lblRecvStatus);
+                RecvRegionShow(MyTools.BytesToHexString(data), true);
+                SetDataNum();
+                LightOff(lblRecvStatus);
+            }));
+        }
+
+        /**************************【数据发送和接收】************************************************/
+
+
+
+        /******************【发送区1】操作************************************************************/
+        /** 发送指示灯1亮 */
         private void btnManualSend1_MouseDown(object sender, MouseEventArgs e)
         {
-            Image image = BlueCentaurea.Properties.Resources.DataRSStatusOn1;
-            this.lblSendStatus.Image = image.Clone() as Image;
-            image.Dispose();
+            LightOn(this.lblSendStatus);
         }
 
+
+        /** 发送指示灯1灭 */
         private void btnManualSend1_MouseUp(object sender, MouseEventArgs e)
         {
-            Image image = BlueCentaurea.Properties.Resources.DataRSStatusOff1;
-            this.lblSendStatus.Image = image.Clone() as Image;
-            image.Dispose();
+            LightOff(this.lblSendStatus);
         }
 
+
+        /** 发送区1发送 */
         private void btnManualSend1_Click(object sender, EventArgs e)
         {
+            if (this.textSendRegionHex01.Checked)
+            {
+                this.SendData(MyTools.HexStringToBytes(this.textSendRegion1.Text.Replace(" ", "")));
+            }
+            else
+            {
+                this.SendData(System.Text.Encoding.Default.GetBytes(this.textSendRegion1.Text.Replace(" ", "")));
+            }
+
             this.sendFrames++;
             this.sendBytes += textSendRegion1.Text.Replace(" ", "").Length / 2;
             SetDataNum();
+            RecvRegionShow(textSendRegion1.Text, false);// 滚动到控件光标处
+        }
 
-            if (chkbAutoClear.Checked)  // 判断是否自动清除接收区
+        private void RecvRegionShow(String data, bool isRecv)
+        {
+            // 判断是否自动清除接收区
+            if (chkbAutoClear.Checked)
             {
                 if (textRecvRegion.Lines.Length > 13)
                 {
                     this.textRecvRegion.Text = "";
                 }
             }
-            if (chkbShowSend.Checked)
+
+            if(isRecv)
             {
+                string now = DateTime.Now.ToString();
+                this.textRecvRegion.SelectionColor = Color.Green;
+                this.textRecvRegion.AppendText(now.Substring(now.Length - 8) + "【接收】");
+                this.textRecvRegion.SelectionColor = Color.Red;
+                this.textRecvRegion.AppendText(data + "\r\n");
+            }
+            else
+            {
+                // 判断是否显示发送
                 if (chkbShowTime.Checked)
                 {
                     string now = DateTime.Now.ToString();
                     this.textRecvRegion.SelectionColor = Color.Blue;
                     this.textRecvRegion.AppendText(now.Substring(now.Length - 8) + "【发送】");
                     this.textRecvRegion.SelectionColor = Color.Black;
-                    this.textRecvRegion.AppendText(textSendRegion1.Text + "\r\n");
+                    this.textRecvRegion.AppendText(data + "\r\n");
                 }
-                else
-                {
-                    this.textRecvRegion.Text += "【发送】" + textSendRegion1.Text + "\r\n";
-                }
-
             }
 
             this.textRecvRegion.Focus();                                    // 让文本框获取焦点
             this.textRecvRegion.Select(this.textRecvRegion.TextLength, 0);  // 设置光标的位置到末尾
-            this.textRecvRegion.ScrollToCaret();                            // 滚动到控件光标处
+            this.textRecvRegion.ScrollToCaret();
         }
+
+        /** 发送区1清空 */
+        private void btnSendRegionClear1_Click(object sender, EventArgs e)
+        {
+            textSendRegion1.Text = string.Empty;
+        }
+        /******************【发送区1】操作************************************************************/
+
+
 
         private void lblSendBytes_TextChanged(object sender, EventArgs e)
         {
@@ -168,10 +253,6 @@ namespace BlueCentaurea
             }
         }
 
-        private void btnSendRegionClear1_Click(object sender, EventArgs e)
-        {
-            textSendRegion1.Text = string.Empty;
-        }
 
         private void btnSendRegionClear2_Click(object sender, EventArgs e)
         {
@@ -193,6 +274,7 @@ namespace BlueCentaurea
         }
 
         /***********自定义方法区********************************************************************/
+
         private void SetDataNum()
         {
             lblSendFrames.Text = "【" + String.Format("{0, 6}", this.sendFrames) + "   帧】";       // 补空格
@@ -201,105 +283,43 @@ namespace BlueCentaurea
             lblRecvBytes.Text = "【" + String.Format("{0, 6}", this.recvBytes) + " 字节】";
         }
 
+        private void LightOn(Label label)
+        {
+            Image image = BlueCentaurea.Properties.Resources.DataRSStatusOn1;
+            label.Image = image.Clone() as Image;
+            image.Dispose();
+        }
+
+        private void LightOff(Label label)
+        {
+            Image image = BlueCentaurea.Properties.Resources.DataRSStatusOff1;
+            label.Image = image.Clone() as Image;
+            image.Dispose();
+        }
+
         private void SerialForm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)27)
             {
-                this.Close();
-                return;
-            }
-        }
-    }
-
-    public class Comm
-    {
-        public delegate void EventHandle(byte[] readBuffer);
-        public event EventHandle DataReceived;
-        public SerialPort serialPort;
-        Thread thread;
-        volatile bool _keepReading;
-
-        public Comm()
-        {
-            serialPort = new SerialPort();
-            thread = null;
-            _keepReading = false;
-        }
-
-        public bool IsOpen()
-        {
-            return serialPort.IsOpen;
-        }
-        private void StartReading()
-        {
-            if (!_keepReading)
-            {
-                _keepReading = true;
-                thread = new Thread(new ThreadStart(ReadPort));
-                thread.Start();
-            }
-        }
-        private void StopReading()
-        {
-            if (_keepReading)
-            {
-                _keepReading = false;
-                thread.Join();
-                thread = null;
-            }
-        }
-        private void ReadPort()
-        {
-            while (_keepReading)
-            {
-                if (serialPort.IsOpen)
+                try
                 {
-                    int count = serialPort.BytesToRead;
-                    if (count > 0)
-                    {
-                        byte[] readBuffer = new byte[count];
-                        try
-                        {
-                            Application.DoEvents();
-                            serialPort.Read(readBuffer, 0, count);
-                            DataReceived?.Invoke(readBuffer);
-                            Thread.Sleep(100);
-                        }
-                        catch (TimeoutException)
-                        {
-                            MessageBox.Show("超时", "消息提示框");
-                        }
-                    }
+                    this.Close();
+                    this.serialPort.Close();
+                    return;
+                }
+                catch
+                {
+
                 }
             }
         }
 
-        public void Open()
-        {
-            Close();
-            serialPort.Open();
-            if (serialPort.IsOpen)
-            {
-                StartReading();
-            }
-            else
-            {
-                MessageBox.Show("串口打开失败！");
-            }
-        }
 
-        public void Close()
-        {
-            StopReading();
-            serialPort.Close();
-        }
 
-        public void WritePort(byte[] send, int offSet, int count)
-        {
-            if (this.IsOpen())
-            {
-                serialPort.Write(send, offSet, count);
-            }
-        }
+
     }
+
+
+
+
 }

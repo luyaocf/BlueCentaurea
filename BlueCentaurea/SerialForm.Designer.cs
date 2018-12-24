@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerialForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSerialStatus = new System.Windows.Forms.Label();
-            this.btnOpenSerial = new System.Windows.Forms.Button();
+            this.btnOpenCloseSerial = new System.Windows.Forms.Button();
             this.combBStopBits = new System.Windows.Forms.ComboBox();
             this.combBParity = new System.Windows.Forms.ComboBox();
             this.combBDataBits = new System.Windows.Forms.ComboBox();
@@ -87,7 +87,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.textSendRegionHex01 = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -95,7 +95,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.textSendRegionHex02 = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -103,7 +103,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.textSendRegionHex03 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.lblRecvStatus = new System.Windows.Forms.Label();
             this.lblSendStatus = new System.Windows.Forms.Label();
@@ -127,7 +127,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.lblSerialStatus);
-            this.groupBox1.Controls.Add(this.btnOpenSerial);
+            this.groupBox1.Controls.Add(this.btnOpenCloseSerial);
             this.groupBox1.Controls.Add(this.combBStopBits);
             this.groupBox1.Controls.Add(this.combBParity);
             this.groupBox1.Controls.Add(this.combBDataBits);
@@ -160,17 +160,17 @@
             this.lblSerialStatus.TabIndex = 12;
             this.lblSerialStatus.Text = " ";
             // 
-            // btnOpenSerial
+            // btnOpenCloseSerial
             // 
-            this.btnOpenSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpenSerial.Location = new System.Drawing.Point(69, 146);
-            this.btnOpenSerial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnOpenSerial.Name = "btnOpenSerial";
-            this.btnOpenSerial.Size = new System.Drawing.Size(77, 23);
-            this.btnOpenSerial.TabIndex = 6;
-            this.btnOpenSerial.Text = "打开串口";
-            this.btnOpenSerial.UseVisualStyleBackColor = true;
-            this.btnOpenSerial.Click += new System.EventHandler(this.btnOpenSerial_Click);
+            this.btnOpenCloseSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOpenCloseSerial.Location = new System.Drawing.Point(69, 146);
+            this.btnOpenCloseSerial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOpenCloseSerial.Name = "btnOpenCloseSerial";
+            this.btnOpenCloseSerial.Size = new System.Drawing.Size(77, 23);
+            this.btnOpenCloseSerial.TabIndex = 6;
+            this.btnOpenCloseSerial.Text = "打开串口";
+            this.btnOpenCloseSerial.UseVisualStyleBackColor = true;
+            this.btnOpenCloseSerial.Click += new System.EventHandler(this.btnOpenCloseSerial_Click);
             // 
             // combBStopBits
             // 
@@ -816,7 +816,7 @@
             this.groupBox7.Controls.Add(this.button11);
             this.groupBox7.Controls.Add(this.checkBox8);
             this.groupBox7.Controls.Add(this.checkBox7);
-            this.groupBox7.Controls.Add(this.checkBox6);
+            this.groupBox7.Controls.Add(this.textSendRegionHex01);
             this.groupBox7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(12, 390);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -886,16 +886,16 @@
             this.checkBox7.Text = "自动发";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // textSendRegionHex01
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(7, 23);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(68, 19);
-            this.checkBox6.TabIndex = 0;
-            this.checkBox6.Text = "16进制";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.textSendRegionHex01.AutoSize = true;
+            this.textSendRegionHex01.Location = new System.Drawing.Point(7, 23);
+            this.textSendRegionHex01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textSendRegionHex01.Name = "textSendRegionHex01";
+            this.textSendRegionHex01.Size = new System.Drawing.Size(68, 19);
+            this.textSendRegionHex01.TabIndex = 0;
+            this.textSendRegionHex01.Text = "16进制";
+            this.textSendRegionHex01.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
@@ -906,7 +906,7 @@
             this.groupBox8.Controls.Add(this.button12);
             this.groupBox8.Controls.Add(this.checkBox9);
             this.groupBox8.Controls.Add(this.checkBox10);
-            this.groupBox8.Controls.Add(this.checkBox11);
+            this.groupBox8.Controls.Add(this.textSendRegionHex02);
             this.groupBox8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(242, 390);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -976,16 +976,16 @@
             this.checkBox10.Text = "自动发";
             this.checkBox10.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // textSendRegionHex02
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(7, 23);
-            this.checkBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(68, 19);
-            this.checkBox11.TabIndex = 0;
-            this.checkBox11.Text = "16进制";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.textSendRegionHex02.AutoSize = true;
+            this.textSendRegionHex02.Location = new System.Drawing.Point(7, 23);
+            this.textSendRegionHex02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textSendRegionHex02.Name = "textSendRegionHex02";
+            this.textSendRegionHex02.Size = new System.Drawing.Size(68, 19);
+            this.textSendRegionHex02.TabIndex = 0;
+            this.textSendRegionHex02.Text = "16进制";
+            this.textSendRegionHex02.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -996,7 +996,7 @@
             this.groupBox9.Controls.Add(this.button13);
             this.groupBox9.Controls.Add(this.checkBox12);
             this.groupBox9.Controls.Add(this.checkBox13);
-            this.groupBox9.Controls.Add(this.checkBox14);
+            this.groupBox9.Controls.Add(this.textSendRegionHex03);
             this.groupBox9.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(474, 390);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1066,16 +1066,16 @@
             this.checkBox13.Text = "自动发";
             this.checkBox13.UseVisualStyleBackColor = true;
             // 
-            // checkBox14
+            // textSendRegionHex03
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(7, 23);
-            this.checkBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(68, 19);
-            this.checkBox14.TabIndex = 0;
-            this.checkBox14.Text = "16进制";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.textSendRegionHex03.AutoSize = true;
+            this.textSendRegionHex03.Location = new System.Drawing.Point(7, 23);
+            this.textSendRegionHex03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textSendRegionHex03.Name = "textSendRegionHex03";
+            this.textSendRegionHex03.Size = new System.Drawing.Size(68, 19);
+            this.textSendRegionHex03.TabIndex = 0;
+            this.textSendRegionHex03.Text = "16进制";
+            this.textSendRegionHex03.UseVisualStyleBackColor = true;
             // 
             // groupBox10
             // 
@@ -1235,13 +1235,13 @@
         private System.Windows.Forms.Button btnManualSend2;
         private System.Windows.Forms.Button btnSendRegionClear2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnOpenSerial;
+        private System.Windows.Forms.Button btnOpenCloseSerial;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox textSendRegionHex01;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label17;
@@ -1252,7 +1252,7 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox textSendRegionHex02;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox8;
@@ -1260,7 +1260,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.CheckBox textSendRegionHex03;
         private System.Windows.Forms.Label lblRecvBytes;
         private System.Windows.Forms.Label lblSendBytes;
         private System.Windows.Forms.Label lblRecvFrames;
@@ -1272,7 +1272,7 @@
         private System.Windows.Forms.Label lblRecvStatus;
         private System.Windows.Forms.Label lblSendStatus;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RichTextBox textRecvRegion;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.RichTextBox textRecvRegion;
     }
 }
