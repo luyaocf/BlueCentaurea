@@ -216,7 +216,7 @@ namespace BlueCentaurea
             }
             else
             {
-                this.SendData(System.Text.Encoding.Default.GetBytes(this.textSendRegion1.Text.Replace(" ", "")));
+                this.SendData(System.Text.Encoding.Default.GetBytes(this.textSendRegion1.Text));
             }
 
             this.sendFrames++;
@@ -232,8 +232,82 @@ namespace BlueCentaurea
         }
         /******************【发送区1操作】【END】************************************************************/
 
+        /******************【发送区2操作】【START】************************************************************/
+        /** 发送指示灯1亮 */
+        private void btnManualSend2_MouseDown(object sender, MouseEventArgs e)
+        {
+            LightOn(this.lblSendStatus);
+        }
+        /** 发送指示灯1灭 */
+        private void btnManualSend2_MouseUp(object sender, MouseEventArgs e)
+        {
+            LightOff(this.lblSendStatus);
+        }
+        /** 发送区1发送 */
+        private void btnManualSend2_Click(object sender, EventArgs e)
+        {
+            if (this.textSendRegionHex02.Checked)
+            {
+                this.SendData(MyTools.HexStringToBytes(this.textSendRegion2.Text.Replace(" ", "")));
+            }
+            else
+            {
+                this.SendData(System.Text.Encoding.Default.GetBytes(this.textSendRegion2.Text));
+            }
+
+            this.sendFrames++;
+            this.sendBytes += textSendRegion2.Text.Replace(" ", "").Length / 2;
+            DataCountShow();
+            // 滚动到控件光标处
+            RecvRegionShow(textSendRegion2.Text, false);
+        }
+        /** 发送区2清零 */
+        private void btnSendRegionClear2_Click(object sender, EventArgs e)
+        {
+            textSendRegion2.Text = string.Empty;
+        }
+        /******************【发送区2操作】【END】************************************************************/
 
 
+
+        /******************【发送区3操作】【START】************************************************************/
+        /** 发送指示灯1亮 */
+        private void btnManualSend3_MouseDown(object sender, MouseEventArgs e)
+        {
+            LightOn(this.lblSendStatus);
+        }
+        /** 发送指示灯1灭 */
+        private void btnManualSend3_MouseUp(object sender, MouseEventArgs e)
+        {
+            LightOff(this.lblSendStatus);
+        }
+        /** 发送区1发送 */
+        private void btnManualSend3_Click(object sender, EventArgs e)
+        {
+            if (this.textSendRegionHex03.Checked)
+            {
+                this.SendData(MyTools.HexStringToBytes(this.textSendRegion3.Text.Replace(" ", "")));
+            }
+            else
+            {
+                this.SendData(System.Text.Encoding.Default.GetBytes(this.textSendRegion3.Text));
+            }
+
+            this.sendFrames++;
+            this.sendBytes += textSendRegion3.Text.Replace(" ", "").Length / 2;
+            DataCountShow();
+            // 滚动到控件光标处
+            RecvRegionShow(textSendRegion3.Text, false);
+        }
+        /** 发送区3清零 */
+        private void btnSendRegionClear3_Click(object sender, EventArgs e)
+        {
+            textSendRegion3.Text = string.Empty;
+        }
+        /******************【发送区3操作】【END】************************************************************/
+
+
+        /** 判断发送字节数 */
         private void lblSendBytes_TextChanged(object sender, EventArgs e)
         {
             if (this.sendBytes >= 999999)
@@ -242,17 +316,7 @@ namespace BlueCentaurea
             }
         }
 
-
-        private void btnSendRegionClear2_Click(object sender, EventArgs e)
-        {
-            textSendRegion2.Text = string.Empty;
-        }
-
-        private void btnSendRegionClear3_Click(object sender, EventArgs e)
-        {
-            textSendRegion3.Text = string.Empty;
-        }
-
+        /** 清零计数 */
         private void btnClearCount_Click(object sender, EventArgs e)
         {
             this.sendFrames = 0;
@@ -292,6 +356,7 @@ namespace BlueCentaurea
                 }
                 this.textRecvRegion.AppendText("【接收】");
                 this.textRecvRegion.SelectionColor = Color.Red;
+                this.textRecvRegion.SelectionFont = new Font("Consolas", 11, FontStyle.Regular);
                 this.textRecvRegion.AppendText(data + "\r\n");
             }
             else
@@ -308,6 +373,7 @@ namespace BlueCentaurea
                     }
                     this.textRecvRegion.AppendText("【发送】");
                     this.textRecvRegion.SelectionColor = Color.Black;
+                    this.textRecvRegion.SelectionFont = new Font("Consolas", 11, FontStyle.Regular);
                     this.textRecvRegion.AppendText(data + "\r\n");
                 }
             }
