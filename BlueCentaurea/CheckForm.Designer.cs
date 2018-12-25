@@ -84,11 +84,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label10.Location = new System.Drawing.Point(3, 320);
+            this.label10.Location = new System.Drawing.Point(8, 316);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(351, 19);
             this.label10.TabIndex = 27;
-            this.label10.Text = "注意：大文件计算会很慢(3G大约需要30秒)";
+            this.label10.Text = "注意：3G大约需要150秒(奔腾G4400处理器)";
             // 
             // txtBoxCheckResultSHA1
             // 

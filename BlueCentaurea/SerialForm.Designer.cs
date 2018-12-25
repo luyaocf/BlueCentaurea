@@ -71,11 +71,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textAllowLines = new System.Windows.Forms.TextBox();
             this.btnSaveData = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClearRecvRegion = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.chkbAutoClear = new System.Windows.Forms.CheckBox();
             this.chkbShowTime = new System.Windows.Forms.CheckBox();
@@ -84,7 +82,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex01 = new System.Windows.Forms.CheckBox();
@@ -92,7 +89,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex02 = new System.Windows.Forms.CheckBox();
@@ -100,7 +96,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex03 = new System.Windows.Forms.CheckBox();
@@ -109,11 +104,11 @@
             this.lblSendStatus = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.chkbShowCount = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -296,6 +291,7 @@
             this.combBPortName.Size = new System.Drawing.Size(74, 23);
             this.combBPortName.TabIndex = 1;
             this.combBPortName.Text = "COM1";
+            this.combBPortName.Click += new System.EventHandler(this.combBPortName_Click);
             // 
             // label6
             // 
@@ -372,7 +368,7 @@
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(134, 12);
+            this.label15.Location = new System.Drawing.Point(150, 11);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(45, 19);
             this.label15.TabIndex = 12;
@@ -409,6 +405,7 @@
             this.textRecvRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textRecvRegion.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textRecvRegion.Location = new System.Drawing.Point(9, 18);
             this.textRecvRegion.Name = "textRecvRegion";
             this.textRecvRegion.Size = new System.Drawing.Size(460, 244);
@@ -490,6 +487,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Consolas", 9F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(6, 47);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 14);
@@ -535,6 +533,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Consolas", 9F);
+            this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(7, 74);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 14);
@@ -583,6 +582,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Consolas", 9F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(6, 19);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 14);
@@ -593,6 +593,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.chkbShowCount);
             this.groupBox4.Controls.Add(this.lblRecvBytes);
             this.groupBox4.Controls.Add(this.lblSendBytes);
             this.groupBox4.Controls.Add(this.lblRecvFrames);
@@ -618,7 +619,7 @@
             this.lblRecvBytes.Name = "lblRecvBytes";
             this.lblRecvBytes.Size = new System.Drawing.Size(120, 15);
             this.lblRecvBytes.TabIndex = 16;
-            this.lblRecvBytes.Text = "【     0 字节】";
+            this.lblRecvBytes.Text = "【      0 字节】";
             // 
             // lblSendBytes
             // 
@@ -626,7 +627,7 @@
             this.lblSendBytes.Name = "lblSendBytes";
             this.lblSendBytes.Size = new System.Drawing.Size(120, 15);
             this.lblSendBytes.TabIndex = 15;
-            this.lblSendBytes.Text = "【     0 字节】";
+            this.lblSendBytes.Text = "【      0 字节】";
             this.lblSendBytes.TextChanged += new System.EventHandler(this.lblSendBytes_TextChanged);
             // 
             // lblRecvFrames
@@ -635,7 +636,7 @@
             this.lblRecvFrames.Name = "lblRecvFrames";
             this.lblRecvFrames.Size = new System.Drawing.Size(120, 15);
             this.lblRecvFrames.TabIndex = 14;
-            this.lblRecvFrames.Text = "【     0   帧】";
+            this.lblRecvFrames.Text = "【      0   帧】";
             // 
             // lblSendFrames
             // 
@@ -643,12 +644,12 @@
             this.lblSendFrames.Name = "lblSendFrames";
             this.lblSendFrames.Size = new System.Drawing.Size(120, 15);
             this.lblSendFrames.TabIndex = 13;
-            this.lblSendFrames.Text = "【     0   帧】";
+            this.lblSendFrames.Text = "【      0   帧】";
             // 
             // btnClearCount
             // 
             this.btnClearCount.Font = new System.Drawing.Font("Consolas", 10F);
-            this.btnClearCount.Location = new System.Drawing.Point(37, 106);
+            this.btnClearCount.Location = new System.Drawing.Point(109, 106);
             this.btnClearCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClearCount.Name = "btnClearCount";
             this.btnClearCount.Size = new System.Drawing.Size(86, 23);
@@ -693,41 +694,16 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "发送帧数:";
             // 
-            // groupBox5
+            // textAllowLines
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox5.Controls.Add(this.checkBox1);
-            this.groupBox5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 188);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(99, 94);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "发送区设置";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(10, 23);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 19);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "16进制";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.SkyBlue;
-            this.textBox1.Location = new System.Drawing.Point(99, 63);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 23);
-            this.textBox1.TabIndex = 5;
+            this.textAllowLines.BackColor = System.Drawing.Color.SkyBlue;
+            this.textAllowLines.Location = new System.Drawing.Point(133, 66);
+            this.textAllowLines.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textAllowLines.Name = "textAllowLines";
+            this.textAllowLines.Size = new System.Drawing.Size(51, 23);
+            this.textAllowLines.TabIndex = 5;
+            this.textAllowLines.Text = "20";
+            this.textAllowLines.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSaveData
             // 
@@ -739,31 +715,32 @@
             this.btnSaveData.Text = "保存数据";
             this.btnSaveData.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnClearRecvRegion
             // 
-            this.button2.Location = new System.Drawing.Point(99, 16);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "清空接收区";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnClearRecvRegion.Location = new System.Drawing.Point(99, 16);
+            this.btnClearRecvRegion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClearRecvRegion.Name = "btnClearRecvRegion";
+            this.btnClearRecvRegion.Size = new System.Drawing.Size(86, 23);
+            this.btnClearRecvRegion.TabIndex = 0;
+            this.btnClearRecvRegion.Text = "清空接收区";
+            this.btnClearRecvRegion.UseVisualStyleBackColor = true;
+            this.btnClearRecvRegion.Click += new System.EventHandler(this.btnClearRecvRegion_Click);
             // 
             // groupBox6
             // 
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox6.Controls.Add(this.textBox1);
+            this.groupBox6.Controls.Add(this.textAllowLines);
             this.groupBox6.Controls.Add(this.btnSaveData);
             this.groupBox6.Controls.Add(this.chkbAutoClear);
-            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.btnClearRecvRegion);
             this.groupBox6.Controls.Add(this.chkbShowTime);
             this.groupBox6.Controls.Add(this.chkbShowSend);
             this.groupBox6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(117, 188);
+            this.groupBox6.Location = new System.Drawing.Point(12, 188);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(266, 94);
+            this.groupBox6.Size = new System.Drawing.Size(371, 94);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "接收区设置";
@@ -773,12 +750,13 @@
             this.chkbAutoClear.AutoSize = true;
             this.chkbAutoClear.Checked = true;
             this.chkbAutoClear.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbAutoClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkbAutoClear.Location = new System.Drawing.Point(10, 68);
             this.chkbAutoClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkbAutoClear.Name = "chkbAutoClear";
-            this.chkbAutoClear.Size = new System.Drawing.Size(82, 19);
+            this.chkbAutoClear.Size = new System.Drawing.Size(117, 19);
             this.chkbAutoClear.TabIndex = 6;
-            this.chkbAutoClear.Text = "自动清除";
+            this.chkbAutoClear.Text = "自动清除  行:";
             this.chkbAutoClear.UseVisualStyleBackColor = true;
             // 
             // chkbShowTime
@@ -786,6 +764,7 @@
             this.chkbShowTime.AutoSize = true;
             this.chkbShowTime.Checked = true;
             this.chkbShowTime.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbShowTime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkbShowTime.Location = new System.Drawing.Point(10, 44);
             this.chkbShowTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkbShowTime.Name = "chkbShowTime";
@@ -799,6 +778,7 @@
             this.chkbShowSend.AutoSize = true;
             this.chkbShowSend.Checked = true;
             this.chkbShowSend.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbShowSend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkbShowSend.Location = new System.Drawing.Point(10, 23);
             this.chkbShowSend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkbShowSend.Name = "chkbShowSend";
@@ -813,7 +793,6 @@
             this.groupBox7.Controls.Add(this.label17);
             this.groupBox7.Controls.Add(this.textBox5);
             this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.button11);
             this.groupBox7.Controls.Add(this.checkBox8);
             this.groupBox7.Controls.Add(this.checkBox7);
             this.groupBox7.Controls.Add(this.textSendRegionHex01);
@@ -854,19 +833,10 @@
             this.label16.TabIndex = 4;
             this.label16.Text = "发送周期:";
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(94, 20);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(78, 23);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "校验";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
+            this.checkBox8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox8.Location = new System.Drawing.Point(94, 42);
             this.checkBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox8.Name = "checkBox8";
@@ -878,6 +848,7 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
+            this.checkBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox7.Location = new System.Drawing.Point(7, 42);
             this.checkBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox7.Name = "checkBox7";
@@ -889,6 +860,7 @@
             // textSendRegionHex01
             // 
             this.textSendRegionHex01.AutoSize = true;
+            this.textSendRegionHex01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex01.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegionHex01.Name = "textSendRegionHex01";
@@ -903,7 +875,6 @@
             this.groupBox8.Controls.Add(this.label18);
             this.groupBox8.Controls.Add(this.textBox7);
             this.groupBox8.Controls.Add(this.label19);
-            this.groupBox8.Controls.Add(this.button12);
             this.groupBox8.Controls.Add(this.checkBox9);
             this.groupBox8.Controls.Add(this.checkBox10);
             this.groupBox8.Controls.Add(this.textSendRegionHex02);
@@ -944,19 +915,10 @@
             this.label19.TabIndex = 4;
             this.label19.Text = "发送周期:";
             // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(94, 20);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(78, 23);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "校验";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
+            this.checkBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox9.Location = new System.Drawing.Point(94, 42);
             this.checkBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox9.Name = "checkBox9";
@@ -968,6 +930,7 @@
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
+            this.checkBox10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox10.Location = new System.Drawing.Point(7, 42);
             this.checkBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox10.Name = "checkBox10";
@@ -979,6 +942,7 @@
             // textSendRegionHex02
             // 
             this.textSendRegionHex02.AutoSize = true;
+            this.textSendRegionHex02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex02.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegionHex02.Name = "textSendRegionHex02";
@@ -993,7 +957,6 @@
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Controls.Add(this.textBox8);
             this.groupBox9.Controls.Add(this.label21);
-            this.groupBox9.Controls.Add(this.button13);
             this.groupBox9.Controls.Add(this.checkBox12);
             this.groupBox9.Controls.Add(this.checkBox13);
             this.groupBox9.Controls.Add(this.textSendRegionHex03);
@@ -1034,19 +997,10 @@
             this.label21.TabIndex = 4;
             this.label21.Text = "发送周期:";
             // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(94, 20);
-            this.button13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(78, 23);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "校验";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
             // checkBox12
             // 
             this.checkBox12.AutoSize = true;
+            this.checkBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox12.Location = new System.Drawing.Point(94, 42);
             this.checkBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox12.Name = "checkBox12";
@@ -1058,6 +1012,7 @@
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
+            this.checkBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox13.Location = new System.Drawing.Point(7, 42);
             this.checkBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox13.Name = "checkBox13";
@@ -1069,6 +1024,7 @@
             // textSendRegionHex03
             // 
             this.textSendRegionHex03.AutoSize = true;
+            this.textSendRegionHex03.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex03.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textSendRegionHex03.Name = "textSendRegionHex03";
@@ -1096,7 +1052,7 @@
             this.lblRecvStatus.AutoSize = true;
             this.lblRecvStatus.Font = new System.Drawing.Font("Consolas", 10F);
             this.lblRecvStatus.Image = global::BlueCentaurea.Properties.Resources.DataRSStatusOff1;
-            this.lblRecvStatus.Location = new System.Drawing.Point(98, 13);
+            this.lblRecvStatus.Location = new System.Drawing.Point(128, 13);
             this.lblRecvStatus.Name = "lblRecvStatus";
             this.lblRecvStatus.Size = new System.Drawing.Size(16, 17);
             this.lblRecvStatus.TabIndex = 14;
@@ -1140,6 +1096,20 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
+            // chkbShowCount
+            // 
+            this.chkbShowCount.AutoSize = true;
+            this.chkbShowCount.Checked = true;
+            this.chkbShowCount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbShowCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkbShowCount.Location = new System.Drawing.Point(10, 109);
+            this.chkbShowCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkbShowCount.Name = "chkbShowCount";
+            this.chkbShowCount.Size = new System.Drawing.Size(82, 19);
+            this.chkbShowCount.TabIndex = 17;
+            this.chkbShowCount.Text = "显示计数";
+            this.chkbShowCount.UseVisualStyleBackColor = true;
+            // 
             // SerialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1152,7 +1122,6 @@
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1175,8 +1144,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -1214,15 +1181,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnClearCount;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClearRecvRegion;
         private System.Windows.Forms.Button btnSaveData;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox chkbAutoClear;
         private System.Windows.Forms.CheckBox chkbShowTime;
         private System.Windows.Forms.CheckBox chkbShowSend;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textAllowLines;
         private System.Windows.Forms.Button btnManualSend1;
         private System.Windows.Forms.Button btnSendRegionClear1;
         private System.Windows.Forms.Label label12;
@@ -1238,7 +1203,6 @@
         private System.Windows.Forms.Button btnOpenCloseSerial;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.CheckBox textSendRegionHex01;
@@ -1249,7 +1213,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox textSendRegionHex02;
@@ -1257,7 +1220,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.CheckBox checkBox13;
         private System.Windows.Forms.CheckBox textSendRegionHex03;
@@ -1274,5 +1236,6 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.RichTextBox richTextBox1;
         public System.Windows.Forms.RichTextBox textRecvRegion;
+        private System.Windows.Forms.CheckBox chkbShowCount;
     }
 }
