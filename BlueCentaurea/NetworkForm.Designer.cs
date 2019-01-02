@@ -113,9 +113,9 @@
             this.groupBox1.Controls.Add(this.lblLocalhost);
             this.groupBox1.Controls.Add(this.lblProtocol);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(180, 445);
+            this.groupBox1.Location = new System.Drawing.Point(162, 445);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(286, 106);
+            this.groupBox1.Size = new System.Drawing.Size(304, 106);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "网络设置";
@@ -129,7 +129,7 @@
             this.combBLocalhost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.combBLocalhost.IntegralHeight = false;
             this.combBLocalhost.ItemHeight = 15;
-            this.combBLocalhost.Location = new System.Drawing.Point(104, 47);
+            this.combBLocalhost.Location = new System.Drawing.Point(114, 47);
             this.combBLocalhost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combBLocalhost.MaxDropDownItems = 20;
             this.combBLocalhost.Name = "combBLocalhost";
@@ -180,7 +180,7 @@
             this.lblConnectStatus.AutoSize = true;
             this.lblConnectStatus.BackColor = System.Drawing.Color.SkyBlue;
             this.lblConnectStatus.Image = global::BlueCentaurea.Properties.Resources.LightOff;
-            this.lblConnectStatus.Location = new System.Drawing.Point(242, 51);
+            this.lblConnectStatus.Location = new System.Drawing.Point(252, 51);
             this.lblConnectStatus.Name = "lblConnectStatus";
             this.lblConnectStatus.Size = new System.Drawing.Size(14, 15);
             this.lblConnectStatus.TabIndex = 14;
@@ -189,7 +189,7 @@
             // btnConnect
             // 
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
-            this.btnConnect.Location = new System.Drawing.Point(225, 73);
+            this.btnConnect.Location = new System.Drawing.Point(235, 73);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(55, 27);
             this.btnConnect.TabIndex = 4;
@@ -201,7 +201,7 @@
             // 
             this.textMultiFunc.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMultiFunc.ForeColor = System.Drawing.Color.Red;
-            this.textMultiFunc.Location = new System.Drawing.Point(104, 78);
+            this.textMultiFunc.Location = new System.Drawing.Point(114, 78);
             this.textMultiFunc.Name = "textMultiFunc";
             this.textMultiFunc.Size = new System.Drawing.Size(112, 20);
             this.textMultiFunc.TabIndex = 3;
@@ -721,7 +721,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(171, 106);
+            this.groupBox7.Size = new System.Drawing.Size(153, 106);
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "统计和tips";
@@ -733,7 +733,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxTips.Location = new System.Drawing.Point(6, 19);
             this.richTextBoxTips.Name = "richTextBoxTips";
-            this.richTextBoxTips.Size = new System.Drawing.Size(159, 81);
+            this.richTextBoxTips.Size = new System.Drawing.Size(141, 81);
             this.richTextBoxTips.TabIndex = 11;
             this.richTextBoxTips.Text = "";
             // 
