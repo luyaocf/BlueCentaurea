@@ -75,9 +75,15 @@
             this.textAllowLines = new System.Windows.Forms.TextBox();
             this.btnClearRecvRegion = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.chkbAutoClear = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.chkbShowTime = new System.Windows.Forms.CheckBox();
             this.chkbShowSend = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.chkbAutoClear = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButtonBbk = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.radioButtonUtf8 = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -104,24 +110,18 @@
             this.lblSendStatus = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.radioButtonBbk = new System.Windows.Forms.RadioButton();
-            this.radioButtonUtf8 = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -496,12 +496,11 @@
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Consolas", 9F);
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(6, 47);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 14);
+            this.label13.Size = new System.Drawing.Size(60, 14);
             this.label13.TabIndex = 12;
             this.label13.Text = "发送区2";
             // 
@@ -546,12 +545,11 @@
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Consolas", 9F);
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(7, 74);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 14);
+            this.label14.Size = new System.Drawing.Size(60, 14);
             this.label14.TabIndex = 8;
             this.label14.Text = "发送区3";
             // 
@@ -596,12 +594,11 @@
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Consolas", 9F);
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(6, 19);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 14);
+            this.label12.Size = new System.Drawing.Size(60, 14);
             this.label12.TabIndex = 0;
             this.label12.Text = "发送区1";
             // 
@@ -766,19 +763,17 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "接收区设置";
             // 
-            // chkbAutoClear
+            // checkBox2
             // 
-            this.chkbAutoClear.AutoSize = true;
-            this.chkbAutoClear.Checked = true;
-            this.chkbAutoClear.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkbAutoClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkbAutoClear.Location = new System.Drawing.Point(7, 3);
-            this.chkbAutoClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkbAutoClear.Name = "chkbAutoClear";
-            this.chkbAutoClear.Size = new System.Drawing.Size(131, 19);
-            this.chkbAutoClear.TabIndex = 6;
-            this.chkbAutoClear.Text = "自动清除  行数:";
-            this.chkbAutoClear.UseVisualStyleBackColor = true;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox2.Location = new System.Drawing.Point(214, 67);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(82, 19);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "追加空格";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // chkbShowTime
             // 
@@ -807,6 +802,78 @@
             this.chkbShowSend.TabIndex = 4;
             this.chkbShowSend.Text = "显示发送";
             this.chkbShowSend.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textAllowLines);
+            this.panel1.Controls.Add(this.chkbAutoClear);
+            this.panel1.Location = new System.Drawing.Point(6, 58);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 26);
+            this.panel1.TabIndex = 2;
+            // 
+            // chkbAutoClear
+            // 
+            this.chkbAutoClear.AutoSize = true;
+            this.chkbAutoClear.Checked = true;
+            this.chkbAutoClear.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbAutoClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkbAutoClear.Location = new System.Drawing.Point(7, 3);
+            this.chkbAutoClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkbAutoClear.Name = "chkbAutoClear";
+            this.chkbAutoClear.Size = new System.Drawing.Size(131, 19);
+            this.chkbAutoClear.TabIndex = 6;
+            this.chkbAutoClear.Text = "自动清除  行数:";
+            this.chkbAutoClear.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioButtonBbk);
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.radioButtonUtf8);
+            this.panel2.Location = new System.Drawing.Point(6, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 26);
+            this.panel2.TabIndex = 2;
+            // 
+            // radioButtonBbk
+            // 
+            this.radioButtonBbk.AutoSize = true;
+            this.radioButtonBbk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonBbk.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonBbk.Location = new System.Drawing.Point(140, 3);
+            this.radioButtonBbk.Name = "radioButtonBbk";
+            this.radioButtonBbk.Size = new System.Drawing.Size(46, 19);
+            this.radioButtonBbk.TabIndex = 16;
+            this.radioButtonBbk.Text = "gbk";
+            this.radioButtonBbk.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(6, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 19);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "16进制";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonUtf8
+            // 
+            this.radioButtonUtf8.AutoSize = true;
+            this.radioButtonUtf8.Checked = true;
+            this.radioButtonUtf8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonUtf8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonUtf8.Location = new System.Drawing.Point(85, 3);
+            this.radioButtonUtf8.Name = "radioButtonUtf8";
+            this.radioButtonUtf8.Size = new System.Drawing.Size(46, 19);
+            this.radioButtonUtf8.TabIndex = 15;
+            this.radioButtonUtf8.TabStop = true;
+            this.radioButtonUtf8.Text = "utf";
+            this.radioButtonUtf8.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -1117,76 +1184,6 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(6, 4);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 19);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "16进制";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Location = new System.Drawing.Point(214, 67);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(82, 19);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "追加空格";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonBbk
-            // 
-            this.radioButtonBbk.AutoSize = true;
-            this.radioButtonBbk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonBbk.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonBbk.Location = new System.Drawing.Point(140, 3);
-            this.radioButtonBbk.Name = "radioButtonBbk";
-            this.radioButtonBbk.Size = new System.Drawing.Size(46, 19);
-            this.radioButtonBbk.TabIndex = 16;
-            this.radioButtonBbk.Text = "gbk";
-            this.radioButtonBbk.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonUtf8
-            // 
-            this.radioButtonUtf8.AutoSize = true;
-            this.radioButtonUtf8.Checked = true;
-            this.radioButtonUtf8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonUtf8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonUtf8.Location = new System.Drawing.Point(85, 3);
-            this.radioButtonUtf8.Name = "radioButtonUtf8";
-            this.radioButtonUtf8.Size = new System.Drawing.Size(46, 19);
-            this.radioButtonUtf8.TabIndex = 15;
-            this.radioButtonUtf8.TabStop = true;
-            this.radioButtonUtf8.Text = "utf";
-            this.radioButtonUtf8.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textAllowLines);
-            this.panel1.Controls.Add(this.chkbAutoClear);
-            this.panel1.Location = new System.Drawing.Point(6, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 26);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.radioButtonBbk);
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Controls.Add(this.radioButtonUtf8);
-            this.panel2.Location = new System.Drawing.Point(6, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 26);
-            this.panel2.TabIndex = 2;
-            // 
             // SerialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1223,6 +1220,10 @@
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -1232,10 +1233,6 @@
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

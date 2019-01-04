@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckForm));
-            this.tbpCheckSHA1 = new System.Windows.Forms.TabPage();
+            this.tbpCheckSHA = new System.Windows.Forms.TabPage();
+            this.radioButtonSHA512 = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.radioButtonSHA384 = new System.Windows.Forms.RadioButton();
+            this.radioButtonSHA256 = new System.Windows.Forms.RadioButton();
+            this.radioButtonSHA1 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.txtBoxCheckResultSHA1 = new System.Windows.Forms.TextBox();
             this.txtBoxCheckSelectSHA1 = new System.Windows.Forms.TextBox();
@@ -51,44 +56,111 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabCtrlCheck = new System.Windows.Forms.TabControl();
-            this.tbpCalcSHA2 = new System.Windows.Forms.TabPage();
+            this.tbpCheckCRC = new System.Windows.Forms.TabPage();
+            this.tbp = new System.Windows.Forms.TabPage();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tbpCheckSHA1.SuspendLayout();
+            this.tbpCheckSHA.SuspendLayout();
             this.tbpCheckMD5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabCtrlCheck.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbpCheckSHA1
+            // tbpCheckSHA
             // 
-            this.tbpCheckSHA1.BackColor = System.Drawing.Color.SkyBlue;
-            this.tbpCheckSHA1.Controls.Add(this.label10);
-            this.tbpCheckSHA1.Controls.Add(this.txtBoxCheckResultSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.txtBoxCheckSelectSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.label2);
-            this.tbpCheckSHA1.Controls.Add(this.btnCheckSelectSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.btnCheckResultSHA1);
-            this.tbpCheckSHA1.Controls.Add(this.label3);
-            this.tbpCheckSHA1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpCheckSHA1.Location = new System.Drawing.Point(4, 28);
-            this.tbpCheckSHA1.Name = "tbpCheckSHA1";
-            this.tbpCheckSHA1.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCheckSHA1.Size = new System.Drawing.Size(607, 342);
-            this.tbpCheckSHA1.TabIndex = 1;
-            this.tbpCheckSHA1.Text = "校验SHA1";
+            this.tbpCheckSHA.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpCheckSHA.Controls.Add(this.radioButtonSHA512);
+            this.tbpCheckSHA.Controls.Add(this.label4);
+            this.tbpCheckSHA.Controls.Add(this.radioButtonSHA384);
+            this.tbpCheckSHA.Controls.Add(this.radioButtonSHA256);
+            this.tbpCheckSHA.Controls.Add(this.radioButtonSHA1);
+            this.tbpCheckSHA.Controls.Add(this.label10);
+            this.tbpCheckSHA.Controls.Add(this.txtBoxCheckResultSHA1);
+            this.tbpCheckSHA.Controls.Add(this.txtBoxCheckSelectSHA1);
+            this.tbpCheckSHA.Controls.Add(this.label2);
+            this.tbpCheckSHA.Controls.Add(this.btnCheckSelectSHA1);
+            this.tbpCheckSHA.Controls.Add(this.btnCheckResultSHA1);
+            this.tbpCheckSHA.Controls.Add(this.label3);
+            this.tbpCheckSHA.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbpCheckSHA.Location = new System.Drawing.Point(4, 28);
+            this.tbpCheckSHA.Name = "tbpCheckSHA";
+            this.tbpCheckSHA.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpCheckSHA.Size = new System.Drawing.Size(607, 342);
+            this.tbpCheckSHA.TabIndex = 1;
+            this.tbpCheckSHA.Text = "校验SHA";
+            // 
+            // radioButtonSHA512
+            // 
+            this.radioButtonSHA512.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButtonSHA512.AutoSize = true;
+            this.radioButtonSHA512.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonSHA512.Location = new System.Drawing.Point(402, 146);
+            this.radioButtonSHA512.Name = "radioButtonSHA512";
+            this.radioButtonSHA512.Size = new System.Drawing.Size(88, 26);
+            this.radioButtonSHA512.TabIndex = 32;
+            this.radioButtonSHA512.Text = "SHA512";
+            this.radioButtonSHA512.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 19);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "【选项】";
+            // 
+            // radioButtonSHA384
+            // 
+            this.radioButtonSHA384.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButtonSHA384.AutoSize = true;
+            this.radioButtonSHA384.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonSHA384.Location = new System.Drawing.Point(299, 146);
+            this.radioButtonSHA384.Name = "radioButtonSHA384";
+            this.radioButtonSHA384.Size = new System.Drawing.Size(88, 26);
+            this.radioButtonSHA384.TabIndex = 28;
+            this.radioButtonSHA384.Text = "SHA384";
+            this.radioButtonSHA384.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSHA256
+            // 
+            this.radioButtonSHA256.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButtonSHA256.AutoSize = true;
+            this.radioButtonSHA256.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonSHA256.Location = new System.Drawing.Point(196, 146);
+            this.radioButtonSHA256.Name = "radioButtonSHA256";
+            this.radioButtonSHA256.Size = new System.Drawing.Size(88, 26);
+            this.radioButtonSHA256.TabIndex = 29;
+            this.radioButtonSHA256.Text = "SHA256";
+            this.radioButtonSHA256.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSHA1
+            // 
+            this.radioButtonSHA1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonSHA1.AutoSize = true;
+            this.radioButtonSHA1.Checked = true;
+            this.radioButtonSHA1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonSHA1.Location = new System.Drawing.Point(113, 146);
+            this.radioButtonSHA1.Name = "radioButtonSHA1";
+            this.radioButtonSHA1.Size = new System.Drawing.Size(68, 26);
+            this.radioButtonSHA1.TabIndex = 30;
+            this.radioButtonSHA1.TabStop = true;
+            this.radioButtonSHA1.Text = "SHA1";
+            this.radioButtonSHA1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Consolas", 9F);
             this.label10.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label10.Location = new System.Drawing.Point(8, 316);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(351, 19);
+            this.label10.Size = new System.Drawing.Size(385, 14);
             this.label10.TabIndex = 27;
-            this.label10.Text = "注意：3G大约需要150秒(奔腾G4400处理器)";
+            this.label10.Text = "注意：计算SHA1时，3G字节大约需要150秒(奔腾G4400处理器)";
             // 
             // txtBoxCheckResultSHA1
             // 
@@ -311,8 +383,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrlCheck.Controls.Add(this.tbpCheckMD5);
-            this.tabCtrlCheck.Controls.Add(this.tbpCheckSHA1);
-            this.tabCtrlCheck.Controls.Add(this.tbpCalcSHA2);
+            this.tabCtrlCheck.Controls.Add(this.tbpCheckSHA);
+            this.tabCtrlCheck.Controls.Add(this.tbpCheckCRC);
+            this.tabCtrlCheck.Controls.Add(this.tbp);
             this.tabCtrlCheck.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCtrlCheck.Location = new System.Drawing.Point(12, 3);
             this.tabCtrlCheck.Name = "tabCtrlCheck";
@@ -320,14 +393,23 @@
             this.tabCtrlCheck.Size = new System.Drawing.Size(615, 374);
             this.tabCtrlCheck.TabIndex = 1;
             // 
-            // tbpCalcSHA2
+            // tbpCheckCRC
             // 
-            this.tbpCalcSHA2.BackColor = System.Drawing.Color.SkyBlue;
-            this.tbpCalcSHA2.Location = new System.Drawing.Point(4, 28);
-            this.tbpCalcSHA2.Name = "tbpCalcSHA2";
-            this.tbpCalcSHA2.Size = new System.Drawing.Size(607, 342);
-            this.tbpCalcSHA2.TabIndex = 2;
-            this.tbpCalcSHA2.Text = "待开发";
+            this.tbpCheckCRC.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbpCheckCRC.Location = new System.Drawing.Point(4, 28);
+            this.tbpCheckCRC.Name = "tbpCheckCRC";
+            this.tbpCheckCRC.Size = new System.Drawing.Size(607, 342);
+            this.tbpCheckCRC.TabIndex = 3;
+            this.tbpCheckCRC.Text = "校验CRC";
+            // 
+            // tbp
+            // 
+            this.tbp.BackColor = System.Drawing.Color.SkyBlue;
+            this.tbp.Location = new System.Drawing.Point(4, 28);
+            this.tbp.Name = "tbp";
+            this.tbp.Size = new System.Drawing.Size(607, 342);
+            this.tbp.TabIndex = 2;
+            this.tbp.Text = "待开发";
             // 
             // openFileDialog
             // 
@@ -348,8 +430,8 @@
             this.Name = "CheckForm";
             this.Text = "文件校验";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckForm_KeyPress);
-            this.tbpCheckSHA1.ResumeLayout(false);
-            this.tbpCheckSHA1.PerformLayout();
+            this.tbpCheckSHA.ResumeLayout(false);
+            this.tbpCheckSHA.PerformLayout();
             this.tbpCheckMD5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -362,7 +444,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabPage tbpCheckSHA1;
+        private System.Windows.Forms.TabPage tbpCheckSHA;
         private System.Windows.Forms.TabPage tbpCheckMD5;
         private System.Windows.Forms.TabControl tabCtrlCheck;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
@@ -372,7 +454,7 @@
         private System.Windows.Forms.Button btnCheckSelectSHA1;
         private System.Windows.Forms.Button btnCheckResultSHA1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tbpCalcSHA2;
+        private System.Windows.Forms.TabPage tbp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCheckMD5Execute01;
@@ -386,5 +468,11 @@
         private System.Windows.Forms.TextBox textMD5Path01;
         private System.Windows.Forms.TextBox textMD5Path02;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton radioButtonSHA384;
+        private System.Windows.Forms.RadioButton radioButtonSHA256;
+        private System.Windows.Forms.RadioButton radioButtonSHA1;
+        private System.Windows.Forms.RadioButton radioButtonSHA512;
+        private System.Windows.Forms.TabPage tbpCheckCRC;
     }
 }

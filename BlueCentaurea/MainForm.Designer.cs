@@ -45,9 +45,6 @@
             this.dES加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dES加密ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.计算MACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dES解密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dES解密ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.serialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.netToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +55,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.httpTest = new System.Windows.Forms.ToolStripMenuItem();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.dES解密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dES解密ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,7 +151,7 @@
             this.sHA1ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.校验1;
             this.sHA1ToolStripMenuItem.Name = "sHA1ToolStripMenuItem";
             this.sHA1ToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.sHA1ToolStripMenuItem.Text = "SHA1(&S)";
+            this.sHA1ToolStripMenuItem.Text = "SHA(&S)";
             this.sHA1ToolStripMenuItem.Click += new System.EventHandler(this.sHA1ToolStripMenuItem_Click);
             // 
             // strLenToolStripMenuItem
@@ -168,10 +167,12 @@
             this.计算MD5ToolStripMenuItem,
             this.dES加密ToolStripMenuItem,
             this.dES加密ToolStripMenuItem1,
-            this.计算MACToolStripMenuItem});
+            this.计算MACToolStripMenuItem,
+            this.dES解密ToolStripMenuItem,
+            this.dES解密ToolStripMenuItem1});
             this.encryptToolStripMenuItem.Name = "encryptToolStripMenuItem";
-            this.encryptToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
-            this.encryptToolStripMenuItem.Text = "加密(&E)";
+            this.encryptToolStripMenuItem.Size = new System.Drawing.Size(120, 23);
+            this.encryptToolStripMenuItem.Text = "加密解密(&E)";
             // 
             // 计算MD5ToolStripMenuItem
             // 
@@ -205,41 +206,18 @@
             this.计算MACToolStripMenuItem.Text = "计算3MAC(&C)";
             this.计算MACToolStripMenuItem.Click += new System.EventHandler(this.TriMac_ToolStripMenuItem_Click);
             // 
-            // decryptToolStripMenuItem
-            // 
-            this.decryptToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dES解密ToolStripMenuItem,
-            this.dES解密ToolStripMenuItem1});
-            this.decryptToolStripMenuItem.Name = "decryptToolStripMenuItem";
-            this.decryptToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
-            this.decryptToolStripMenuItem.Text = "解密(&D)";
-            // 
-            // dES解密ToolStripMenuItem
-            // 
-            this.dES解密ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.解锁;
-            this.dES解密ToolStripMenuItem.Name = "dES解密ToolStripMenuItem";
-            this.dES解密ToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
-            this.dES解密ToolStripMenuItem.Text = "DES解密(&D)";
-            // 
-            // dES解密ToolStripMenuItem1
-            // 
-            this.dES解密ToolStripMenuItem1.Image = global::BlueCentaurea.Properties.Resources.解锁;
-            this.dES解密ToolStripMenuItem1.Name = "dES解密ToolStripMenuItem1";
-            this.dES解密ToolStripMenuItem1.Size = new System.Drawing.Size(177, 24);
-            this.dES解密ToolStripMenuItem1.Text = "3DES解密(&T)";
-            // 
             // serialToolStripMenuItem
             // 
             this.serialToolStripMenuItem.Name = "serialToolStripMenuItem";
-            this.serialToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
-            this.serialToolStripMenuItem.Text = "串口(&S)";
+            this.serialToolStripMenuItem.Size = new System.Drawing.Size(120, 23);
+            this.serialToolStripMenuItem.Text = "串口调试(&S)";
             this.serialToolStripMenuItem.Click += new System.EventHandler(this.Serial_ToolStripMenuItem_Click);
             // 
             // netToolStripMenuItem
             // 
             this.netToolStripMenuItem.Name = "netToolStripMenuItem";
-            this.netToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
-            this.netToolStripMenuItem.Text = "网口(&N)";
+            this.netToolStripMenuItem.Size = new System.Drawing.Size(120, 23);
+            this.netToolStripMenuItem.Text = "网络调试(&N)";
             this.netToolStripMenuItem.Click += new System.EventHandler(this.Network_ToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -289,7 +267,6 @@
             this.transToolStripMenuItem,
             this.checkToolStripMenuItem,
             this.encryptToolStripMenuItem,
-            this.decryptToolStripMenuItem,
             this.serialToolStripMenuItem,
             this.netToolStripMenuItem,
             this.httpTest,
@@ -319,6 +296,20 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(780, 460);
             this.mainPanel.TabIndex = 1;
+            // 
+            // dES解密ToolStripMenuItem
+            // 
+            this.dES解密ToolStripMenuItem.Image = global::BlueCentaurea.Properties.Resources.解锁;
+            this.dES解密ToolStripMenuItem.Name = "dES解密ToolStripMenuItem";
+            this.dES解密ToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
+            this.dES解密ToolStripMenuItem.Text = "DES解密(&D)";
+            // 
+            // dES解密ToolStripMenuItem1
+            // 
+            this.dES解密ToolStripMenuItem1.Image = global::BlueCentaurea.Properties.Resources.解锁;
+            this.dES解密ToolStripMenuItem1.Name = "dES解密ToolStripMenuItem1";
+            this.dES解密ToolStripMenuItem1.Size = new System.Drawing.Size(177, 24);
+            this.dES解密ToolStripMenuItem1.Text = "3DES解密(&T)";
             // 
             // MainForm
             // 
@@ -357,9 +348,6 @@
         private System.Windows.Forms.ToolStripMenuItem dES加密ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dES加密ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 计算MACToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem decryptToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dES解密ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dES解密ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem serialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem netToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -371,6 +359,8 @@
         private System.Windows.Forms.ToolStripMenuItem strLenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem httpTest;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.ToolStripMenuItem dES解密ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dES解密ToolStripMenuItem1;
     }
 }
 

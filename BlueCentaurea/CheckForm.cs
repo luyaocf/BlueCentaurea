@@ -93,7 +93,7 @@ namespace BlueCentaurea
         }
         /****************************【1】【计算MD5】【end】*****************************************************/
 
-        /****************************【2】【计算SHA1】【start】*****************************************************/
+        /****************************【2】【计算SHA】【start】*****************************************************/
         private void btnCheckSelectSHA1_Click(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog() == DialogResult.OK)
@@ -114,8 +114,31 @@ namespace BlueCentaurea
                 if (this.txtBoxCheckSelectSHA1.Text != null && !"".Equals(this.txtBoxCheckSelectSHA1.Text))
                 {
                     FileStream file = new FileStream(this.txtBoxCheckSelectSHA1.Text, FileMode.Open);
-                    SHA1 sha1 = new SHA1CryptoServiceProvider();
-                    byte[] retVal = SHA1.Create().ComputeHash(file);
+                    byte[] retVal;
+                    if (this.radioButtonSHA512.Checked)
+                    {
+                        SHA512 sha512 = new SHA512Managed();
+                        retVal = sha512.ComputeHash(file);
+                        sha512.Clear();
+                    }
+                    else if (this.radioButtonSHA384.Checked)
+                    {
+                        SHA384 sha384 = new SHA384Managed();
+                        retVal = sha384.ComputeHash(file);
+                        sha384.Clear();
+                    }
+                    else if (this.radioButtonSHA256.Checked)
+                    {
+                        SHA256 sha256 = new SHA256Managed();
+                        retVal = sha256.ComputeHash(file);
+                        sha256.Clear();
+                    }
+                    else
+                    {
+                        SHA1 sha1 = new SHA1CryptoServiceProvider();
+                        retVal = SHA1.Create().ComputeHash(file);
+                        sha1.Clear();
+                    }
                     file.Close();
 
                     this.txtBoxCheckResultSHA1.Text = MyTools.BytesToHexString(retVal);
@@ -127,10 +150,7 @@ namespace BlueCentaurea
             }
         }
 
-        /****************************【2】【计算SHA1】【end】*****************************************************/
-
-
-
+        /****************************【2】【计算SHA】【end】*****************************************************/
 
         private void CheckForm_KeyPress(object sender, KeyPressEventArgs e)
         {
