@@ -55,6 +55,12 @@
     <Compile Include="CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRCCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRCCheckForm.Designer.cs">
+      <DependentUpon>CRCCheckForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HTTPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRCCheckForm.resx">
+      <DependentUpon>CRCCheckForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HTTPForm.resx">
       <DependentUpon>HTTPForm.cs</DependentUpon>

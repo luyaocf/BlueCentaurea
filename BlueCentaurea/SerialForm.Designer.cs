@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerialForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblSerialStatus = new System.Windows.Forms.Label();
             this.btnOpenCloseSerial = new System.Windows.Forms.Button();
             this.combBStopBits = new System.Windows.Forms.ComboBox();
             this.combBParity = new System.Windows.Forms.ComboBox();
@@ -85,6 +84,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButtonUtf8 = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnSendRegionCheck01 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -92,6 +92,7 @@
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex01 = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.btnSendRegionCheck02 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -99,6 +100,7 @@
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex02 = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnSendRegionCheck03 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -106,10 +108,11 @@
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.textSendRegionHex03 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.lblRecvStatus = new System.Windows.Forms.Label();
-            this.lblSendStatus = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lblRecvStatus = new System.Windows.Forms.Label();
+            this.lblSendStatus = new System.Windows.Forms.Label();
+            this.lblSerialStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -150,17 +153,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "串口设置";
-            // 
-            // lblSerialStatus
-            // 
-            this.lblSerialStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSerialStatus.AutoSize = true;
-            this.lblSerialStatus.Image = global::BlueCentaurea.Properties.Resources.LightOff;
-            this.lblSerialStatus.Location = new System.Drawing.Point(48, 153);
-            this.lblSerialStatus.Name = "lblSerialStatus";
-            this.lblSerialStatus.Size = new System.Drawing.Size(14, 15);
-            this.lblSerialStatus.TabIndex = 12;
-            this.lblSerialStatus.Text = " ";
             // 
             // btnOpenCloseSerial
             // 
@@ -489,7 +481,7 @@
             this.btnSendRegionClear2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegionClear2.Name = "btnSendRegionClear2";
             this.btnSendRegionClear2.Size = new System.Drawing.Size(43, 23);
-            this.btnSendRegionClear2.TabIndex = 13;
+            this.btnSendRegionClear2.TabIndex = 2;
             this.btnSendRegionClear2.Text = "清空";
             this.btnSendRegionClear2.UseVisualStyleBackColor = true;
             this.btnSendRegionClear2.Click += new System.EventHandler(this.btnSendRegionClear2_Click);
@@ -538,7 +530,7 @@
             this.btnSendRegionClear3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSendRegionClear3.Name = "btnSendRegionClear3";
             this.btnSendRegionClear3.Size = new System.Drawing.Size(43, 23);
-            this.btnSendRegionClear3.TabIndex = 9;
+            this.btnSendRegionClear3.TabIndex = 3;
             this.btnSendRegionClear3.Text = "清空";
             this.btnSendRegionClear3.UseVisualStyleBackColor = true;
             this.btnSendRegionClear3.Click += new System.EventHandler(this.btnSendRegionClear3_Click);
@@ -878,6 +870,7 @@
             // groupBox7
             // 
             this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox7.Controls.Add(this.btnSendRegionCheck01);
             this.groupBox7.Controls.Add(this.label17);
             this.groupBox7.Controls.Add(this.textBox5);
             this.groupBox7.Controls.Add(this.label16);
@@ -893,6 +886,18 @@
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "发送区1属性";
+            // 
+            // btnSendRegionCheck01
+            // 
+            this.btnSendRegionCheck01.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSendRegionCheck01.Location = new System.Drawing.Point(94, 16);
+            this.btnSendRegionCheck01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSendRegionCheck01.Name = "btnSendRegionCheck01";
+            this.btnSendRegionCheck01.Size = new System.Drawing.Size(78, 24);
+            this.btnSendRegionCheck01.TabIndex = 7;
+            this.btnSendRegionCheck01.Text = "校验";
+            this.btnSendRegionCheck01.UseVisualStyleBackColor = true;
+            this.btnSendRegionCheck01.Click += new System.EventHandler(this.button1_Click);
             // 
             // label17
             // 
@@ -948,6 +953,8 @@
             // textSendRegionHex01
             // 
             this.textSendRegionHex01.AutoSize = true;
+            this.textSendRegionHex01.Checked = true;
+            this.textSendRegionHex01.CheckState = System.Windows.Forms.CheckState.Checked;
             this.textSendRegionHex01.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex01.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex01.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -960,6 +967,7 @@
             // groupBox8
             // 
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox8.Controls.Add(this.btnSendRegionCheck02);
             this.groupBox8.Controls.Add(this.label18);
             this.groupBox8.Controls.Add(this.textBox7);
             this.groupBox8.Controls.Add(this.label19);
@@ -975,6 +983,17 @@
             this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "发送区2属性";
+            // 
+            // btnSendRegionCheck02
+            // 
+            this.btnSendRegionCheck02.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSendRegionCheck02.Location = new System.Drawing.Point(94, 16);
+            this.btnSendRegionCheck02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSendRegionCheck02.Name = "btnSendRegionCheck02";
+            this.btnSendRegionCheck02.Size = new System.Drawing.Size(78, 24);
+            this.btnSendRegionCheck02.TabIndex = 8;
+            this.btnSendRegionCheck02.Text = "校验";
+            this.btnSendRegionCheck02.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -1030,6 +1049,8 @@
             // textSendRegionHex02
             // 
             this.textSendRegionHex02.AutoSize = true;
+            this.textSendRegionHex02.Checked = true;
+            this.textSendRegionHex02.CheckState = System.Windows.Forms.CheckState.Checked;
             this.textSendRegionHex02.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex02.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex02.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1042,6 +1063,7 @@
             // groupBox9
             // 
             this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox9.Controls.Add(this.btnSendRegionCheck03);
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Controls.Add(this.textBox8);
             this.groupBox9.Controls.Add(this.label21);
@@ -1057,6 +1079,17 @@
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "发送区3属性";
+            // 
+            // btnSendRegionCheck03
+            // 
+            this.btnSendRegionCheck03.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSendRegionCheck03.Location = new System.Drawing.Point(94, 16);
+            this.btnSendRegionCheck03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSendRegionCheck03.Name = "btnSendRegionCheck03";
+            this.btnSendRegionCheck03.Size = new System.Drawing.Size(78, 24);
+            this.btnSendRegionCheck03.TabIndex = 9;
+            this.btnSendRegionCheck03.Text = "校验";
+            this.btnSendRegionCheck03.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
@@ -1112,6 +1145,8 @@
             // textSendRegionHex03
             // 
             this.textSendRegionHex03.AutoSize = true;
+            this.textSendRegionHex03.Checked = true;
+            this.textSendRegionHex03.CheckState = System.Windows.Forms.CheckState.Checked;
             this.textSendRegionHex03.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textSendRegionHex03.Location = new System.Drawing.Point(7, 23);
             this.textSendRegionHex03.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1133,30 +1168,6 @@
             this.groupBox10.Size = new System.Drawing.Size(214, 37);
             this.groupBox10.TabIndex = 9;
             this.groupBox10.TabStop = false;
-            // 
-            // lblRecvStatus
-            // 
-            this.lblRecvStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblRecvStatus.AutoSize = true;
-            this.lblRecvStatus.Font = new System.Drawing.Font("Consolas", 10F);
-            this.lblRecvStatus.Image = global::BlueCentaurea.Properties.Resources.DataRSStatusOff1;
-            this.lblRecvStatus.Location = new System.Drawing.Point(128, 13);
-            this.lblRecvStatus.Name = "lblRecvStatus";
-            this.lblRecvStatus.Size = new System.Drawing.Size(16, 17);
-            this.lblRecvStatus.TabIndex = 14;
-            this.lblRecvStatus.Text = " ";
-            // 
-            // lblSendStatus
-            // 
-            this.lblSendStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSendStatus.AutoSize = true;
-            this.lblSendStatus.Font = new System.Drawing.Font("Consolas", 10F);
-            this.lblSendStatus.Image = global::BlueCentaurea.Properties.Resources.DataRSStatusOff1;
-            this.lblSendStatus.Location = new System.Drawing.Point(58, 13);
-            this.lblSendStatus.Name = "lblSendStatus";
-            this.lblSendStatus.Size = new System.Drawing.Size(16, 17);
-            this.lblSendStatus.TabIndex = 13;
-            this.lblSendStatus.Text = " ";
             // 
             // groupBox11
             // 
@@ -1183,6 +1194,41 @@
             this.richTextBox1.Size = new System.Drawing.Size(172, 67);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
+            // 
+            // lblRecvStatus
+            // 
+            this.lblRecvStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRecvStatus.AutoSize = true;
+            this.lblRecvStatus.Font = new System.Drawing.Font("Consolas", 10F);
+            this.lblRecvStatus.Image = global::BlueCentaurea.Properties.Resources.DataRSStatusOff1;
+            this.lblRecvStatus.Location = new System.Drawing.Point(128, 13);
+            this.lblRecvStatus.Name = "lblRecvStatus";
+            this.lblRecvStatus.Size = new System.Drawing.Size(16, 17);
+            this.lblRecvStatus.TabIndex = 14;
+            this.lblRecvStatus.Text = " ";
+            // 
+            // lblSendStatus
+            // 
+            this.lblSendStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSendStatus.AutoSize = true;
+            this.lblSendStatus.Font = new System.Drawing.Font("Consolas", 10F);
+            this.lblSendStatus.Image = global::BlueCentaurea.Properties.Resources.DataRSStatusOff1;
+            this.lblSendStatus.Location = new System.Drawing.Point(58, 13);
+            this.lblSendStatus.Name = "lblSendStatus";
+            this.lblSendStatus.Size = new System.Drawing.Size(16, 17);
+            this.lblSendStatus.TabIndex = 13;
+            this.lblSendStatus.Text = " ";
+            // 
+            // lblSerialStatus
+            // 
+            this.lblSerialStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSerialStatus.AutoSize = true;
+            this.lblSerialStatus.Image = global::BlueCentaurea.Properties.Resources.LightOff;
+            this.lblSerialStatus.Location = new System.Drawing.Point(48, 153);
+            this.lblSerialStatus.Name = "lblSerialStatus";
+            this.lblSerialStatus.Size = new System.Drawing.Size(14, 15);
+            this.lblSerialStatus.TabIndex = 12;
+            this.lblSerialStatus.Text = " ";
             // 
             // SerialForm
             // 
@@ -1320,5 +1366,8 @@
         internal System.Windows.Forms.RadioButton radioButtonUtf8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnSendRegionCheck01;
+        private System.Windows.Forms.Button btnSendRegionCheck02;
+        private System.Windows.Forms.Button btnSendRegionCheck03;
     }
 }

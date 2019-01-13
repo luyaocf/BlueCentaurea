@@ -446,6 +446,19 @@ namespace BlueCentaurea
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CRCCheckForm form = new CRCCheckForm();
+            //form.Width = 270;
+            //form.Height = 330;
+            //form.TopLevel = false;
+            //form.Dock = DockStyle.Right;
+            //form.Parent = this;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            //form.BringToFront();
+            form.Show();
+
+        }
     }
 
 
